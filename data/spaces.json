@@ -7,5 +7,57 @@
     "url": "https://wess.kr/",
     "instagram": "https://www.instagram.com/wess.seoul/",
     "note": "서울의 큐레이터 11인이 함께 운영하는 전시 공간"
+  },
+  {
+    "id": "space-unit-plus",
+    "name": "SPACE UNIT PLUS (스페이스 유닛플러스)",
+    "search": "스페이스유닛플러스 을지로",
+    "area": "을지로",
+    "url": "https://seoulartweek.co.kr/spaceunitplus",
+    "instagram": "https://www.instagram.com/space.unit_plus/",
+    "note": "을지로 143 1층의 작은 전시 공간 (2026 서울아트위크 참여)"
+  },
+  {
+    "id": "ps-center",
+    "name": "PS CENTER (피에스 센터)",
+    "search": "피에스센터 창경궁로5다길",
+    "area": "창경궁로",
+    "lat": 37.56773608903644,
+    "lon": 126.99658160314661,
+    "url": "https://heypop.kr/place/129008/",
+    "instagram": "https://www.instagram.com/p.s.center/",
+    "note": "을지로 공구 골목 3층의 현대미술 공간, 신진작가 기획전 (2024 개관)"
+  },
+  {
+    "id": "arcade-seoul",
+    "name": "아케이드서울 (ARCADE SEOUL)",
+    "search": "아케이드서울 문래동",
+    "area": "문래동",
+    "lat": 37.5155168,
+    "lon": 126.8945399,
+    "url": "https://heypop.kr/place/120318",
+    "note": "문래동 철공소 골목의 갤러리 겸 복합문화공간"
+  },
+  {
+    "id": "space-ubermensch",
+    "name": "스페이스 위버멘쉬",
+    "search": "스페이스 위버멘쉬 다대동",
+    "area": "다대동",
+    "lat": 35.0584257,
+    "lon": 128.9673463,
+    "url": "https://www.over-man.com/",
+    "instagram": "https://www.instagram.com/space_ubermensch/",
+    "note": "부산 사하구 다대동의 작가 개인전 중심 전시 공간"
+  },
+  {
+    "id": "yeondong-art-factory",
+    "name": "연동문화발전소",
+    "search": "연동문화발전소",
+    "area": "내판리",
+    "lat": 36.5590781,
+    "lon": 127.3268094,
+    "url": "https://blog.naver.com/yeondong_art_studio",
+    "instagram": "https://www.instagram.com/yeondong.art.factory/",
+    "note": "세종시 연동면의 예술인 입주(레지던시)·전시 공간"
   }
 ]

@@ -14,7 +14,9 @@
     "thumbnail": "https://design-plus.storage.googleapis.com/wp-content/uploads/2026/10/26173142/20261026083140-20261026_083140.jpg",
     "url": "https://design.co.kr/exhibition/pli-over-pli/",
     "address": "서울 마포구 와우산로 94",
-    "tags": ["졸업전시"],
+    "tags": [
+      "졸업전시"
+    ],
     "source": "manual"
   },
   {
@@ -32,7 +34,9 @@
     "thumbnail": "https://design-plus.storage.googleapis.com/wp-content/uploads/2026/10/29111943/20261029021941-20261029_021941.jpg",
     "url": "https://design.co.kr/exhibition/captcha/",
     "address": "서울 노원구 공릉로 232",
-    "tags": ["졸업전시"],
+    "tags": [
+      "졸업전시"
+    ],
     "source": "manual"
   },
   {
@@ -50,7 +54,9 @@
     "thumbnail": "https://design-plus.storage.googleapis.com/wp-content/uploads/2026/11/02140313/20261102050311-20261102_050311.jpg",
     "url": "https://design.co.kr/exhibition/layers/",
     "address": "서울 구로구 경인로 445",
-    "tags": ["졸업전시"],
+    "tags": [
+      "졸업전시"
+    ],
     "source": "manual"
   },
   {
@@ -68,7 +74,167 @@
     "thumbnail": "https://design-plus.storage.googleapis.com/wp-content/uploads/2026/10/21114956/20261021024944-20261021_024944-832x1109.jpg",
     "url": "https://design.co.kr/exhibition/%ec%b7%a8%ed%96%a5%ec%88%98%ec%a7%91-%e8%b6%a3%e5%90%91%e8%92%90%e9%9b%86/",
     "address": "서울 종로구 인사동10길 10",
-    "tags": ["졸업전시"],
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kaywon-vd-2026",
+    "title": "계원예술대학교 시각디자인과 졸업전시 《맛보기》",
+    "venue": "1289BUNKER B1-B2",
+    "city": "서울",
+    "lat": 37.5348,
+    "lon": 126.9946,
+    "genre": "디자인",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-17",
+    "price": null,
+    "description": "계원예술대학교 시각디자인과 학생들이 3년 동안 각자의 관심사에 몰두하며 쌓은 취향과 감각을 처음으로 공개하는 졸업전시입니다. 서로 다른 작업들이 부딪히고 섞이며 예상하지 못한 '맛'을 만들어 냅니다.",
+    "thumbnail": "https://design-plus.storage.googleapis.com/wp-content/uploads/2026/11/02142819/20261102052804-20261102_052804-832x1108.jpg",
+    "url": "https://design.co.kr/exhibition/%eb%a7%9b%eb%b3%b4%ea%b8%b0/",
+    "address": "서울 용산구 이태원로 174",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-uos-id-2026",
+    "title": "서울시립대학교 산업디자인전공 제41회 졸업작품전",
+    "venue": "서울시립대학교 빨간벽돌갤러리",
+    "city": "서울",
+    "lat": 37.5838,
+    "lon": 127.0588,
+    "genre": "디자인",
+    "startDate": "2026-11-18",
+    "endDate": "2026-11-25",
+    "price": null,
+    "description": "서울시립대 산업디자인전공 졸업생 11명이 웰니스 가전, 뷰티케어, 라이프스타일 등 분야의 디자인 작품과 시제품을 선보입니다. '디자이너로서 이상적이라고 여기는 열정의 온도'를 주제로 AI 시대의 디자인 방법을 탐구했습니다. (18일 오후 ~ 25일 오전)",
+    "url": "https://www.fnnews.com/news/202611161509065654",
+    "address": "서울 동대문구 서울시립대로 163",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-hansung-painting-2026",
+    "title": "한성대학교 동양화·서양화전공 2026학년도 졸업전시회 《아니 내 말은 그게 아니라》",
+    "venue": "한성대학교 갤러리지선",
+    "city": "서울",
+    "lat": 37.5826,
+    "lon": 127.0105,
+    "genre": "회화",
+    "startDate": "2026-11-17",
+    "endDate": "2026-11-23",
+    "price": null,
+    "description": "한성대 예술학부 동양화·서양화전공 졸업생 29명의 졸업전시입니다. 생각과 감정을 다른 사람에게 온전히 전하기 어려운 한계 속에서도 솔직하게 표현하려는 시도를 담았습니다. 인사동 동덕아트갤러리 전시(11.11~16)에 이어 교내 갤러리지선에서 이어집니다.",
+    "thumbnail": "http://www.dhnews.co.kr/news/data/20261116/p1065601260340648_894_thum.jpeg",
+    "url": "https://www.dhnews.co.kr/news/view/1065601260340648",
+    "address": "서울 성북구 삼선교로16길 116",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-sejong-painting-2026",
+    "title": "세종대학교 회화과 졸업전시 《덜 dull》",
+    "venue": "세종대학교 광개토관 B1 세종아트갤러리 3관",
+    "city": "서울",
+    "lat": 37.5503,
+    "lon": 127.0731,
+    "genre": "회화",
+    "startDate": "2026-12-03",
+    "endDate": "2026-12-14",
+    "price": null,
+    "description": "세종대 회화과 졸업생들이 자신의 경험과 질문에서 출발한 작업을 선보이는 졸업전시입니다. '덜'과 'dull'을 겹친 제목처럼 익숙함과 무뎌짐에서 벗어나려는 시도를 담았습니다. 1부(12.3~8)와 2부(12.10~14)로 나뉘며 12월 9일에는 무용 협업 퍼포먼스가 있습니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-4e8e3d96edee60401f3c22b870b3cd86_88a6cd9c2a4ea531757e8b97205a2b7c75273f47_600x0.jpg",
+    "url": "https://artnet.kr/p/group-exhibitions/1405",
+    "address": "서울 광진구 능동로 209",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-keimyung-vcd-2026",
+    "title": "2026 계명대학교 시각디자인과 졸업전시 《축적 : ACCUMULATION》",
+    "venue": "대구경북디자인진흥원 4층",
+    "city": "대구",
+    "lat": 35.8806,
+    "lon": 128.629,
+    "genre": "디자인",
+    "startDate": "2026-12-11",
+    "endDate": "2026-12-16",
+    "price": null,
+    "description": "계명대 시각디자인과 52명의 졸업전시입니다. 작은 배움에서 시작해 도전과 실패, 성장이 지층처럼 쌓여 온 과정을 작품으로 보여줍니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-1ec0ffc4544507428f4992d0fcf9c4c4_40bcec5cb7245855592d04a58ff3835d83cc4e14_600x0.png",
+    "url": "https://artnet.kr/p/group-exhibitions/1390",
+    "address": "대구 동구 동대구로 461",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-cho-junghyun-ubermensch-2026",
+    "title": "조정현 개인전 《멸종된 흔적에서 시작된 실패한 복원》",
+    "venue": "스페이스 위버멘쉬",
+    "city": "부산",
+    "lat": 35.0584257,
+    "lon": 128.9673463,
+    "genre": "기타",
+    "startDate": "2026-11-14",
+    "endDate": "2026-11-28",
+    "price": null,
+    "description": "인류가 사라진 뒤 남겨진 기술과 기록이 생명을 다시 만들어 보려는 가상의 세계를 그린 개인전입니다. 과학기술의 발전이 남긴 틈과 오류를 통해 인간과 자연, 기술과 생명의 관계를 다시 묻습니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-d793fb3e723c7e3e0b2186642527602a_995c516a60dcb04dfe53e5cbd88b001d3f813768_600x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1593",
+    "address": "부산 사하구 윤공단로75번길 19",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-yeondong-residency-2026",
+    "title": "연동문화발전소 제2기 입주예술인 결과보고전 《열 겹의 눈금》",
+    "venue": "연동문화발전소",
+    "city": "세종",
+    "lat": 36.5590781,
+    "lon": 127.3268094,
+    "genre": "기타",
+    "startDate": "2026-11-19",
+    "endDate": "2026-12-19",
+    "price": null,
+    "description": "연동문화발전소에 입주한 작가 5명(김경한, 이명진, 이선희, 장우석, 허주혜)이 열 달 동안 연동의 사람·풍경·시간을 탐구한 결과를 보여주는 전시입니다. 회화·조각·설치 작업이 '겹'이라는 방식으로 이어집니다. 11월 19~21일에는 오픈 스튜디오도 열립니다(일요일 휴관).",
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-aa2b869e23f78ef368cd35ef2b0bd61d_9Z7MwbWk_501fb15a577ba0f2ff253b1f462a8d51b1b62a0c_600x0.jpg",
+    "url": "https://artnet.kr/p/group-exhibitions/1400",
+    "address": "세종 연동면 내송길 20",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-swu-contemporary-art-2026",
+    "title": "서울여자대학교 제40회 현대미술전공 졸업전 《유영 지대 / Footloose》",
+    "venue": "서울여자대학교",
+    "city": "서울",
+    "lat": 37.628,
+    "lon": 127.0905,
+    "genre": "기타",
+    "startDate": "2026-11-18",
+    "endDate": "2026-11-28",
+    "price": null,
+    "description": "서울여자대학교 현대미술전공 제40회 졸업생들의 졸업전시입니다. 교내에서 열립니다(자세한 전시실은 출처 페이지에서 확인).",
+    "url": "https://neolook.com/archives/20261118b",
+    "address": "서울 노원구 화랑로 621",
+    "tags": [
+      "졸업전시"
+    ],
     "source": "manual"
   }
 ]
