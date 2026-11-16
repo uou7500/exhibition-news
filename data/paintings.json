@@ -1,1 +1,398 @@
-[]
+[
+  {
+    "id": "Claude Monet - The Magpie - Google Art Project.jpg",
+    "artist": "클로드 모네",
+    "title": "까치",
+    "year": "1868–69",
+    "file": "File:Claude Monet - The Magpie - Google Art Project.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Claude_Monet_-_The_Magpie_-_Google_Art_Project.jpg/1920px-Claude_Monet_-_The_Magpie_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_The_Magpie_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "width": 4289,
+    "height": 2909,
+    "stats": {
+      "gray": 0.693,
+      "white": 0.297,
+      "colorful": 14,
+      "saturation": 0.069
+    }
+  },
+  {
+    "id": "Monet Snow at Argenteuil 1875.jpg",
+    "artist": "클로드 모네",
+    "title": "아르장퇴유의 눈",
+    "year": "1875",
+    "file": "File:Monet Snow at Argenteuil 1875.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Monet_Snow_at_Argenteuil_1875.jpg/1920px-Monet_Snow_at_Argenteuil_1875.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Monet_Snow_at_Argenteuil_1875.jpg",
+    "license": "Public domain",
+    "width": 5342,
+    "height": 4226,
+    "stats": {
+      "gray": 0.746,
+      "white": 0.249,
+      "colorful": 12,
+      "saturation": 0.053
+    }
+  },
+  {
+    "id": "Monet grainstacks-snow-effect-1891 W1274.jpg",
+    "artist": "클로드 모네",
+    "title": "건초더미, 눈의 효과",
+    "year": "1891",
+    "file": "File:Monet grainstacks-snow-effect-1891 W1274.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Monet_grainstacks-snow-effect-1891_W1274.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Monet_grainstacks-snow-effect-1891_W1274.jpg",
+    "license": "Public domain",
+    "width": 1280,
+    "height": 752,
+    "stats": {
+      "gray": 0.651,
+      "white": 0.184,
+      "colorful": 25,
+      "saturation": 0.154
+    }
+  },
+  {
+    "id": "Ice Floes MET DT2158.jpg",
+    "artist": "클로드 모네",
+    "title": "얼음 조각들",
+    "year": "1880",
+    "file": "File:Ice Floes MET DT2158.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Ice_Floes_MET_DT2158.jpg/1920px-Ice_Floes_MET_DT2158.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Ice_Floes_MET_DT2158.jpg",
+    "license": "CC0",
+    "width": 3811,
+    "height": 2522,
+    "stats": {
+      "gray": 0.574,
+      "white": 0.4,
+      "colorful": 11,
+      "saturation": 0.059
+    }
+  },
+  {
+    "id": "The Houses of Parliament (Effect of Fog) MET DT1893.jpg",
+    "artist": "클로드 모네",
+    "title": "국회의사당, 안개 효과",
+    "year": "1903",
+    "file": "File:The Houses of Parliament (Effect of Fog) MET DT1893.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/The_Houses_of_Parliament_%28Effect_of_Fog%29_MET_DT1893.jpg/1920px-The_Houses_of_Parliament_%28Effect_of_Fog%29_MET_DT1893.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Houses_of_Parliament_(Effect_of_Fog)_MET_DT1893.jpg",
+    "license": "CC0",
+    "width": 3791,
+    "height": 3353,
+    "stats": {
+      "gray": 0.653,
+      "white": 0,
+      "colorful": 24,
+      "saturation": 0.2
+    }
+  },
+  {
+    "id": "Claude Monet, Waterloo Bridge, Gray Day, 1903, NGA 46658.jpg",
+    "artist": "클로드 모네",
+    "title": "워털루 다리, 흐린 날",
+    "year": "1903",
+    "file": "File:Claude Monet, Waterloo Bridge, Gray Day, 1903, NGA 46658.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Claude_Monet%2C_Waterloo_Bridge%2C_Gray_Day%2C_1903%2C_NGA_46658.jpg/1920px-Claude_Monet%2C_Waterloo_Bridge%2C_Gray_Day%2C_1903%2C_NGA_46658.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet,_Waterloo_Bridge,_Gray_Day,_1903,_NGA_46658.jpg",
+    "license": "CC0",
+    "width": 4000,
+    "height": 2579,
+    "stats": {
+      "gray": 0.972,
+      "white": 0,
+      "colorful": 14,
+      "saturation": 0.111
+    }
+  },
+  {
+    "id": "Monet, Claude - Charing Cross Bridge - Google Art Project.jpg",
+    "artist": "클로드 모네",
+    "title": "채링 크로스 다리",
+    "year": "1899",
+    "file": "File:Monet, Claude - Charing Cross Bridge - Google Art Project.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Monet%2C_Claude_-_Charing_Cross_Bridge_-_Google_Art_Project.jpg/1920px-Monet%2C_Claude_-_Charing_Cross_Bridge_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Monet,_Claude_-_Charing_Cross_Bridge_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "width": 5857,
+    "height": 4081,
+    "stats": {
+      "gray": 0.991,
+      "white": 0.001,
+      "colorful": 11,
+      "saturation": 0.044
+    }
+  },
+  {
+    "id": "Claude Monet - The Saint-Lazare Station - Google Art Project.jpg",
+    "artist": "클로드 모네",
+    "title": "생라자르 역",
+    "year": "1877",
+    "file": "File:Claude Monet - The Saint-Lazare Station - Google Art Project.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Claude_Monet_-_The_Saint-Lazare_Station_-_Google_Art_Project.jpg/1920px-Claude_Monet_-_The_Saint-Lazare_Station_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_The_Saint-Lazare_Station_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "width": 3708,
+    "height": 2757,
+    "stats": {
+      "gray": 0.837,
+      "white": 0.004,
+      "colorful": 18,
+      "saturation": 0.126
+    }
+  },
+  {
+    "id": "Claude Monet - The Cathedral in Rouen. The portal, Grey Weather - Google Art Project.jpg",
+    "artist": "클로드 모네",
+    "title": "루앙 대성당, 흐린 날씨",
+    "year": "1894",
+    "file": "File:Claude Monet - The Cathedral in Rouen. The portal, Grey Weather - Google Art Project.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Claude_Monet_-_The_Cathedral_in_Rouen._The_portal%2C_Grey_Weather_-_Google_Art_Project.jpg/1920px-Claude_Monet_-_The_Cathedral_in_Rouen._The_portal%2C_Grey_Weather_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_The_Cathedral_in_Rouen._The_portal,_Grey_Weather_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "width": 5030,
+    "height": 7921,
+    "stats": {
+      "gray": 0.969,
+      "white": 0.031,
+      "colorful": 6,
+      "saturation": 0.041
+    }
+  },
+  {
+    "id": "Monet - Impression, Sunrise.jpg",
+    "artist": "클로드 모네",
+    "title": "인상, 해돋이",
+    "year": "1872",
+    "file": "File:Monet - Impression, Sunrise.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1920px-Monet_-_Impression%2C_Sunrise.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg",
+    "license": "Public domain",
+    "width": 5773,
+    "height": 4478,
+    "stats": {
+      "gray": 0.791,
+      "white": 0,
+      "colorful": 26,
+      "saturation": 0.165
+    }
+  },
+  {
+    "id": "Claude Monet - Woman with a Parasol - Madame Monet and Her Son - Google Art Project.jpg",
+    "artist": "클로드 모네",
+    "title": "양산을 든 여인",
+    "year": "1875",
+    "file": "File:Claude Monet - Woman with a Parasol - Madame Monet and Her Son - Google Art Project.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg/1920px-Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "width": 6001,
+    "height": 7455,
+    "stats": {
+      "gray": 0.487,
+      "white": 0.015,
+      "colorful": 35,
+      "saturation": 0.236
+    }
+  },
+  {
+    "id": "Claude Monet - Poppy Field - Google Art Project.jpg",
+    "artist": "클로드 모네",
+    "title": "양귀비 들판",
+    "year": "1873",
+    "file": "File:Claude Monet - Poppy Field - Google Art Project.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Claude_Monet_-_Poppy_Field_-_Google_Art_Project.jpg/1920px-Claude_Monet_-_Poppy_Field_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Poppy_Field_-_Google_Art_Project.jpg",
+    "license": "Public domain",
+    "width": 5586,
+    "height": 4258,
+    "stats": {
+      "gray": 0.171,
+      "white": 0.389,
+      "colorful": 30,
+      "saturation": 0.192
+    }
+  },
+  {
+    "id": "Garden at Sainte-Adresse MET DT48.jpg",
+    "artist": "클로드 모네",
+    "title": "생트아드레스의 정원",
+    "year": "1867",
+    "file": "File:Garden at Sainte-Adresse MET DT48.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Garden_at_Sainte-Adresse_MET_DT48.jpg/1920px-Garden_at_Sainte-Adresse_MET_DT48.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Garden_at_Sainte-Adresse_MET_DT48.jpg",
+    "license": "CC0",
+    "width": 3811,
+    "height": 2878,
+    "stats": {
+      "gray": 0.356,
+      "white": 0.002,
+      "colorful": 37,
+      "saturation": 0.294
+    }
+  },
+  {
+    "id": "Claude Monet - Water Lilies - 1906, Ryerson.jpg",
+    "artist": "클로드 모네",
+    "title": "수련",
+    "year": "1906",
+    "file": "File:Claude Monet - Water Lilies - 1906, Ryerson.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/1920px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_1906,_Ryerson.jpg",
+    "license": "Public domain",
+    "width": 2342,
+    "height": 2250,
+    "stats": {
+      "gray": 0.118,
+      "white": 0,
+      "colorful": 38,
+      "saturation": 0.369
+    }
+  },
+  {
+    "id": "Bridge Over a Pond of Water Lilies, Claude Monet 1899.jpg",
+    "artist": "클로드 모네",
+    "title": "일본식 다리",
+    "year": "1899",
+    "file": "File:Bridge Over a Pond of Water Lilies, Claude Monet 1899.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Bridge_Over_a_Pond_of_Water_Lilies%2C_Claude_Monet_1899.jpg/1920px-Bridge_Over_a_Pond_of_Water_Lilies%2C_Claude_Monet_1899.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Bridge_Over_a_Pond_of_Water_Lilies,_Claude_Monet_1899.jpg",
+    "license": "Public domain",
+    "width": 2500,
+    "height": 3123,
+    "stats": {
+      "gray": 0.286,
+      "white": 0.009,
+      "colorful": 34,
+      "saturation": 0.302
+    }
+  },
+  {
+    "id": "Matisse-Woman-with-a-Hat.jpg",
+    "artist": "앙리 마티스",
+    "title": "모자를 쓴 여인",
+    "year": "1905",
+    "file": "File:Matisse-Woman-with-a-Hat.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Matisse-Woman-with-a-Hat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Matisse-Woman-with-a-Hat.jpg",
+    "license": "Public domain",
+    "width": 1860,
+    "height": 2532,
+    "stats": {
+      "gray": 0.364,
+      "white": 0.044,
+      "colorful": 61,
+      "saturation": 0.362
+    }
+  },
+  {
+    "id": "Le Bonheur de vivre Barnes (01c) - Flickr - rverc.jpg",
+    "artist": "앙리 마티스",
+    "title": "삶의 기쁨",
+    "year": "1905–06",
+    "file": "File:Le Bonheur de vivre Barnes (01c) - Flickr - rverc.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Le_Bonheur_de_vivre_Barnes_%2801c%29_-_Flickr_-_rverc.jpg/1920px-Le_Bonheur_de_vivre_Barnes_%2801c%29_-_Flickr_-_rverc.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_Bonheur_de_vivre_Barnes_(01c)_-_Flickr_-_rverc.jpg",
+    "license": "Public domain",
+    "width": 3622,
+    "height": 2599,
+    "stats": {
+      "gray": 0.076,
+      "white": 0,
+      "colorful": 82,
+      "saturation": 0.521
+    }
+  },
+  {
+    "id": "Henri Matisse - The Dessert, Harmony in Red (The Red Room) 1908.jpg",
+    "artist": "앙리 마티스",
+    "title": "붉은 방(붉은색의 조화)",
+    "year": "1908",
+    "file": "File:Henri Matisse - The Dessert, Harmony in Red (The Red Room) 1908.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Henri_Matisse_-_The_Dessert%2C_Harmony_in_Red_%28The_Red_Room%29_1908.jpg/1920px-Henri_Matisse_-_The_Dessert%2C_Harmony_in_Red_%28The_Red_Room%29_1908.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Henri_Matisse_-_The_Dessert,_Harmony_in_Red_(The_Red_Room)_1908.jpg",
+    "license": "Public domain",
+    "width": 3840,
+    "height": 3166,
+    "stats": {
+      "gray": 0.087,
+      "white": 0.016,
+      "colorful": 101,
+      "saturation": 0.651
+    }
+  },
+  {
+    "id": "Open Window, Collioure, 1905 - Henri Matisse.jpg",
+    "artist": "앙리 마티스",
+    "title": "열린 창, 콜리우르",
+    "year": "1905",
+    "file": "File:Open Window, Collioure, 1905 - Henri Matisse.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Open_Window%2C_Collioure%2C_1905_-_Henri_Matisse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Open_Window,_Collioure,_1905_-_Henri_Matisse.jpg",
+    "license": "Public domain",
+    "width": 1331,
+    "height": 1567,
+    "stats": {
+      "gray": 0.223,
+      "white": 0.115,
+      "colorful": 71,
+      "saturation": 0.36
+    }
+  },
+  {
+    "id": "Blue window shutters on house in Plouguerneau, Bretagne.jpg",
+    "artist": "앙리 마티스",
+    "title": "푸른 창",
+    "year": "1913",
+    "file": "File:Blue window shutters on house in Plouguerneau, Bretagne.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Blue_window_shutters_on_house_in_Plouguerneau%2C_Bretagne.jpg/1920px-Blue_window_shutters_on_house_in_Plouguerneau%2C_Bretagne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Blue_window_shutters_on_house_in_Plouguerneau,_Bretagne.jpg",
+    "license": "Public domain",
+    "width": 2048,
+    "height": 1536,
+    "stats": {
+      "gray": 0.795,
+      "white": 0.051,
+      "colorful": 32,
+      "saturation": 0.146
+    }
+  },
+  {
+    "id": "Henri Matisse - View of Notre Dame. Paris, quai Saint-Michel, spring 1914.jpg",
+    "artist": "앙리 마티스",
+    "title": "노트르담 풍경",
+    "year": "1914",
+    "file": "File:Henri Matisse - View of Notre Dame. Paris, quai Saint-Michel, spring 1914.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Henri_Matisse_-_View_of_Notre_Dame._Paris%2C_quai_Saint-Michel%2C_spring_1914.jpg/1920px-Henri_Matisse_-_View_of_Notre_Dame._Paris%2C_quai_Saint-Michel%2C_spring_1914.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Henri_Matisse_-_View_of_Notre_Dame._Paris,_quai_Saint-Michel,_spring_1914.jpg",
+    "license": "Public domain",
+    "width": 4500,
+    "height": 7067,
+    "stats": {
+      "gray": 0.501,
+      "white": 0,
+      "colorful": 27,
+      "saturation": 0.234
+    }
+  },
+  {
+    "id": "Henri Matisse, 1902, Notre-Dame, une fin d'après-midi, oil on paper mounted on canvas, 72.4 x 54.6 cm, Albright-Knox Art Gallery.jpg",
+    "artist": "앙리 마티스",
+    "title": "노트르담, 늦은 오후",
+    "year": "1902",
+    "file": "File:Henri Matisse, 1902, Notre-Dame, une fin d'après-midi, oil on paper mounted on canvas, 72.4 x 54.6 cm, Albright-Knox Art Gallery.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Henri_Matisse%2C_1902%2C_Notre-Dame%2C_une_fin_d%27apr%C3%A8s-midi%2C_oil_on_paper_mounted_on_canvas%2C_72.4_x_54.6_cm%2C_Albright-Knox_Art_Gallery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Henri_Matisse,_1902,_Notre-Dame,_une_fin_d%27apr%C3%A8s-midi,_oil_on_paper_mounted_on_canvas,_72.4_x_54.6_cm,_Albright-Knox_Art_Gallery.jpg",
+    "license": "Public domain",
+    "width": 1534,
+    "height": 2100,
+    "stats": {
+      "gray": 0.074,
+      "white": 0,
+      "colorful": 50,
+      "saturation": 0.457
+    }
+  }
+]
