@@ -61,15 +61,16 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 
 /* list sheet */
 .list{position:absolute;z-index:18;background:var(--panel);box-shadow:var(--shadow);display:flex;flex-direction:column;
-  left:0;right:0;bottom:0;border-radius:16px 16px 0 0;height:190px;transition:height .25s ease;padding-bottom:env(safe-area-inset-bottom,0px)}
-.list.open{height:62%}
-.list-head{display:flex;align-items:center;gap:10px;border:0;background:none;width:100%;text-align:left;
+  left:0;right:0;bottom:0;border-radius:16px 16px 0 0;max-height:172px;transition:max-height .28s ease;padding-bottom:env(safe-area-inset-bottom,0px)}
+.list.open{max-height:62%}
+.list-head{display:flex;align-items:center;gap:10px;border:0;background:none;width:100%;text-align:left;touch-action:none;cursor:grab;
   padding:8px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));flex-direction:column;align-items:stretch}
-.grab{align-self:center;width:38px;height:4px;border-radius:2px;background:var(--line)}
+.grab{align-self:center;width:44px;height:5px;border-radius:3px;background:var(--line);margin-bottom:2px}
+.list-toggle{font-size:12px;color:var(--accent);font-weight:600;margin-left:8px;white-space:nowrap}
 .list-title{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .list-title h2{margin:0;font-family:var(--f-display);font-size:17px;font-weight:700}
 .list-title small{color:var(--muted);font-size:12px}
-.items{overflow-y:auto;flex:1;min-height:0;padding:0 max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px));display:flex;flex-direction:column;gap:2px}
+.items{overflow-y:auto;flex:1 1 auto;min-height:0;overscroll-behavior:contain;padding:0 max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px));display:flex;flex-direction:column;gap:2px}
 .item{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;border:0;background:none;text-align:left;padding:8px;margin:0 -8px;border-radius:10px}
 .item:hover,.item.sel{background:var(--soft)}
 .item .thumb{width:52px;height:66px;border-radius:4px;display:block;object-fit:cover}
@@ -108,8 +109,10 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 
 @media (min-width:900px){
   .top{left:0;right:auto;width:400px}
-  .list{left:16px;right:auto;top:118px;bottom:16px;width:368px;height:auto;border-radius:14px}
-  .list.open{height:auto}
+  .list{left:16px;right:auto;top:154px;bottom:16px;width:368px;height:auto;max-height:none;border-radius:14px}
+  .list.open{max-height:none}
+  .list-head{cursor:default}
+  .list-toggle{display:none}
   .grab{display:none}
   .detail{left:auto;right:16px;top:16px;bottom:16px;width:410px;max-height:none;border-radius:14px;transform:translateX(calc(100% + 30px))}
   .detail.show{transform:none}
@@ -119,7 +122,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
   .zoom{right:16px;top:auto;bottom:24px;transform:none}
   .zoom.shifted{right:442px}
 }
-@media (prefers-reduced-motion: reduce){.list,.detail,.scrim{transition:none}}
+@media (prefers-reduced-motion: reduce){.list,.detail,.scrim,.locate{transition:none}}
 
 /* ---------- 카카오맵 ---------- */
 .kmap{position:absolute;inset:0;width:100%;height:100%;background:var(--sea)}
@@ -145,7 +148,6 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 /* ---------- 내 위치 ---------- */
 .locate{position:absolute;z-index:17;left:max(12px, env(safe-area-inset-left, 0px));bottom:calc(190px + 14px + env(safe-area-inset-bottom, 0px));
   width:46px;height:46px;border-radius:50%;border:0;background:var(--panel);color:var(--ink);box-shadow:var(--shadow);display:grid;place-items:center;transition:bottom .25s ease}
-.locate.lifted{bottom:calc(62% + 14px)}
 .locate.on{color:var(--accent)}
 .locate.busy svg{animation:locate-spin 1s linear infinite}
 @keyframes locate-spin{to{transform:rotate(360deg)}}
@@ -155,5 +157,5 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .radius-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .radius-chips{align-items:center}
 .dist{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);margin-right:5px;font-variant-numeric:tabular-nums}
-@media (min-width:900px){.locate,.locate.lifted{left:400px;bottom:24px}}
+@media (min-width:900px){.locate{left:400px;bottom:24px!important}}
 @media (prefers-reduced-motion: reduce){.me-dot,.locate.busy svg{animation:none}}

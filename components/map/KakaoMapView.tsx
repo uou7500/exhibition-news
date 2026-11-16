@@ -61,7 +61,7 @@ function pinElement(x: Exhibition, onClick: () => void): HTMLButtonElement {
   return el;
 }
 
-export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq }: MapViewProps & { appKey: string }) {
+export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag }: MapViewProps & { appKey: string }) {
   const boxRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const clustererRef = useRef<any>(null);
@@ -73,8 +73,8 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
   const [level, setLevel] = useState(KOREA_LEVEL);
 
   // 최신 콜백·값을 이벤트 핸들러에서 쓰기 위한 ref
-  const latest = useRef({ items, onSelect, onVisibleChange, desktop, poi });
-  latest.current = { items, onSelect, onVisibleChange, desktop, poi };
+  const latest = useRef({ items, onSelect, onVisibleChange, desktop, poi, onMapDrag });
+  latest.current = { items, onSelect, onVisibleChange, desktop, poi, onMapDrag };
 
   // ----- 지도 만들기 -----
   useEffect(() => {
@@ -102,6 +102,7 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
             },
           ],
         });
+        kakao.maps.event.addListener(map, "dragstart", () => latest.current.onMapDrag());
         kakao.maps.event.addListener(map, "idle", () => {
           setLevel(map.getLevel());
           reportVisible();

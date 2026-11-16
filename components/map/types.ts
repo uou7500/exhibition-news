@@ -27,4 +27,6 @@ export interface MapViewProps {
   radius: number | null;
   /** 내 위치로 지도를 맞추라는 요청. 값이 바뀔 때마다 이동 */
   locateSeq: number;
+  /** 사용자가 지도를 손가락으로 끌기 시작할 때 (목록 시트 내리기용) */
+  onMapDrag: () => void;
 }

@@ -10,7 +10,7 @@ import type { MapViewProps } from "./types";
 
 interface View { s: number; tx: number; ty: number }
 
-export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq }: MapViewProps) {
+export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq, onMapDrag }: MapViewProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [view, setView] = useState<View>({ s: 1, tx: 0, ty: 0 });
@@ -18,6 +18,8 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
   viewRef.current = view;
   const sizeRef = useRef(size);
   sizeRef.current = size;
+  const dragRef = useRef(onMapDrag);
+  dragRef.current = onMapDrag;
 
   const fit = useCallback((w: number, h: number) => {
     const isDesk = w >= 900;
@@ -64,6 +66,7 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
       pointers.set(e.pointerId, [e.clientX, e.clientY]);
       pinch = null;
       el.classList.add("dragging");
+      dragRef.current();
     };
     const move = (e: PointerEvent) => {
       const prev = pointers.get(e.pointerId);

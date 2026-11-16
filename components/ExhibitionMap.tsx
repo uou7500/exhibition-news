@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Exhibition, Genre } from "@/lib/types";
 import { formatDate, formatPrice, parseDate, statusOf } from "@/lib/status";
 import { KAKAO_MAP_KEY } from "@/lib/config";
@@ -57,6 +57,10 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
   const [poi, setPoi] = useState<Set<PoiCode>>(new Set());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [listOpen, setListOpen] = useState(false);
+  const listRef = useRef<HTMLElement>(null);
+  const [sheetH, setSheetH] = useState(0);
+  const swipe = useRef<{ y: number; moved: boolean } | null>(null);
+  const skipClick = useRef(false);
   const [visibleIds, setVisibleIds] = useState<Set<string>>(new Set());
   const [focus, setFocus] = useState<{ id: string; seq: number } | null>(null);
   const [myLoc, setMyLoc] = useState<MyLocation | null>(null);
@@ -122,7 +126,6 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
         }
         setRadius(r);
         setLocateSeq((n) => n + 1);
-        setListOpen(true);
       },
       (err) => {
         setLocating(false);
@@ -159,6 +162,40 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
       return ids;
     });
   }, []);
+
+  // 목록 시트 높이를 재서 내 위치 버튼을 시트 바로 위에 둔다
+  useEffect(() => {
+    const el = listRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setSheetH(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // 지도를 끌면 열린 목록을 내린다
+  const onMapDrag = useCallback(() => setListOpen(false), []);
+
+  // 목록 손잡이: 누르면 열고 닫기, 위로 밀면 열기, 아래로 밀면 닫기
+  const headDown = (e: React.PointerEvent) => {
+    swipe.current = { y: e.clientY, moved: false };
+  };
+  const headUp = (e: React.PointerEvent) => {
+    const s = swipe.current;
+    swipe.current = null;
+    if (!s) return;
+    const dy = e.clientY - s.y;
+    if (Math.abs(dy) > 24) {
+      setListOpen(dy < 0);
+      skipClick.current = true;
+    }
+  };
+  const headClick = () => {
+    if (skipClick.current) {
+      skipClick.current = false;
+      return;
+    }
+    setListOpen((v) => !v);
+  };
 
   const select = useCallback((id: string) => {
     setSelectedId(id);
@@ -198,6 +235,7 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
     myLoc,
     radius,
     locateSeq,
+    onMapDrag,
   };
 
   return (
@@ -249,7 +287,8 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
 
       <button
         type="button"
-        className={"locate" + (myLoc ? " on" : "") + (locating ? " busy" : "") + (listOpen ? " lifted" : "")}
+        className={"locate" + (myLoc ? " on" : "") + (locating ? " busy" : "")}
+        style={!desktop && sheetH ? { bottom: sheetH + 14 } : undefined}
         aria-label="내 위치로 이동"
         onClick={() => locate()}
       >
@@ -261,12 +300,26 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
       </button>
       {locError && <div className="map-msg" role="alert">{locError}</div>}
 
-      <section className={"list" + (listOpen ? " open" : "")}>
-        <button className="list-head" type="button" aria-expanded={listOpen} onClick={() => setListOpen((v) => !v)}>
+      <section ref={listRef} className={"list" + (listOpen ? " open" : "")}>
+        <button
+          className="list-head"
+          type="button"
+          aria-expanded={listOpen}
+          aria-label={listOpen ? "목록 내리기" : "목록 올리기"}
+          onPointerDown={headDown}
+          onPointerUp={headUp}
+          onPointerCancel={() => {
+            swipe.current = null;
+          }}
+          onClick={headClick}
+        >
           <span className="grab" />
           <span className="list-title">
             <h2>{inRadius && radius ? `내 위치 ${radiusLabel(radius)} 안 전시` : myLoc ? "내 주변 전시" : "지도에 보이는 전시"}</h2>
-            <small>{inRadius ? `${visible.length}개 · 가까운 순` : `${visible.length}개 / 전체 ${filtered.length}개`}</small>
+            <small>
+              {inRadius ? `${visible.length}개 · 가까운 순` : `${visible.length}개 / 전체 ${filtered.length}개`}
+              <span className="list-toggle">{listOpen ? "접기 ▾" : "펼치기 ▴"}</span>
+            </small>
           </span>
         </button>
         <div className="items">
