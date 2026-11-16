@@ -59,6 +59,7 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [listOpen, setListOpen] = useState(false);
   const listRef = useRef<HTMLElement>(null);
+  const detailRef = useRef<HTMLElement>(null);
   const [sheetH, setSheetH] = useState(0);
   const swipe = useRef<{ y: number; moved: boolean } | null>(null);
   const skipClick = useRef(false);
@@ -199,6 +200,66 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
     }
     setListOpen((v) => !v);
   };
+
+  // ----- 상세 창: 아래로 끌어서 닫기 (휴대폰) -----
+  const hasSelection = selectedId !== null;
+  useEffect(() => {
+    const el = detailRef.current;
+    if (!el || desktop || !hasSelection) return;
+    let startY = 0;
+    let dy = 0;
+    let dragging = false;
+    let armed = false;
+
+    const scrollBox = () => el.querySelector<HTMLElement>(".d-scroll");
+    const onStart = (e: TouchEvent) => {
+      if ((e.target as HTMLElement).closest(".lightbox, .cta")) return;
+      const sb = scrollBox();
+      // 글을 위로 올려 읽는 중이면(맨 위가 아니면) 끌어내리기 대신 스크롤
+      armed = !sb || sb.scrollTop <= 0 || !!(e.target as HTMLElement).closest(".d-grab");
+      startY = e.touches[0].clientY;
+      dy = 0;
+      dragging = false;
+    };
+    const onMove = (e: TouchEvent) => {
+      if (!armed) return;
+      const d = e.touches[0].clientY - startY;
+      if (!dragging && d > 6) {
+        dragging = true;
+        el.style.transition = "none";
+      }
+      if (!dragging) return;
+      dy = Math.max(0, d);
+      e.preventDefault();
+      el.style.transform = `translateY(${dy}px)`;
+    };
+    const onEnd = () => {
+      if (!dragging) return;
+      dragging = false;
+      el.style.transition = "";
+      if (dy > Math.min(140, el.offsetHeight * 0.22)) {
+        el.style.transform = "translateY(105%)";
+        setTimeout(() => {
+          el.style.transform = "";
+          setSelectedId(null);
+        }, 240);
+      } else {
+        el.style.transform = "";
+      }
+    };
+    el.addEventListener("touchstart", onStart, { passive: true });
+    el.addEventListener("touchmove", onMove, { passive: false });
+    el.addEventListener("touchend", onEnd);
+    el.addEventListener("touchcancel", onEnd);
+    return () => {
+      el.removeEventListener("touchstart", onStart);
+      el.removeEventListener("touchmove", onMove);
+      el.removeEventListener("touchend", onEnd);
+      el.removeEventListener("touchcancel", onEnd);
+      el.style.transform = "";
+      el.style.transition = "";
+    };
+  }, [desktop, hasSelection]);
 
   const select = useCallback((id: string) => {
     setSelectedId(id);
@@ -359,7 +420,7 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
       </section>
 
       <div className={"scrim" + (selected && !desktop ? " show" : "")} onClick={() => setSelectedId(null)} />
-      <aside className={"detail" + (selected ? " show" : "")} aria-live="polite">
+      <aside ref={detailRef} className={"detail" + (selected ? " show" : "")} aria-live="polite">
         {selected && <Detail x={selected} distance={dist.get(selected.id)} myLoc={myLoc} onLocated={setMyLoc} onClose={() => setSelectedId(null)} />}
       </aside>
     </div>
@@ -413,6 +474,7 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
   };
   return (
     <>
+      <div className="d-grab" aria-hidden="true"><span /></div>
       <button className="d-close" type="button" aria-label="닫기" onClick={onClose}>×</button>
       <div className="d-scroll">
         {x.thumbnail ? (
