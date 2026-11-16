@@ -1,140 +1,46 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Exhibition, Genre } from "@/lib/types";
 import { formatDate, formatPrice, parseDate, statusOf } from "@/lib/status";
-import { CITY_LABELS, DMZ_PATH, JEJU, LAND_PATH, MAP_HEIGHT, MAP_WIDTH, project } from "@/lib/korea-map";
 import Poster from "./Poster";
+import SvgMapView from "./map/SvgMapView";
+import KakaoMapView from "./map/KakaoMapView";
+import { POI_LABELS, type PoiCode } from "./map/types";
 
 const GENRES: Genre[] = ["회화", "미디어", "사진", "조각·설치", "공예", "디자인", "기타"];
+const POI_CODES: PoiCode[] = ["CS2", "CE7", "SW8"];
 type StatusFilter = "all" | "on" | "upcoming";
-interface View { s: number; tx: number; ty: number }
 
 const DESKTOP = 900;
+const KAKAO_KEY = process.env.NEXT_PUBLIC_KAKAO_MAP_KEY ?? "";
+
+function useDesktop() {
+  const [desktop, setDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(min-width: ${DESKTOP}px)`);
+    const update = () => setDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return desktop;
+}
 
 export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: Exhibition[]; isSample: boolean }) {
-  const svgRef = useRef<SVGSVGElement>(null);
-  const [size, setSize] = useState({ w: 0, h: 0 });
-  const [view, setView] = useState<View>({ s: 1, tx: 0, ty: 0 });
-  const viewRef = useRef(view);
-  viewRef.current = view;
-
+  const desktop = useDesktop();
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<StatusFilter>("all");
   const [genres, setGenres] = useState<Set<Genre>>(new Set());
   const [freeOnly, setFreeOnly] = useState(false);
+  const [poi, setPoi] = useState<Set<PoiCode>>(new Set());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [listOpen, setListOpen] = useState(false);
+  const [visibleIds, setVisibleIds] = useState<Set<string>>(new Set());
+  const [focus, setFocus] = useState<{ id: string; seq: number } | null>(null);
 
-  const desktop = size.w >= DESKTOP;
   const selected = exhibitions.find((x) => x.id === selectedId) ?? null;
 
-  // ----- 크기와 첫 화면 맞춤 -----
-  const fit = useCallback((w: number, h: number) => {
-    const isDesk = w >= DESKTOP;
-    const L = isDesk ? 400 : 0;
-    const T = isDesk ? 20 : 110;
-    const B = isDesk ? 20 : 200;
-    const aw = w - L - 60;
-    const ah = h - T - B;
-    const s = Math.max(0.3, Math.min(aw / MAP_WIDTH, ah / MAP_HEIGHT));
-    setView({ s, tx: L + (w - L - MAP_WIDTH * s) / 2, ty: T + (ah - MAP_HEIGHT * s) / 2 });
-  }, []);
-
-  useEffect(() => {
-    const el = svgRef.current;
-    if (!el) return;
-    let first = true;
-    const ro = new ResizeObserver(() => {
-      const w = el.clientWidth;
-      const h = el.clientHeight;
-      setSize({ w, h });
-      if (first && w > 0) {
-        fit(w, h);
-        first = false;
-      }
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, [fit]);
-
-  const zoomAt = useCallback((cx: number, cy: number, f: number) => {
-    setView((v) => {
-      const s = Math.max(0.5, Math.min(80, v.s * f));
-      return { s, tx: cx - (cx - v.tx) * (s / v.s), ty: cy - (cy - v.ty) * (s / v.s) };
-    });
-  }, []);
-
-  // ----- 드래그·핀치·휠 -----
-  useEffect(() => {
-    const el = svgRef.current;
-    if (!el) return;
-    const pointers = new Map<number, [number, number]>();
-    let pinch: { d: number; mx: number; my: number } | null = null;
-
-    const down = (e: PointerEvent) => {
-      el.setPointerCapture(e.pointerId);
-      pointers.set(e.pointerId, [e.clientX, e.clientY]);
-      pinch = null;
-      el.classList.add("dragging");
-    };
-    const move = (e: PointerEvent) => {
-      const prev = pointers.get(e.pointerId);
-      if (!prev) return;
-      pointers.set(e.pointerId, [e.clientX, e.clientY]);
-      const rect = el.getBoundingClientRect();
-      if (pointers.size === 1) {
-        const dx = e.clientX - prev[0];
-        const dy = e.clientY - prev[1];
-        setView((v) => ({ ...v, tx: v.tx + dx, ty: v.ty + dy }));
-      } else if (pointers.size === 2) {
-        const [a, b] = [...pointers.values()];
-        const d = Math.hypot(a[0] - b[0], a[1] - b[1]);
-        const mx = (a[0] + b[0]) / 2 - rect.left;
-        const my = (a[1] + b[1]) / 2 - rect.top;
-        if (pinch) {
-          const p = pinch;
-          setView((v) => {
-            const tx = v.tx + mx - p.mx;
-            const ty = v.ty + my - p.my;
-            const s = Math.max(0.5, Math.min(80, v.s * (d / p.d)));
-            return { s, tx: mx - (mx - tx) * (s / v.s), ty: my - (my - ty) * (s / v.s) };
-          });
-        }
-        pinch = { d, mx, my };
-      }
-    };
-    const up = (e: PointerEvent) => {
-      pointers.delete(e.pointerId);
-      pinch = null;
-      if (!pointers.size) el.classList.remove("dragging");
-    };
-    const wheel = (e: WheelEvent) => {
-      e.preventDefault();
-      const rect = el.getBoundingClientRect();
-      zoomAt(e.clientX - rect.left, e.clientY - rect.top, Math.exp(-e.deltaY * 0.0018));
-    };
-    const dbl = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      zoomAt(e.clientX - rect.left, e.clientY - rect.top, 2);
-    };
-    el.addEventListener("pointerdown", down);
-    el.addEventListener("pointermove", move);
-    el.addEventListener("pointerup", up);
-    el.addEventListener("pointercancel", up);
-    el.addEventListener("wheel", wheel, { passive: false });
-    el.addEventListener("dblclick", dbl);
-    return () => {
-      el.removeEventListener("pointerdown", down);
-      el.removeEventListener("pointermove", move);
-      el.removeEventListener("pointerup", up);
-      el.removeEventListener("pointercancel", up);
-      el.removeEventListener("wheel", wheel);
-      el.removeEventListener("dblclick", dbl);
-    };
-  }, [zoomAt]);
-
-  // ----- 필터 -----
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return exhibitions.filter((x) => {
@@ -149,122 +55,58 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
     });
   }, [exhibitions, query, status, genres, freeOnly]);
 
-  const toScreen = useCallback(
-    (x: Exhibition): [number, number] => {
-      const [px, py] = project(x.lat, x.lon);
-      return [view.tx + px * view.s, view.ty + py * view.s];
-    },
-    [view],
+  const visible = useMemo(
+    () => filtered.filter((x) => visibleIds.has(x.id)).sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate)),
+    [filtered, visibleIds],
   );
 
-  // ----- 마커 묶기 -----
-  const groups = useMemo(() => {
-    const pts = filtered.map((x) => ({ x, p: toScreen(x) }));
-    const radius = view.s > 14 ? 0 : 34;
-    const used = new Set<number>();
-    const out: { x: Exhibition; p: [number, number] }[][] = [];
-    pts.forEach((a, i) => {
-      if (used.has(i)) return;
-      const g = [a];
-      used.add(i);
-      if (radius) {
-        pts.forEach((b, j) => {
-          if (used.has(j)) return;
-          if (Math.hypot(a.p[0] - b.p[0], a.p[1] - b.p[1]) < radius) {
-            g.push(b);
-            used.add(j);
-          }
-        });
-      }
-      out.push(g);
+  const onVisibleChange = useCallback((ids: Set<string>) => {
+    setVisibleIds((prev) => {
+      if (prev.size === ids.size && [...ids].every((id) => prev.has(id))) return prev;
+      return ids;
     });
-    return out;
-  }, [filtered, toScreen, view.s]);
+  }, []);
 
-  // ----- 화면 안 목록 -----
-  const visible = useMemo(() => {
-    const L = desktop ? 384 : 0;
-    return filtered
-      .filter((x) => {
-        const [sx, sy] = toScreen(x);
-        return sx > L && sx < size.w && sy > 0 && sy < size.h;
-      })
-      .sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate));
-  }, [filtered, toScreen, desktop, size]);
-
-  const openDetail = (id: string, fly: boolean) => {
-    const x = exhibitions.find((e) => e.id === id);
-    if (!x) return;
+  const select = useCallback((id: string) => {
     setSelectedId(id);
     setListOpen(false);
-    if (fly) {
-      const s = Math.max(viewRef.current.s, 18);
-      const [px, py] = project(x.lat, x.lon);
-      const cx = desktop ? (400 + (size.w - 430)) / 2 + 15 : size.w / 2;
-      const cy = desktop ? size.h / 2 : size.h * 0.22;
-      setView({ s, tx: cx - px * s, ty: cy - py * s });
-    }
+  }, []);
+
+  const openFromList = (id: string) => {
+    select(id);
+    setFocus((f) => ({ id, seq: (f?.seq ?? 0) + 1 }));
   };
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setSelectedId(null);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedId(null);
+    };
     addEventListener("keydown", onKey);
     return () => removeEventListener("keydown", onKey);
   }, []);
 
-  const center = (): [number, number] => (desktop ? [(size.w + 400) / 2, size.h / 2] : [size.w / 2, size.h * 0.42]);
-
-  const toggleGenre = (g: Genre) =>
-    setGenres((prev) => {
+  const toggle = <T,>(set: React.Dispatch<React.SetStateAction<Set<T>>>, v: T) =>
+    set((prev) => {
       const n = new Set(prev);
-      if (n.has(g)) n.delete(g);
-      else n.add(g);
+      if (n.has(v)) n.delete(v);
+      else n.add(v);
       return n;
     });
 
+  const mapProps = {
+    items: filtered,
+    selectedId,
+    onSelect: select,
+    onVisibleChange,
+    focus,
+    desktop,
+    detailOpen: !!selected,
+    poi,
+  };
+
   return (
     <div className="app">
-      <svg ref={svgRef} className="map" aria-label="대한민국 전시 지도">
-        <rect x="-5000" y="-5000" width="10000" height="10000" fill="var(--sea)" />
-        <g transform={`translate(${view.tx},${view.ty}) scale(${view.s})`}>
-          <path d={LAND_PATH} fill="var(--land)" stroke="var(--coast)" strokeWidth={1.2} strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
-          <ellipse {...JEJU} fill="var(--land)" stroke="var(--coast)" strokeWidth={1.2} vectorEffect="non-scaling-stroke" />
-          <path d={DMZ_PATH} fill="none" stroke="var(--coast)" strokeWidth={1.2} strokeDasharray="4 4" vectorEffect="non-scaling-stroke" />
-        </g>
-      </svg>
-
-      <div className="overlay">
-        {view.s < 6 &&
-          CITY_LABELS.map(([name, lat, lon, dy]) => {
-            const [px, py] = project(lat, lon);
-            return (
-              <div key={name} className="city" style={{ left: view.tx + px * view.s, top: view.ty + py * view.s + dy }}>
-                {name}
-              </div>
-            );
-          })}
-        {groups.map((g) => {
-          if (g.length === 1) {
-            const { x, p } = g[0];
-            const st = statusOf(x).kind;
-            const cls = ["mk", x.price === 0 ? "free" : "", st === "upcoming" ? "soon" : "", x.id === selectedId ? "sel" : ""].join(" ");
-            return (
-              <button key={x.id} className={cls} style={{ left: p[0], top: p[1] }} aria-label={`${x.title}, ${x.venue}`} onClick={() => openDetail(x.id, false)}>
-                <span className="pin"><i /></span>
-                {(view.s > 5 || x.id === selectedId) && <span className="lab">{x.title}</span>}
-              </button>
-            );
-          }
-          const cx = g.reduce((s, a) => s + a.p[0], 0) / g.length;
-          const cy = g.reduce((s, a) => s + a.p[1], 0) / g.length;
-          const sz = 30 + Math.min(18, g.length * 3);
-          return (
-            <button key={g.map((a) => a.x.id).join("|")} className="cl" style={{ left: cx, top: cy, width: sz, height: sz }} aria-label={`전시 ${g.length}개, 확대해서 보기`} onClick={() => zoomAt(cx, cy, 2.6)}>
-              {g.length}
-            </button>
-          );
-        })}
-      </div>
+      {KAKAO_KEY ? <KakaoMapView appKey={KAKAO_KEY} {...mapProps} /> : <SvgMapView {...mapProps} />}
 
       <div className="top">
         <div className="bar">
@@ -285,15 +127,19 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
           <button className="chip free" aria-pressed={freeOnly} onClick={() => setFreeOnly((v) => !v)}>무료만</button>
           <span className="sep" />
           {GENRES.map((g) => (
-            <button key={g} className="chip" aria-pressed={genres.has(g)} onClick={() => toggleGenre(g)}>{g}</button>
+            <button key={g} className="chip" aria-pressed={genres.has(g)} onClick={() => toggle(setGenres, g)}>{g}</button>
           ))}
         </div>
-      </div>
-
-      <div className={"zoom" + (selected && desktop ? " shifted" : "")}>
-        <button type="button" aria-label="확대" onClick={() => zoomAt(...center(), 1.8)}>+</button>
-        <button type="button" aria-label="축소" onClick={() => zoomAt(...center(), 1 / 1.8)}>−</button>
-        <button type="button" className="home" aria-label="전국 보기" onClick={() => fit(size.w, size.h)}>전국</button>
+        {KAKAO_KEY && (
+          <div className="chips poi-chips" aria-label="주변 장소 표시">
+            <span className="chips-label">주변</span>
+            {POI_CODES.map((c) => (
+              <button key={c} className={`chip poi-chip poi-chip-${c}`} aria-pressed={poi.has(c)} onClick={() => toggle(setPoi, c)}>
+                {POI_LABELS[c]}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <section className={"list" + (listOpen ? " open" : "")}>
@@ -311,7 +157,7 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
             visible.map((x) => {
               const st = statusOf(x);
               return (
-                <button key={x.id} className={"item" + (x.id === selectedId ? " sel" : "")} onClick={() => openDetail(x.id, true)}>
+                <button key={x.id} className={"item" + (x.id === selectedId ? " sel" : "")} onClick={() => openFromList(x.id)}>
                   <Poster exhibition={x} className="thumb" />
                   <span className="t">
                     <h3>{x.title}</h3>
@@ -340,6 +186,7 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
 
 function Detail({ x, onClose }: { x: Exhibition; onClose: () => void }) {
   const st = statusOf(x);
+  const directions = `https://map.kakao.com/link/to/${encodeURIComponent(x.venue)},${x.lat},${x.lon}`;
   return (
     <>
       <button className="d-close" type="button" aria-label="닫기" onClick={onClose}>×</button>
@@ -362,6 +209,7 @@ function Detail({ x, onClose }: { x: Exhibition; onClose: () => void }) {
         </div>
       </div>
       <div className="cta">
+        <a className="btn ghost" href={directions} target="_blank" rel="noopener noreferrer">길찾기</a>
         {x.url ? (
           <a className="btn" href={x.url} target="_blank" rel="noopener noreferrer">
             {x.price ? "예매하기" : "전시 안내 보기"}

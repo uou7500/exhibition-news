@@ -120,3 +120,24 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
   .zoom.shifted{right:442px}
 }
 @media (prefers-reduced-motion: reduce){.list,.detail,.scrim{transition:none}}
+
+/* ---------- 카카오맵 ---------- */
+.kmap{position:absolute;inset:0;width:100%;height:100%;background:var(--sea)}
+.mk.k{position:relative;transform:none;cursor:pointer}
+.mk.k .lab{position:absolute;top:100%;left:50%;transform:translateX(-50%);display:none}
+.kmap.show-labels .mk.k .lab,.mk.k.sel .lab{display:block}
+.mk.k:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.poi{display:flex;align-items:center;gap:4px;text-decoration:none;color:var(--ink);transform:translateY(-2px)}
+.poi-dot{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:10.5px;font-weight:700;color:#fff;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);flex:none}
+.poi-CS2 .poi-dot{background:#e8590c}
+.poi-CE7 .poi-dot{background:#8a5a2b}
+.poi-SW8 .poi-dot{background:#1971c2}
+.poi-name{font-size:11px;font-weight:600;background:rgba(255,255,255,.92);color:#1d2430;padding:1px 5px;border-radius:4px;white-space:nowrap;max-width:110px;overflow:hidden;text-overflow:ellipsis;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.poi-chips{align-items:center}
+.chips-label{flex:none;font-size:12px;font-weight:600;color:var(--muted);background:var(--panel);padding:6px 8px;border-radius:999px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.poi-chip-CS2[aria-pressed="true"]{background:#e8590c;border-color:#e8590c;color:#fff}
+.poi-chip-CE7[aria-pressed="true"]{background:#8a5a2b;border-color:#8a5a2b;color:#fff}
+.poi-chip-SW8[aria-pressed="true"]{background:#1971c2;border-color:#1971c2;color:#fff}
+.map-hint,.map-msg{position:absolute;z-index:16;left:50%;transform:translateX(-50%);top:150px;background:var(--ink);color:var(--panel);font-size:12.5px;padding:7px 12px;border-radius:999px;box-shadow:var(--shadow);white-space:nowrap;pointer-events:none}
+.map-msg{background:var(--warn);color:#fff;white-space:normal;max-width:calc(100% - 32px);text-align:center}
+@media (min-width:900px){.map-hint,.map-msg{left:calc(50% + 200px);top:24px}}
