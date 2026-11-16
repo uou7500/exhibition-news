@@ -1,0 +1,50 @@
+name: 사이트 배포 (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  # 데이터 수집 워크플로가 data/를 갱신하면 다시 배포 (GITHUB_TOKEN으로 한 push는 push 이벤트를 만들지 않아서 따로 연결)
+  workflow_run:
+    workflows: ["전시 데이터 수집"]
+    types: [completed]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: 정적 사이트 만들기
+        env:
+          PAGES_BASE_PATH: /exhibition-news
+        run: npm run build
+      - run: touch out/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
