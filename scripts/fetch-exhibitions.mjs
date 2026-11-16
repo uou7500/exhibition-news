@@ -115,6 +115,21 @@ function cityOf(raw) {
   return sigungu.replace(/(시|군|구)$/, "") || area || "기타";
 }
 
+/** 소개글 HTML을 읽기 좋은 글로: 문단·줄바꿈은 살리고 태그는 지운다 */
+function cleanText(html) {
+  if (!html) return undefined;
+  const t = html
+    .replace(/<\s*br\s*\/?>/gi, "\n")
+    .replace(/<\/\s*(p|div|li|h\d)\s*>/gi, "\n")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/[ \t\u00a0]+/g, " ")
+    .replace(/ *\n */g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  return t || undefined;
+}
+
 function toExhibition(raw, detail) {
   const r = { ...raw, ...detail };
   const lat = Number(r[FIELD.lat]);
@@ -125,7 +140,7 @@ function toExhibition(raw, detail) {
     return null; // 좌표나 날짜가 없으면 지도에 못 올린다 (다음 단계: 주소로 좌표 찾기)
   }
   const priceText = r[FIELD.price] || undefined;
-  const description = r[FIELD.contents]?.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 600) || undefined;
+  const description = cleanText(r[FIELD.contents]);
   return {
     id: `culture-${r[FIELD.seq]}`,
     title: r[FIELD.title],
@@ -198,7 +213,9 @@ async function main() {
     const id = `culture-${raw[FIELD.seq]}`;
     const old = cache.get(id);
     let detail = {};
-    if (old) {
+    // 예전 버전은 소개글을 600자에서 잘라 저장했다. 그런 항목은 상세를 다시 받는다.
+    const truncated = (old?.description?.length ?? 0) >= 590;
+    if (old && !truncated) {
       detail = { [FIELD.price]: old.priceText, [FIELD.url]: old.url, [FIELD.address]: old.address, [FIELD.contents]: old.description };
     } else if (calls < MAX_DETAIL_CALLS) {
       try {
