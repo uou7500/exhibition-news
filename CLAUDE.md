@@ -16,11 +16,14 @@
 - `components/ExhibitionMap.tsx` — 필터, 목록 시트, 상세 패널, 지도 엔진 선택 (클라이언트 컴포넌트).
 - `components/map/KakaoMapView.tsx` — 카카오맵 (환경변수 `NEXT_PUBLIC_KAKAO_MAP_KEY`가 있을 때). 전시 핀·묶음(clusterer)·주변 편의점/카페/지하철역(장소 카테고리 검색 CS2/CE7/SW8).
 - `components/map/SvgMapView.tsx` — 키가 없을 때 쓰는 임시 윤곽 지도. `components/map/types.ts`의 `MapViewProps`를 두 지도가 같이 따른다.
+- `components/Welcome.tsx` — 시작 화면(세션마다 한 번): 오늘 열려 있는 전시 수, 대중픽/전문가 픽 카드, 내 주변/전국 버튼.
+- `lib/picks.ts` — `data/popularity.json`(대중픽), `data/expert-picks.json`(전문가 픽) 읽기.
 - `components/Poster.tsx` — 썸네일이 없을 때 장르별 생성 포스터.
 - `lib/types.ts` — `Exhibition` 타입. 모든 데이터는 이 형태를 따른다.
 - `lib/data.ts` — 데이터 읽기. `data/exhibitions.json`이 비어 있으면 `lib/sample-exhibitions.ts` 예시 데이터를 쓴다. DB로 옮길 때 이 파일만 바꾼다.
 - `lib/korea-map.ts` — 임시 SVG 지도 윤곽 (SvgMapView 전용).
 - `scripts/fetch-exhibitions.mjs` — 공공데이터 수집기 (의존성 없음, Node 20+).
+- `scripts/fetch-popularity.mjs` — 대중픽: 네이버 블로그 검색 API로 전시별 최근 30일 글 수. GitHub Secrets `NAVER_CLIENT_ID`/`NAVER_CLIENT_SECRET` 없으면 건너뜀.
 - `.github/workflows/fetch-exhibitions.yml` — 매일 새벽 수집 후 `data/exhibitions.json` 커밋 → Netlify 자동 재배포.
 
 ## 데이터
@@ -31,6 +34,8 @@
 - 좌표 없는 항목은 현재 버린다 → 카카오 로컬 API 주소 검색으로 보완 예정.
 
 ## 결정 사항
+
+- 추천 기준: 대중픽 = 최근 30일 네이버 블로그 언급 수(진행 중 전시, 상위 10). 전문가 픽 = `data/expert-picks.json`에 사람이 직접 넣은 목록 `{id, by, role, comment}`. 실제 추천인이 아닌 이름·코멘트를 지어내 넣지 않는다.
 
 - 웹앱(PWA) 먼저, 앱스토어 앱은 나중 (같은 코드 재활용).
 - 처음엔 DB 없이 저장소 안 JSON 파일로 운영. 사용자 기능(즐겨찾기, 로그인)이 생기면 Supabase 도입.

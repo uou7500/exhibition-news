@@ -6,6 +6,8 @@ import { formatDate, formatPrice, parseDate, statusOf } from "@/lib/status";
 import { KAKAO_MAP_KEY } from "@/lib/config";
 import { RADIUS_STEPS, distanceM, formatDistance, radiusLabel, type MyLocation } from "@/lib/geo";
 import Poster from "./Poster";
+import Welcome from "./Welcome";
+import type { ExpertPick, PopularityData } from "@/lib/picks";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
 import { POI_LABELS, type PoiCode } from "./map/types";
@@ -48,7 +50,17 @@ function useDesktop() {
   return desktop;
 }
 
-export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: Exhibition[]; isSample: boolean }) {
+export default function ExhibitionMap({
+  exhibitions,
+  isSample,
+  popularity,
+  expertPicks,
+}: {
+  exhibitions: Exhibition[];
+  isSample: boolean;
+  popularity: PopularityData;
+  expertPicks: ExpertPick[];
+}) {
   const desktop = useDesktop();
   const [query, setQuery] = useState("");
   // null = 아무것도 고르지 않음 (전체와 같은 결과)
@@ -58,6 +70,19 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
   const [poi, setPoi] = useState<Set<PoiCode>>(new Set());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [listOpen, setListOpen] = useState(false);
+  // 시작 화면: 앱을 열 때마다 한 번 (같은 탭에서 새로고침하면 다시 안 나옴)
+  const [showWelcome, setShowWelcome] = useState(true);
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem("welcome-dismissed")) setShowWelcome(false);
+    } catch {}
+  }, []);
+  const dismissWelcome = () => {
+    setShowWelcome(false);
+    try {
+      sessionStorage.setItem("welcome-dismissed", "1");
+    } catch {}
+  };
   const listRef = useRef<HTMLElement>(null);
   const detailRef = useRef<HTMLElement>(null);
   const [sheetH, setSheetH] = useState(0);
@@ -361,6 +386,23 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
         </svg>
       </button>
       {locError && <div className="map-msg" role="alert">{locError}</div>}
+
+      {showWelcome && (
+        <Welcome
+          exhibitions={exhibitions}
+          popularity={popularity}
+          expertPicks={expertPicks}
+          onPick={(id) => {
+            dismissWelcome();
+            openFromList(id);
+          }}
+          onNear={() => {
+            dismissWelcome();
+            locate();
+          }}
+          onBrowse={dismissWelcome}
+        />
+      )}
 
       <section ref={listRef} className={"list" + (listOpen ? " open" : "")}>
         <button

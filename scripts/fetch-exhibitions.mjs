@@ -132,6 +132,8 @@ function cleanText(html) {
 
 function toExhibition(raw, detail) {
   const r = { ...raw, ...detail };
+  // 원본에 &amp;amp; 처럼 두 번 인코딩된 글자가 섞여 있어 한 번 더 풀어 준다
+  for (const k of [FIELD.title, FIELD.place, FIELD.address]) if (r[k]) r[k] = decodeEntities(r[k]);
   const lat = Number(r[FIELD.lat]);
   const lon = Number(r[FIELD.lon]);
   const startDate = toIso(r[FIELD.start]);

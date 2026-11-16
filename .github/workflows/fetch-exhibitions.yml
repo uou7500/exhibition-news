@@ -21,14 +21,19 @@ jobs:
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
         run: node scripts/fetch-exhibitions.mjs
+      - name: 대중픽 (네이버 블로그 최근 언급 수)
+        env:
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+        run: node scripts/fetch-popularity.mjs
       - name: 바뀐 데이터 저장
         run: |
-          if git diff --quiet data/exhibitions.json; then
+          if git diff --quiet data/exhibitions.json data/popularity.json; then
             echo "변경 없음"
           else
             git config user.name "exhibition-bot"
             git config user.email "exhibition-bot@users.noreply.github.com"
-            git add data/exhibitions.json
+            git add data/exhibitions.json data/popularity.json
             git commit -m "전시 데이터 갱신 $(date -u +%Y-%m-%d)"
             git push
           fi
