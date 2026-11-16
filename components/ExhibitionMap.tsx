@@ -353,7 +353,7 @@ export default function ExhibitionMap({
 
       <div className="top">
         <div className="bar">
-          <div className="brand">전시<span>지도</span></div>
+          <div className="brand">앙데팡당<span aria-hidden="true">.</span></div>
           <label className="search">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
               <circle cx="11" cy="11" r="7" />
