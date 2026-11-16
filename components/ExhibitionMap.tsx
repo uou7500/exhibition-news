@@ -17,6 +17,25 @@ type StatusFilter = "all" | "on" | "upcoming";
 const DESKTOP = 900;
 const KAKAO_KEY = KAKAO_MAP_KEY;
 
+/** 카카오맵 길찾기 주소. 출발지를 알면 출발지까지 넣는다. */
+function directionsUrl(x: Exhibition, from: MyLocation | null): string {
+  const to = `${encodeURIComponent(x.venue)},${x.lat},${x.lon}`;
+  if (!from) return `https://map.kakao.com/link/to/${to}`;
+  return `https://map.kakao.com/link/from/${encodeURIComponent("내 위치")},${from.lat},${from.lon}/to/${to}`;
+}
+
+/** 현재 위치 한 번 가져오기 */
+function getPosition(): Promise<MyLocation> {
+  return new Promise((resolve, reject) => {
+    if (!("geolocation" in navigator)) return reject(new Error("unsupported"));
+    navigator.geolocation.getCurrentPosition(
+      (pos) => resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude, accuracy: pos.coords.accuracy }),
+      reject,
+      { enableHighAccuracy: true, timeout: 12_000, maximumAge: 60_000 },
+    );
+  });
+}
+
 function useDesktop() {
   const [desktop, setDesktop] = useState(false);
   useEffect(() => {
@@ -285,15 +304,41 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
 
       <div className={"scrim" + (selected && !desktop ? " show" : "")} onClick={() => setSelectedId(null)} />
       <aside className={"detail" + (selected ? " show" : "")} aria-live="polite">
-        {selected && <Detail x={selected} distance={dist.get(selected.id)} onClose={() => setSelectedId(null)} />}
+        {selected && <Detail x={selected} distance={dist.get(selected.id)} myLoc={myLoc} onLocated={setMyLoc} onClose={() => setSelectedId(null)} />}
       </aside>
     </div>
   );
 }
 
-function Detail({ x, distance, onClose }: { x: Exhibition; distance?: number; onClose: () => void }) {
+function Detail({ x, distance, myLoc, onLocated, onClose }: {
+  x: Exhibition;
+  distance?: number;
+  myLoc: MyLocation | null;
+  onLocated: (loc: MyLocation) => void;
+  onClose: () => void;
+}) {
   const st = statusOf(x);
-  const directions = `https://map.kakao.com/link/to/${encodeURIComponent(x.venue)},${x.lat},${x.lon}`;
+  const [finding, setFinding] = useState(false);
+
+  // 내 위치를 모르면 누르는 순간 위치를 확인해 출발지로 넣는다.
+  // 팝업 차단을 피하려고 새 창을 먼저 열고, 위치를 받은 뒤 주소를 채운다.
+  const openDirections = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (myLoc) return; // 링크에 이미 출발지가 들어 있다
+    e.preventDefault();
+    const win = window.open("", "_blank");
+    setFinding(true);
+    getPosition()
+      .then((loc) => {
+        onLocated(loc);
+        return directionsUrl(x, loc);
+      })
+      .catch(() => directionsUrl(x, null))
+      .then((url) => {
+        setFinding(false);
+        if (win) win.location.href = url;
+        else window.location.href = url;
+      });
+  };
   return (
     <>
       <button className="d-close" type="button" aria-label="닫기" onClick={onClose}>×</button>
@@ -319,7 +364,9 @@ function Detail({ x, distance, onClose }: { x: Exhibition; distance?: number; on
         </div>
       </div>
       <div className="cta">
-        <a className="btn ghost" href={directions} target="_blank" rel="noopener noreferrer">길찾기</a>
+        <a className="btn ghost" href={directionsUrl(x, myLoc)} target="_blank" rel="noopener noreferrer" onClick={openDirections} aria-busy={finding}>
+          {finding ? "위치 확인 중…" : "길찾기"}
+        </a>
         {x.url ? (
           <a className="btn" href={x.url} target="_blank" rel="noopener noreferrer">
             {x.price ? "예매하기" : "전시 안내 보기"}
