@@ -396,7 +396,18 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
     <>
       <button className="d-close" type="button" aria-label="닫기" onClick={onClose}>×</button>
       <div className="d-scroll">
-        <div className="poster"><Poster key={x.id} exhibition={x} className="poster-img" /></div>
+        {x.thumbnail ? (
+          <div className="poster has-img">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="poster-bg" src={x.thumbnail} alt="" aria-hidden="true" />
+            <a className="poster-link" href={x.thumbnail} target="_blank" rel="noopener noreferrer" aria-label="포스터 크게 보기">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="poster-full" src={x.thumbnail} alt={`${x.title} 포스터`} />
+            </a>
+          </div>
+        ) : (
+          <div className="poster"><Poster key={x.id} exhibition={x} className="poster-img" /></div>
+        )}
         <div className="d-body">
           <div>
             <span className={"tag" + (st.kind === "ending" ? " end" : st.kind === "upcoming" ? " up" : "")}>{st.label}</span>
