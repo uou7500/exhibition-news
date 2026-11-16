@@ -1,26 +1,128 @@
 [
-  { "artist": "클로드 모네", "title": "까치", "year": "1868–69", "search": "Claude Monet The Magpie" },
-  { "artist": "클로드 모네", "title": "아르장퇴유의 눈", "year": "1875", "search": "Claude Monet Snow at Argenteuil" },
-  { "artist": "클로드 모네", "title": "건초더미, 눈의 효과", "year": "1891", "search": "Claude Monet Grainstack Snow Effect" },
-  { "artist": "클로드 모네", "title": "얼음 조각들", "year": "1880", "search": "Claude Monet Ice Floes" },
-  { "artist": "클로드 모네", "title": "국회의사당, 안개 효과", "year": "1903", "search": "Claude Monet Houses of Parliament fog" },
-  { "artist": "클로드 모네", "title": "워털루 다리, 흐린 날", "year": "1903", "search": "Claude Monet Waterloo Bridge Gray Day" },
-  { "artist": "클로드 모네", "title": "채링 크로스 다리", "year": "1899", "search": "Claude Monet Charing Cross Bridge" },
-  { "artist": "클로드 모네", "title": "생라자르 역", "year": "1877", "search": "Claude Monet The Saint-Lazare Station" },
-  { "artist": "클로드 모네", "title": "루앙 대성당, 흐린 날씨", "year": "1894", "search": "Claude Monet Rouen Cathedral grey weather" },
-  { "artist": "클로드 모네", "title": "인상, 해돋이", "year": "1872", "search": "Claude Monet Impression Sunrise" },
-  { "artist": "클로드 모네", "title": "양산을 든 여인", "year": "1875", "search": "Claude Monet Woman with a Parasol Madame Monet and Her Son" },
-  { "artist": "클로드 모네", "title": "양귀비 들판", "year": "1873", "search": "Claude Monet Poppy Field Argenteuil" },
-  { "artist": "클로드 모네", "title": "생트아드레스의 정원", "year": "1867", "search": "Claude Monet Garden at Sainte-Adresse" },
-  { "artist": "클로드 모네", "title": "수련", "year": "1906", "search": "Claude Monet Water Lilies 1906" },
-  { "artist": "클로드 모네", "title": "일본식 다리", "year": "1899", "search": "Claude Monet Bridge over a Pond of Water Lilies" },
-  { "artist": "앙리 마티스", "title": "모자를 쓴 여인", "year": "1905", "search": "Henri Matisse Woman with a Hat 1905" },
-  { "artist": "앙리 마티스", "title": "삶의 기쁨", "year": "1905–06", "search": "Henri Matisse Le bonheur de vivre" },
-  { "artist": "앙리 마티스", "title": "붉은 방(붉은색의 조화)", "year": "1908", "search": "Henri Matisse Harmony in Red" },
-  { "artist": "앙리 마티스", "title": "춤", "year": "1910", "search": "Henri Matisse La Danse 1910" },
-  { "artist": "앙리 마티스", "title": "열린 창, 콜리우르", "year": "1905", "search": "Henri Matisse Open Window Collioure" },
-  { "artist": "앙리 마티스", "title": "금붕어", "year": "1912", "search": "Henri Matisse Goldfish 1912" },
-  { "artist": "앙리 마티스", "title": "푸른 창", "year": "1913", "search": "Henri Matisse The Blue Window 1913" },
-  { "artist": "앙리 마티스", "title": "노트르담 풍경", "year": "1914", "search": "Henri Matisse View of Notre-Dame 1914" },
-  { "artist": "앙리 마티스", "title": "노트르담, 늦은 오후", "year": "1902", "search": "Henri Matisse Notre-Dame une fin d'apres-midi 1902" }
+  {
+    "artist": "클로드 모네",
+    "title": "까치",
+    "year": "1868–69",
+    "search": "Claude Monet The Magpie"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "아르장퇴유의 눈",
+    "year": "1875",
+    "search": "Claude Monet Snow at Argenteuil"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "건초더미, 눈의 효과",
+    "year": "1891",
+    "search": "Claude Monet Grainstack Snow Effect"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "얼음 조각들",
+    "year": "1880",
+    "search": "Claude Monet Ice Floes"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "국회의사당, 안개 효과",
+    "year": "1903",
+    "search": "Claude Monet Houses of Parliament fog"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "워털루 다리, 흐린 날",
+    "year": "1903",
+    "search": "Claude Monet Waterloo Bridge Gray Day"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "채링 크로스 다리",
+    "year": "1899",
+    "search": "Claude Monet Charing Cross Bridge"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "생라자르 역",
+    "year": "1877",
+    "search": "Claude Monet The Saint-Lazare Station"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "루앙 대성당, 흐린 날씨",
+    "year": "1894",
+    "search": "Claude Monet Rouen Cathedral grey weather"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "인상, 해돋이",
+    "year": "1872",
+    "search": "Claude Monet Impression Sunrise"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "양산을 든 여인",
+    "year": "1875",
+    "search": "Claude Monet Woman with a Parasol Madame Monet and Her Son"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "양귀비 들판",
+    "year": "1873",
+    "search": "Claude Monet Poppy Field Argenteuil"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "생트아드레스의 정원",
+    "year": "1867",
+    "search": "Claude Monet Garden at Sainte-Adresse"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "수련",
+    "year": "1906",
+    "search": "Claude Monet Water Lilies 1906"
+  },
+  {
+    "artist": "클로드 모네",
+    "title": "일본식 다리",
+    "year": "1899",
+    "search": "Claude Monet Bridge over a Pond of Water Lilies"
+  },
+  {
+    "artist": "앙리 마티스",
+    "title": "모자를 쓴 여인",
+    "year": "1905",
+    "search": "Henri Matisse Woman with a Hat 1905"
+  },
+  {
+    "artist": "앙리 마티스",
+    "title": "삶의 기쁨",
+    "year": "1905–06",
+    "search": "Henri Matisse Le Bonheur de vivre 1905 1906"
+  },
+  {
+    "artist": "앙리 마티스",
+    "title": "붉은 방(붉은색의 조화)",
+    "year": "1908",
+    "search": "Henri Matisse Harmony in Red"
+  },
+  {
+    "artist": "앙리 마티스",
+    "title": "열린 창, 콜리우르",
+    "year": "1905",
+    "search": "Henri Matisse Open Window Collioure"
+  },
+  {
+    "artist": "앙리 마티스",
+    "title": "노트르담 풍경",
+    "year": "1914",
+    "search": "Henri Matisse View of Notre-Dame 1914"
+  },
+  {
+    "artist": "앙리 마티스",
+    "title": "노트르담, 늦은 오후",
+    "year": "1902",
+    "search": "Henri Matisse Notre-Dame une fin d'apres-midi 1902"
+  }
 ]

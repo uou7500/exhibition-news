@@ -45,7 +45,7 @@ async function find(c) {
     const name = p.title.toLowerCase();
     const hits = words.filter((w) => name.includes(w)).length;
     if (hits < Math.min(2, words.length)) continue; // 제목 단어가 파일 이름에 들어 있어야
-    if (/detail|frame|museum|exhibition|photo|signature/.test(name)) continue;
+    if (/detail|frame|museum|exhibition|photo|signature|flickr|shutter|house in/.test(name)) continue; // 전시장 사진·부분도·다른 사진 제외
     return { file: p.title, image: ii.thumburl ?? ii.url, page: ii.descriptionurl, license, width: ii.width, height: ii.height };
   }
   return null;
