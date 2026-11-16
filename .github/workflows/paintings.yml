@@ -1,0 +1,32 @@
+name: 오늘의 그림 목록 만들기
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # 한 달에 한 번 (매월 1일 한국시간 새벽 3시 23분)
+    - cron: "23 18 1 * *"
+
+permissions:
+  contents: write
+
+jobs:
+  paintings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm install --no-save --no-audit --no-fund sharp
+      - run: node scripts/fetch-paintings.mjs
+      - name: 바뀐 목록 저장
+        run: |
+          if git diff --quiet data/paintings.json 2>/dev/null && git ls-files --error-unmatch data/paintings.json >/dev/null 2>&1; then
+            echo "변경 없음"
+          else
+            git config user.name "exhibition-bot"
+            git config user.email "exhibition-bot@users.noreply.github.com"
+            git add data/paintings.json
+            git commit -m "오늘의 그림 목록 갱신 $(date -u +%Y-%m-%d)"
+            git push
+          fi
