@@ -372,6 +372,22 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
 }) {
   const st = statusOf(x);
   const [finding, setFinding] = useState(false);
+  const [zoomed, setZoomed] = useState(false);
+
+  // 다른 전시로 바뀌면 크게 보기를 닫는다
+  useEffect(() => setZoomed(false), [x.id]);
+
+  // 크게 보기 중에는 Esc가 크게 보기만 닫게 한다
+  useEffect(() => {
+    if (!zoomed) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      e.stopImmediatePropagation();
+      setZoomed(false);
+    };
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }, [zoomed]);
 
   // 내 위치를 모르면 누르는 순간 위치를 확인해 출발지로 넣는다.
   // 팝업 차단을 피하려고 새 창을 먼저 열고, 위치를 받은 뒤 주소를 채운다.
@@ -400,10 +416,11 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
           <div className="poster has-img">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="poster-bg" src={x.thumbnail} alt="" aria-hidden="true" />
-            <a className="poster-link" href={x.thumbnail} target="_blank" rel="noopener noreferrer" aria-label="포스터 크게 보기">
+            <button type="button" className="poster-link" onClick={() => setZoomed(true)} aria-label="포스터 크게 보기">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img className="poster-full" src={x.thumbnail} alt={`${x.title} 포스터`} />
-            </a>
+              <span className="poster-zoom-hint" aria-hidden="true">크게 보기</span>
+            </button>
           </div>
         ) : (
           <div className="poster"><Poster key={x.id} exhibition={x} className="poster-img" /></div>
@@ -424,7 +441,14 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
             <dt>관람료</dt><dd>{x.price !== null && x.priceText ? x.priceText : formatPrice(x.price)}</dd>
             <dt>장소</dt><dd>{x.address ?? x.venue}</dd>
           </dl>
-          {x.description && <p className="desc">{x.description}</p>}
+          {x.description ? (
+            <p className="desc">{x.description}</p>
+          ) : (
+            <p className="desc-empty">
+              이 전시는 소개글이 제공되지 않았어요.
+              {x.url ? " 아래 '전시 안내 보기'에서 자세한 내용을 볼 수 있어요." : ""}
+            </p>
+          )}
         </div>
       </div>
       <div className="cta">
@@ -439,6 +463,16 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
           <button className="btn" disabled>{x.price === 0 ? "무료 관람 · 예매 없이 입장" : "예매 링크 준비 중"}</button>
         )}
       </div>
+      {zoomed && x.thumbnail && (
+        <div className="lightbox" role="dialog" aria-modal="true" aria-label={`${x.title} 포스터`} onClick={() => setZoomed(false)}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={x.thumbnail} alt={`${x.title} 포스터`} onClick={(e) => e.stopPropagation()} />
+          <button type="button" className="lightbox-close" aria-label="닫기" onClick={() => setZoomed(false)} autoFocus>
+            ×
+          </button>
+          <p className="lightbox-hint">두 손가락으로 확대할 수 있어요 · 바깥을 누르면 닫혀요</p>
+        </div>
+      )}
     </>
   );
 }
