@@ -5,7 +5,7 @@
 // 자동 실행: .github/workflows/fetch-exhibitions.yml (매일 새벽)
 //
 // API 안내: https://www.data.go.kr/data/15138937/openapi.do
-//          https://www.culture.go.kr/industry/apiGuideA.do
+//          엔드포인트: /cultureinfo/realm2 (분야별), /period2 (기간별), /detail2 (상세)
 //
 // ⚠️ 응답 필드 이름(title, startDate, gpsX ...)은 문서 기준이며 첫 실행에서 확인이 필요하다.
 //    필드가 다르면 FIELD 매핑만 고치면 된다. 실행 시 첫 항목의 원본 필드를 로그로 남긴다.
@@ -18,7 +18,9 @@ if (!KEY) {
   process.exit(1);
 }
 
-const BASE = "https://apis.data.go.kr/B553457/nopenapi/rest/publicperformancedisplays";
+const BASE = "https://apis.data.go.kr/B553457/cultureinfo";
+/** 분야 코드: D000 = 전시 */
+const REALM_CODE = "D000";
 const OUT = new URL("../data/exhibitions.json", import.meta.url);
 const ROWS = 100;
 const MAX_PAGES = 30;
@@ -149,21 +151,38 @@ async function main() {
   const now = new Date();
   const to = new Date(now.getTime() + DAYS_AHEAD * 86_400_000);
 
-  // 1) 기간별 목록
+  // 1) 분야별 목록 (전시 D000). 실패하면 기간별 목록(공연/전시)으로 대신한다.
   const list = [];
+  let op = "realm2";
   for (let page = 1; page <= MAX_PAGES; page++) {
-    const xml = await call("period", { from: ymd(now), to: ymd(to), cPage: String(page), rows: String(ROWS) });
+    const params = { PageNo: String(page), numOfrows: String(ROWS), from: ymd(now), to: ymd(to), serviceTp: "A" };
+    let xml;
+    try {
+      xml = await call(op, op === "realm2" ? { ...params, realmCode: REALM_CODE } : params);
+    } catch (e) {
+      if (op === "realm2" && page === 1) {
+        console.warn(`realm2 실패, period2로 대신 조회: ${e.message.slice(0, 160)}`);
+        op = "period2";
+        page = 0;
+        continue;
+      }
+      throw e;
+    }
     const items = parseItems(xml);
     if (page === 1) {
-      console.log(`전체 건수: ${tag(xml, "totalCount") ?? "알 수 없음"}`);
-      if (items[0]) console.log("첫 항목 원본 필드:", Object.keys(items[0]).join(", "));
+      console.log(`[${op}] 전체 건수: ${tag(xml, "totalCount") ?? "알 수 없음"}`);
+      if (items[0]) console.log("첫 항목 원본:", JSON.stringify(items[0]).slice(0, 800));
+      else console.log("응답 앞부분:", xml.slice(0, 800));
     }
     list.push(...items);
     if (items.length < ROWS) break;
   }
 
-  // 2) 전시 분야만
-  const exhibits = list.filter((r) => EXHIBITION_REALMS.some((k) => (r[FIELD.realm] ?? "").includes(k)));
+  // 2) 전시 분야만 (분야 이름이 있는 경우에만 거른다)
+  const exhibits = list.filter((r) => {
+    const realm = r[FIELD.realm];
+    return !realm || EXHIBITION_REALMS.some((k) => realm.includes(k));
+  });
   console.log(`목록 ${list.length}건 중 전시 ${exhibits.length}건`);
 
   // 3) 상세 정보 (가격·링크·소개). 이전에 받은 상세는 다시 부르지 않는다.
@@ -183,8 +202,9 @@ async function main() {
       detail = { [FIELD.price]: old.priceText, [FIELD.url]: old.url, [FIELD.address]: old.address, [FIELD.contents]: old.description };
     } else if (calls < MAX_DETAIL_CALLS) {
       try {
-        const xml = await call("detail", { seq: raw[FIELD.seq] });
+        const xml = await call("detail2", { seq: raw[FIELD.seq] });
         detail = parseItems(xml)[0] ?? {};
+        if (calls === 0) console.log("첫 상세 원본:", JSON.stringify(detail).slice(0, 800));
         calls++;
         await new Promise((r) => setTimeout(r, 120));
       } catch (e) {
