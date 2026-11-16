@@ -51,7 +51,8 @@ function useDesktop() {
 export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: Exhibition[]; isSample: boolean }) {
   const desktop = useDesktop();
   const [query, setQuery] = useState("");
-  const [status, setStatus] = useState<StatusFilter>("all");
+  // null = 아무것도 고르지 않음 (전체와 같은 결과)
+  const [status, setStatus] = useState<StatusFilter | null>(null);
   const [genres, setGenres] = useState<Set<Genre>>(new Set());
   const [freeOnly, setFreeOnly] = useState(false);
   const [poi, setPoi] = useState<Set<PoiCode>>(new Set());
@@ -105,7 +106,7 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
     if (myLoc) return arr.sort((a, b) => (dist.get(a.id) ?? 0) - (dist.get(b.id) ?? 0));
     return arr.sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate));
   }, [filtered, myLoc, dist]);
-  const hasFilter = !!query.trim() || status !== "all" || genres.size > 0 || freeOnly;
+  const hasFilter = !!query.trim() || (status !== null && status !== "all") || genres.size > 0 || freeOnly;
 
   // ----- 내 위치 -----
   const locate = (preferred?: number) => {
@@ -257,7 +258,7 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
         </div>
         <div className="chips">
           {([["all", "전체"], ["on", "진행 중"], ["upcoming", "개막 예정"]] as [StatusFilter, string][]).map(([k, l]) => (
-            <button key={k} className="chip" aria-pressed={status === k} onClick={() => setStatus(k)}>{l}</button>
+            <button key={k} className="chip" aria-pressed={status === k} onClick={() => setStatus((cur) => (cur === k ? null : k))}>{l}</button>
           ))}
           <span className="sep" />
           <button className="chip free" aria-pressed={freeOnly} onClick={() => setFreeOnly((v) => !v)}>무료만</button>

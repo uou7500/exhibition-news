@@ -103,7 +103,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .facts{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0;font-size:13.5px}
 .facts dt{color:var(--muted)}
 .facts dd{margin:0;font-variant-numeric:tabular-nums}
-.desc{line-height:1.7;margin:0;max-width:62ch}
+.desc{line-height:1.7;margin:0;max-width:62ch;white-space:pre-line;overflow-wrap:anywhere}
 .cta{display:flex;gap:8px;position:sticky;bottom:0;background:var(--panel);padding:12px max(18px, env(safe-area-inset-right, 0px)) 14px max(18px, env(safe-area-inset-left, 0px));border-top:1px solid var(--line)}
 .btn{flex:1;display:block;text-align:center;text-decoration:none;border:0;border-radius:10px;padding:13px 14px;font-weight:600;font-size:15px;background:var(--accent);color:var(--accent-ink)}
 .btn.ghost{flex:none;background:var(--soft);color:var(--ink)}
