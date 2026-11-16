@@ -90,7 +90,9 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
   left:0;right:0;bottom:0;max-height:90%;border-radius:16px 16px 0 0;transform:translateY(105%);transition:transform .28s ease;padding-bottom:env(safe-area-inset-bottom,0px)}
 .detail.show{transform:none}
 .d-scroll{overflow-y:auto;min-height:0;flex:1}
-.d-close{position:absolute;top:10px;right:max(12px, env(safe-area-inset-right, 0px));z-index:2;border:0;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:18px}
+.d-grab{display:flex;justify-content:center;position:absolute;top:0;left:0;right:0;z-index:3;padding:9px 0 14px;touch-action:none}
+.d-grab span{width:44px;height:5px;border-radius:3px;background:rgba(255,255,255,.85);box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.d-close{display:none;position:absolute;top:10px;right:max(12px, env(safe-area-inset-right, 0px));z-index:2;border:0;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:18px}
 .poster{position:relative;height:200px}
 .poster .poster-img{width:100%;height:100%;display:block;object-fit:cover;border-radius:16px 16px 0 0}
 .poster.has-img{height:min(52vh,420px);overflow:hidden;border-radius:16px 16px 0 0;background:var(--soft)}
@@ -120,6 +122,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
   .grab{display:none}
   .detail{left:auto;right:16px;top:16px;bottom:16px;width:410px;max-height:none;border-radius:14px;transform:translateX(calc(100% + 30px))}
   .detail.show{transform:none}
+  .d-close{display:block}
+  .d-grab{display:none}
   .poster .poster-img{border-radius:14px 14px 0 0}
   .poster.has-img{height:360px;border-radius:14px 14px 0 0}
   .poster{height:230px}
