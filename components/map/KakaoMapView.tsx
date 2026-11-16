@@ -6,6 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Exhibition } from "@/lib/types";
 import { statusOf } from "@/lib/status";
+import { radiusBounds } from "@/lib/geo";
 import { POI_LABELS, type MapViewProps, type PoiCode } from "./types";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -60,12 +61,13 @@ function pinElement(x: Exhibition, onClick: () => void): HTMLButtonElement {
   return el;
 }
 
-export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi }: MapViewProps & { appKey: string }) {
+export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq }: MapViewProps & { appKey: string }) {
   const boxRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const clustererRef = useRef<any>(null);
   const pinsRef = useRef(new Map<string, { overlay: any; el: HTMLButtonElement }>());
   const poiOverlaysRef = useRef<any[]>([]);
+  const meRef = useRef<{ dot: any; circle: any } | null>(null);
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [level, setLevel] = useState(KOREA_LEVEL);
@@ -254,6 +256,60 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       clear();
     };
   }, [ready, poi]);
+
+  // ----- 내 위치 표시와 반경 원 -----
+  useEffect(() => {
+    if (!ready) return;
+    const kakao = window.kakao;
+    const map = mapRef.current;
+    if (!meRef.current) {
+      const el = document.createElement("div");
+      el.className = "me-dot";
+      el.setAttribute("aria-label", "내 위치");
+      meRef.current = {
+        dot: new kakao.maps.CustomOverlay({ content: el, xAnchor: 0.5, yAnchor: 0.5, zIndex: 20 }),
+        circle: new kakao.maps.Circle({
+          center: new kakao.maps.LatLng(KOREA_CENTER.lat, KOREA_CENTER.lon),
+          radius: 1000,
+          strokeWeight: 2, strokeColor: "#2f37c9", strokeOpacity: 0.85, strokeStyle: "solid",
+          fillColor: "#2f37c9", fillOpacity: 0.07,
+        }),
+      };
+    }
+    const { dot, circle } = meRef.current;
+    if (!myLoc) {
+      dot.setMap(null);
+      circle.setMap(null);
+      return;
+    }
+    const center = new kakao.maps.LatLng(myLoc.lat, myLoc.lon);
+    dot.setPosition(center);
+    dot.setMap(map);
+    if (radius) {
+      circle.setPosition(center);
+      circle.setRadius(radius);
+      circle.setMap(map);
+    } else {
+      circle.setMap(null);
+    }
+  }, [ready, myLoc, radius]);
+
+  // 내 위치 버튼이나 반경을 바꾸면 지도를 그 범위에 맞춘다
+  useEffect(() => {
+    if (!ready || !myLoc) return;
+    const kakao = window.kakao;
+    const map = mapRef.current;
+    const isDesk = latest.current.desktop;
+    if (radius) {
+      const b = radiusBounds(myLoc.lat, myLoc.lon, radius);
+      const bounds = new kakao.maps.LatLngBounds(new kakao.maps.LatLng(b.south, b.west), new kakao.maps.LatLng(b.north, b.east));
+      // 위: 검색·필터 영역, 아래: 목록 시트(모바일), 왼쪽: 목록 패널(데스크톱)
+      map.setBounds(bounds, isDesk ? 40 : 170, 40, isDesk ? 40 : 210, isDesk ? 420 : 24);
+    } else {
+      map.setLevel(5);
+      map.setCenter(new kakao.maps.LatLng(myLoc.lat, myLoc.lon));
+    }
+  }, [ready, locateSeq, radius]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ----- 확대·축소 버튼 -----
   const zoomBy = (d: number) => {
