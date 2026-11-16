@@ -41,5 +41,5 @@
 
 - Next.js·React는 보안 패치가 반영된 버전 범위(`^`)로 둔다. Netlify는 알려진 취약 버전(예: CVE-2025-55182)이면 배포를 막는다.
 - 배포: Netlify (main 브랜치 자동 배포, PR마다 미리보기). Vercel은 계정 문제로 보류.
-- 카카오 JavaScript 키는 Netlify 환경변수 `NEXT_PUBLIC_KAKAO_MAP_KEY`(빌드 때 들어감, 바꾸면 재배포 필요). 카카오 개발자 콘솔에 사이트 도메인 등록 필수. 이 작업 공간에서는 카카오 SDK에 접속할 수 없어 실제 지도 확인은 사용자 화면으로 한다.
+- 카카오 JavaScript 키는 `lib/config.ts`에 들어 있다(공개 키, 도메인 제한). Netlify 환경변수 `NEXT_PUBLIC_KAKAO_MAP_KEY`가 있으면 그 값이 우선. 새 도메인(커스텀 도메인 등)을 쓰면 카카오 콘솔 [앱 > 플랫폼 키 > JavaScript 키 > JavaScript SDK 도메인]에 추가해야 한다. 카카오 개발자 콘솔에 사이트 도메인 등록 필수. 이 작업 공간에서는 카카오 SDK에 접속할 수 없어 실제 지도 확인은 사용자 화면으로 한다.
 - Claude 클라우드 작업 공간에서 npm 저장소 접근이 막힐 수 있다. 그 경우 로컬 빌드 대신 Netlify 배포 로그로 확인한다.

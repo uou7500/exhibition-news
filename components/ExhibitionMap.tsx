@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Exhibition, Genre } from "@/lib/types";
 import { formatDate, formatPrice, parseDate, statusOf } from "@/lib/status";
+import { KAKAO_MAP_KEY } from "@/lib/config";
 import Poster from "./Poster";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
@@ -13,7 +14,7 @@ const POI_CODES: PoiCode[] = ["CS2", "CE7", "SW8"];
 type StatusFilter = "all" | "on" | "upcoming";
 
 const DESKTOP = 900;
-const KAKAO_KEY = process.env.NEXT_PUBLIC_KAKAO_MAP_KEY ?? "";
+const KAKAO_KEY = KAKAO_MAP_KEY;
 
 function useDesktop() {
   const [desktop, setDesktop] = useState(false);
