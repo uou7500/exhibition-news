@@ -10,7 +10,7 @@ import type { MapViewProps } from "./types";
 
 interface View { s: number; tx: number; ty: number }
 
-export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen }: MapViewProps) {
+export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq }: MapViewProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [view, setView] = useState<View>({ s: 1, tx: 0, ty: 0 });
@@ -154,6 +154,25 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [focus?.seq]);
 
+  // 내 위치·반경으로 지도 맞추기
+  useEffect(() => {
+    if (!myLoc) return;
+    const { w, h } = sizeRef.current;
+    const [px, py] = project(myLoc.lat, myLoc.lon);
+    const L = desktop ? 400 : 0;
+    const T = desktop ? 40 : 170;
+    const B = desktop ? 40 : 210;
+    const cx = L + (w - L) / 2;
+    const cy = T + (h - T - B) / 2;
+    let s = 40;
+    if (radius) {
+      const rUnits = (radius / 111_320) * 125;
+      s = Math.max(0.5, Math.min(400, Math.min(w - L - 48, h - T - B) / (2 * rUnits)));
+    }
+    setView({ s, tx: cx - px * s, ty: cy - py * s });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locateSeq, radius]);
+
   const groups = useMemo(() => {
     const pts = items.map((x) => ({ x, p: toScreen(x) }));
     const radius = view.s > 14 ? 0 : 34;
@@ -187,10 +206,18 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
           <path d={LAND_PATH} fill="var(--land)" stroke="var(--coast)" strokeWidth={1.2} strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
           <ellipse {...JEJU} fill="var(--land)" stroke="var(--coast)" strokeWidth={1.2} vectorEffect="non-scaling-stroke" />
           <path d={DMZ_PATH} fill="none" stroke="var(--coast)" strokeWidth={1.2} strokeDasharray="4 4" vectorEffect="non-scaling-stroke" />
+          {myLoc && radius && (() => {
+            const [mx, my] = project(myLoc.lat, myLoc.lon);
+            return <circle cx={mx} cy={my} r={(radius / 111_320) * 125} fill="var(--accent)" fillOpacity={0.07} stroke="var(--accent)" strokeWidth={2} vectorEffect="non-scaling-stroke" />;
+          })()}
         </g>
       </svg>
 
       <div className="overlay">
+        {myLoc && (() => {
+          const [mx, my] = project(myLoc.lat, myLoc.lon);
+          return <div className="me-dot svg" style={{ left: view.tx + mx * view.s, top: view.ty + my * view.s }} aria-label="내 위치" />;
+        })()}
         {view.s < 6 &&
           CITY_LABELS.map(([name, lat, lon, dy]) => {
             const [px, py] = project(lat, lon);

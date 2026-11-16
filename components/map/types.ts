@@ -1,4 +1,5 @@
 import type { Exhibition } from "@/lib/types";
+import type { MyLocation } from "@/lib/geo";
 
 /** 주변 장소 종류 (카카오 장소 카테고리 코드) */
 export type PoiCode = "CS2" | "CE7" | "SW8";
@@ -20,4 +21,10 @@ export interface MapViewProps {
   detailOpen: boolean;
   /** 켜 둔 주변 장소 종류 (카카오맵만 지원) */
   poi: Set<PoiCode>;
+  /** 내 위치 (위치 버튼을 누른 뒤에만 값이 있음) */
+  myLoc: MyLocation | null;
+  /** 내 위치 중심 탐색 반경(미터). null = 반경 없음 */
+  radius: number | null;
+  /** 내 위치로 지도를 맞추라는 요청. 값이 바뀔 때마다 이동 */
+  locateSeq: number;
 }

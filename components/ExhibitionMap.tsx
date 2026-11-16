@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Exhibition, Genre } from "@/lib/types";
 import { formatDate, formatPrice, parseDate, statusOf } from "@/lib/status";
 import { KAKAO_MAP_KEY } from "@/lib/config";
+import { RADIUS_STEPS, distanceM, formatDistance, radiusLabel, type MyLocation } from "@/lib/geo";
 import Poster from "./Poster";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
@@ -39,10 +40,15 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
   const [listOpen, setListOpen] = useState(false);
   const [visibleIds, setVisibleIds] = useState<Set<string>>(new Set());
   const [focus, setFocus] = useState<{ id: string; seq: number } | null>(null);
+  const [myLoc, setMyLoc] = useState<MyLocation | null>(null);
+  const [radius, setRadius] = useState<number | null>(null);
+  const [locateSeq, setLocateSeq] = useState(0);
+  const [locating, setLocating] = useState(false);
+  const [locError, setLocError] = useState<string | null>(null);
 
   const selected = exhibitions.find((x) => x.id === selectedId) ?? null;
 
-  const filtered = useMemo(() => {
+  const baseFiltered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return exhibitions.filter((x) => {
       const st = statusOf(x).kind;
@@ -56,10 +62,77 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
     });
   }, [exhibitions, query, status, genres, freeOnly]);
 
-  const visible = useMemo(
-    () => filtered.filter((x) => visibleIds.has(x.id)).sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate)),
-    [filtered, visibleIds],
+  // 내 위치에서 각 전시까지 거리(미터)
+  const dist = useMemo(() => {
+    const m = new Map<string, number>();
+    if (myLoc) for (const x of exhibitions) m.set(x.id, distanceM(myLoc.lat, myLoc.lon, x.lat, x.lon));
+    return m;
+  }, [exhibitions, myLoc]);
+
+  const inRadius = !!(myLoc && radius);
+  const filtered = useMemo(
+    () => (myLoc && radius ? baseFiltered.filter((x) => (dist.get(x.id) ?? Infinity) <= radius) : baseFiltered),
+    [baseFiltered, myLoc, radius, dist],
   );
+
+  // 목록: 반경을 고르면 반경 안 전체를 가까운 순으로, 아니면 지도 화면 안 전시를
+  const visible = useMemo(() => {
+    const arr = inRadius ? [...filtered] : filtered.filter((x) => visibleIds.has(x.id));
+    if (myLoc) return arr.sort((a, b) => (dist.get(a.id) ?? 0) - (dist.get(b.id) ?? 0));
+    return arr.sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate));
+  }, [filtered, visibleIds, inRadius, myLoc, dist]);
+
+  // ----- 내 위치 -----
+  const locate = (preferred?: number) => {
+    if (!("geolocation" in navigator)) {
+      setLocError("이 브라우저에서는 위치를 확인할 수 없어요.");
+      return;
+    }
+    setLocating(true);
+    setLocError(null);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const loc = { lat: pos.coords.latitude, lon: pos.coords.longitude, accuracy: pos.coords.accuracy };
+        setMyLoc(loc);
+        setLocating(false);
+        let r = preferred ?? radius;
+        if (r == null) {
+          // 전시가 3개 이상 들어오는 가장 작은 반경을 고른다
+          const ds = baseFiltered.map((x) => distanceM(loc.lat, loc.lon, x.lat, x.lon));
+          r = RADIUS_STEPS.find((step) => ds.filter((d) => d <= step).length >= 3) ?? RADIUS_STEPS[RADIUS_STEPS.length - 1];
+        }
+        setRadius(r);
+        setLocateSeq((n) => n + 1);
+        setListOpen(true);
+      },
+      (err) => {
+        setLocating(false);
+        setLocError(
+          err.code === err.PERMISSION_DENIED
+            ? "위치 권한이 꺼져 있어요. 아이폰·아이패드는 설정 → 개인정보 보호 및 보안 → 위치 서비스 → Safari 웹 사이트에서 허용해 주세요."
+            : err.code === err.TIMEOUT
+              ? "위치를 찾는 데 시간이 너무 걸려요. 잠시 후 다시 눌러 주세요."
+              : "지금은 위치를 확인할 수 없어요. 잠시 후 다시 시도해 주세요.",
+        );
+      },
+      { enableHighAccuracy: true, timeout: 12_000, maximumAge: 60_000 },
+    );
+  };
+
+  const chooseRadius = (r: number) => {
+    if (!myLoc) {
+      locate(r);
+      return;
+    }
+    setRadius((cur) => (cur === r ? null : r));
+    setLocateSeq((n) => n + 1);
+  };
+
+  useEffect(() => {
+    if (!locError) return;
+    const t = setTimeout(() => setLocError(null), 7000);
+    return () => clearTimeout(t);
+  }, [locError]);
 
   const onVisibleChange = useCallback((ids: Set<string>) => {
     setVisibleIds((prev) => {
@@ -103,6 +176,9 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
     desktop,
     detailOpen: !!selected,
     poi,
+    myLoc,
+    radius,
+    locateSeq,
   };
 
   return (
@@ -131,29 +207,58 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
             <button key={g} className="chip" aria-pressed={genres.has(g)} onClick={() => toggle(setGenres, g)}>{g}</button>
           ))}
         </div>
-        {KAKAO_KEY && (
-          <div className="chips poi-chips" aria-label="주변 장소 표시">
-            <span className="chips-label">주변</span>
-            {POI_CODES.map((c) => (
-              <button key={c} className={`chip poi-chip poi-chip-${c}`} aria-pressed={poi.has(c)} onClick={() => toggle(setPoi, c)}>
-                {POI_LABELS[c]}
-              </button>
-            ))}
-          </div>
-        )}
+        <div className="chips radius-chips" aria-label="내 위치 반경">
+          <span className="chips-label">내 위치</span>
+          {RADIUS_STEPS.map((r) => (
+            <button key={r} className="chip radius-chip" aria-pressed={radius === r && !!myLoc} onClick={() => chooseRadius(r)}>
+              {radiusLabel(r)}
+            </button>
+          ))}
+          {KAKAO_KEY && (
+            <>
+              <span className="sep" />
+              <span className="chips-label">주변</span>
+              {POI_CODES.map((c) => (
+                <button key={c} className={`chip poi-chip poi-chip-${c}`} aria-pressed={poi.has(c)} onClick={() => toggle(setPoi, c)}>
+                  {POI_LABELS[c]}
+                </button>
+              ))}
+            </>
+          )}
+        </div>
       </div>
+
+      <button
+        type="button"
+        className={"locate" + (myLoc ? " on" : "") + (locating ? " busy" : "") + (listOpen ? " lifted" : "")}
+        aria-label="내 위치로 이동"
+        onClick={() => locate()}
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill={myLoc ? "currentColor" : "none"} />
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3" strokeLinecap="round" />
+          <circle cx="12" cy="12" r="8" />
+        </svg>
+      </button>
+      {locError && <div className="map-msg" role="alert">{locError}</div>}
 
       <section className={"list" + (listOpen ? " open" : "")}>
         <button className="list-head" type="button" aria-expanded={listOpen} onClick={() => setListOpen((v) => !v)}>
           <span className="grab" />
           <span className="list-title">
-            <h2>지도에 보이는 전시</h2>
-            <small>{visible.length}개 / 전체 {filtered.length}개</small>
+            <h2>{inRadius && radius ? `내 위치 ${radiusLabel(radius)} 안 전시` : myLoc ? "내 주변 전시" : "지도에 보이는 전시"}</h2>
+            <small>{inRadius ? `${visible.length}개 · 가까운 순` : `${visible.length}개 / 전체 ${filtered.length}개`}</small>
           </span>
         </button>
         <div className="items">
           {visible.length === 0 ? (
-            <div className="empty">이 화면 안에는 조건에 맞는 전시가 없어요.<br />지도를 축소하거나 필터를 바꿔 보세요.</div>
+            <div className="empty">
+              {inRadius && radius ? (
+                <>내 위치 {radiusLabel(radius)} 안에는 조건에 맞는 전시가 없어요.<br />위쪽에서 반경을 더 넓혀 보세요.</>
+              ) : (
+                <>이 화면 안에는 조건에 맞는 전시가 없어요.<br />지도를 축소하거나 필터를 바꿔 보세요.</>
+              )}
+            </div>
           ) : (
             visible.map((x) => {
               const st = statusOf(x);
@@ -164,6 +269,7 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
                     <h3>{x.title}</h3>
                     <p>
                       {st.kind === "ending" ? <span className="tag end">{st.label}</span> : st.kind === "upcoming" ? <span className="tag up">{st.label}</span> : <span className="tag">{x.genre}</span>}
+                      {dist.has(x.id) && <span className="dist">{formatDistance(dist.get(x.id)!)}</span>}
                       {x.venue} · {x.city}
                     </p>
                     <p>{formatDate(x.startDate)} – {formatDate(x.endDate)}</p>
@@ -179,13 +285,13 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
 
       <div className={"scrim" + (selected && !desktop ? " show" : "")} onClick={() => setSelectedId(null)} />
       <aside className={"detail" + (selected ? " show" : "")} aria-live="polite">
-        {selected && <Detail x={selected} onClose={() => setSelectedId(null)} />}
+        {selected && <Detail x={selected} distance={dist.get(selected.id)} onClose={() => setSelectedId(null)} />}
       </aside>
     </div>
   );
 }
 
-function Detail({ x, onClose }: { x: Exhibition; onClose: () => void }) {
+function Detail({ x, distance, onClose }: { x: Exhibition; distance?: number; onClose: () => void }) {
   const st = statusOf(x);
   const directions = `https://map.kakao.com/link/to/${encodeURIComponent(x.venue)},${x.lat},${x.lon}`;
   return (
@@ -198,7 +304,10 @@ function Detail({ x, onClose }: { x: Exhibition; onClose: () => void }) {
             <span className={"tag" + (st.kind === "ending" ? " end" : st.kind === "upcoming" ? " up" : "")}>{st.label}</span>
             <span className="tag">{x.genre}</span>
             <h2>{x.title}</h2>
-            <div className="d-venue">{x.venue} · {x.city}</div>
+            <div className="d-venue">
+              {x.venue} · {x.city}
+              {distance !== undefined && <> · 내 위치에서 {formatDistance(distance)}</>}
+            </div>
           </div>
           <dl className="facts">
             <dt>기간</dt><dd>{formatDate(x.startDate)} – {formatDate(x.endDate)}</dd>

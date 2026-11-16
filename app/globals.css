@@ -138,6 +138,22 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .poi-chip-CS2[aria-pressed="true"]{background:#e8590c;border-color:#e8590c;color:#fff}
 .poi-chip-CE7[aria-pressed="true"]{background:#8a5a2b;border-color:#8a5a2b;color:#fff}
 .poi-chip-SW8[aria-pressed="true"]{background:#1971c2;border-color:#1971c2;color:#fff}
-.map-hint,.map-msg{position:absolute;z-index:16;left:50%;transform:translateX(-50%);top:150px;background:var(--ink);color:var(--panel);font-size:12.5px;padding:7px 12px;border-radius:999px;box-shadow:var(--shadow);white-space:nowrap;pointer-events:none}
+.map-hint,.map-msg{position:absolute;z-index:16;left:50%;transform:translateX(-50%);top:160px;background:var(--ink);color:var(--panel);font-size:12.5px;padding:7px 12px;border-radius:999px;box-shadow:var(--shadow);white-space:nowrap;pointer-events:none}
 .map-msg{background:var(--warn);color:#fff;white-space:normal;max-width:calc(100% - 32px);text-align:center}
 @media (min-width:900px){.map-hint,.map-msg{left:calc(50% + 200px);top:24px}}
+
+/* ---------- 내 위치 ---------- */
+.locate{position:absolute;z-index:17;left:max(12px, env(safe-area-inset-left, 0px));bottom:calc(190px + 14px + env(safe-area-inset-bottom, 0px));
+  width:46px;height:46px;border-radius:50%;border:0;background:var(--panel);color:var(--ink);box-shadow:var(--shadow);display:grid;place-items:center;transition:bottom .25s ease}
+.locate.lifted{bottom:calc(62% + 14px)}
+.locate.on{color:var(--accent)}
+.locate.busy svg{animation:locate-spin 1s linear infinite}
+@keyframes locate-spin{to{transform:rotate(360deg)}}
+.me-dot{width:18px;height:18px;border-radius:50%;background:#2f6bff;border:3px solid #fff;box-shadow:0 0 0 6px rgba(47,107,255,.22),0 1px 4px rgba(0,0,0,.35);animation:me-pulse 2s ease-out infinite}
+.me-dot.svg{position:absolute;transform:translate(-50%,-50%);pointer-events:none}
+@keyframes me-pulse{0%{box-shadow:0 0 0 0 rgba(47,107,255,.35),0 1px 4px rgba(0,0,0,.35)}100%{box-shadow:0 0 0 14px rgba(47,107,255,0),0 1px 4px rgba(0,0,0,.35)}}
+.radius-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.radius-chips{align-items:center}
+.dist{display:inline-block;font-size:11px;font-weight:600;color:var(--accent);margin-right:5px;font-variant-numeric:tabular-nums}
+@media (min-width:900px){.locate,.locate.lifted{left:400px;bottom:24px}}
+@media (prefers-reduced-motion: reduce){.me-dot,.locate.busy svg{animation:none}}
