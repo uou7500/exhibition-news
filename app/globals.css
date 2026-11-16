@@ -216,3 +216,12 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .w-actions .btn{flex:none;width:100%}
 @keyframes w-in{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion: reduce){.welcome{animation:none}}
+.w-kinds{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.w-kinds::-webkit-scrollbar{display:none}
+.w-kinds .chip{box-shadow:none}
+/* ---------- 독립공간 · 예술의 미래 ---------- */
+.space-pin{display:flex;align-items:center;gap:4px;text-decoration:none}
+.space-mark{width:14px;height:14px;background:#7b2ff7;border:2px solid #fff;transform:rotate(45deg);box-shadow:0 1px 4px rgba(0,0,0,.35);flex:none}
+.space-name{font-size:11.5px;font-weight:700;color:#4a1a9e;background:rgba(255,255,255,.94);padding:1px 6px;border-radius:4px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.space-chip[aria-pressed="true"]{background:#7b2ff7;border-color:#7b2ff7;color:#fff}
+.chip.future[aria-pressed="true"]{background:#7b2ff7;border-color:#7b2ff7;color:#fff}

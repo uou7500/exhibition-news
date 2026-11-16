@@ -1,5 +1,6 @@
 import type { Exhibition } from "@/lib/types";
 import type { MyLocation } from "@/lib/geo";
+import type { Space } from "@/lib/spaces";
 
 /** 주변 장소 종류 (카카오 장소 카테고리 코드) */
 export type PoiCode = "CS2" | "CE7" | "SW8";
@@ -29,4 +30,6 @@ export interface MapViewProps {
   locateSeq: number;
   /** 사용자가 지도를 손가락으로 끌기 시작할 때 (목록 시트 내리기용) */
   onMapDrag: () => void;
+  /** 지도에 보일 독립공간 (카카오맵만 지원) */
+  spaces: Space[];
 }

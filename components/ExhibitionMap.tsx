@@ -7,7 +7,9 @@ import { KAKAO_MAP_KEY } from "@/lib/config";
 import { RADIUS_STEPS, distanceM, formatDistance, radiusLabel, type MyLocation } from "@/lib/geo";
 import Poster from "./Poster";
 import Welcome from "./Welcome";
-import type { ExpertPick, PopularityData } from "@/lib/picks";
+import type { PopularityData } from "@/lib/picks";
+import type { Space } from "@/lib/spaces";
+import { futureKindOf } from "@/lib/future";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
 import { POI_LABELS, type PoiCode } from "./map/types";
@@ -54,12 +56,12 @@ export default function ExhibitionMap({
   exhibitions,
   isSample,
   popularity,
-  expertPicks,
+  spaces,
 }: {
   exhibitions: Exhibition[];
   isSample: boolean;
   popularity: PopularityData;
-  expertPicks: ExpertPick[];
+  spaces: Space[];
 }) {
   const desktop = useDesktop();
   const [query, setQuery] = useState("");
@@ -67,6 +69,9 @@ export default function ExhibitionMap({
   const [status, setStatus] = useState<StatusFilter | null>(null);
   const [genres, setGenres] = useState<Set<Genre>>(new Set());
   const [freeOnly, setFreeOnly] = useState(false);
+  const [futureOnly, setFutureOnly] = useState(false);
+  const [showSpaces, setShowSpaces] = useState(true);
+  const shownSpaces = useMemo(() => (showSpaces ? spaces : []), [showSpaces, spaces]);
   const [poi, setPoi] = useState<Set<PoiCode>>(new Set());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [listOpen, setListOpen] = useState(false);
@@ -107,10 +112,11 @@ export default function ExhibitionMap({
       if (status === "upcoming" && st !== "upcoming") return false;
       if (genres.size && !genres.has(x.genre)) return false;
       if (freeOnly && x.price !== 0) return false;
+      if (futureOnly && !futureKindOf(x)) return false;
       if (q && !(x.title + x.venue + x.city + x.genre).toLowerCase().includes(q)) return false;
       return true;
     });
-  }, [exhibitions, query, status, genres, freeOnly]);
+  }, [exhibitions, query, status, genres, freeOnly, futureOnly]);
 
   // 내 위치에서 각 전시까지 거리(미터)
   const dist = useMemo(() => {
@@ -132,7 +138,7 @@ export default function ExhibitionMap({
     if (myLoc) return arr.sort((a, b) => (dist.get(a.id) ?? 0) - (dist.get(b.id) ?? 0));
     return arr.sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate));
   }, [filtered, myLoc, dist]);
-  const hasFilter = !!query.trim() || (status !== null && status !== "all") || genres.size > 0 || freeOnly;
+  const hasFilter = !!query.trim() || (status !== null && status !== "all") || genres.size > 0 || freeOnly || futureOnly;
 
   // ----- 내 위치 -----
   const locate = (preferred?: number) => {
@@ -323,6 +329,7 @@ export default function ExhibitionMap({
     radius,
     locateSeq,
     onMapDrag,
+    spaces: shownSpaces,
   };
 
   return (
@@ -346,6 +353,7 @@ export default function ExhibitionMap({
           ))}
           <span className="sep" />
           <button className="chip free" aria-pressed={freeOnly} onClick={() => setFreeOnly((v) => !v)}>무료만</button>
+          <button className="chip future" aria-pressed={futureOnly} onClick={() => setFutureOnly((v) => !v)}>예술의 미래</button>
           <span className="sep" />
           {GENRES.map((g) => (
             <button key={g} className="chip" aria-pressed={genres.has(g)} onClick={() => toggle(setGenres, g)}>{g}</button>
@@ -362,6 +370,11 @@ export default function ExhibitionMap({
             <>
               <span className="sep" />
               <span className="chips-label">주변</span>
+              {spaces.length > 0 && (
+                <button className="chip space-chip" aria-pressed={showSpaces} onClick={() => setShowSpaces((v) => !v)}>
+                  독립공간
+                </button>
+              )}
               {POI_CODES.map((c) => (
                 <button key={c} className={`chip poi-chip poi-chip-${c}`} aria-pressed={poi.has(c)} onClick={() => toggle(setPoi, c)}>
                   {POI_LABELS[c]}
@@ -391,7 +404,6 @@ export default function ExhibitionMap({
         <Welcome
           exhibitions={exhibitions}
           popularity={popularity}
-          expertPicks={expertPicks}
           onPick={(id) => {
             dismissWelcome();
             openFromList(id);
