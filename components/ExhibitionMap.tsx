@@ -98,12 +98,14 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
     [baseFiltered, myLoc, radius, dist],
   );
 
-  // 목록: 반경을 고르면 반경 안 전체를 가까운 순으로, 아니면 지도 화면 안 전시를
+  // 목록: 조건(카테고리·검색·무료 등)에 맞는 전시 전체. 반경을 고르면 그 안으로 좁힌다.
+  // 내 위치를 알면 가까운 순, 모르면 마감이 가까운 순.
   const visible = useMemo(() => {
-    const arr = inRadius ? [...filtered] : filtered.filter((x) => visibleIds.has(x.id));
+    const arr = [...filtered];
     if (myLoc) return arr.sort((a, b) => (dist.get(a.id) ?? 0) - (dist.get(b.id) ?? 0));
     return arr.sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate));
-  }, [filtered, visibleIds, inRadius, myLoc, dist]);
+  }, [filtered, myLoc, dist]);
+  const hasFilter = !!query.trim() || status !== "all" || genres.size > 0 || freeOnly;
 
   // ----- 내 위치 -----
   const locate = (preferred?: number) => {
@@ -315,9 +317,9 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
         >
           <span className="grab" />
           <span className="list-title">
-            <h2>{inRadius && radius ? `내 위치 ${radiusLabel(radius)} 안 전시` : myLoc ? "내 주변 전시" : "지도에 보이는 전시"}</h2>
+            <h2>{inRadius && radius ? `내 위치 ${radiusLabel(radius)} 안 전시` : hasFilter ? "조건에 맞는 전시" : "전국 전시"}</h2>
             <small>
-              {inRadius ? `${visible.length}개 · 가까운 순` : `${visible.length}개 / 전체 ${filtered.length}개`}
+              {`${visible.length}개 · ${myLoc ? "가까운 순" : "마감 임박 순"}`}
               <span className="list-toggle">{listOpen ? "접기 ▾" : "펼치기 ▴"}</span>
             </small>
           </span>
@@ -328,7 +330,7 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
               {inRadius && radius ? (
                 <>내 위치 {radiusLabel(radius)} 안에는 조건에 맞는 전시가 없어요.<br />위쪽에서 반경을 더 넓혀 보세요.</>
               ) : (
-                <>이 화면 안에는 조건에 맞는 전시가 없어요.<br />지도를 축소하거나 필터를 바꿔 보세요.</>
+                <>조건에 맞는 전시가 없어요.<br />카테고리나 검색어를 바꿔 보세요.</>
               )}
             </div>
           ) : (
