@@ -189,6 +189,12 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .w-date{margin:0;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--muted)}
 .w-brand{margin:0;font-family:var(--f-display);font-weight:700;font-size:clamp(44px,13vw,64px);line-height:1.05;letter-spacing:-.02em}
 .w-brand span{color:var(--accent)}
+/* 오늘의 그림: 글자 모양으로 그림을 잘라 보여준다 */
+.w-brand{font-family:"Black Han Sans",var(--f-display);font-weight:400;font-size:clamp(60px,20vw,120px);line-height:1;letter-spacing:-.01em;transition:color .6s ease}
+.w-brand.painted{background-size:cover;background-position:center;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.w-brand.painted span{-webkit-text-fill-color:var(--accent);color:var(--accent)}
+.w-art{margin:2px 0 0;font-size:11.5px;color:var(--muted)}
+.w-art a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:2px}
 .w-tagline{margin:2px 0 0;font-family:var(--f-display);font-size:17px;color:var(--ink);letter-spacing:-.01em}
 .w-count{margin:10px 0 0;display:flex;align-items:baseline;gap:6px;font-size:15px;color:var(--muted)}
 .w-count b{font-family:var(--f-display);font-size:34px;color:var(--ink);font-variant-numeric:tabular-nums;margin-left:4px}
