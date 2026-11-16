@@ -211,12 +211,10 @@ export default function ExhibitionMap({ exhibitions, isSample }: { exhibitions: 
     let dragging = false;
     let armed = false;
 
-    const scrollBox = () => el.querySelector<HTMLElement>(".d-scroll");
     const onStart = (e: TouchEvent) => {
       if ((e.target as HTMLElement).closest(".lightbox, .cta")) return;
-      const sb = scrollBox();
-      // 글을 위로 올려 읽는 중이면(맨 위가 아니면) 끌어내리기 대신 스크롤
-      armed = !sb || sb.scrollTop <= 0 || !!(e.target as HTMLElement).closest(".d-grab");
+      // 창의 어느 곳이든 아래로 끌면 닫는다 (글을 읽던 중이어도)
+      armed = true;
       startY = e.touches[0].clientY;
       dy = 0;
       dragging = false;
