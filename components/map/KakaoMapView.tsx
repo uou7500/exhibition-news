@@ -159,6 +159,38 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       return overlay;
     });
     clusterer.addMarkers(overlays);
+
+    // 직접 넣은 전시는 좌표가 캠퍼스 단위 근사값일 수 있어, 주소로 정확한 위치를 다시 찾는다
+    const geocoder = new kakao.maps.services.Geocoder();
+    for (const x of items) {
+      if (x.source !== "manual" || !x.address) continue;
+      const pin = pins.get(x.id);
+      if (!pin) continue;
+      const key = `addr-geo:${x.address}`;
+      const move = (lat: number, lon: number) => {
+        pin.overlay.setPosition(new kakao.maps.LatLng(lat, lon));
+        clusterer.redraw();
+      };
+      try {
+        const hit = localStorage.getItem(key);
+        if (hit) {
+          const [lat, lon] = hit.split(",").map(Number);
+          if (lat && lon) {
+            move(lat, lon);
+            continue;
+          }
+        }
+      } catch {}
+      geocoder.addressSearch(x.address, (res: any[], status: string) => {
+        if (status !== kakao.maps.services.Status.OK || !res[0]) return;
+        const lat = Number(res[0].y);
+        const lon = Number(res[0].x);
+        try {
+          localStorage.setItem(key, `${lat},${lon}`);
+        } catch {}
+        move(lat, lon);
+      });
+    }
     reportVisible();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, items]);
