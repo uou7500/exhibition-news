@@ -1,5 +1,4 @@
-# data/ 폴더만 바뀐 커밋(하루 다섯 번 데이터 갱신)은 다시 빌드·배포하지 않는다.
-# 앱이 열릴 때 GitHub에서 최신 데이터를 직접 받아 오기 때문 (lib/remote.ts).
-# Netlify 무료 크레딧 요금제는 배포 1회에 15크레딧이라 이렇게 아낀다.
+# 사이트는 GitHub Pages로 옮겼다 (.github/workflows/pages.yml).
+# Netlify는 더 이상 빌드·배포하지 않는다 → 크레딧이 들지 않는다.
 [build]
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)data'"
+  ignore = "exit 0"
