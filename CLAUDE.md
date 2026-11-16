@@ -8,7 +8,7 @@
 - 기능 하나 = 브랜치 하나 = PR 하나. `main`에 직접 푸시하지 않는다.
 - PR 설명에는 "무엇이 바뀌었는지 / 확인하는 방법(미리보기 링크에서 어디를 눌러 보면 되는지)"을 쓴다.
 - 작업을 마치면 `docs/ROADMAP.md`의 체크 상태를 갱신한다.
-- 사용자가 직접 해야 하는 일(가입, 키 발급, 결제, 본인 인증)은 단계별로 안내하고, 키는 채팅이 아니라 GitHub Secrets / Vercel 환경변수에 넣도록 한다.
+- 사용자가 직접 해야 하는 일(가입, 키 발급, 결제, 본인 인증)은 단계별로 안내하고, 키는 채팅이 아니라 GitHub Secrets / Netlify 환경변수에 넣도록 한다.
 
 ## 구조
 
@@ -19,7 +19,7 @@
 - `lib/data.ts` — 데이터 읽기. `data/exhibitions.json`이 비어 있으면 `lib/sample-exhibitions.ts` 예시 데이터를 쓴다. DB로 옮길 때 이 파일만 바꾼다.
 - `lib/korea-map.ts` — 임시 SVG 지도 윤곽. 카카오맵 도입 시 삭제.
 - `scripts/fetch-exhibitions.mjs` — 공공데이터 수집기 (의존성 없음, Node 20+).
-- `.github/workflows/fetch-exhibitions.yml` — 매일 새벽 수집 후 `data/exhibitions.json` 커밋 → Vercel 자동 재배포.
+- `.github/workflows/fetch-exhibitions.yml` — 매일 새벽 수집 후 `data/exhibitions.json` 커밋 → Netlify 자동 재배포.
 
 ## 데이터
 

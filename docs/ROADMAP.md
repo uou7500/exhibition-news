@@ -4,7 +4,8 @@
 - [x] 프로젝트 뼈대 (Next.js + TypeScript)
 - [x] 지도·목록·상세 화면 (임시 SVG 지도, 예시 데이터)
 - [x] 공공데이터 수집 스크립트 + 매일 자동 실행 설정
-- [ ] Vercel 연결, 미리보기 배포 확인  ← 사용자: Vercel 가입
+- [x] Netlify 배포 (https://joyful-fairy-96889b.netlify.app)
+- [ ] Netlify ↔ GitHub 계정 연결 (PR 미리보기·배포 결과 표시)  ← 사용자
 - [ ] 공공데이터 키 등록 후 첫 실제 수집, 필드 매핑 확정  ← 사용자: 키 발급
 - [ ] 카카오맵으로 지도 교체  ← 사용자: 카카오 JavaScript 키
 - [ ] 좌표 없는 전시를 주소로 좌표 찾기 (카카오 로컬 API)
