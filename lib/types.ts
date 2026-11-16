@@ -28,5 +28,7 @@ export interface Exhibition {
   url?: string;
   address?: string;
   /** 데이터 출처 */
-  source: "sample" | "culture.go.kr";
+  /** 직접 붙인 분류. 예: ["졸업전시"], ["실험전시"], ["작가전"] */
+  tags?: string[];
+  source: "sample" | "culture.go.kr" | "manual";
 }

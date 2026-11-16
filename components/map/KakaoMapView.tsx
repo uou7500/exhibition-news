@@ -61,7 +61,7 @@ function pinElement(x: Exhibition, onClick: () => void): HTMLButtonElement {
   return el;
 }
 
-export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag }: MapViewProps & { appKey: string }) {
+export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces }: MapViewProps & { appKey: string }) {
   const boxRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const clustererRef = useRef<any>(null);
@@ -311,6 +311,69 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       map.setCenter(new kakao.maps.LatLng(myLoc.lat, myLoc.lon));
     }
   }, [ready, locateSeq, radius]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // ----- 독립공간 핀 -----
+  useEffect(() => {
+    if (!ready) return;
+    const kakao = window.kakao;
+    const map = mapRef.current;
+    const places = new kakao.maps.services.Places();
+    const overlays: any[] = [];
+    let alive = true;
+
+    const place = (s: (typeof spaces)[number], lat: number, lon: number) => {
+      if (!alive) return;
+      const el = document.createElement("a");
+      el.className = "space-pin";
+      el.href = s.instagram || s.url || "#";
+      el.target = "_blank";
+      el.rel = "noopener noreferrer";
+      el.title = s.note ? `${s.name} — ${s.note}` : s.name;
+      const mark = document.createElement("span");
+      mark.className = "space-mark";
+      const name = document.createElement("span");
+      name.className = "space-name";
+      name.textContent = s.name;
+      el.append(mark, name);
+      const o = new kakao.maps.CustomOverlay({ position: new kakao.maps.LatLng(lat, lon), content: el, xAnchor: 0.5, yAnchor: 0.5, clickable: true, zIndex: 2 });
+      o.setMap(map);
+      overlays.push(o);
+    };
+
+    for (const s of spaces) {
+      if (s.lat && s.lon) {
+        place(s, s.lat, s.lon);
+        continue;
+      }
+      const key = `space-geo:${s.id}:${s.search ?? s.name}`;
+      try {
+        const hit = localStorage.getItem(key);
+        if (hit) {
+          const [lat, lon] = hit.split(",").map(Number);
+          if (lat && lon) {
+            place(s, lat, lon);
+            continue;
+          }
+        }
+      } catch {}
+      places.keywordSearch(s.search ?? s.name, (data: any[], status: string) => {
+        if (status !== kakao.maps.services.Status.OK) return;
+        // 엉뚱한 곳을 찍지 않도록, 동네 글자(area)가 주소에 있는 결과만 쓴다
+        const d = data.find((p) => !s.area || `${p.address_name} ${p.road_address_name}`.includes(s.area!));
+        if (!d) return;
+        const lat = Number(d.y);
+        const lon = Number(d.x);
+        try {
+          localStorage.setItem(key, `${lat},${lon}`);
+        } catch {}
+        place(s, lat, lon);
+      });
+    }
+    return () => {
+      alive = false;
+      overlays.forEach((o) => o.setMap(null));
+    };
+  }, [ready, spaces]);
 
   // ----- 확대·축소 버튼 -----
   const zoomBy = (d: number) => {
