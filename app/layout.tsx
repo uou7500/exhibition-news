@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "전시지도",
-  description: "전국에서 열리는 미술 전시를 지도에서 찾아보세요.",
+  title: "앙데팡당",
+  description: "누구의 전시든, 지도 위에 평등하게. 전국의 미술 전시와 독립공간, 졸업전시를 지도에서 찾아보세요.",
 };
 
 export const viewport: Viewport = {

@@ -100,11 +100,12 @@ export default function Welcome({
   const dateLine = now ? `${now.getMonth() + 1}월 ${now.getDate()}일 ${WEEKDAYS[now.getDay()]}요일` : " ";
 
   return (
-    <div className="welcome" role="dialog" aria-modal="true" aria-label="전시지도 시작 화면">
+    <div className="welcome" role="dialog" aria-modal="true" aria-label="앙데팡당 시작 화면">
       <div className="w-inner">
         <header className="w-head">
           <p className="w-date">{dateLine}</p>
-          <h1 className="w-brand">전시<span>지도</span></h1>
+          <h1 className="w-brand">앙데팡당<span aria-hidden="true">.</span></h1>
+          <p className="w-tagline">누구의 전시든, 지도 위에 평등하게</p>
           <p className="w-count">
             오늘 열려 있는 전시
             <b>{openToday ?? "—"}</b>

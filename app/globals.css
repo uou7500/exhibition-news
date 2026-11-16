@@ -189,7 +189,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .w-date{margin:0;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--muted)}
 .w-brand{margin:0;font-family:var(--f-display);font-weight:700;font-size:clamp(44px,13vw,64px);line-height:1.05;letter-spacing:-.02em}
 .w-brand span{color:var(--accent)}
-.w-count{margin:6px 0 0;display:flex;align-items:baseline;gap:6px;font-size:15px;color:var(--muted)}
+.w-tagline{margin:2px 0 0;font-family:var(--f-display);font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.w-count{margin:10px 0 0;display:flex;align-items:baseline;gap:6px;font-size:15px;color:var(--muted)}
 .w-count b{font-family:var(--f-display);font-size:34px;color:var(--ink);font-variant-numeric:tabular-nums;margin-left:4px}
 .w-count span{color:var(--ink)}
 .w-picks{display:flex;flex-direction:column;gap:10px;min-width:0}
