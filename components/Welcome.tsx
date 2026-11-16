@@ -8,6 +8,7 @@ import type { PopularityData } from "@/lib/picks";
 import { FUTURE_KINDS, futureKindOf, type FutureKind } from "@/lib/future";
 import { formatDate, statusOf } from "@/lib/status";
 import Poster from "./Poster";
+import { MOOD_LABEL, moodOf, paintingFor, seoulWeatherCode, type Painting } from "@/lib/paintings";
 
 type Tab = "popular" | "future";
 const WEEKDAYS = "일월화수목금토";
@@ -37,6 +38,23 @@ export default function Welcome({
   useEffect(() => setNow(new Date()), []);
   const [tab, setTab] = useState<Tab>("popular");
   const [kind, setKind] = useState<FutureKind | null>(null);
+
+  // 오늘의 그림: 서울 날씨에 맞는 색 비중의 그림을 제목 글자 안에 넣는다
+  const [art, setArt] = useState<{ p: Painting; weather: string; label: string } | null>(null);
+  useEffect(() => {
+    let alive = true;
+    seoulWeatherCode().then((code) => {
+      const { mood, weather } = code === null ? { mood: "colorful" as const, weather: "" } : moodOf(code);
+      const p = paintingFor(mood, new Date());
+      if (!p || !alive) return;
+      const img = new Image();
+      img.onload = () => alive && setArt({ p, weather, label: MOOD_LABEL[mood] });
+      img.src = p.image;
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   const byId = useMemo(() => new Map(exhibitions.map((x) => [x.id, x])), [exhibitions]);
 
@@ -104,8 +122,19 @@ export default function Welcome({
       <div className="w-inner">
         <header className="w-head">
           <p className="w-date">{dateLine}</p>
-          <h1 className="w-brand">앙데팡당<span aria-hidden="true">.</span></h1>
+          <h1 className={"w-brand" + (art ? " painted" : "")} style={art ? { backgroundImage: `url("${art.p.image}")` } : undefined}>
+            앙데팡당<span aria-hidden="true">.</span>
+          </h1>
           <p className="w-tagline">누구의 전시든, 지도 위에 평등하게</p>
+          {art && (
+            <p className="w-art">
+              오늘의 그림 ·{" "}
+              <a href={art.p.page} target="_blank" rel="noopener noreferrer">
+                {art.p.artist} 〈{art.p.title}〉 {art.p.year}
+              </a>
+              {art.weather && <> · 오늘 서울 {art.weather} → {art.label}</>}
+            </p>
+          )}
           <p className="w-count">
             오늘 열려 있는 전시
             <b>{openToday ?? "—"}</b>
