@@ -6,7 +6,7 @@ import { formatDate, formatPrice, parseDate, statusOf } from "@/lib/status";
 import { CITY_LABELS, DMZ_PATH, JEJU, LAND_PATH, MAP_HEIGHT, MAP_WIDTH, project } from "@/lib/korea-map";
 import Poster from "./Poster";
 
-const GENRES: Genre[] = ["회화", "미디어", "사진", "조각·설치", "공예", "디자인"];
+const GENRES: Genre[] = ["회화", "미디어", "사진", "조각·설치", "공예", "디자인", "기타"];
 type StatusFilter = "all" | "on" | "upcoming";
 interface View { s: number; tx: number; ty: number }
 
@@ -355,7 +355,7 @@ function Detail({ x, onClose }: { x: Exhibition; onClose: () => void }) {
           <dl className="facts">
             <dt>기간</dt><dd>{formatDate(x.startDate)} – {formatDate(x.endDate)}</dd>
             {x.hours && (<><dt>관람 시간</dt><dd>{x.hours}</dd></>)}
-            <dt>관람료</dt><dd>{x.priceText ?? formatPrice(x.price)}</dd>
+            <dt>관람료</dt><dd>{x.price !== null && x.priceText ? x.priceText : formatPrice(x.price)}</dd>
             <dt>장소</dt><dd>{x.address ?? x.venue}</dd>
           </dl>
           {x.description && <p className="desc">{x.description}</p>}

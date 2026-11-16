@@ -25,7 +25,7 @@
 
 - 출처: 한국문화정보원 '한눈에보는문화정보' (공공데이터포털 15138937). 분야 `미술`/`전시`만 사용.
 - 키: GitHub Secret `DATA_GO_KR_KEY` (공공데이터포털의 Decoding 키).
-- 응답 필드 이름은 문서 기준 추정치다. 첫 실제 실행 로그의 "첫 항목 원본 필드"를 보고 `FIELD` 매핑을 확정할 것.
+- 엔드포인트: `https://apis.data.go.kr/B553457/cultureinfo/realm2`(분야 코드 D000=전시), `detail2?seq=`. 응답 필드: seq, title, startDate, endDate, place, realmName, area, sigungu, thumbnail, gpsX(경도), gpsY(위도) / 상세: price, url, contents1, placeAddr, phone, placeUrl. (2026-11 실제 응답으로 확인)
 - 좌표 없는 항목은 현재 버린다 → 카카오 로컬 API 주소 검색으로 보완 예정.
 
 ## 결정 사항
