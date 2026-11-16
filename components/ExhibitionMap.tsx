@@ -10,6 +10,7 @@ import Welcome from "./Welcome";
 import type { PopularityData } from "@/lib/picks";
 import type { Space } from "@/lib/spaces";
 import { futureKindOf } from "@/lib/future";
+import { loadLatest } from "@/lib/remote";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
 import { POI_LABELS, type PoiCode } from "./map/types";
@@ -53,9 +54,9 @@ function useDesktop() {
 }
 
 export default function ExhibitionMap({
-  exhibitions,
+  exhibitions: initialExhibitions,
   isSample,
-  popularity,
+  popularity: initialPopularity,
   spaces,
 }: {
   exhibitions: Exhibition[];
@@ -64,6 +65,20 @@ export default function ExhibitionMap({
   spaces: Space[];
 }) {
   const desktop = useDesktop();
+  // 배포 때 묶인 데이터로 먼저 그리고, 열리자마자 최신 데이터를 받아 바꾼다
+  const [exhibitions, setExhibitions] = useState(initialExhibitions);
+  const [popularity, setPopularity] = useState(initialPopularity);
+  useEffect(() => {
+    let alive = true;
+    loadLatest().then((d) => {
+      if (!alive) return;
+      if (d.exhibitions) setExhibitions(d.exhibitions);
+      if (d.popularity) setPopularity(d.popularity);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
   const [query, setQuery] = useState("");
   // null = 아무것도 고르지 않음 (전체와 같은 결과)
   const [status, setStatus] = useState<StatusFilter | null>(null);

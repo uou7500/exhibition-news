@@ -27,7 +27,9 @@
 - `lib/korea-map.ts` — 임시 SVG 지도 윤곽 (SvgMapView 전용).
 - `scripts/fetch-exhibitions.mjs` — 공공데이터 수집기 (의존성 없음, Node 20+).
 - `scripts/fetch-popularity.mjs` — 대중픽: 네이버 블로그 검색 API로 전시별 최근 30일 글 수. GitHub Secrets `NAVER_CLIENT_ID`/`NAVER_CLIENT_SECRET` 없으면 건너뜀.
-- `.github/workflows/fetch-exhibitions.yml` — 매일 새벽 수집 후 `data/exhibitions.json` 커밋 → Netlify 자동 재배포.
+- `.github/workflows/fetch-exhibitions.yml` — 한국시간 9·12·15·18·24시에 수집 후 `data/` 커밋. Netlify는 data/만 바뀐 커밋은 빌드하지 않는다(`netlify.toml`의 ignore).
+- `lib/remote.ts` — 앱이 열릴 때 GitHub raw(`DATA_BASE`)에서 최신 `data/*.json`을 받아 화면을 바꾼다. 실패하면 배포 때 묶인 데이터를 쓴다. (저장소가 공개여야 동작)
+- `lib/clean.ts` — 깨진 HTML 글자 정리 (서버·브라우저 공용).
 
 ## 데이터
 
@@ -48,6 +50,8 @@
 - 디자인: 지도 위 하단 시트(모바일) / 좌측 목록 + 우측 상세(데스크톱 900px 이상). 색은 `app/globals.css`의 `:root` 토큰만 사용, 다크 모드 지원.
 
 ## 개발 환경 메모
+
+- **Netlify는 크레딧 요금제(무료 300크레딧/월, 프로덕션 배포 1회 15크레딧 ≈ 월 20회)**. 크레딧이 바닥나면 사이트가 멈춘다. 코드 변경은 여러 개를 한 PR로 묶어 main에 합치는 횟수를 줄인다. 확인은 PR의 Deploy Preview(무료)로 한다.
 
 - Next.js·React는 보안 패치가 반영된 버전 범위(`^`)로 둔다. Netlify는 알려진 취약 버전(예: CVE-2025-55182)이면 배포를 막는다.
 - 배포: Netlify (main 브랜치 자동 배포, PR마다 미리보기). Vercel은 계정 문제로 보류.

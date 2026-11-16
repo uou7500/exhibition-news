@@ -2,8 +2,8 @@ name: 전시 데이터 수집
 
 on:
   schedule:
-    # 매일 한국시간 새벽 4시 17분 (UTC 19:17)
-    - cron: "17 19 * * *"
+    # 한국시간 오전 9시, 낮 12시, 오후 3시, 저녁 6시, 밤 12시 (각 7분쯤 시작, UTC 기준으로 적음)
+    - cron: "7 0,3,6,9,15 * * *"
   workflow_dispatch: {}
 
 permissions:
