@@ -13,11 +13,13 @@
 ## 구조
 
 - `app/` — Next.js App Router. `page.tsx`가 데이터를 읽어 `ExhibitionMap`에 넘긴다.
-- `components/ExhibitionMap.tsx` — 지도, 필터, 목록 시트, 상세 패널 (클라이언트 컴포넌트).
+- `components/ExhibitionMap.tsx` — 필터, 목록 시트, 상세 패널, 지도 엔진 선택 (클라이언트 컴포넌트).
+- `components/map/KakaoMapView.tsx` — 카카오맵 (환경변수 `NEXT_PUBLIC_KAKAO_MAP_KEY`가 있을 때). 전시 핀·묶음(clusterer)·주변 편의점/카페/지하철역(장소 카테고리 검색 CS2/CE7/SW8).
+- `components/map/SvgMapView.tsx` — 키가 없을 때 쓰는 임시 윤곽 지도. `components/map/types.ts`의 `MapViewProps`를 두 지도가 같이 따른다.
 - `components/Poster.tsx` — 썸네일이 없을 때 장르별 생성 포스터.
 - `lib/types.ts` — `Exhibition` 타입. 모든 데이터는 이 형태를 따른다.
 - `lib/data.ts` — 데이터 읽기. `data/exhibitions.json`이 비어 있으면 `lib/sample-exhibitions.ts` 예시 데이터를 쓴다. DB로 옮길 때 이 파일만 바꾼다.
-- `lib/korea-map.ts` — 임시 SVG 지도 윤곽. 카카오맵 도입 시 삭제.
+- `lib/korea-map.ts` — 임시 SVG 지도 윤곽 (SvgMapView 전용).
 - `scripts/fetch-exhibitions.mjs` — 공공데이터 수집기 (의존성 없음, Node 20+).
 - `.github/workflows/fetch-exhibitions.yml` — 매일 새벽 수집 후 `data/exhibitions.json` 커밋 → Netlify 자동 재배포.
 
@@ -39,4 +41,5 @@
 
 - Next.js·React는 보안 패치가 반영된 버전 범위(`^`)로 둔다. Netlify는 알려진 취약 버전(예: CVE-2025-55182)이면 배포를 막는다.
 - 배포: Netlify (main 브랜치 자동 배포, PR마다 미리보기). Vercel은 계정 문제로 보류.
+- 카카오 JavaScript 키는 Netlify 환경변수 `NEXT_PUBLIC_KAKAO_MAP_KEY`(빌드 때 들어감, 바꾸면 재배포 필요). 카카오 개발자 콘솔에 사이트 도메인 등록 필수. 이 작업 공간에서는 카카오 SDK에 접속할 수 없어 실제 지도 확인은 사용자 화면으로 한다.
 - Claude 클라우드 작업 공간에서 npm 저장소 접근이 막힐 수 있다. 그 경우 로컬 빌드 대신 Netlify 배포 로그로 확인한다.
