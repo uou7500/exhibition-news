@@ -232,3 +232,61 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .space-name{font-size:11.5px;font-weight:700;color:#4a1a9e;background:rgba(255,255,255,.94);padding:1px 6px;border-radius:4px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.18)}
 .space-chip[aria-pressed="true"]{background:#7b2ff7;border-color:#7b2ff7;color:#fff}
 .chip.future[aria-pressed="true"]{background:#7b2ff7;border-color:#7b2ff7;color:#fff}
+
+/* ---------- 별점·리뷰 ---------- */
+.stars{display:inline-flex;letter-spacing:-.05em;color:var(--line);line-height:1}
+.stars .on{color:#f5a623}
+.stars .half{background:linear-gradient(90deg,#f5a623 50%,var(--line) 50%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rating-line{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:4px 0;margin:2px 0 0;font-size:13px;color:var(--muted);text-align:left}
+.rating-line b{color:var(--ink);font-variant-numeric:tabular-nums}
+.rating-line.empty{color:var(--accent);font-weight:600;font-size:12.5px}
+.rating-line.compact{padding:0;margin:0 0 3px;font-size:11.5px;gap:4px}
+.reviews{border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:12px}
+.rv-h{margin:0;font-size:16px;font-weight:700}
+.rv-form{display:flex;flex-direction:column;gap:8px;background:var(--soft);border-radius:12px;padding:12px}
+.rv-pick{display:flex;align-items:center;gap:2px}
+.rv-pick button{border:0;background:none;font-size:28px;line-height:1;color:var(--line);padding:2px}
+.rv-pick button.on{color:#f5a623}
+.rv-pick-label{margin-left:8px;font-size:13px;color:var(--muted)}
+.rv-form textarea,.rv-form input,.sf-form input,.sf-form textarea,.sf-form select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 10px}
+.rv-row{display:flex;gap:8px}
+.rv-row input{flex:1;min-width:0}
+.rv-submit{flex:none!important;padding:10px 14px!important;font-size:14px!important}
+.rv-delete{align-self:flex-start;border:0;background:none;color:var(--muted);font-size:12.5px;text-decoration:underline;padding:0}
+.rv-error{margin:0;color:var(--warn);font-size:13px}
+.rv-done{margin:0;color:var(--free);font-size:13px;font-weight:600}
+.rv-note{margin:0;color:var(--muted);font-size:13px}
+.rv-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.rv-list li{padding:12px 0;border-bottom:1px solid var(--line)}
+.rv-list li p{margin:6px 0 0;font-size:14px;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}
+.rv-meta{display:flex;align-items:center;gap:8px;font-size:12.5px;flex-wrap:wrap}
+.rv-meta time{color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums}
+.rv-me{font-size:11px;color:var(--accent);border:1px solid currentColor;border-radius:4px;padding:0 4px}
+.mk .lab .lab-star{color:#d48806;font-weight:700}
+
+/* ---------- 관심 전시 ---------- */
+.save-btn{width:48px;font-size:20px!important;padding:10px 0!important;color:var(--ink)}
+.save-btn.on{color:#e0245e}
+.saved-dot{color:#e0245e}
+.chip.saved[aria-pressed="true"]{background:#e0245e;border-color:#e0245e;color:#fff}
+
+/* ---------- 전시 등록 요청 ---------- */
+.submit-link{display:block;width:100%;margin:10px 0 4px;padding:12px;border:1px dashed var(--line);border-radius:10px;background:none;color:var(--muted);font-size:13px;text-align:center}
+.submit-link b{color:var(--accent)}
+.sheet-backdrop{position:fixed;inset:0;z-index:70;background:rgba(10,14,22,.45);display:flex;align-items:flex-end;justify-content:center}
+.submit-sheet{background:var(--panel);width:100%;max-width:560px;max-height:92%;overflow-y:auto;overscroll-behavior:contain;border-radius:16px 16px 0 0;
+  padding:16px max(18px, env(safe-area-inset-right, 0px)) calc(20px + env(safe-area-inset-bottom, 0px)) max(18px, env(safe-area-inset-left, 0px))}
+.sf-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.sf-head h2{margin:0;font-family:var(--f-display);font-size:20px}
+.sf-close{border:0;background:var(--soft);width:34px;height:34px;border-radius:50%;font-size:18px}
+.sf-note{margin:0 0 6px;font-size:13px;color:var(--muted);line-height:1.6}
+.sf-form{display:flex;flex-direction:column;gap:12px}
+.sf-form label{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600}
+.sf-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sf-price{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.sf-price input{flex:1;min-width:140px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:8px;padding:9px 10px;background:var(--panel);color:var(--ink)}
+.sf-check{flex-direction:row!important;align-items:center;gap:6px!important}
+.sf-check input{width:auto!important}
+.sf-done{display:flex;flex-direction:column;gap:6px;padding:12px 0}
+.sf-done p{margin:0;line-height:1.6}
+@media (min-width:900px){.sheet-backdrop{align-items:center}.submit-sheet{border-radius:14px;max-height:86%}}

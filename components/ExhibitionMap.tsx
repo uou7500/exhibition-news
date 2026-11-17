@@ -12,6 +12,11 @@ import type { Space } from "@/lib/spaces";
 import type { TodayArt } from "@/lib/paintings";
 import { futureKindOf } from "@/lib/future";
 import { loadLatest } from "@/lib/remote";
+import { fetchRatings, type Rating } from "@/lib/reviews";
+import { fetchApproved } from "@/lib/submissions";
+import { useBookmarks } from "@/lib/bookmarks";
+import { RatingLine, ReviewPanel } from "./Reviews";
+import SubmitForm from "./SubmitForm";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
 import { POI_LABELS, type PoiCode } from "./map/types";
@@ -71,6 +76,8 @@ export default function ExhibitionMap({
   // 배포 때 묶인 데이터로 먼저 그리고, 열리자마자 최신 데이터를 받아 바꾼다
   const [exhibitions, setExhibitions] = useState(initialExhibitions);
   const [popularity, setPopularity] = useState(initialPopularity);
+  // 운영자가 승인한 '전시 등록 요청'은 Supabase에서 받아 함께 보여준다
+  const [approved, setApproved] = useState<Exhibition[]>([]);
   useEffect(() => {
     let alive = true;
     loadLatest().then((d) => {
@@ -78,10 +85,28 @@ export default function ExhibitionMap({
       if (d.exhibitions) setExhibitions(d.exhibitions);
       if (d.popularity) setPopularity(d.popularity);
     });
+    fetchApproved()
+      .then((a) => alive && setApproved(a))
+      .catch(() => {});
     return () => {
       alive = false;
     };
   }, []);
+  const allExhibitions = useMemo(() => (approved.length ? [...exhibitions, ...approved] : exhibitions), [exhibitions, approved]);
+
+  // 별점: 전시별 평균과 리뷰 수 (리뷰를 쓰면 다시 받는다)
+  const [ratings, setRatings] = useState<Map<string, Rating>>(new Map());
+  const loadRatings = useCallback(() => {
+    fetchRatings()
+      .then(setRatings)
+      .catch(() => {});
+  }, []);
+  useEffect(loadRatings, [loadRatings]);
+
+  // 관심 전시 (이 기기에 저장)
+  const { saved, toggle: toggleSaved } = useBookmarks();
+  const [savedOnly, setSavedOnly] = useState(false);
+  const [showSubmit, setShowSubmit] = useState(false);
   const [query, setQuery] = useState("");
   // null = 아무것도 고르지 않음 (전체와 같은 결과)
   const [status, setStatus] = useState<StatusFilter | null>(null);
@@ -119,11 +144,11 @@ export default function ExhibitionMap({
   const [locating, setLocating] = useState(false);
   const [locError, setLocError] = useState<string | null>(null);
 
-  const selected = exhibitions.find((x) => x.id === selectedId) ?? null;
+  const selected = allExhibitions.find((x) => x.id === selectedId) ?? null;
 
   const baseFiltered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return exhibitions.filter((x) => {
+    return allExhibitions.filter((x) => {
       const st = statusOf(x).kind;
       if (st === "over") return false;
       if (status === "on" && !(st === "on" || st === "ending")) return false;
@@ -131,17 +156,18 @@ export default function ExhibitionMap({
       if (genres.size && !genres.has(x.genre)) return false;
       if (freeOnly && x.price !== 0) return false;
       if (futureOnly && !futureKindOf(x)) return false;
+      if (savedOnly && !saved.has(x.id)) return false;
       if (q && !(x.title + x.venue + x.city + x.genre).toLowerCase().includes(q)) return false;
       return true;
     });
-  }, [exhibitions, query, status, genres, freeOnly, futureOnly]);
+  }, [allExhibitions, query, status, genres, freeOnly, futureOnly, savedOnly, saved]);
 
   // 내 위치에서 각 전시까지 거리(미터)
   const dist = useMemo(() => {
     const m = new Map<string, number>();
-    if (myLoc) for (const x of exhibitions) m.set(x.id, distanceM(myLoc.lat, myLoc.lon, x.lat, x.lon));
+    if (myLoc) for (const x of allExhibitions) m.set(x.id, distanceM(myLoc.lat, myLoc.lon, x.lat, x.lon));
     return m;
-  }, [exhibitions, myLoc]);
+  }, [allExhibitions, myLoc]);
 
   const inRadius = !!(myLoc && radius);
   const filtered = useMemo(
@@ -156,7 +182,7 @@ export default function ExhibitionMap({
     if (myLoc) return arr.sort((a, b) => (dist.get(a.id) ?? 0) - (dist.get(b.id) ?? 0));
     return arr.sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate));
   }, [filtered, myLoc, dist]);
-  const hasFilter = !!query.trim() || (status !== null && status !== "all") || genres.size > 0 || freeOnly || futureOnly;
+  const hasFilter = !!query.trim() || (status !== null && status !== "all") || genres.size > 0 || freeOnly || futureOnly || savedOnly;
 
   // ----- 내 위치 -----
   const locate = (preferred?: number) => {
@@ -261,7 +287,7 @@ export default function ExhibitionMap({
     let armed = false;
 
     const onStart = (e: TouchEvent) => {
-      if ((e.target as HTMLElement).closest(".lightbox, .cta")) return;
+      if ((e.target as HTMLElement).closest(".lightbox, .cta, .rv-form, input, textarea, select")) return;
       // 창의 어느 곳이든 아래로 끌면 닫는다 (글을 읽던 중이어도)
       armed = true;
       startY = e.touches[0].clientY;
@@ -348,6 +374,7 @@ export default function ExhibitionMap({
     locateSeq,
     onMapDrag,
     spaces: shownSpaces,
+    ratings,
   };
 
   return (
@@ -372,6 +399,7 @@ export default function ExhibitionMap({
           <span className="sep" />
           <button className="chip free" aria-pressed={freeOnly} onClick={() => setFreeOnly((v) => !v)}>무료만</button>
           <button className="chip future" aria-pressed={futureOnly} onClick={() => setFutureOnly((v) => !v)}>예술의 미래</button>
+          <button className="chip saved" aria-pressed={savedOnly} onClick={() => setSavedOnly((v) => !v)}>♥ 저장한 전시{saved.size ? ` ${saved.size}` : ""}</button>
           <span className="sep" />
           {GENRES.map((g) => (
             <button key={g} className="chip" aria-pressed={genres.has(g)} onClick={() => toggle(setGenres, g)}>{g}</button>
@@ -420,7 +448,7 @@ export default function ExhibitionMap({
 
       {showWelcome && (
         <Welcome
-          exhibitions={exhibitions}
+          exhibitions={allExhibitions}
           popularity={popularity}
           onPick={(id) => {
             dismissWelcome();
@@ -473,7 +501,8 @@ export default function ExhibitionMap({
                 <button key={x.id} className={"item" + (x.id === selectedId ? " sel" : "")} onClick={() => openFromList(x.id)}>
                   <Poster exhibition={x} className="thumb" />
                   <span className="t">
-                    <h3>{x.title}</h3>
+                    <h3>{saved.has(x.id) && <span className="saved-dot" aria-label="저장한 전시">♥ </span>}{x.title}</h3>
+                    <RatingLine rating={ratings.get(x.id)} compact />
                     <p>
                       {st.kind === "ending" ? <span className="tag end">{st.label}</span> : st.kind === "upcoming" ? <span className="tag up">{st.label}</span> : <span className="tag">{x.genre}</span>}
                       {dist.has(x.id) && <span className="dist">{formatDistance(dist.get(x.id)!)}</span>}
@@ -486,24 +515,44 @@ export default function ExhibitionMap({
               );
             })
           )}
+          <button type="button" className="submit-link" onClick={() => setShowSubmit(true)}>
+            찾는 전시가 없나요? <b>전시 등록 요청하기</b>
+          </button>
           {isSample && <div className="note">지금은 화면 확인용 예시 데이터가 표시돼요. 공공데이터 수집이 시작되면 실제 전시로 바뀝니다.</div>}
         </div>
       </section>
 
       <div className={"scrim" + (selected && !desktop ? " show" : "")} onClick={() => setSelectedId(null)} />
       <aside ref={detailRef} className={"detail" + (selected ? " show" : "")} aria-live="polite">
-        {selected && <Detail x={selected} distance={dist.get(selected.id)} myLoc={myLoc} onLocated={setMyLoc} onClose={() => setSelectedId(null)} />}
+        {selected && (
+          <Detail
+            x={selected}
+            distance={dist.get(selected.id)}
+            myLoc={myLoc}
+            onLocated={setMyLoc}
+            onClose={() => setSelectedId(null)}
+            rating={ratings.get(selected.id)}
+            onReviewsChanged={loadRatings}
+            isSaved={saved.has(selected.id)}
+            onToggleSaved={() => toggleSaved(selected.id)}
+          />
+        )}
       </aside>
+      {showSubmit && <SubmitForm onClose={() => setShowSubmit(false)} />}
     </div>
   );
 }
 
-function Detail({ x, distance, myLoc, onLocated, onClose }: {
+function Detail({ x, distance, myLoc, onLocated, onClose, rating, onReviewsChanged, isSaved, onToggleSaved }: {
   x: Exhibition;
   distance?: number;
   myLoc: MyLocation | null;
   onLocated: (loc: MyLocation) => void;
   onClose: () => void;
+  rating?: Rating;
+  onReviewsChanged: () => void;
+  isSaved: boolean;
+  onToggleSaved: () => void;
 }) {
   const st = statusOf(x);
   const [finding, setFinding] = useState(false);
@@ -580,6 +629,7 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
             <span className={"tag" + (st.kind === "ending" ? " end" : st.kind === "upcoming" ? " up" : "")}>{st.label}</span>
             <span className="tag">{x.genre}</span>
             <h2>{x.title}</h2>
+            <RatingLine rating={rating} onClick={() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "start" })} />
             <div className="d-venue">
               {x.venue} · {x.city}
               {distance !== undefined && <> · 내 위치에서 {formatDistance(distance)}</>}
@@ -599,9 +649,13 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
               {x.url ? " 아래 '전시 안내 보기'에서 자세한 내용을 볼 수 있어요." : ""}
             </p>
           )}
+          <ReviewPanel exhibitionId={x.id} onChanged={onReviewsChanged} />
         </div>
       </div>
       <div className="cta">
+        <button type="button" className={"btn ghost save-btn" + (isSaved ? " on" : "")} aria-pressed={isSaved} aria-label={isSaved ? "저장 취소" : "관심 전시로 저장"} onClick={onToggleSaved}>
+          {isSaved ? "♥" : "♡"}
+        </button>
         <a className="btn ghost" href={directionsUrl(x, myLoc)} target="_blank" rel="noopener noreferrer" onClick={openDirections} aria-busy={finding}>
           {finding ? "위치 확인 중…" : "길찾기"}
         </a>
