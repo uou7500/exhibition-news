@@ -30,7 +30,7 @@
 - [x] 방명록 (별점 없이 감상 한마디 + 정보 태그, 상세 창) — 별점은 앱 취지에 맞지 않아 없앰
 - [x] 방명록 표 바꾸기 SQL 실행 (`docs/supabase-guestbook.sql`)
 - [x] 방명록 신고 버튼 (3번이면 자동 숨김), 욕설 막기, 안내문
-- [ ] 에티켓·신고 SQL 실행 (`docs/supabase-etiquette.sql`)  ← 사용자
+- [x] 에티켓·신고 SQL 실행 (`docs/supabase-etiquette.sql`)
 - [ ] Supabase 프로젝트 만들기·SQL 실행·키 연결  ← 사용자
 - [x] 관심 전시 저장 (기기 저장, ♥ 저장한 전시 필터)
 - [ ] 종료 임박·개막 알림
