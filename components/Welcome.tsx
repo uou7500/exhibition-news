@@ -161,8 +161,6 @@ export default function Welcome({
               <a href={art.p.page} target="_blank" rel="noopener noreferrer">
                 {art.p.artist} 〈{art.p.title}〉 {art.p.year}
               </a>
-              {" · "}
-              {art.note}
             </p>
           )}
           <p className="w-count">
