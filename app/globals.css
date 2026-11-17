@@ -226,7 +226,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .w-quote{font-size:12.5px;line-height:1.5;color:var(--ink);font-family:var(--f-display);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .w-meta{font-size:11.5px;font-weight:600;color:var(--accent)}
 .w-empty{font-size:13.5px;line-height:1.6;color:var(--muted);background:var(--soft);border-radius:10px;padding:18px 16px}
-.w-actions{position:sticky;bottom:0;margin-top:auto;display:flex;flex-direction:column;gap:8px;background:var(--panel);background:linear-gradient(rgba(0,0,0,.03),rgba(0,0,0,.03)),color-mix(in srgb, var(--panel) 30%, transparent);-webkit-backdrop-filter:saturate(170%) blur(14px) brightness(1.04);backdrop-filter:saturate(170%) blur(14px) brightness(1.04);isolation:isolate;
+.w-actions{position:sticky;bottom:0;margin-top:auto;display:flex;flex-direction:column;gap:8px;background:var(--panel);background:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.05)),color-mix(in srgb, var(--panel) 30%, transparent);-webkit-backdrop-filter:saturate(170%) blur(14px) brightness(1.04);backdrop-filter:saturate(170%) blur(14px) brightness(1.04);isolation:isolate;
   margin-left:calc(-1 * max(20px, env(safe-area-inset-left, 0px)));margin-right:calc(-1 * max(20px, env(safe-area-inset-right, 0px)));
   padding:14px max(20px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
   border-top:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(255,255,255,.15),0 -10px 24px rgba(0,0,0,.06)}
