@@ -152,7 +152,7 @@ export default function Welcome({
           <p className="w-date">{dateLine}</p>
           {initialArt && <link rel="preload" as="image" href={initialArt.src} />}
           <h1 className={"w-brand" + (art ? " painted" : "")} style={art ? { backgroundImage: `url("${art.src}")` } : undefined}>
-            앙데팡당<span aria-hidden="true">.</span>
+            앙데팡당<span className="w-year">2026</span>
           </h1>
           <p className="w-tagline">누구의 전시든, 지도 위에 평등하게</p>
           {art && (
