@@ -236,5 +236,125 @@
       "졸업전시"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-kim-daeyoung-gung-2026",
+    "title": "김대영 개인전 《EDIT SCULPTURE》",
+    "venue": "갤러리 궁",
+    "city": "부산",
+    "lat": 35.168,
+    "lon": 129.173,
+    "genre": "사진",
+    "startDate": "2026-11-07",
+    "endDate": "2026-11-22",
+    "price": null,
+    "description": "작가 김대영(DAEVINCI)이 실제 장소·사물·인물 사진을 자르고 다시 이어 붙여 존재하지 않는 장면을 만드는 '에디트 스컬프처' 작업을 선보입니다. 현실과 허구 사이에서 우리가 당연하게 여기는 자연·사회·기술의 경계를 묻습니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-5caf75b05953d027c82c208d46c12fa6_4f26a98ee47ecd27061188579b7a3d78c92ff027_600x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1572",
+    "address": "부산 해운대구 좌동로 21",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-somebody-else-cda-2026",
+    "title": "《SOMEBODY ELSE》 AOISIMON · LUCKXY 2인전",
+    "venue": "CDA 성수",
+    "city": "서울",
+    "lat": 37.5445,
+    "lon": 127.056,
+    "genre": "회화",
+    "startDate": "2026-11-14",
+    "endDate": "2026-12-12",
+    "price": null,
+    "description": "후쿠오카의 AOISIMON과 서울의 LUCKXY가 회화 50여 점을 CDA 성수·논현 두 공간에 나눠 보여 주는 2인전입니다. 작가가 만든 캐릭터가 저마다의 정체성과 이야기를 가진 존재로 자라나는 과정을 통해 사람이 왜 '다른 존재'를 만드는지 묻습니다. (논현점: 서울 강남구 강남대로136길 59 B01)",
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-5cab9e0e8a9104aaec6624caea0d731a_075d386b899fc53de9418ac119036231287d8f6e_600x0.jpg",
+    "url": "https://artnet.kr/p/group-exhibitions/1407",
+    "address": "서울 성동구 아차산로 120",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-journey-1019-2026",
+    "title": "인천가톨릭대 대학원 스테인드글라스 석사청구전 《여정》 김예원·김이준·정주원",
+    "venue": "10.19 Gallery&Lounge",
+    "city": "인천",
+    "lat": 37.3925,
+    "lon": 126.643,
+    "genre": "공예",
+    "startDate": "2026-11-14",
+    "endDate": "2026-11-21",
+    "price": null,
+    "description": "인천가톨릭대학교 대학원 스테인드글라스 전공 세 작가의 석사 학위청구 3인전입니다. 개인의 기억, 전통 회화·서예 모티프, 손으로 빚은 형태를 유리로 풀어내며 '여정'을 목적지가 아닌 나아가는 과정으로 그립니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-32c075daa06e751c06306e9c384b3781_446f806b4547f81b8317bbdec585d4d64ac58c03_600x0.jpg",
+    "url": "https://artnet.kr/p/group-exhibitions/1397",
+    "address": "인천 연수구 아트센터대로 107",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-house-without-vase-namu-2026",
+    "title": "《House without a vase》 임리하 · 라이언 고 2인전",
+    "venue": "성수나무 갤러리",
+    "city": "서울",
+    "lat": 37.542,
+    "lon": 127.044,
+    "genre": "기타",
+    "startDate": "2026-11-05",
+    "endDate": "2026-12-01",
+    "price": null,
+    "description": "장소가 바뀌거나 그곳에 의미를 주던 사람이 사라진 뒤에도 몸·이미지·기억이 어떻게 장소에 붙들려 있는지 묻는 2인전입니다. 임리하는 문과 신체 조각을 그린 비단 작업을, 라이언 고는 겹쳐 찍은 꽃 사진을 선보입니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-a7a81e68497e40191a98ccbfa725afce_d9aaebc39665a847fbf0138b0b4702576e901d2a_600x0.png",
+    "url": "https://artnet.kr/p/group-exhibitions/1409",
+    "address": "서울 성동구 성덕정3가길 3-14",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-anyway-pscenter-2026",
+    "title": "《Anyway,》 이안 하 · 요나스 모스바허 2인전",
+    "venue": "PS CENTER",
+    "city": "서울",
+    "lat": 37.564,
+    "lon": 126.996,
+    "genre": "기타",
+    "startDate": "2026-11-13",
+    "endDate": "2026-12-11",
+    "price": null,
+    "description": "제단화·사군자 같은 성스러운 회화 형식과 지폐·스파게티·테이프·잡초 같은 일상 재료를 맞붙이는 2인전입니다. 문턱 근처에서 자란 두 작가의 경험을 바탕으로 '환대'를 정답 없는 문제로 다룹니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-9c350593228886137df5ae0bfafb1a58_2e1c4d6f8a80fcf4d2f22242a98654b66ea5bc73_600x0.jpg",
+    "url": "https://artnet.kr/p/group-exhibitions/1396",
+    "address": "서울 중구 창경궁로5다길 18",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-sahara-jaehee-2026",
+    "title": "사하라 개인전 《신체극 Wave of Still Life 움직이는 부동체》",
+    "venue": "갤러리재희",
+    "city": "부산",
+    "lat": 35.17,
+    "lon": 129.176,
+    "genre": "기타",
+    "startDate": "2026-11-14",
+    "endDate": "2026-12-13",
+    "price": null,
+    "description": "말 없이 표정과 움직임으로 이야기를 이끄는 '신체극'을 화면에 옮긴 개인전입니다. 작가 자신의 경험과 무용 공연에서 얻은 감각으로 멈춘 사물에 움직임을 불어넣어 숨은 이야기와 상상의 세계를 드러냅니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-b10bcf4023e02cd4ac61f894d91b5bbb_a2f03c9ca41195a571dc38c2a8bce501beb9c261_768x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1583",
+    "address": "부산 해운대구 좌동순환로8번길 49",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]
