@@ -1333,10 +1333,10 @@
     "height": 10843,
     "local": "pieter-bruegel-the-elder-the-numbering-at-bethlehem-google-a.jpg",
     "stats": {
-      "gray": 0.266,
+      "gray": 0.264,
       "white": 0,
       "colorful": 21,
-      "saturation": 0.275
+      "saturation": 0.276
     }
   },
   {
@@ -1580,23 +1580,23 @@
     }
   },
   {
-    "id": "Avenue de L'Opera (Effect of Snow in the Morning) IMG 6902.JPG",
+    "id": "First Snow at Veneux-Nadon A31114.jpg",
     "category": "겨울",
-    "artist": "카미유 피사로",
-    "title": "오페라 거리, 눈의 효과",
-    "year": "1898",
-    "file": "File:Avenue de L'Opera (Effect of Snow in the Morning) IMG 6902.JPG",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Avenue_de_L%27Opera_%28Effect_of_Snow_in_the_Morning%29_IMG_6902.JPG/1280px-Avenue_de_L%27Opera_%28Effect_of_Snow_in_the_Morning%29_IMG_6902.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:Avenue_de_L%27Opera_(Effect_of_Snow_in_the_Morning)_IMG_6902.JPG",
+    "artist": "알프레드 시슬레",
+    "title": "베뇌나동의 눈",
+    "year": "1880",
+    "file": "File:First Snow at Veneux-Nadon A31114.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/First_Snow_at_Veneux-Nadon_A31114.jpg/1280px-First_Snow_at_Veneux-Nadon_A31114.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:First_Snow_at_Veneux-Nadon_A31114.jpg",
     "license": "Public domain",
-    "width": 3553,
-    "height": 2734,
-    "local": "avenue-de-l-opera-effect-of-snow-in-the-morning-img-6902.jpg",
+    "width": 4000,
+    "height": 2995,
+    "local": "first-snow-at-veneux-nadon-a31114.jpg",
     "stats": {
-      "gray": 0.599,
-      "white": 0.125,
-      "colorful": 20,
-      "saturation": 0.16
+      "gray": 0.847,
+      "white": 0.144,
+      "colorful": 18,
+      "saturation": 0.107
     }
   }
 ]
