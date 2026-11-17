@@ -18,14 +18,36 @@ const EXHIBITIONS = new URL("../data/exhibitions.json", import.meta.url);
 const OUT = new URL("../data/popularity.json", import.meta.url);
 const WINDOW_DAYS = 30;
 
-/** 검색어: 제목에서 [갤러리명], (부제), 따옴표 등을 걷어낸다. 너무 짧으면 장소를 붙인다. */
-function queryOf(x) {
-  let t = x.title
-    .replace(/\[[^\]]*\]|\([^)]*\)|<[^>]*>|《|》|〈|〉|「|」|『|』|"|'|“|”|‘|’/g, " ")
+/** 제목에서 [갤러리명], (부제), 따옴표·괄호 기호를 걷어낸 핵심 제목 */
+function coreTitle(x) {
+  const t = x.title
+    .replace(/\[[^\]]*\]|\([^)]*\)/g, " ")
+    .replace(/[《》〈〉「」『』<>"'“”‘’]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
-  if (t.length < 6) t = `${t} ${x.venue}`.trim();
-  return `${t} 전시`;
+  // 한글 제목에 영어 부제가 붙어 있으면 한글 부분만 (블로그 글은 보통 한글 제목만 쓴다)
+  if (/[가-힣]/.test(t)) {
+    const ko = t.split(" ").filter((w) => /[가-힣0-9]/.test(w)).join(" ");
+    if (ko.length >= 2) return ko;
+  }
+  return t;
+}
+const squash = (s) => s.replace(/<[^>]+>/g, "").replace(/&[a-z#0-9]+;/gi, "").replace(/[\s\p{P}\p{S}]/gu, "").toLowerCase();
+const venueKey = (x) => squash(x.venue.replace(/\(.*?\)|\[.*?\]/g, "")).slice(0, 6);
+
+/** 검색어: 핵심 제목을 큰따옴표로 묶어 '정확히 그 말'이 들어간 글만 찾는다 */
+function queryOf(x) {
+  return `"${coreTitle(x)}"`;
+}
+
+/** 이 글이 정말 이 전시 이야기인지: 핵심 제목(공백·기호 무시)이 글 제목·요약에 들어 있어야 한다.
+ *  제목이 짧거나 흔한 말이면(8글자 미만) 장소 이름도 함께 나와야 인정한다. */
+function mentions(item, x) {
+  const text = squash(`${item.title ?? ""} ${item.description ?? ""}`);
+  const core = squash(coreTitle(x));
+  if (!core || !text.includes(core)) return false;
+  if (core.length < 8 && !text.includes(venueKey(x))) return false;
+  return true;
 }
 
 async function search(query) {
@@ -49,7 +71,8 @@ async function main() {
   for (const x of targets) {
     try {
       const r = await search(queryOf(x));
-      const recent = (r.items ?? []).filter((it) => String(it.postdate) >= since).length;
+      const hits = (r.items ?? []).filter((it) => mentions(it, x));
+      const recent = hits.filter((it) => String(it.postdate) >= since).length;
       items[x.id] = { recent, total: r.total ?? 0 };
     } catch (e) {
       fails++;
