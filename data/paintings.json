@@ -10,6 +10,7 @@
     "license": "Public domain",
     "width": 4289,
     "height": 2909,
+    "local": "claude-monet-the-magpie-google-art-project.jpg",
     "stats": {
       "gray": 0.693,
       "white": 0.297,
@@ -28,6 +29,7 @@
     "license": "Public domain",
     "width": 5342,
     "height": 4226,
+    "local": "monet-snow-at-argenteuil-1875.jpg",
     "stats": {
       "gray": 0.746,
       "white": 0.249,
@@ -46,6 +48,7 @@
     "license": "Public domain",
     "width": 1280,
     "height": 752,
+    "local": "monet-grainstacks-snow-effect-1891-w1274.jpg",
     "stats": {
       "gray": 0.651,
       "white": 0.184,
@@ -64,6 +67,7 @@
     "license": "CC0",
     "width": 3811,
     "height": 2522,
+    "local": "ice-floes-met-dt2158.jpg",
     "stats": {
       "gray": 0.574,
       "white": 0.4,
@@ -82,6 +86,7 @@
     "license": "CC0",
     "width": 3791,
     "height": 3353,
+    "local": "the-houses-of-parliament-effect-of-fog-met-dt1893.jpg",
     "stats": {
       "gray": 0.653,
       "white": 0,
@@ -100,6 +105,7 @@
     "license": "CC0",
     "width": 4000,
     "height": 2579,
+    "local": "claude-monet-waterloo-bridge-gray-day-1903-nga-46658.jpg",
     "stats": {
       "gray": 0.972,
       "white": 0,
@@ -118,6 +124,7 @@
     "license": "Public domain",
     "width": 5857,
     "height": 4081,
+    "local": "monet-claude-charing-cross-bridge-google-art-project.jpg",
     "stats": {
       "gray": 0.991,
       "white": 0.001,
@@ -136,6 +143,7 @@
     "license": "Public domain",
     "width": 3708,
     "height": 2757,
+    "local": "claude-monet-the-saint-lazare-station-google-art-project.jpg",
     "stats": {
       "gray": 0.837,
       "white": 0.004,
@@ -154,6 +162,7 @@
     "license": "Public domain",
     "width": 5030,
     "height": 7921,
+    "local": "claude-monet-the-cathedral-in-rouen-the-portal-grey-weather-.jpg",
     "stats": {
       "gray": 0.969,
       "white": 0.031,
@@ -172,6 +181,7 @@
     "license": "Public domain",
     "width": 5773,
     "height": 4478,
+    "local": "monet-impression-sunrise.jpg",
     "stats": {
       "gray": 0.791,
       "white": 0,
@@ -190,6 +200,7 @@
     "license": "Public domain",
     "width": 6001,
     "height": 7455,
+    "local": "claude-monet-woman-with-a-parasol-madame-monet-and-her-son-g.jpg",
     "stats": {
       "gray": 0.487,
       "white": 0.015,
@@ -208,6 +219,7 @@
     "license": "Public domain",
     "width": 5586,
     "height": 4258,
+    "local": "claude-monet-poppy-field-google-art-project.jpg",
     "stats": {
       "gray": 0.171,
       "white": 0.389,
@@ -226,6 +238,7 @@
     "license": "CC0",
     "width": 3811,
     "height": 2878,
+    "local": "garden-at-sainte-adresse-met-dt48.jpg",
     "stats": {
       "gray": 0.356,
       "white": 0.002,
@@ -244,6 +257,7 @@
     "license": "Public domain",
     "width": 2342,
     "height": 2250,
+    "local": "claude-monet-water-lilies-1906-ryerson.jpg",
     "stats": {
       "gray": 0.118,
       "white": 0,
@@ -262,6 +276,7 @@
     "license": "Public domain",
     "width": 2500,
     "height": 3123,
+    "local": "bridge-over-a-pond-of-water-lilies-claude-monet-1899.jpg",
     "stats": {
       "gray": 0.286,
       "white": 0.009,
@@ -280,6 +295,7 @@
     "license": "Public domain",
     "width": 1860,
     "height": 2532,
+    "local": "matisse-woman-with-a-hat.jpg",
     "stats": {
       "gray": 0.364,
       "white": 0.044,
@@ -298,6 +314,7 @@
     "license": "Public domain",
     "width": 3840,
     "height": 3166,
+    "local": "henri-matisse-the-dessert-harmony-in-red-the-red-room-1908.jpg",
     "stats": {
       "gray": 0.087,
       "white": 0.016,
@@ -316,6 +333,7 @@
     "license": "Public domain",
     "width": 1331,
     "height": 1567,
+    "local": "open-window-collioure-1905-henri-matisse.jpg",
     "stats": {
       "gray": 0.223,
       "white": 0.115,
@@ -334,6 +352,7 @@
     "license": "Public domain",
     "width": 4500,
     "height": 7067,
+    "local": "henri-matisse-view-of-notre-dame-paris-quai-saint-michel-spr.jpg",
     "stats": {
       "gray": 0.501,
       "white": 0,
@@ -352,6 +371,7 @@
     "license": "Public domain",
     "width": 1534,
     "height": 2100,
+    "local": "henri-matisse-1902-notre-dame-une-fin-d-apre-s-midi-oil-on-p.jpg",
     "stats": {
       "gray": 0.074,
       "white": 0,
