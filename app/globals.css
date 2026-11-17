@@ -226,7 +226,9 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .w-meta{font-size:11.5px;font-weight:600;color:var(--accent)}
 .w-empty{font-size:13.5px;line-height:1.6;color:var(--muted);background:var(--soft);border-radius:10px;padding:18px 16px}
 .w-actions{position:sticky;bottom:0;margin-top:auto;display:flex;flex-direction:column;gap:8px;background:var(--panel);
-  padding:14px 0 calc(16px + env(safe-area-inset-bottom, 0px));border-top:1px solid var(--line)}
+  margin-left:calc(-1 * max(20px, env(safe-area-inset-left, 0px)));margin-right:calc(-1 * max(20px, env(safe-area-inset-right, 0px)));
+  padding:14px max(20px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
+  border-top:1px solid var(--line);box-shadow:0 -10px 24px rgba(0,0,0,.08)}
 .w-actions .btn{flex:none;width:100%}
 @keyframes w-in{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion: reduce){.welcome{animation:none}}
