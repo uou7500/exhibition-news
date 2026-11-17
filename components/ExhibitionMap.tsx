@@ -524,12 +524,27 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
     return () => window.removeEventListener("keydown", onKey, true);
   }, [zoomed]);
 
-  // 내 위치를 모르면 누르는 순간 위치를 확인해 출발지로 넣는다.
-  // 팝업 차단을 피하려고 새 창을 먼저 열고, 위치를 받은 뒤 주소를 채운다.
+  // 위치 권한을 이미 허용한 기기면, 상세를 여는 순간 조용히 위치를 받아 둔다 → 길찾기를 누르면 바로 출발지가 들어간다
+  useEffect(() => {
+    if (myLoc || !navigator.permissions?.query) return;
+    let alive = true;
+    navigator.permissions
+      .query({ name: "geolocation" as PermissionName })
+      .then((s) => {
+        if (s.state === "granted") getPosition().then((loc) => alive && onLocated(loc)).catch(() => {});
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [x.id, myLoc, onLocated]);
+
+  // 내 위치를 아직 모르면: 이 화면에서 위치를 물어본 뒤 같은 탭에서 카카오맵 길찾기로 이동한다.
+  // (예전엔 빈 새 창을 먼저 열었는데, 아이폰·아이패드에서 위치 질문이 뒤에 숨어 빈 화면만 남았다)
   const openDirections = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (myLoc) return; // 링크에 이미 출발지가 들어 있다
+    if (myLoc) return; // 링크에 이미 출발지가 들어 있다 → 새 탭으로 바로 열림
     e.preventDefault();
-    const win = window.open("", "_blank");
+    if (finding) return;
     setFinding(true);
     getPosition()
       .then((loc) => {
@@ -539,8 +554,7 @@ function Detail({ x, distance, myLoc, onLocated, onClose }: {
       .catch(() => directionsUrl(x, null))
       .then((url) => {
         setFinding(false);
-        if (win) win.location.href = url;
-        else window.location.href = url;
+        window.location.href = url;
       });
   };
   return (
