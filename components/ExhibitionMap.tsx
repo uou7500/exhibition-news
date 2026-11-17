@@ -34,6 +34,26 @@ function directionsUrl(x: Exhibition, from: MyLocation | null): string {
   return `https://map.kakao.com/link/from/${encodeURIComponent("내 위치")},${from.lat},${from.lon}/to/${to}`;
 }
 
+/** 네이버 지도 웹 주소 (앱이 없거나 컴퓨터일 때). 장소 이름·주소로 검색해 연다. */
+function naverWebUrl(x: Exhibition): string {
+  return `https://map.naver.com/p/search/${encodeURIComponent(x.address ?? x.venue)}`;
+}
+
+/** 네이버 지도 앱 대중교통 길찾기 (출발지는 앱이 현재 위치로 채운다) */
+function naverAppUrl(x: Exhibition): string {
+  const q = new URLSearchParams({
+    dlat: String(x.lat),
+    dlng: String(x.lon),
+    dname: x.venue,
+    appname: typeof window !== "undefined" ? window.location.hostname : "andependant",
+  });
+  return `nmap://route/public?${q.toString()}`;
+}
+
+function isMobile(): boolean {
+  return typeof navigator !== "undefined" && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent + (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.userAgent) ? " iPad" : ""));
+}
+
 /** 현재 위치 한 번 가져오기 */
 function getPosition(): Promise<MyLocation> {
   return new Promise((resolve, reject) => {
@@ -551,11 +571,27 @@ function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved
 }) {
   const st = statusOf(x);
   const [finding, setFinding] = useState(false);
+  const [routeOpen, setRouteOpen] = useState(false);
   const [zoomed, setZoomed] = useState(false);
   const [noteCount, setNoteCount] = useState<number | null>(null);
 
-  // 다른 전시로 바뀌면 크게 보기를 닫는다
-  useEffect(() => setZoomed(false), [x.id]);
+  // 다른 전시로 바뀌면 크게 보기·길찾기 고르기를 닫는다
+  useEffect(() => {
+    setZoomed(false);
+    setRouteOpen(false);
+  }, [x.id]);
+
+  // 길찾기 고르기 창: Esc로 닫기
+  useEffect(() => {
+    if (!routeOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      e.stopImmediatePropagation();
+      setRouteOpen(false);
+    };
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }, [routeOpen]);
 
   // 크게 보기 중에는 Esc가 크게 보기만 닫게 한다
   useEffect(() => {
@@ -599,8 +635,27 @@ function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved
       .catch(() => directionsUrl(x, null))
       .then((url) => {
         setFinding(false);
+        setRouteOpen(false);
         window.location.href = url;
       });
+  };
+
+  // 네이버 지도: 휴대폰이면 앱으로 바로 길찾기, 앱이 없으면 잠시 뒤 네이버 지도 웹으로.
+  const openNaver = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setRouteOpen(false);
+    if (!isMobile()) return; // 컴퓨터: 링크(웹 검색)가 새 탭으로 열림
+    e.preventDefault();
+    const web = naverWebUrl(x);
+    const started = Date.now();
+    const timer = window.setTimeout(() => {
+      // 앱으로 넘어갔으면 화면이 가려져 있다 → 웹으로 보내지 않는다
+      if (document.visibilityState === "visible" && Date.now() - started < 3000) window.location.href = web;
+    }, 1500);
+    const cancel = () => {
+      if (document.visibilityState === "hidden") window.clearTimeout(timer);
+    };
+    document.addEventListener("visibilitychange", cancel, { once: true });
+    window.location.href = naverAppUrl(x);
   };
   return (
     <>
@@ -652,9 +707,24 @@ function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved
         <button type="button" className={"btn ghost save-btn" + (isSaved ? " on" : "")} aria-pressed={isSaved} aria-label={isSaved ? "저장 취소" : "관심 전시로 저장"} onClick={onToggleSaved}>
           {isSaved ? "♥" : "♡"}
         </button>
-        <a className="btn ghost" href={directionsUrl(x, myLoc)} target="_blank" rel="noopener noreferrer" onClick={openDirections} aria-busy={finding}>
-          {finding ? "위치 확인 중…" : "길찾기"}
-        </a>
+        <div className="route">
+          <button type="button" className="btn ghost" aria-haspopup="menu" aria-expanded={routeOpen} aria-busy={finding} onClick={() => setRouteOpen((v) => !v)}>
+            {finding ? "위치 확인 중…" : "길찾기"}
+          </button>
+          {routeOpen && (
+            <>
+              <div className="route-scrim" aria-hidden="true" onClick={() => setRouteOpen(false)} />
+              <div className="route-menu" role="menu" aria-label="어느 지도로 길찾기 할까요?">
+                <a role="menuitem" href={directionsUrl(x, myLoc)} target="_blank" rel="noopener noreferrer" onClick={(e) => { if (myLoc) setRouteOpen(false); openDirections(e); }}>
+                  <span className="route-dot kakao" aria-hidden="true" />카카오맵
+                </a>
+                <a role="menuitem" href={naverWebUrl(x)} target="_blank" rel="noopener noreferrer" onClick={openNaver}>
+                  <span className="route-dot naver" aria-hidden="true" />네이버 지도
+                </a>
+              </div>
+            </>
+          )}
+        </div>
         {x.url ? (
           <a className="btn" href={x.url} target="_blank" rel="noopener noreferrer">
             {x.price ? "예매하기" : "전시 안내 보기"}

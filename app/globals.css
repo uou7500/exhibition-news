@@ -110,6 +110,15 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .btn{flex:1;display:block;text-align:center;text-decoration:none;border:0;border-radius:10px;padding:13px 14px;font-weight:600;font-size:15px;background:var(--accent);color:var(--accent-ink)}
 .btn.ghost{flex:none;background:var(--soft);color:var(--ink)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+.route{position:relative;flex:none;display:flex}
+.route-scrim{position:fixed;inset:0;z-index:1}
+.route-menu{position:absolute;left:0;bottom:calc(100% + 8px);z-index:2;min-width:160px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.route-menu a{display:flex;align-items:center;gap:10px;padding:13px 16px;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none}
+.route-menu a+a{border-top:1px solid var(--line)}
+.route-menu a:hover,.route-menu a:focus-visible{background:var(--soft)}
+.route-dot{width:10px;height:10px;border-radius:50%;flex:none;border:2px solid var(--muted)}
+.route-dot.kakao{border-color:var(--warn)}
+.route-dot.naver{border-color:var(--free)}
 .scrim{position:absolute;inset:0;z-index:25;background:rgba(10,14,22,.28);opacity:0;pointer-events:none;transition:opacity .25s}
 .scrim.show{opacity:1;pointer-events:auto}
 
