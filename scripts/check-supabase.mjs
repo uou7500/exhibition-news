@@ -25,6 +25,26 @@ await call("방명록 고치기(같은 전시 다시)", `${URL}/rest/v1/reviews?
   method: "POST", headers: { ...A, Prefer: "resolution=merge-duplicates,return=minimal" },
   body: JSON.stringify({ exhibition_id: ex, user_id: s.user.id, tags: ["조용해요", "사진 촬영 가능"], body: "연결 점검 수정", nickname: "점검" }),
 });
+const rows = await call("방명록 읽기(id)", `${URL}/rest/v1/reviews?select=id&exhibition_id=eq.${ex}`, { headers: H });
+// 에티켓: 욕설이 든 글은 막혀야 정상 (HTTP 400)
+{
+  const res = await fetch(`${URL}/rest/v1/reviews?on_conflict=exhibition_id,user_id`, {
+    method: "POST", headers: { ...A, Prefer: "resolution=merge-duplicates,return=minimal" },
+    body: JSON.stringify({ exhibition_id: ex, user_id: s.user.id, tags: [], body: "시 1 발", nickname: "점검" }),
+  });
+  const t = await res.text();
+  console.log(`${!res.ok && t.includes("bad_words") ? "✅" : "❌"} 욕설 막기(막혀야 정상): HTTP ${res.status} ${t.slice(0, 120)}`);
+  if (res.ok || !t.includes("bad_words")) process.exitCode = 1;
+}
+// 신고 (자기 글이지만 점검용으로 한 번)
+if (rows?.[0]?.id) {
+  await call("신고 보내기", `${URL}/rest/v1/review_reports`, {
+    method: "POST", headers: { ...A, Prefer: "return=minimal" },
+    body: JSON.stringify({ review_id: rows[0].id, user_id: s.user.id, reason: "점검" }),
+  });
+  const seen = await call("신고 내용 읽기(빈 목록이어야 정상)", `${URL}/rest/v1/review_reports?select=reason&limit=1`, { headers: A });
+  if (Array.isArray(seen) && seen.length) { console.log("❌ 신고 내용이 보입니다!"); process.exitCode = 1; }
+}
 await call("방명록 읽기", `${URL}/rest/v1/reviews?select=tags,body&exhibition_id=eq.${ex}`, { headers: H });
 await call("방명록 지우기", `${URL}/rest/v1/reviews?exhibition_id=eq.${ex}&user_id=eq.${s.user.id}`, { method: "DELETE", headers: A });
 await call("승인된 등록 요청 읽기", `${URL}/rest/v1/approved_submissions?select=id&limit=1`, { headers: H });
