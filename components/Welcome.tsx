@@ -39,20 +39,35 @@ export default function Welcome({
   const [tab, setTab] = useState<Tab>("popular");
   const [kind, setKind] = useState<FutureKind | null>(null);
 
-  // 오늘의 그림: 서울 날씨에 맞는 색 비중의 그림을 제목 글자 안에 넣는다
+  // 오늘의 그림: 서울 날씨에 맞는 색 비중의 그림을 제목 글자 안에 넣는다.
+  // 화면이 열려 있는 동안 10분마다, 그리고 앱으로 돌아올 때마다 날씨를 다시 보고 바뀌었으면 그림도 바꾼다.
   const [art, setArt] = useState<{ p: Painting; weather: string; label: string } | null>(null);
   useEffect(() => {
     let alive = true;
-    seoulWeatherCode().then((code) => {
-      const { mood, weather } = code === null ? { mood: "colorful" as const, weather: "" } : moodOf(code);
-      const p = paintingFor(mood, new Date());
-      if (!p || !alive) return;
-      const img = new Image();
-      img.onload = () => alive && setArt({ p, weather, label: MOOD_LABEL[mood] });
-      img.src = p.image;
-    });
+    let current = "";
+    const refresh = () =>
+      seoulWeatherCode().then((code) => {
+        const { mood, weather } = code === null ? { mood: "colorful" as const, weather: "" } : moodOf(code);
+        const p = paintingFor(mood, new Date());
+        if (!p || !alive) return;
+        const key = `${p.id}|${weather}`;
+        if (key === current) return;
+        const img = new Image();
+        img.onload = () => {
+          if (!alive) return;
+          current = key;
+          setArt({ p, weather, label: MOOD_LABEL[mood] });
+        };
+        img.src = p.image;
+      });
+    refresh();
+    const timer = setInterval(refresh, 10 * 60_000);
+    const onVisible = () => document.visibilityState === "visible" && refresh();
+    document.addEventListener("visibilitychange", onVisible);
     return () => {
       alive = false;
+      clearInterval(timer);
+      document.removeEventListener("visibilitychange", onVisible);
     };
   }, []);
 

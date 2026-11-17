@@ -40,7 +40,9 @@ function pool(mood: Mood): Painting[] {
     if (mood === "gray") return gray - colorful / 100;
     return colorful;
   };
-  const list = mood === "gray" ? all.filter((p) => p.stats.white < 0.25) : all;
+  // 비·흐림에는 눈 그림이 섞이지 않게: 흰색이 많거나 제목에 눈·얼음이 있는 그림은 뺀다
+  const snowy = (p: Painting) => p.stats.white >= 0.2 || /눈|얼음/.test(p.title);
+  const list = mood === "gray" ? all.filter((p) => !snowy(p)) : all;
   return [...list].sort((a, b) => score(b) - score(a)).slice(0, mood === "white" ? 4 : mood === "gray" ? 5 : 6);
 }
 
