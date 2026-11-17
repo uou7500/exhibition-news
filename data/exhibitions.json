@@ -205,23 +205,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-408411",
-    "title": "최경선 제2회 수채화 개인전 <그림을 그리다 Ⅱ>",
-    "venue": "봄내극장 춘천미술관",
-    "city": "춘천",
-    "lat": 37.88254634465314,
-    "lon": 127.73158278424205,
-    "genre": "회화",
-    "startDate": "2026-11-13",
-    "endDate": "2026-11-18",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111321231048433.jpg",
-    "url": "http://ccart.or.kr/bbs/board.php?bo_table=collect_current&amp;wr_id=327",
-    "address": "강원특별자치도 춘천시 서부대성로 71 춘천 봄내극장",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-405505",
     "title": "붙잡을 수 없는 환영을 지나, 보이지 않는 진실을 향해 나아간다",
     "venue": "갤러리 지하",
@@ -236,6 +219,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202610/6c88337359c84a23a94f17205ff1dd76.jpg",
     "url": "https://galleryjiha.com/exhibitions/?bmode=view&amp;idx=175323416&amp;back_url=Lw%3D%3D&amp;t=board&amp;page=",
     "address": "서울특별시 마포구 서강로11길 15 지하 1층",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-408411",
+    "title": "최경선 제2회 수채화 개인전 <그림을 그리다 Ⅱ>",
+    "venue": "봄내극장 춘천미술관",
+    "city": "춘천",
+    "lat": 37.88254634465314,
+    "lon": 127.73158278424205,
+    "genre": "회화",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-18",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111321231048433.jpg",
+    "url": "http://ccart.or.kr/bbs/board.php?bo_table=collect_current&amp;wr_id=327",
+    "address": "강원특별자치도 춘천시 서부대성로 71 춘천 봄내극장",
     "source": "culture.go.kr"
   },
   {
@@ -324,23 +324,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-403177",
-    "title": "대전광역시 서예진흥원 <2026 송암서학회전>",
-    "venue": "대전광역시 서예진흥원",
-    "city": "대전",
-    "lat": 36.3279462175106,
-    "lon": 127.422870350103,
-    "genre": "회화",
-    "startDate": "2026-11-09",
-    "endDate": "2026-11-20",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202610/0ec018b827f24fc5939743b68769dfdd.jpg",
-    "url": "https://www.daejeon.go.kr/djseoye/djseoye/index.do",
-    "address": "대전광역시 중구 중앙로 119 7층",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-406012",
     "title": "AS THINGS FADE - 사라지는 사이에 展",
     "venue": "소요 갤러리",
@@ -355,6 +338,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/471a81e1fa0c402fb81d0b965d7fd4ba.png",
     "url": "https://soyogallery.kr/",
     "address": "대구광역시 동구 아양로 43 3층 소요갤러리",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-403177",
+    "title": "대전광역시 서예진흥원 <2026 송암서학회전>",
+    "venue": "대전광역시 서예진흥원",
+    "city": "대전",
+    "lat": 36.3279462175106,
+    "lon": 127.422870350103,
+    "genre": "회화",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-20",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202610/0ec018b827f24fc5939743b68769dfdd.jpg",
+    "url": "https://www.daejeon.go.kr/djseoye/djseoye/index.do",
+    "address": "대전광역시 중구 중앙로 119 7층",
     "source": "culture.go.kr"
   },
   {
@@ -2101,6 +2101,23 @@
     "source": "culture.go.kr"
   },
   {
+    "id": "culture-408638",
+    "title": "《보늬》",
+    "venue": "갤러리 지하",
+    "city": "서울",
+    "lat": 37.55347218419314,
+    "lon": 126.93267494968443,
+    "genre": "기타",
+    "startDate": "2026-11-30",
+    "endDate": "2026-12-05",
+    "price": null,
+    "priceText": "-",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/3cc8ae04d52d41c5a9c8c2243b4ae93b.jpg",
+    "url": "https://galleryjiha.com/exhibitions/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6MTt9&amp;bmode=view&amp;idx=175705696&amp;t=board",
+    "address": "서울특별시 마포구 서강로11길 15 지하 1층",
+    "source": "culture.go.kr"
+  },
+  {
     "id": "culture-366683",
     "title": "종로구립 박노수미술관 개관12주년 기념전시 「산수&middot;격물」",
     "venue": "종로구립 박노수미술관",
@@ -3711,6 +3728,23 @@
     "source": "culture.go.kr"
   },
   {
+    "id": "culture-408664",
+    "title": "세상의 모든 것 - 시들고 피어나고 그렇게 살아가고",
+    "venue": "청주시립미술관",
+    "city": "청주",
+    "lat": 36.63471250225671,
+    "lon": 127.47829194581672,
+    "genre": "기타",
+    "startDate": "2026-11-17",
+    "endDate": "2027-02-09",
+    "price": 1000,
+    "priceText": "성인 1,000원 / 18세 이하 청소년, 65세 이상 어르신 무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/5821cbfdee0148ab9d842b2c766a0ca2.png",
+    "url": "https://cmoa.cheongju.go.kr/www/speclExbiView.do?key=63&amp;exbiNo=868&amp;pageUnit=10&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=1&amp;kindExhi=",
+    "address": "충청북도 청주시 서원구 충렬로18번길 50 청주시립미술관",
+    "source": "culture.go.kr"
+  },
+  {
     "id": "culture-395920",
     "title": "2026년 수토역사전시관 공동기획전 \"울릉도, 1919\"",
     "venue": "독도박물관",
@@ -4322,6 +4356,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/7fcf136c62a44251951814aa7b1a8e97.jpg",
     "url": "https://upcycle.gm.go.kr/exhbtn/info.do?exhbtnSn=2611060001&amp;key=2401110034&amp;sc_detailAt=&amp;pageIndex=1&amp;orderBy=DESC",
     "address": "경기도 광명시 오리로 703 광명업사이클아트센터",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-408639",
+    "title": "배운성: 이방인의 초상",
+    "venue": "전남미술관",
+    "city": "광주",
+    "lat": 34.96775502183306,
+    "lon": 127.58886154819153,
+    "genre": "기타",
+    "startDate": "2026-11-10",
+    "endDate": "2027-02-28",
+    "price": 1000,
+    "priceText": "성인 1,000원 / 어린이, 청소년, 대학생, 군인, 예술인 700원",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/ffd7d884897b46ceb6242e079d57c6ca.png",
+    "url": "https://jma.jeonnam-gwangju.go.kr/www/9?dspySeq=247",
+    "address": "전남광주통합특별시 광양시 광양읍 순광로 660 전남미술관",
     "source": "culture.go.kr"
   },
   {
