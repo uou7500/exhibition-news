@@ -8,7 +8,7 @@ import type { PopularityData } from "@/lib/picks";
 import { FUTURE_KINDS, futureKindOf, type FutureKind } from "@/lib/future";
 import { formatDate, statusOf } from "@/lib/status";
 import Poster from "./Poster";
-import { MOOD_LABEL, moodOf, paintingFor, seoulWeatherCode, type Painting } from "@/lib/paintings";
+import { MOOD_LABEL, imageSources, moodOf, paintingsFor, seoulWeatherCode, type Painting } from "@/lib/paintings";
 
 type Tab = "popular" | "future";
 const WEEKDAYS = "일월화수목금토";
@@ -41,25 +41,35 @@ export default function Welcome({
 
   // 오늘의 그림: 서울 날씨에 맞는 색 비중의 그림을 제목 글자 안에 넣는다.
   // 화면이 열려 있는 동안 10분마다, 그리고 앱으로 돌아올 때마다 날씨를 다시 보고 바뀌었으면 그림도 바꾼다.
-  const [art, setArt] = useState<{ p: Painting; weather: string; label: string } | null>(null);
+  const [art, setArt] = useState<{ p: Painting; src: string; weather: string; label: string } | null>(null);
   useEffect(() => {
     let alive = true;
     let current = "";
-    const refresh = () =>
-      seoulWeatherCode().then((code) => {
-        const { mood, weather } = code === null ? { mood: "colorful" as const, weather: "" } : moodOf(code);
-        const p = paintingFor(mood, new Date());
-        if (!p || !alive) return;
+    const load = (src: string) =>
+      new Promise<boolean>((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = src;
+      });
+    const refresh = async () => {
+      const code = await seoulWeatherCode();
+      const { mood, weather } = code === null ? { mood: "colorful" as const, weather: "" } : moodOf(code);
+      // 오늘의 그림부터 차례로: 우리 사이트 사본 → 위키미디어 원본. 못 불러오면 다음 그림.
+      for (const p of paintingsFor(mood, new Date())) {
         const key = `${p.id}|${weather}`;
         if (key === current) return;
-        const img = new Image();
-        img.onload = () => {
+        for (const src of imageSources(p)) {
           if (!alive) return;
-          current = key;
-          setArt({ p, weather, label: MOOD_LABEL[mood] });
-        };
-        img.src = p.image;
-      });
+          if (await load(src)) {
+            if (!alive) return;
+            current = key;
+            setArt({ p, src, weather, label: MOOD_LABEL[mood] });
+            return;
+          }
+        }
+      }
+    };
     refresh();
     const timer = setInterval(refresh, 10 * 60_000);
     const onVisible = () => document.visibilityState === "visible" && refresh();
@@ -137,7 +147,7 @@ export default function Welcome({
       <div className="w-inner">
         <header className="w-head">
           <p className="w-date">{dateLine}</p>
-          <h1 className={"w-brand" + (art ? " painted" : "")} style={art ? { backgroundImage: `url("${art.p.image}")` } : undefined}>
+          <h1 className={"w-brand" + (art ? " painted" : "")} style={art ? { backgroundImage: `url("${art.src}")` } : undefined}>
             앙데팡당<span aria-hidden="true">.</span>
           </h1>
           <p className="w-tagline">누구의 전시든, 지도 위에 평등하게</p>

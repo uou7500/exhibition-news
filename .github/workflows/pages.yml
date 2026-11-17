@@ -5,7 +5,7 @@ on:
     branches: [main]
   # 데이터 수집 워크플로가 data/를 갱신하면 다시 배포 (GITHUB_TOKEN으로 한 push는 push 이벤트를 만들지 않아서 따로 연결)
   workflow_run:
-    workflows: ["전시 데이터 수집"]
+    workflows: ["전시 데이터 수집", "오늘의 그림 목록 만들기"]
     types: [completed]
   workflow_dispatch: {}
 
@@ -33,6 +33,7 @@ jobs:
       - name: 정적 사이트 만들기
         env:
           PAGES_BASE_PATH: /exhibition-news
+          NEXT_PUBLIC_BASE_PATH: /exhibition-news
         run: npm run build
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3

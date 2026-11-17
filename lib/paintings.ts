@@ -6,7 +6,10 @@ export interface Painting {
   artist: string;
   title: string;
   year: string;
+  /** 위키미디어 원본 이미지 주소 (예비용) */
   image: string;
+  /** 우리 사이트에 저장한 사본 파일 이름 (public/paintings/) */
+  local?: string;
   page: string;
   license: string;
   stats: { gray: number; white: number; colorful: number; saturation: number };
@@ -48,16 +51,31 @@ function pool(mood: Mood): Painting[] {
 
 /** 오늘(한국 날짜) 기준으로 후보 중 하나. 같은 날에는 같은 그림, 날마다 번갈아 가며 */
 export function paintingFor(mood: Mood, now: Date): Painting | null {
+  return paintingsFor(mood, now)[0] ?? null;
+}
+
+/** 오늘의 그림부터 시작하는 후보 순서 (앞 그림을 못 불러오면 다음 그림으로) */
+export function paintingsFor(mood: Mood, now: Date): Painting[] {
   const list = pool(mood);
-  if (!list.length) return null;
+  if (!list.length) return [];
   const kstDay = Math.floor((now.getTime() + 9 * 3_600_000) / 86_400_000);
-  return list[kstDay % list.length];
+  const start = kstDay % list.length;
+  return [...list.slice(start), ...list.slice(0, start)];
+}
+
+/** 그림을 불러올 주소들: 우리 사이트 사본 → 위키미디어 원본 */
+export function imageSources(p: Painting): string[] {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  return [...(p.local ? [`${base}/paintings/${p.local}`] : []), p.image];
 }
 
 /** 서울 현재 날씨 (키가 필요 없는 Open-Meteo) */
 export async function seoulWeatherCode(): Promise<number | null> {
   try {
-    const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.978&current=weather_code&timezone=Asia%2FSeoul");
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 6000); // 날씨가 늦으면 기다리지 않고 맑음 그림으로
+    const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.978&current=weather_code&timezone=Asia%2FSeoul", { signal: ctrl.signal });
+    clearTimeout(t);
     if (!res.ok) return null;
     const j = await res.json();
     return typeof j?.current?.weather_code === "number" ? j.current.weather_code : null;

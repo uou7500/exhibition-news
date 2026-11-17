@@ -7,12 +7,14 @@
 //
 // 실행: npm install --no-save sharp && node scripts/fetch-paintings.mjs  (GitHub Actions에서 실행)
 
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 
 const UA = "exhibition-news-app/1.0 (https://github.com/uou7500/exhibition-news)";
 const CANDIDATES = new URL("./paintings.candidates.json", import.meta.url);
 const OUT = new URL("../data/paintings.json", import.meta.url);
+// 그림 파일을 우리 사이트에 직접 둔다 (위키미디어 이미지를 바로 불러오면 휴대폰에서 막히는 경우가 있어서)
+const IMG_DIR = new URL("../public/paintings/", import.meta.url);
 
 async function api(params) {
   const url = "https://commons.wikimedia.org/w/api.php?" + new URLSearchParams({ format: "json", formatversion: "2", origin: "*", ...params });
@@ -51,10 +53,21 @@ async function find(c) {
   return null;
 }
 
-async function colorStats(url) {
+async function download(url) {
   const res = await fetch(url, { headers: { "User-Agent": UA } });
   if (!res.ok) throw new Error(`image HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
+  return Buffer.from(await res.arrayBuffer());
+}
+
+/** 가로 1280px JPEG로 줄여 public/paintings/에 저장하고 파일 이름을 돌려준다 */
+async function saveLocal(buf, slug) {
+  await mkdir(IMG_DIR, { recursive: true });
+  const name = `${slug}.jpg`;
+  await sharp(buf).resize({ width: 1280, withoutEnlargement: true }).jpeg({ quality: 80, mozjpeg: true }).toFile(new URL(name, IMG_DIR).pathname);
+  return name;
+}
+
+async function colorStats(buf) {
   const { data, info } = await sharp(buf).resize(96, 96, { fit: "inside" }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   let gray = 0, white = 0, n = 0, satSum = 0;
   let rgSum = 0, ybSum = 0, rg2 = 0, yb2 = 0;
@@ -87,8 +100,11 @@ async function main() {
         console.warn(`못 찾음: ${c.artist} ${c.title}`);
         continue;
       }
-      const stats = await colorStats(f.image);
-      out.push({ id: f.file.replace(/^File:/, ""), artist: c.artist, title: c.title, year: c.year, ...f, stats });
+      const buf = await download(f.image);
+      const stats = await colorStats(buf);
+      const slug = f.file.replace(/^File:/, "").replace(/\.[a-z]+$/i, "").normalize("NFKD").replace(/[^\w-]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "").toLowerCase().slice(0, 60);
+      const local = await saveLocal(buf, slug);
+      out.push({ id: f.file.replace(/^File:/, ""), artist: c.artist, title: c.title, year: c.year, ...f, local, stats });
       console.log(`${c.artist} 〈${c.title}〉 → ${f.file} | 회색 ${stats.gray} 흰색 ${stats.white} 화려함 ${stats.colorful}`);
       await new Promise((r) => setTimeout(r, 300));
     } catch (e) {
