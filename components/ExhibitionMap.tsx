@@ -12,10 +12,9 @@ import type { Space } from "@/lib/spaces";
 import type { TodayArt } from "@/lib/paintings";
 import { futureKindOf } from "@/lib/future";
 import { loadLatest } from "@/lib/remote";
-import { fetchRatings, type Rating } from "@/lib/reviews";
 import { fetchApproved } from "@/lib/submissions";
 import { useBookmarks } from "@/lib/bookmarks";
-import { RatingLine, ReviewPanel } from "./Reviews";
+import { Guestbook, GuestbookLink } from "./Reviews";
 import SubmitForm from "./SubmitForm";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
@@ -93,15 +92,6 @@ export default function ExhibitionMap({
     };
   }, []);
   const allExhibitions = useMemo(() => (approved.length ? [...exhibitions, ...approved] : exhibitions), [exhibitions, approved]);
-
-  // 별점: 전시별 평균과 리뷰 수 (리뷰를 쓰면 다시 받는다)
-  const [ratings, setRatings] = useState<Map<string, Rating>>(new Map());
-  const loadRatings = useCallback(() => {
-    fetchRatings()
-      .then(setRatings)
-      .catch(() => {});
-  }, []);
-  useEffect(loadRatings, [loadRatings]);
 
   // 관심 전시 (이 기기에 저장)
   const { saved, toggle: toggleSaved } = useBookmarks();
@@ -374,7 +364,6 @@ export default function ExhibitionMap({
     locateSeq,
     onMapDrag,
     spaces: shownSpaces,
-    ratings,
   };
 
   return (
@@ -502,7 +491,6 @@ export default function ExhibitionMap({
                   <Poster exhibition={x} className="thumb" />
                   <span className="t">
                     <h3>{saved.has(x.id) && <span className="saved-dot" aria-label="저장한 전시">♥ </span>}{x.title}</h3>
-                    <RatingLine rating={ratings.get(x.id)} compact />
                     <p>
                       {st.kind === "ending" ? <span className="tag end">{st.label}</span> : st.kind === "upcoming" ? <span className="tag up">{st.label}</span> : <span className="tag">{x.genre}</span>}
                       {dist.has(x.id) && <span className="dist">{formatDistance(dist.get(x.id)!)}</span>}
@@ -531,8 +519,6 @@ export default function ExhibitionMap({
             myLoc={myLoc}
             onLocated={setMyLoc}
             onClose={() => setSelectedId(null)}
-            rating={ratings.get(selected.id)}
-            onReviewsChanged={loadRatings}
             isSaved={saved.has(selected.id)}
             onToggleSaved={() => toggleSaved(selected.id)}
           />
@@ -543,20 +529,19 @@ export default function ExhibitionMap({
   );
 }
 
-function Detail({ x, distance, myLoc, onLocated, onClose, rating, onReviewsChanged, isSaved, onToggleSaved }: {
+function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved }: {
   x: Exhibition;
   distance?: number;
   myLoc: MyLocation | null;
   onLocated: (loc: MyLocation) => void;
   onClose: () => void;
-  rating?: Rating;
-  onReviewsChanged: () => void;
   isSaved: boolean;
   onToggleSaved: () => void;
 }) {
   const st = statusOf(x);
   const [finding, setFinding] = useState(false);
   const [zoomed, setZoomed] = useState(false);
+  const [noteCount, setNoteCount] = useState<number | null>(null);
 
   // 다른 전시로 바뀌면 크게 보기를 닫는다
   useEffect(() => setZoomed(false), [x.id]);
@@ -629,7 +614,7 @@ function Detail({ x, distance, myLoc, onLocated, onClose, rating, onReviewsChang
             <span className={"tag" + (st.kind === "ending" ? " end" : st.kind === "upcoming" ? " up" : "")}>{st.label}</span>
             <span className="tag">{x.genre}</span>
             <h2>{x.title}</h2>
-            <RatingLine rating={rating} onClick={() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "start" })} />
+            <GuestbookLink count={noteCount} onClick={() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "start" })} />
             <div className="d-venue">
               {x.venue} · {x.city}
               {distance !== undefined && <> · 내 위치에서 {formatDistance(distance)}</>}
@@ -649,7 +634,7 @@ function Detail({ x, distance, myLoc, onLocated, onClose, rating, onReviewsChang
               {x.url ? " 아래 '전시 안내 보기'에서 자세한 내용을 볼 수 있어요." : ""}
             </p>
           )}
-          <ReviewPanel exhibitionId={x.id} onChanged={onReviewsChanged} />
+          <Guestbook exhibitionId={x.id} onCount={setNoteCount} />
         </div>
       </div>
       <div className="cta">

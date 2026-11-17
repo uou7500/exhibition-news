@@ -2,18 +2,19 @@
 -- Supabase 대시보드 → SQL Editor → New query 에 이 내용을 통째로 붙여넣고 Run.
 -- (Authentication → Sign In / Providers 에서 "Allow anonymous sign-ins"도 켜야 한다)
 
--- ===== 리뷰 =====
+-- ===== 방명록 (표 이름은 reviews 그대로, 점수 없음) =====
 create table if not exists public.reviews (
   id uuid primary key default gen_random_uuid(),
   exhibition_id text not null check (char_length(exhibition_id) between 1 and 120),
   user_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
   nickname text check (char_length(nickname) <= 20),
-  rating smallint not null check (rating between 1 and 5),
   body text check (char_length(body) <= 500),
+  tags text[] not null default '{}' check (cardinality(tags) <= 8),  -- 정보 태그
   hidden boolean not null default false,          -- 운영자가 숨길 때 true
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  unique (exhibition_id, user_id)                  -- 한 기기(사용자)당 전시 하나에 리뷰 하나
+  unique (exhibition_id, user_id),                 -- 한 기기(사용자)당 전시 하나에 글 하나
+  constraint reviews_not_empty check (char_length(coalesce(body, '')) > 0 or cardinality(tags) > 0)
 );
 alter table public.reviews enable row level security;
 
@@ -26,11 +27,6 @@ create policy "reviews_update_own" on public.reviews for update to authenticated
 drop policy if exists "reviews_delete_own" on public.reviews;
 create policy "reviews_delete_own" on public.reviews for delete to authenticated using (auth.uid() = user_id);
 
--- 전시별 평균 별점과 리뷰 수
-create or replace view public.exhibition_ratings as
-  select exhibition_id, round(avg(rating)::numeric, 1) as avg, count(*)::int as n
-  from public.reviews where hidden = false group by exhibition_id;
-grant select on public.exhibition_ratings to anon, authenticated;
 
 -- ===== 전시 등록 요청 =====
 create table if not exists public.submissions (

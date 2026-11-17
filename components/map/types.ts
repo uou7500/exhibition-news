@@ -1,7 +1,6 @@
 import type { Exhibition } from "@/lib/types";
 import type { MyLocation } from "@/lib/geo";
 import type { Space } from "@/lib/spaces";
-import type { Rating } from "@/lib/reviews";
 
 /** 주변 장소 종류 (카카오 장소 카테고리 코드) */
 export type PoiCode = "CS2" | "CE7" | "SW8";
@@ -33,6 +32,4 @@ export interface MapViewProps {
   onMapDrag: () => void;
   /** 지도에 보일 독립공간 (카카오맵만 지원) */
   spaces: Space[];
-  /** 전시별 별점 (지도 이름표 옆에 표시) */
-  ratings: Map<string, Rating>;
 }

@@ -61,7 +61,7 @@ function pinElement(x: Exhibition, onClick: () => void): HTMLButtonElement {
   return el;
 }
 
-export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces, ratings }: MapViewProps & { appKey: string }) {
+export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces }: MapViewProps & { appKey: string }) {
   const boxRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const clustererRef = useRef<any>(null);
@@ -203,22 +203,6 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       overlay.setZIndex(on ? 10 : 3);
     });
   }, [selectedId, items, ready]);
-
-  // 이름표 옆 별점 (★4.3)
-  useEffect(() => {
-    pinsRef.current.forEach(({ el }, id) => {
-      const lab = el.querySelector(".lab");
-      if (!lab) return;
-      lab.querySelector(".lab-star")?.remove();
-      const r = ratings.get(id);
-      if (r && r.n > 0) {
-        const s = document.createElement("span");
-        s.className = "lab-star";
-        s.textContent = ` ★${r.avg.toFixed(1)}`;
-        lab.appendChild(s);
-      }
-    });
-  }, [ratings, items, ready]);
 
   // 확대 정도에 따라 핀 이름표 보이기
   useEffect(() => {
