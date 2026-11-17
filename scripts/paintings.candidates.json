@@ -1,128 +1,618 @@
 [
-  {
-    "artist": "클로드 모네",
-    "title": "까치",
-    "year": "1868–69",
-    "search": "Claude Monet The Magpie"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "아르장퇴유의 눈",
-    "year": "1875",
-    "search": "Claude Monet Snow at Argenteuil"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "건초더미, 눈의 효과",
-    "year": "1891",
-    "search": "Claude Monet Grainstack Snow Effect"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "얼음 조각들",
-    "year": "1880",
-    "search": "Claude Monet Ice Floes"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "국회의사당, 안개 효과",
-    "year": "1903",
-    "search": "Claude Monet Houses of Parliament fog"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "워털루 다리, 흐린 날",
-    "year": "1903",
-    "search": "Claude Monet Waterloo Bridge Gray Day"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "채링 크로스 다리",
-    "year": "1899",
-    "search": "Claude Monet Charing Cross Bridge"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "생라자르 역",
-    "year": "1877",
-    "search": "Claude Monet The Saint-Lazare Station"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "루앙 대성당, 흐린 날씨",
-    "year": "1894",
-    "search": "Claude Monet Rouen Cathedral grey weather"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "인상, 해돋이",
-    "year": "1872",
-    "search": "Claude Monet Impression Sunrise"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "양산을 든 여인",
-    "year": "1875",
-    "search": "Claude Monet Woman with a Parasol Madame Monet and Her Son"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "양귀비 들판",
-    "year": "1873",
-    "search": "Claude Monet Poppy Field Argenteuil"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "생트아드레스의 정원",
-    "year": "1867",
-    "search": "Claude Monet Garden at Sainte-Adresse"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "수련",
-    "year": "1906",
-    "search": "Claude Monet Water Lilies 1906"
-  },
-  {
-    "artist": "클로드 모네",
-    "title": "일본식 다리",
-    "year": "1899",
-    "search": "Claude Monet Bridge over a Pond of Water Lilies"
-  },
-  {
-    "artist": "앙리 마티스",
-    "title": "모자를 쓴 여인",
-    "year": "1905",
-    "search": "Henri Matisse Woman with a Hat 1905"
-  },
-  {
-    "artist": "앙리 마티스",
-    "title": "삶의 기쁨",
-    "year": "1905–06",
-    "search": "Henri Matisse Le Bonheur de vivre 1905 1906"
-  },
-  {
-    "artist": "앙리 마티스",
-    "title": "붉은 방(붉은색의 조화)",
-    "year": "1908",
-    "search": "Henri Matisse Harmony in Red"
-  },
-  {
-    "artist": "앙리 마티스",
-    "title": "열린 창, 콜리우르",
-    "year": "1905",
-    "search": "Henri Matisse Open Window Collioure"
-  },
-  {
-    "artist": "앙리 마티스",
-    "title": "노트르담 풍경",
-    "year": "1914",
-    "search": "Henri Matisse View of Notre-Dame 1914"
-  },
-  {
-    "artist": "앙리 마티스",
-    "title": "노트르담, 늦은 오후",
-    "year": "1902",
-    "search": "Henri Matisse Notre-Dame une fin d'apres-midi 1902"
-  }
+ {
+  "category": "흐림",
+  "artist": "클로드 모네",
+  "title": "워털루 다리, 흐린 날",
+  "year": "1903",
+  "search": "Claude Monet Waterloo Bridge Gray Day"
+ },
+ {
+  "category": "흐림",
+  "artist": "클로드 모네",
+  "title": "채링 크로스 다리",
+  "year": "1899",
+  "search": "Claude Monet Charing Cross Bridge"
+ },
+ {
+  "category": "흐림",
+  "artist": "클로드 모네",
+  "title": "루앙 대성당, 흐린 날씨",
+  "year": "1894",
+  "search": "Claude Monet Rouen Cathedral grey weather"
+ },
+ {
+  "category": "흐림",
+  "artist": "클로드 모네",
+  "title": "국회의사당, 안개 효과",
+  "year": "1903",
+  "search": "Claude Monet Houses of Parliament fog"
+ },
+ {
+  "category": "흐림",
+  "artist": "클로드 모네",
+  "title": "생라자르 역",
+  "year": "1877",
+  "search": "Claude Monet The Saint-Lazare Station"
+ },
+ {
+  "category": "흐림",
+  "artist": "클로드 모네",
+  "title": "인상, 해돋이",
+  "year": "1872",
+  "search": "Claude Monet Impression Sunrise"
+ },
+ {
+  "category": "흐림",
+  "artist": "앙리 마티스",
+  "title": "노트르담 풍경",
+  "year": "1914",
+  "search": "Henri Matisse View of Notre-Dame 1914"
+ },
+ {
+  "category": "흐림",
+  "artist": "빌헬름 함메르쇠이",
+  "title": "실내, 스트란가데 30번지",
+  "year": "1901",
+  "search": "Vilhelm Hammershoi Interior Strandgade 30"
+ },
+ {
+  "category": "흐림",
+  "artist": "제임스 휘슬러",
+  "title": "녹턴: 파랑과 금색, 옛 배터시 다리",
+  "year": "1872–75",
+  "search": "Whistler Nocturne Blue and Gold Old Battersea Bridge"
+ },
+ {
+  "category": "흐림",
+  "artist": "카스파르 다비트 프리드리히",
+  "title": "안개 바다 위의 방랑자",
+  "year": "1818",
+  "search": "Caspar David Friedrich Wanderer above the Sea of Fog"
+ },
+ {
+  "category": "흐림",
+  "artist": "빌헬름 함메르쇠이",
+  "title": "크리스티안스보르 궁전",
+  "year": "1907",
+  "search": "Vilhelm Hammershoi Christiansborg Palace"
+ },
+ {
+  "category": "비",
+  "artist": "귀스타브 카유보트",
+  "title": "파리의 거리, 비 오는 날",
+  "year": "1877",
+  "search": "Gustave Caillebotte Paris Street Rainy Day"
+ },
+ {
+  "category": "비",
+  "artist": "카미유 피사로",
+  "title": "몽마르트르 대로, 비 오는 오후",
+  "year": "1897",
+  "search": "Camille Pissarro Boulevard Montmartre Afternoon Rain"
+ },
+ {
+  "category": "비",
+  "artist": "우타가와 히로시게",
+  "title": "오하시 다리의 소나기",
+  "year": "1857",
+  "search": "Hiroshige Sudden Shower over Shin-Ohashi Bridge Atake"
+ },
+ {
+  "category": "비",
+  "artist": "빈센트 반 고흐",
+  "title": "빗속의 다리 (히로시게를 따라)",
+  "year": "1887",
+  "search": "Van Gogh Bridge in the Rain after Hiroshige"
+ },
+ {
+  "category": "비",
+  "artist": "빈센트 반 고흐",
+  "title": "비",
+  "year": "1889",
+  "search": "Van Gogh Rain 1889 wheat field Philadelphia"
+ },
+ {
+  "category": "비",
+  "artist": "클로드 모네",
+  "title": "에트르타, 비",
+  "year": "1886",
+  "search": "Claude Monet Etretat rain 1886"
+ },
+ {
+  "category": "비",
+  "artist": "가쓰시카 호쿠사이",
+  "title": "산 아래의 소나기",
+  "year": "1830–32",
+  "search": "Hokusai Rainstorm Beneath the Summit"
+ },
+ {
+  "category": "비",
+  "artist": "귀스타브 카유보트",
+  "title": "예르 강, 비의 효과",
+  "year": "1875",
+  "search": "Gustave Caillebotte The Yerres Effect of Rain"
+ },
+ {
+  "category": "비",
+  "artist": "차일드 하삼",
+  "title": "비 오는 날, 콜럼버스 거리, 보스턴",
+  "year": "1885",
+  "search": "Childe Hassam Rainy Day Columbus Avenue Boston"
+ },
+ {
+  "category": "비",
+  "artist": "카미유 피사로",
+  "title": "테아트르 프랑세 광장, 비",
+  "year": "1898",
+  "search": "Camille Pissarro Place du Theatre Francais rain"
+ },
+ {
+  "category": "비",
+  "artist": "차일드 하삼",
+  "title": "비 오는 날의 파리 거리",
+  "year": "1887",
+  "search": "Childe Hassam Rainy Day Paris"
+ },
+ {
+  "category": "눈",
+  "artist": "클로드 모네",
+  "title": "까치",
+  "year": "1868–69",
+  "search": "Claude Monet The Magpie"
+ },
+ {
+  "category": "눈",
+  "artist": "클로드 모네",
+  "title": "아르장퇴유의 눈",
+  "year": "1875",
+  "search": "Claude Monet Snow at Argenteuil"
+ },
+ {
+  "category": "눈",
+  "artist": "클로드 모네",
+  "title": "건초더미, 눈의 효과",
+  "year": "1891",
+  "search": "Claude Monet Grainstack Snow Effect"
+ },
+ {
+  "category": "눈",
+  "artist": "클로드 모네",
+  "title": "얼음 조각들",
+  "year": "1880",
+  "search": "Claude Monet Ice Floes"
+ },
+ {
+  "category": "눈",
+  "artist": "피터르 브뤼헐",
+  "title": "눈 속의 사냥꾼",
+  "year": "1565",
+  "search": "Bruegel Hunters in the Snow"
+ },
+ {
+  "category": "눈",
+  "artist": "알프레드 시슬레",
+  "title": "루브시엔의 눈",
+  "year": "1878",
+  "search": "Alfred Sisley Snow at Louveciennes"
+ },
+ {
+  "category": "눈",
+  "artist": "카미유 피사로",
+  "title": "서리",
+  "year": "1873",
+  "search": "Camille Pissarro Hoarfrost 1873"
+ },
+ {
+  "category": "눈",
+  "artist": "귀스타브 카유보트",
+  "title": "눈 덮인 지붕",
+  "year": "1878",
+  "search": "Gustave Caillebotte Rooftops in the Snow"
+ },
+ {
+  "category": "눈",
+  "artist": "우타가와 히로시게",
+  "title": "간바라의 밤눈",
+  "year": "1833",
+  "search": "Hiroshige Evening Snow at Kanbara"
+ },
+ {
+  "category": "눈",
+  "artist": "빈센트 반 고흐",
+  "title": "눈 덮인 풍경",
+  "year": "1888",
+  "search": "Van Gogh Landscape with Snow 1888"
+ },
+ {
+  "category": "눈",
+  "artist": "클로드 모네",
+  "title": "눈 속의 기차",
+  "year": "1875",
+  "search": "Claude Monet The Train in the Snow"
+ },
+ {
+  "category": "화창",
+  "artist": "클로드 모네",
+  "title": "양산을 든 여인",
+  "year": "1875",
+  "search": "Claude Monet Woman with a Parasol Madame Monet and Her Son"
+ },
+ {
+  "category": "화창",
+  "artist": "클로드 모네",
+  "title": "생트아드레스의 정원",
+  "year": "1867",
+  "search": "Claude Monet Garden at Sainte-Adresse"
+ },
+ {
+  "category": "화창",
+  "artist": "클로드 모네",
+  "title": "양귀비 들판",
+  "year": "1873",
+  "search": "Claude Monet Poppy Field Argenteuil"
+ },
+ {
+  "category": "화창",
+  "artist": "앙리 마티스",
+  "title": "모자를 쓴 여인",
+  "year": "1905",
+  "search": "Henri Matisse Woman with a Hat 1905"
+ },
+ {
+  "category": "화창",
+  "artist": "앙리 마티스",
+  "title": "붉은 방(붉은색의 조화)",
+  "year": "1908",
+  "search": "Henri Matisse Harmony in Red"
+ },
+ {
+  "category": "화창",
+  "artist": "앙리 마티스",
+  "title": "열린 창, 콜리우르",
+  "year": "1905",
+  "search": "Henri Matisse Open Window Collioure"
+ },
+ {
+  "category": "화창",
+  "artist": "조르주 쇠라",
+  "title": "그랑드 자트 섬의 일요일 오후",
+  "year": "1884–86",
+  "search": "Georges Seurat A Sunday on La Grande Jatte"
+ },
+ {
+  "category": "화창",
+  "artist": "피에르오귀스트 르누아르",
+  "title": "뱃놀이 일행의 점심",
+  "year": "1880–81",
+  "search": "Renoir Luncheon of the Boating Party"
+ },
+ {
+  "category": "화창",
+  "artist": "빈센트 반 고흐",
+  "title": "사이프러스가 있는 밀밭",
+  "year": "1889",
+  "search": "Van Gogh Wheat Field with Cypresses"
+ },
+ {
+  "category": "화창",
+  "artist": "호아킨 소로야",
+  "title": "바닷가 산책",
+  "year": "1909",
+  "search": "Joaquin Sorolla Walk on the Beach"
+ },
+ {
+  "category": "화창",
+  "artist": "앙리 마티스",
+  "title": "노트르담, 늦은 오후",
+  "year": "1902",
+  "search": "Henri Matisse Notre-Dame une fin d'apres-midi 1902"
+ },
+ {
+  "category": "봄",
+  "artist": "빈센트 반 고흐",
+  "title": "꽃 피는 아몬드 나무",
+  "year": "1890",
+  "search": "Van Gogh Almond Blossom"
+ },
+ {
+  "category": "봄",
+  "artist": "클로드 모네",
+  "title": "봄",
+  "year": "1872",
+  "search": "Claude Monet Springtime 1872 Walters"
+ },
+ {
+  "category": "봄",
+  "artist": "클로드 모네",
+  "title": "네덜란드의 튤립 밭",
+  "year": "1886",
+  "search": "Claude Monet Tulip Fields Holland"
+ },
+ {
+  "category": "봄",
+  "artist": "빈센트 반 고흐",
+  "title": "분홍 복숭아나무",
+  "year": "1888",
+  "search": "Van Gogh Pink Peach Tree in Blossom"
+ },
+ {
+  "category": "봄",
+  "artist": "카미유 피사로",
+  "title": "꽃 핀 과수원, 루브시엔",
+  "year": "1872",
+  "search": "Camille Pissarro Orchard in Bloom Louveciennes"
+ },
+ {
+  "category": "봄",
+  "artist": "우타가와 히로시게",
+  "title": "가메이도의 매화 정원",
+  "year": "1857",
+  "search": "Hiroshige Plum Park in Kameido"
+ },
+ {
+  "category": "봄",
+  "artist": "산드로 보티첼리",
+  "title": "봄 (프리마베라)",
+  "year": "1480년경",
+  "search": "Botticelli Primavera"
+ },
+ {
+  "category": "봄",
+  "artist": "클로드 모네",
+  "title": "정원의 여인, 봄",
+  "year": "1875",
+  "search": "Claude Monet Woman in the Garden Springtime"
+ },
+ {
+  "category": "봄",
+  "artist": "빈센트 반 고흐",
+  "title": "꽃 핀 과수원",
+  "year": "1888",
+  "search": "Van Gogh Orchard in Blossom Plum Trees"
+ },
+ {
+  "category": "봄",
+  "artist": "피에르오귀스트 르누아르",
+  "title": "봄 꽃다발",
+  "year": "1866",
+  "search": "Renoir Spring Bouquet 1866"
+ },
+ {
+  "category": "봄",
+  "artist": "우타가와 히로시게",
+  "title": "아스카야마의 벚꽃",
+  "year": "1856",
+  "search": "Hiroshige Cherry Blossoms Asukayama"
+ },
+ {
+  "category": "여름",
+  "artist": "클로드 모네",
+  "title": "수련",
+  "year": "1906",
+  "search": "Claude Monet Water Lilies 1906"
+ },
+ {
+  "category": "여름",
+  "artist": "클로드 모네",
+  "title": "일본식 다리",
+  "year": "1899",
+  "search": "Claude Monet Bridge over a Pond of Water Lilies"
+ },
+ {
+  "category": "여름",
+  "artist": "클로드 모네",
+  "title": "여름",
+  "year": "1874",
+  "search": "Claude Monet Summer 1874 L'Ete"
+ },
+ {
+  "category": "여름",
+  "artist": "빈센트 반 고흐",
+  "title": "해바라기",
+  "year": "1888",
+  "search": "Van Gogh Sunflowers National Gallery London"
+ },
+ {
+  "category": "여름",
+  "artist": "구스타프 클림트",
+  "title": "해바라기가 있는 농가 정원",
+  "year": "1907",
+  "search": "Gustav Klimt Farm Garden with Sunflowers"
+ },
+ {
+  "category": "여름",
+  "artist": "피에르오귀스트 르누아르",
+  "title": "긴 풀숲을 오르는 길",
+  "year": "1876",
+  "search": "Renoir Path Climbing through Long Grass"
+ },
+ {
+  "category": "여름",
+  "artist": "호아킨 소로야",
+  "title": "해변의 아이들",
+  "year": "1910",
+  "search": "Joaquin Sorolla Children on the Beach"
+ },
+ {
+  "category": "여름",
+  "artist": "조르주 쇠라",
+  "title": "아니에르의 물놀이",
+  "year": "1884",
+  "search": "Georges Seurat Bathers at Asnieres"
+ },
+ {
+  "category": "여름",
+  "artist": "앙리 마티스",
+  "title": "사치, 고요, 쾌락",
+  "year": "1904",
+  "search": "Henri Matisse Luxe Calme et Volupte"
+ },
+ {
+  "category": "여름",
+  "artist": "클로드 모네",
+  "title": "라 그르누예르의 물놀이",
+  "year": "1869",
+  "search": "Claude Monet Bathers at La Grenouillere"
+ },
+ {
+  "category": "여름",
+  "artist": "구스타프 클림트",
+  "title": "아터 호숫가의 캄머 성",
+  "year": "1910",
+  "search": "Gustav Klimt Schloss Kammer Attersee"
+ },
+ {
+  "category": "가을",
+  "artist": "빈센트 반 고흐",
+  "title": "가을의 포플러 길",
+  "year": "1884",
+  "search": "Van Gogh Avenue of Poplars in Autumn"
+ },
+ {
+  "category": "가을",
+  "artist": "클로드 모네",
+  "title": "아르장퇴유의 가을 효과",
+  "year": "1873",
+  "search": "Claude Monet Autumn Effect at Argenteuil"
+ },
+ {
+  "category": "가을",
+  "artist": "구스타프 클림트",
+  "title": "너도밤나무 숲",
+  "year": "1902",
+  "search": "Gustav Klimt Beech Grove I"
+ },
+ {
+  "category": "가을",
+  "artist": "빈센트 반 고흐",
+  "title": "알리스캉",
+  "year": "1888",
+  "search": "Van Gogh Les Alyscamps falling autumn leaves"
+ },
+ {
+  "category": "가을",
+  "artist": "클로드 모네",
+  "title": "엡트 강가의 포플러",
+  "year": "1891",
+  "search": "Claude Monet Poplars on the Epte"
+ },
+ {
+  "category": "가을",
+  "artist": "알프레드 시슬레",
+  "title": "가을, 부지발 근처 센 강변",
+  "year": "1873",
+  "search": "Alfred Sisley Autumn Banks of the Seine near Bougival"
+ },
+ {
+  "category": "가을",
+  "artist": "우타가와 히로시게",
+  "title": "마마의 단풍",
+  "year": "1857",
+  "search": "Hiroshige Maple Trees at Mama"
+ },
+ {
+  "category": "가을",
+  "artist": "피터르 브뤼헐",
+  "title": "추수하는 사람들",
+  "year": "1565",
+  "search": "Bruegel The Harvesters"
+ },
+ {
+  "category": "가을",
+  "artist": "이삭 레비탄",
+  "title": "황금빛 가을",
+  "year": "1895",
+  "search": "Isaac Levitan Golden Autumn"
+ },
+ {
+  "category": "가을",
+  "artist": "빈센트 반 고흐",
+  "title": "씨 뿌리는 사람",
+  "year": "1888",
+  "search": "Van Gogh The Sower 1888 Arles setting sun"
+ },
+ {
+  "category": "가을",
+  "artist": "카미유 피사로",
+  "title": "가을 아침, 에라니",
+  "year": "1897",
+  "search": "Camille Pissarro Autumn Morning Eragny"
+ },
+ {
+  "category": "겨울",
+  "artist": "피터르 브뤼헐",
+  "title": "베들레헴의 인구조사",
+  "year": "1566",
+  "search": "Bruegel The Census at Bethlehem"
+ },
+ {
+  "category": "겨울",
+  "artist": "클로드 모네",
+  "title": "겨울 센 강의 해 질 녘",
+  "year": "1880",
+  "search": "Claude Monet Sunset on the Seine in Winter"
+ },
+ {
+  "category": "겨울",
+  "artist": "클로드 모네",
+  "title": "겨울의 베퇴유",
+  "year": "1879",
+  "search": "Claude Monet Vetheuil in Winter"
+ },
+ {
+  "category": "겨울",
+  "artist": "헨드릭 아베르캄프",
+  "title": "스케이트 타는 사람들이 있는 겨울 풍경",
+  "year": "1608년경",
+  "search": "Hendrick Avercamp Winter Landscape with Ice Skaters"
+ },
+ {
+  "category": "겨울",
+  "artist": "카미유 피사로",
+  "title": "몽마르트르 대로, 겨울 아침",
+  "year": "1897",
+  "search": "Camille Pissarro Boulevard Montmartre Winter Morning"
+ },
+ {
+  "category": "겨울",
+  "artist": "폴 고갱",
+  "title": "눈 덮인 브르타뉴 마을",
+  "year": "1894",
+  "search": "Paul Gauguin Breton Village in the Snow"
+ },
+ {
+  "category": "겨울",
+  "artist": "카스파르 다비트 프리드리히",
+  "title": "교회가 있는 겨울 풍경",
+  "year": "1811",
+  "search": "Caspar David Friedrich Winter Landscape with Church"
+ },
+ {
+  "category": "겨울",
+  "artist": "우타가와 히로시게",
+  "title": "아사쿠사 긴류잔 절",
+  "year": "1856",
+  "search": "Hiroshige Kinryuzan Temple Asakusa snow"
+ },
+ {
+  "category": "겨울",
+  "artist": "알프레드 시슬레",
+  "title": "루브시엔의 겨울",
+  "year": "1876",
+  "search": "Alfred Sisley Winter in Louveciennes"
+ },
+ {
+  "category": "겨울",
+  "artist": "클로드 모네",
+  "title": "지베르니, 눈의 효과",
+  "year": "1893",
+  "search": "Claude Monet Snow Effect Giverny"
+ },
+ {
+  "category": "겨울",
+  "artist": "귀스타브 쿠르베",
+  "title": "눈 속의 사슴들",
+  "year": "1866",
+  "search": "Gustave Courbet Hunted Deer snow"
+ }
 ]

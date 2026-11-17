@@ -8,7 +8,7 @@ import type { PopularityData } from "@/lib/picks";
 import { FUTURE_KINDS, futureKindOf, type FutureKind } from "@/lib/future";
 import { formatDate, statusOf } from "@/lib/status";
 import Poster from "./Poster";
-import { MOOD_LABEL, imageSources, moodOf, paintingsFor, seoulWeatherCode, type Painting } from "@/lib/paintings";
+import { candidatesFor, imageSources, seoulWeatherCode, type TodayArt } from "@/lib/paintings";
 
 type Tab = "popular" | "future";
 const WEEKDAYS = "일월화수목금토";
@@ -26,12 +26,15 @@ export default function Welcome({
   onPick,
   onNear,
   onBrowse,
+  initialArt,
 }: {
   exhibitions: Exhibition[];
   popularity: PopularityData;
   onPick: (id: string) => void;
   onNear: () => void;
   onBrowse: () => void;
+  /** 빌드할 때 서울 날씨로 미리 정해 둔 오늘의 그림 (바로 보이게) */
+  initialArt: TodayArt | null;
 }) {
   // 날짜·진행 상태는 보는 사람의 오늘 기준이라 화면이 뜬 뒤에 계산한다
   const [now, setNow] = useState<Date | null>(null);
@@ -41,10 +44,10 @@ export default function Welcome({
 
   // 오늘의 그림: 서울 날씨에 맞는 색 비중의 그림을 제목 글자 안에 넣는다.
   // 화면이 열려 있는 동안 10분마다, 그리고 앱으로 돌아올 때마다 날씨를 다시 보고 바뀌었으면 그림도 바꾼다.
-  const [art, setArt] = useState<{ p: Painting; src: string; weather: string; label: string } | null>(null);
+  const [art, setArt] = useState<TodayArt | null>(initialArt);
   useEffect(() => {
     let alive = true;
-    let current = "";
+    let current = initialArt ? `${initialArt.p.id}|${initialArt.note}` : "";
     const load = (src: string) =>
       new Promise<boolean>((resolve) => {
         const img = new Image();
@@ -52,19 +55,19 @@ export default function Welcome({
         img.onerror = () => resolve(false);
         img.src = src;
       });
+    // 지금 날씨를 다시 확인해 그림이 달라졌을 때만 바꾼다 (같으면 아무것도 안 함 → 깜빡임 없음)
     const refresh = async () => {
       const code = await seoulWeatherCode();
-      const { mood, weather } = code === null ? { mood: "colorful" as const, weather: "" } : moodOf(code);
-      // 오늘의 그림부터 차례로: 우리 사이트 사본 → 위키미디어 원본. 못 불러오면 다음 그림.
-      for (const p of paintingsFor(mood, new Date())) {
-        const key = `${p.id}|${weather}`;
+      const { list, note } = candidatesFor(code, new Date());
+      for (const p of list) {
+        const key = `${p.id}|${note}`;
         if (key === current) return;
         for (const src of imageSources(p)) {
           if (!alive) return;
           if (await load(src)) {
             if (!alive) return;
             current = key;
-            setArt({ p, src, weather, label: MOOD_LABEL[mood] });
+            setArt({ p, src, note });
             return;
           }
         }
@@ -147,6 +150,7 @@ export default function Welcome({
       <div className="w-inner">
         <header className="w-head">
           <p className="w-date">{dateLine}</p>
+          {initialArt && <link rel="preload" as="image" href={initialArt.src} />}
           <h1 className={"w-brand" + (art ? " painted" : "")} style={art ? { backgroundImage: `url("${art.src}")` } : undefined}>
             앙데팡당<span aria-hidden="true">.</span>
           </h1>
@@ -157,7 +161,8 @@ export default function Welcome({
               <a href={art.p.page} target="_blank" rel="noopener noreferrer">
                 {art.p.artist} 〈{art.p.title}〉 {art.p.year}
               </a>
-              {art.weather && <> · 오늘 서울 {art.weather} → {art.label}</>}
+              {" · "}
+              {art.note}
             </p>
           )}
           <p className="w-count">

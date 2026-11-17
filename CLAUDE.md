@@ -32,8 +32,8 @@
 - `.github/workflows/fetch-exhibitions.yml` — 한국시간 9·12·15·18·24시에 수집 후 `data/` 커밋 → 끝나면 Pages 재배포.
 - `lib/remote.ts` — 앱이 열릴 때 GitHub raw(`DATA_BASE`)에서 최신 `data/*.json`을 받아 화면을 바꾼다. 실패하면 배포 때 묶인 데이터를 쓴다. (저장소가 공개여야 동작)
 - `lib/clean.ts` — 깨진 HTML 글자 정리 (서버·브라우저 공용).
-- `lib/paintings.ts` + `data/paintings.json` — 시작 화면 제목 '앙데팡당' 글자 안에 넣는 오늘의 그림. 서울 날씨(Open-Meteo, 키 없음)로 분위기를 정함: 비·흐림·안개 → 회색 비중 높은 그림, 눈 → 흰색 비중, 맑음 → 화려함 지수 높은 그림. 한국 날짜로 후보를 번갈아 고름. 화면이 열려 있으면 10분마다·앱으로 돌아올 때 날씨를 다시 확인해 바뀌면 그림도 바꾼다. 비·흐림 후보에서는 눈 그림(흰색 비중 0.2 이상, 제목에 눈·얼음)을 뺀다.
-- `scripts/fetch-paintings.mjs` + `scripts/paintings.candidates.json` — 위키미디어 공용에서 퍼블릭 도메인 그림만 찾고 sharp로 색 비중 계산. `.github/workflows/paintings.yml`(수동·매월). 후보를 바꾸면 이 워크플로를 실행.
+- `lib/paintings.ts` + `data/paintings.json` + `public/paintings/` — 시작 화면 제목 '앙데팡당' 글자 안의 오늘의 그림. 8개 분류(흐림·비·눈·화창·봄·여름·가을·겨울) × 10장, 가로 720px 사본을 우리 사이트에 저장. 서울 날씨(Open-Meteo)로 분류를 정함: 비·뇌우→비, 흐림·안개→흐림, 눈→눈, 맑음→화창+지금 계절. 한국 날짜로 후보를 번갈아 고름. 빌드할 때(`app/page.tsx`) 날씨로 오늘 그림을 미리 정해 페이지에 넣고(preload), 화면에서는 10분마다·앱으로 돌아올 때 다시 확인해 바뀌었을 때만 교체.
+- `scripts/fetch-paintings.mjs` + `scripts/paintings.candidates.json` — 후보(분류별 10장+예비)를 위키미디어 공용에서 찾아 퍼블릭 도메인만 남기고 사본 저장·색 비중 계산. `.github/workflows/paintings.yml`(수동·매월) 실행 후 Pages 재배포.
 - 그림은 퍼블릭 도메인만 쓴다(모네, 1930년 이전 마티스). 살아 있는 작가(예: 데이비드 호크니)의 그림은 저작권 때문에 넣지 않는다.
 
 ## 데이터

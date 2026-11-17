@@ -9,6 +9,7 @@ import Poster from "./Poster";
 import Welcome from "./Welcome";
 import type { PopularityData } from "@/lib/picks";
 import type { Space } from "@/lib/spaces";
+import type { TodayArt } from "@/lib/paintings";
 import { futureKindOf } from "@/lib/future";
 import { loadLatest } from "@/lib/remote";
 import SvgMapView from "./map/SvgMapView";
@@ -58,11 +59,13 @@ export default function ExhibitionMap({
   isSample,
   popularity: initialPopularity,
   spaces,
+  initialArt,
 }: {
   exhibitions: Exhibition[];
   isSample: boolean;
   popularity: PopularityData;
   spaces: Space[];
+  initialArt: TodayArt | null;
 }) {
   const desktop = useDesktop();
   // 배포 때 묶인 데이터로 먼저 그리고, 열리자마자 최신 데이터를 받아 바꾼다
@@ -428,6 +431,7 @@ export default function ExhibitionMap({
             locate();
           }}
           onBrowse={dismissWelcome}
+          initialArt={initialArt}
         />
       )}
 

@@ -7,7 +7,7 @@
 //
 // 실행: npm install --no-save sharp && node scripts/fetch-paintings.mjs  (GitHub Actions에서 실행)
 
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, unlink, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 
 const UA = "exhibition-news-app/1.0 (https://github.com/uou7500/exhibition-news)";
@@ -31,10 +31,10 @@ async function find(c) {
     generator: "search",
     gsrsearch: `${c.search} filetype:bitmap`,
     gsrnamespace: "6",
-    gsrlimit: "8",
+    gsrlimit: "10",
     prop: "imageinfo",
     iiprop: "url|size|extmetadata",
-    iiurlwidth: "1600",
+    iiurlwidth: "1280",
   });
   const pages = (r.query?.pages ?? []).sort((a, b) => a.index - b.index);
   const words = c.search.toLowerCase().split(/\s+/).filter((w) => w.length > 3 && !/claude|monet|henri|matisse/.test(w));
@@ -59,11 +59,11 @@ async function download(url) {
   return Buffer.from(await res.arrayBuffer());
 }
 
-/** 가로 1280px JPEG로 줄여 public/paintings/에 저장하고 파일 이름을 돌려준다 */
+/** 가로 720px JPEG로 줄여 public/paintings/에 저장하고 파일 이름을 돌려준다 (글자 속에 들어가니 작아도 충분, 빨리 뜨게) */
 async function saveLocal(buf, slug) {
   await mkdir(IMG_DIR, { recursive: true });
   const name = `${slug}.jpg`;
-  await sharp(buf).resize({ width: 1280, withoutEnlargement: true }).jpeg({ quality: 80, mozjpeg: true }).toFile(new URL(name, IMG_DIR).pathname);
+  await sharp(buf).resize({ width: 720, withoutEnlargement: true }).jpeg({ quality: 74, mozjpeg: true, progressive: true }).toFile(new URL(name, IMG_DIR).pathname);
   return name;
 }
 
@@ -92,8 +92,11 @@ async function colorStats(buf) {
 
 async function main() {
   const cands = JSON.parse(await readFile(CANDIDATES, "utf8"));
+  const PER_CATEGORY = 10;
+  const count = {};
   const out = [];
   for (const c of cands) {
+    if ((count[c.category] ?? 0) >= PER_CATEGORY) continue; // 분류마다 10장까지 (남는 후보는 예비)
     try {
       const f = await find(c);
       if (!f) {
@@ -104,15 +107,19 @@ async function main() {
       const stats = await colorStats(buf);
       const slug = f.file.replace(/^File:/, "").replace(/\.[a-z]+$/i, "").normalize("NFKD").replace(/[^\w-]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "").toLowerCase().slice(0, 60);
       const local = await saveLocal(buf, slug);
-      out.push({ id: f.file.replace(/^File:/, ""), artist: c.artist, title: c.title, year: c.year, ...f, local, stats });
-      console.log(`${c.artist} 〈${c.title}〉 → ${f.file} | 회색 ${stats.gray} 흰색 ${stats.white} 화려함 ${stats.colorful}`);
+      out.push({ id: f.file.replace(/^File:/, ""), category: c.category, artist: c.artist, title: c.title, year: c.year, ...f, local, stats });
+      count[c.category] = (count[c.category] ?? 0) + 1;
+      console.log(`[${c.category}] ${c.artist} 〈${c.title}〉 → ${f.file} | 회색 ${stats.gray} 흰색 ${stats.white} 화려함 ${stats.colorful}`);
       await new Promise((r) => setTimeout(r, 300));
     } catch (e) {
       console.warn(`실패: ${c.title}: ${e.message}`);
     }
   }
   await writeFile(OUT, JSON.stringify(out, null, 2) + "\n");
-  console.log(`저장: ${out.length}/${cands.length}점`);
+  // 더 이상 쓰지 않는 사본 지우기
+  const keep = new Set(out.map((p) => p.local));
+  for (const f of await readdir(IMG_DIR).catch(() => [])) if (!keep.has(f)) await unlink(new URL(f, IMG_DIR).pathname);
+  console.log(`저장: ${out.length}점`, JSON.stringify(count));
 }
 
 main().catch((e) => {
