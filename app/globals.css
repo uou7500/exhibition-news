@@ -1,8 +1,8 @@
 /* Layout: 지도가 화면 전체, 위에 검색·필터 띠, 목록은 하단 시트(데스크톱은 좌측 패널), 상세는 우측/하단 시트 */
 :root{
   --sea:#dde5ec; --land:#fbfbf8; --coast:#9aa9b8; --ink:#1d2430; --muted:#5f6b7a; --warm-gray:#9a918a;
-  --line:#d6dde4; --panel:#ffffff; --accent:#2f37c9; --accent-ink:#ffffff; --free:#13795b; --warn:#b4471a;
-  --soft:#eef1fb;
+  --line:#d6dde4; --panel:#ffffff; --accent:#0071e3; --accent-ink:#ffffff; --free:#13795b; --warn:#b4471a;
+  --soft:#eaf3fe;
   --f-display:"Gowun Batang", "Nanum Myeongjo", serif;
   --f-body:"IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --f-mono:"IBM Plex Mono", ui-monospace, monospace;
@@ -10,12 +10,12 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --sea:#121821; --land:#232b36; --coast:#4c5a6b; --ink:#e8ecf2; --muted:#9aa6b5; --warm-gray:#b3aaa2;
-  --line:#344050; --panel:#1a212b; --accent:#8f96ff; --accent-ink:#0f1330; --free:#4fd1a1; --warn:#ff9a6b;
-  --soft:#262d48; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}}
+  --line:#344050; --panel:#1a212b; --accent:#0a84ff; --accent-ink:#ffffff; --free:#4fd1a1; --warn:#ff9a6b;
+  --soft:#1c2a3d; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}}
 :root[data-theme="dark"]{
   --sea:#121821; --land:#232b36; --coast:#4c5a6b; --ink:#e8ecf2; --muted:#9aa6b5; --warm-gray:#b3aaa2;
-  --line:#344050; --panel:#1a212b; --accent:#8f96ff; --accent-ink:#0f1330; --free:#4fd1a1; --warn:#ff9a6b;
-  --soft:#262d48; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}
+  --line:#344050; --panel:#1a212b; --accent:#0a84ff; --accent-ink:#ffffff; --free:#4fd1a1; --warn:#ff9a6b;
+  --soft:#1c2a3d; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}
 html{height:100%;box-sizing:border-box}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;height:100%;background:var(--sea);color:var(--ink);font-family:var(--f-body);font-size:14px;overflow:hidden}
