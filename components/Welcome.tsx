@@ -240,7 +240,7 @@ const PATTERN = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11
 function PatternBand({ day }: { day: number }) {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const order = PATTERN.map((_, i) => PATTERN[(i + day) % PATTERN.length]);
-  const rows = [order.slice(0, 5), order.slice(5, 10)];
+  const rows = [order.slice(0, 4), order.slice(4, 8), [...order.slice(8, 11), order[0]]];
   return (
     <div className="w-pattern" aria-hidden="true">
       {rows.map((row, r) => (
