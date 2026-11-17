@@ -32,6 +32,10 @@
 - `.github/workflows/fetch-exhibitions.yml` — 한국시간 9·12·15·18·24시에 수집 후 `data/` 커밋 → 끝나면 Pages 재배포.
 - `lib/remote.ts` — 앱이 열릴 때 GitHub raw(`DATA_BASE`)에서 최신 `data/*.json`을 받아 화면을 바꾼다. 실패하면 배포 때 묶인 데이터를 쓴다. (저장소가 공개여야 동작)
 - `lib/clean.ts` — 깨진 HTML 글자 정리 (서버·브라우저 공용).
+- **Supabase** (리뷰·전시 등록 요청): `lib/supabase.ts`(라이브러리 없이 REST, 기기마다 익명 로그인), `lib/reviews.ts`, `lib/submissions.ts`, `components/Reviews.tsx`, `components/SubmitForm.tsx`. 테이블·보안 규칙은 `docs/supabase.sql`(SQL Editor에 붙여 실행). URL·anon 키는 `lib/config.ts`(공개용 값). 비어 있으면 리뷰·등록은 '준비 중'.
+  - 리뷰: 전시당 기기 하나에 리뷰 하나(고치기·지우기 가능). 숨기려면 Supabase 표에서 `hidden=true`. 평균은 `exhibition_ratings` 보기.
+  - 등록 요청: `submissions`에 `pending`으로 들어감. 운영자가 `status`를 `approved`로 바꾸면 `approved_submissions` 보기로 공개돼 앱이 지도에 올린다(id `sub-…`). 연락처는 공개되지 않음.
+- `lib/bookmarks.ts` — 관심 전시(♥) 저장. 로그인 없이 이 기기 localStorage에만.
 - `lib/paintings.ts` + `data/paintings.json` + `public/paintings/` — 시작 화면 제목 '앙데팡당' 글자 안의 오늘의 그림. 8개 분류(흐림·비·눈·화창·봄·여름·가을·겨울) × 10장, 가로 720px 사본을 우리 사이트에 저장. 서울 날씨(Open-Meteo)로 분류를 정함: 비·뇌우→비, 흐림·안개→흐림, 눈→눈, 맑음→화창+지금 계절. 한국 날짜로 후보를 번갈아 고름. 빌드할 때(`app/page.tsx`) 날씨로 오늘 그림을 미리 정해 페이지에 넣고(preload), 화면에서는 10분마다·앱으로 돌아올 때 다시 확인해 바뀌었을 때만 교체.
 - `scripts/fetch-paintings.mjs` + `scripts/paintings.candidates.json` — 후보(분류별 10장+예비)를 위키미디어 공용에서 찾아 퍼블릭 도메인만 남기고 사본 저장·색 비중 계산. `.github/workflows/paintings.yml`(수동·매월) 실행 후 Pages 재배포.
 - 그림은 퍼블릭 도메인만 쓴다(모네, 1930년 이전 마티스). 살아 있는 작가(예: 데이비드 호크니)의 그림은 저작권 때문에 넣지 않는다.
