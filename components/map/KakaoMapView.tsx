@@ -304,8 +304,8 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
         circle: new kakao.maps.Circle({
           center: new kakao.maps.LatLng(KOREA_CENTER.lat, KOREA_CENTER.lon),
           radius: 1000,
-          strokeWeight: 2, strokeColor: "#2f37c9", strokeOpacity: 0.85, strokeStyle: "solid",
-          fillColor: "#2f37c9", fillOpacity: 0.07,
+          strokeWeight: 2, strokeColor: "#0071e3", strokeOpacity: 0.85, strokeStyle: "solid",
+          fillColor: "#0071e3", fillOpacity: 0.07,
         }),
       };
     }
