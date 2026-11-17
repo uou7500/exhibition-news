@@ -226,12 +226,23 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .w-quote{font-size:12.5px;line-height:1.5;color:var(--ink);font-family:var(--f-display);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .w-meta{font-size:11.5px;font-weight:600;color:var(--accent)}
 .w-empty{font-size:13.5px;line-height:1.6;color:var(--muted);background:var(--soft);border-radius:10px;padding:18px 16px}
-.w-actions{position:sticky;bottom:0;margin-top:auto;display:flex;flex-direction:column;gap:8px;background:var(--panel);background:color-mix(in srgb, var(--panel) 62%, transparent);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
+.w-actions{position:sticky;bottom:0;margin-top:auto;display:flex;flex-direction:column;gap:8px;background:var(--panel);background:color-mix(in srgb, var(--panel) 30%, transparent);-webkit-backdrop-filter:saturate(170%) blur(14px) brightness(1.04);backdrop-filter:saturate(170%) blur(14px) brightness(1.04);isolation:isolate;
   margin-left:calc(-1 * max(20px, env(safe-area-inset-left, 0px)));margin-right:calc(-1 * max(20px, env(safe-area-inset-right, 0px)));
   padding:14px max(20px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
-  border-top:1px solid color-mix(in srgb, var(--line) 60%, transparent);box-shadow:0 -10px 24px rgba(0,0,0,.06)}
+  border-top:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(255,255,255,.15),0 -10px 24px rgba(0,0,0,.06)}
+/* 유리·얼음 질감: 위쪽 빛 반사 + 비스듬한 광택 + 아주 옅은 서리 알갱이 */
+.w-actions::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.08) 38%,rgba(255,255,255,0) 60%,rgba(255,255,255,.12) 100%),
+    linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.28) 42%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 64%,rgba(255,255,255,.14) 70%,rgba(255,255,255,0) 76%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.75;mix-blend-mode:soft-light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .w-actions{border-top-color:rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 -10px 24px rgba(0,0,0,.25)}
+  :root:not([data-theme="light"]) .w-actions::before{opacity:.45}}
+:root[data-theme="dark"] .w-actions{border-top-color:rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 -10px 24px rgba(0,0,0,.25)}
+:root[data-theme="dark"] .w-actions::before{opacity:.45}
 .w-actions .btn{flex:none;width:100%}
-.w-actions .btn.ghost{background:color-mix(in srgb, var(--soft) 70%, transparent)}
+.w-actions .btn.ghost{background:color-mix(in srgb, var(--soft) 55%, transparent);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
 @keyframes w-in{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion: reduce){.welcome{animation:none}}
 .w-kinds{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
