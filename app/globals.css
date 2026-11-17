@@ -1,6 +1,6 @@
 /* Layout: 지도가 화면 전체, 위에 검색·필터 띠, 목록은 하단 시트(데스크톱은 좌측 패널), 상세는 우측/하단 시트 */
 :root{
-  --sea:#dde5ec; --land:#fbfbf8; --coast:#9aa9b8; --ink:#1d2430; --muted:#5f6b7a;
+  --sea:#dde5ec; --land:#fbfbf8; --coast:#9aa9b8; --ink:#1d2430; --muted:#5f6b7a; --warm-gray:#9a918a;
   --line:#d6dde4; --panel:#ffffff; --accent:#2f37c9; --accent-ink:#ffffff; --free:#13795b; --warn:#b4471a;
   --soft:#eef1fb;
   --f-display:"Gowun Batang", "Nanum Myeongjo", serif;
@@ -9,11 +9,11 @@
   --shadow:0 6px 24px rgba(20,28,45,.14);
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --sea:#121821; --land:#232b36; --coast:#4c5a6b; --ink:#e8ecf2; --muted:#9aa6b5;
+  --sea:#121821; --land:#232b36; --coast:#4c5a6b; --ink:#e8ecf2; --muted:#9aa6b5; --warm-gray:#b3aaa2;
   --line:#344050; --panel:#1a212b; --accent:#8f96ff; --accent-ink:#0f1330; --free:#4fd1a1; --warn:#ff9a6b;
   --soft:#262d48; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --sea:#121821; --land:#232b36; --coast:#4c5a6b; --ink:#e8ecf2; --muted:#9aa6b5;
+  --sea:#121821; --land:#232b36; --coast:#4c5a6b; --ink:#e8ecf2; --muted:#9aa6b5; --warm-gray:#b3aaa2;
   --line:#344050; --panel:#1a212b; --accent:#8f96ff; --accent-ink:#0f1330; --free:#4fd1a1; --warn:#ff9a6b;
   --soft:#262d48; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}
 html{height:100%;box-sizing:border-box}
@@ -193,7 +193,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .w-brand{font-family:"Black Han Sans",var(--f-display);font-weight:400;font-size:clamp(60px,20vw,120px);line-height:1;letter-spacing:-.01em;transition:color .6s ease}
 .w-brand.painted{width:fit-content;background-size:auto 140%;background-repeat:repeat-x;background-position:center;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .w-brand.painted span{-webkit-text-fill-color:var(--accent);color:var(--accent)}
-.w-brand .w-year{font-family:var(--f-mono);font-size:max(12px,.15em);font-weight:500;letter-spacing:.04em;margin-left:.3em;vertical-align:baseline}
+.w-brand .w-year{font-family:var(--f-mono);font-size:max(12px,.15em);font-weight:500;letter-spacing:.04em;margin-left:.3em;vertical-align:baseline;color:var(--warm-gray)}
+.w-brand.painted .w-year{-webkit-text-fill-color:var(--warm-gray);color:var(--warm-gray)}
 .w-art{margin:2px 0 0;font-size:11.5px;color:var(--muted)}
 .w-art a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:2px}
 .w-tagline{margin:2px 0 0;font-family:var(--f-display);font-size:17px;color:var(--ink);letter-spacing:-.01em}
