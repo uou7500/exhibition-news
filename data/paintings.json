@@ -160,26 +160,6 @@
     }
   },
   {
-    "id": "James McNeill Whistler - Nocturne en bleu et or.jpg",
-    "category": "흐림",
-    "artist": "제임스 휘슬러",
-    "title": "녹턴: 파랑과 금색, 옛 배터시 다리",
-    "year": "1872–75",
-    "file": "File:James McNeill Whistler - Nocturne en bleu et or.jpg",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/James_McNeill_Whistler_-_Nocturne_en_bleu_et_or.jpg/1280px-James_McNeill_Whistler_-_Nocturne_en_bleu_et_or.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:James_McNeill_Whistler_-_Nocturne_en_bleu_et_or.jpg",
-    "license": "Public domain",
-    "width": 1926,
-    "height": 2584,
-    "local": "james-mcneill-whistler-nocturne-en-bleu-et-or.jpg",
-    "stats": {
-      "gray": 0,
-      "white": 0,
-      "colorful": 33,
-      "saturation": 0.58
-    }
-  },
-  {
     "id": "Caspar David Friedrich - Wanderer above the sea of fog.jpg",
     "category": "흐림",
     "artist": "카스파르 다비트 프리드리히",
@@ -197,6 +177,26 @@
       "white": 0.406,
       "colorful": 14,
       "saturation": 0.135
+    }
+  },
+  {
+    "id": "Vilhelm Hammershøi - Le Vieux Christiansborg.jpg",
+    "category": "흐림",
+    "artist": "빌헬름 함메르쇠이",
+    "title": "크리스티안스보르 궁전",
+    "year": "1907",
+    "file": "File:Vilhelm Hammershøi - Le Vieux Christiansborg.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Vilhelm_Hammersh%C3%B8i_-_Le_Vieux_Christiansborg.jpg/1280px-Vilhelm_Hammersh%C3%B8i_-_Le_Vieux_Christiansborg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Vilhelm_Hammersh%C3%B8i_-_Le_Vieux_Christiansborg.jpg",
+    "license": "Public domain",
+    "width": 2582,
+    "height": 1988,
+    "local": "vilhelm-hammersh-i-le-vieux-christiansborg.jpg",
+    "stats": {
+      "gray": 0.47,
+      "white": 0,
+      "colorful": 17,
+      "saturation": 0.23
     }
   },
   {
@@ -823,7 +823,7 @@
     "id": "Blossoming Pear Tree - My Dream.jpg",
     "category": "봄",
     "artist": "빈센트 반 고흐",
-    "title": "분홍 복숭아나무",
+    "title": "꽃 핀 배나무",
     "year": "1888",
     "file": "File:Blossoming Pear Tree - My Dream.jpg",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Blossoming_Pear_Tree_-_My_Dream.jpg/1280px-Blossoming_Pear_Tree_-_My_Dream.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -843,7 +843,7 @@
     "id": "Camille Pissarro, Le verger (The Orchard), 1872.jpg",
     "category": "봄",
     "artist": "카미유 피사로",
-    "title": "꽃 핀 과수원, 루브시엔",
+    "title": "과수원",
     "year": "1872",
     "file": "File:Camille Pissarro, Le verger (The Orchard), 1872.jpg",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Camille_Pissarro%2C_Le_verger_%28The_Orchard%29%2C_1872.jpg/1280px-Camille_Pissarro%2C_Le_verger_%28The_Orchard%29%2C_1872.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -1063,7 +1063,7 @@
     "id": "Georges Seurat - Study for Bathers at Asnières PC 91.jpg",
     "category": "여름",
     "artist": "조르주 쇠라",
-    "title": "아니에르의 물놀이",
+    "title": "아니에르의 물놀이 (습작)",
     "year": "1884",
     "file": "File:Georges Seurat - Study for Bathers at Asnières PC 91.jpg",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Georges_Seurat_-_Study_for_Bathers_at_Asni%C3%A8res_PC_91.jpg/1280px-Georges_Seurat_-_Study_for_Bathers_at_Asni%C3%A8res_PC_91.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -1343,7 +1343,7 @@
     "id": "Claude Monet, sunset-on-the-seine-at-lavacourt-winter-effect.jpg",
     "category": "겨울",
     "artist": "클로드 모네",
-    "title": "겨울 센 강의 해 질 녘",
+    "title": "라바쿠르, 겨울 센 강의 해 질 녘",
     "year": "1880",
     "file": "File:Claude Monet, sunset-on-the-seine-at-lavacourt-winter-effect.jpg",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Claude_Monet%2C_sunset-on-the-seine-at-lavacourt-winter-effect.jpg/1280px-Claude_Monet%2C_sunset-on-the-seine-at-lavacourt-winter-effect.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -1383,7 +1383,7 @@
     "id": "Hendrick Averkamp A Winter Scene with Skaters near a Castle.jpg",
     "category": "겨울",
     "artist": "헨드릭 아베르캄프",
-    "title": "스케이트 타는 사람들이 있는 겨울 풍경",
+    "title": "성 근처, 스케이트 타는 사람들의 겨울 풍경",
     "year": "1608년경",
     "file": "File:Hendrick Averkamp A Winter Scene with Skaters near a Castle.jpg",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Hendrick_Averkamp_A_Winter_Scene_with_Skaters_near_a_Castle.jpg/1280px-Hendrick_Averkamp_A_Winter_Scene_with_Skaters_near_a_Castle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -1440,26 +1440,6 @@
     }
   },
   {
-    "id": "Winter Landscape with Brabrand Church.jpg",
-    "category": "겨울",
-    "artist": "카스파르 다비트 프리드리히",
-    "title": "교회가 있는 겨울 풍경",
-    "year": "1811",
-    "file": "File:Winter Landscape with Brabrand Church.jpg",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Winter_Landscape_with_Brabrand_Church.jpg/1280px-Winter_Landscape_with_Brabrand_Church.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:Winter_Landscape_with_Brabrand_Church.jpg",
-    "license": "Public domain",
-    "width": 5145,
-    "height": 3265,
-    "local": "winter-landscape-with-brabrand-church.jpg",
-    "stats": {
-      "gray": 0.509,
-      "white": 0.076,
-      "colorful": 22,
-      "saturation": 0.216
-    }
-  },
-  {
     "id": "Winter in Louveciennes, 1876 at Staatsgalerie - Stuttgart.jpg",
     "category": "겨울",
     "artist": "알프레드 시슬레",
@@ -1500,23 +1480,123 @@
     }
   },
   {
-    "id": "Chevrette forcée à la neige (Female roe deer hunted down in the snow) (BM 1889,0608.499).jpg",
-    "category": "겨울",
-    "artist": "귀스타브 쿠르베",
-    "title": "눈 속의 사슴들",
-    "year": "1866",
-    "file": "File:Chevrette forcée à la neige (Female roe deer hunted down in the snow) (BM 1889,0608.499).jpg",
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Chevrette_forc%C3%A9e_%C3%A0_la_neige_%28Female_roe_deer_hunted_down_in_the_snow%29_%28BM_1889%2C0608.499%29.jpg/1280px-Chevrette_forc%C3%A9e_%C3%A0_la_neige_%28Female_roe_deer_hunted_down_in_the_snow%29_%28BM_1889%2C0608.499%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:Chevrette_forc%C3%A9e_%C3%A0_la_neige_(Female_roe_deer_hunted_down_in_the_snow)_(BM_1889,0608.499).jpg",
+    "id": "Shono- Driving Rain (5758989131).jpg",
+    "category": "비",
+    "artist": "우타가와 히로시게",
+    "title": "쇼노의 소나기",
+    "year": "1833–34",
+    "file": "File:Shono- Driving Rain (5758989131).jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Shono-_Driving_Rain_%285758989131%29.jpg/1280px-Shono-_Driving_Rain_%285758989131%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Shono-_Driving_Rain_(5758989131).jpg",
     "license": "Public domain",
-    "width": 2500,
-    "height": 1975,
-    "local": "chevrette-force-e-a-la-neige-female-roe-deer-hunted-down-in-.jpg",
+    "width": 2341,
+    "height": 1539,
+    "local": "shono-driving-rain-5758989131.jpg",
     "stats": {
-      "gray": 0.292,
-      "white": 0.708,
-      "colorful": 3,
-      "saturation": 0.021
+      "gray": 0.597,
+      "white": 0.016,
+      "colorful": 34,
+      "saturation": 0.216
+    }
+  },
+  {
+    "id": "Camille Pissarro - Rue Saint-Honoré, dans l'après-midi. Effet de pluie.jpg",
+    "category": "비",
+    "artist": "카미유 피사로",
+    "title": "생토노레 거리, 비 오는 오후",
+    "year": "1897",
+    "file": "File:Camille Pissarro - Rue Saint-Honoré, dans l'après-midi. Effet de pluie.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Camille_Pissarro_-_Rue_Saint-Honor%C3%A9%2C_dans_l%27apr%C3%A8s-midi._Effet_de_pluie.jpg/1280px-Camille_Pissarro_-_Rue_Saint-Honor%C3%A9%2C_dans_l%27apr%C3%A8s-midi._Effet_de_pluie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Camille_Pissarro_-_Rue_Saint-Honor%C3%A9,_dans_l%27apr%C3%A8s-midi._Effet_de_pluie.jpg",
+    "license": "Public domain",
+    "width": 2416,
+    "height": 3000,
+    "local": "camille-pissarro-rue-saint-honore-dans-l-apre-s-midi-effet-d.jpg",
+    "stats": {
+      "gray": 0.431,
+      "white": 0.231,
+      "colorful": 27,
+      "saturation": 0.167
+    }
+  },
+  {
+    "id": "Sewing the Sail by Joaquín Sorolla y Bastida, 1896.jpg",
+    "category": "여름",
+    "artist": "호아킨 소로야",
+    "title": "돛 꿰매기",
+    "year": "1896",
+    "file": "File:Sewing the Sail by Joaquín Sorolla y Bastida, 1896.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/15/Sewing_the_Sail_by_Joaqu%C3%ADn_Sorolla_y_Bastida%2C_1896.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Sewing_the_Sail_by_Joaqu%C3%ADn_Sorolla_y_Bastida,_1896.jpg",
+    "license": "Public domain",
+    "width": 1192,
+    "height": 1012,
+    "local": "sewing-the-sail-by-joaqui-n-sorolla-y-bastida-1896.jpg",
+    "stats": {
+      "gray": 0.434,
+      "white": 0.052,
+      "colorful": 33,
+      "saturation": 0.249
+    }
+  },
+  {
+    "id": "Renoir, Pierre-Auguste - Dance at Le Moulin de la Galette, 1876.jpg",
+    "category": "여름",
+    "artist": "피에르오귀스트 르누아르",
+    "title": "물랭 드 라 갈레트의 무도회",
+    "year": "1876",
+    "file": "File:Renoir, Pierre-Auguste - Dance at Le Moulin de la Galette, 1876.jpg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Renoir%2C_Pierre-Auguste_-_Dance_at_Le_Moulin_de_la_Galette%2C_1876.jpg/1280px-Renoir%2C_Pierre-Auguste_-_Dance_at_Le_Moulin_de_la_Galette%2C_1876.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Renoir,_Pierre-Auguste_-_Dance_at_Le_Moulin_de_la_Galette,_1876.jpg",
+    "license": "Public domain",
+    "width": 40869,
+    "height": 30379,
+    "local": "renoir-pierre-auguste-dance-at-le-moulin-de-la-galette-1876.jpg",
+    "stats": {
+      "gray": 0.253,
+      "white": 0.004,
+      "colorful": 43,
+      "saturation": 0.43
+    }
+  },
+  {
+    "id": "Claude Monet - Stack of Wheat (Snow Effect, Overcast Day).jpg",
+    "category": "겨울",
+    "artist": "클로드 모네",
+    "title": "건초더미, 눈의 효과, 흐린 날",
+    "year": "1890–91",
+    "file": "File:Claude Monet - Stack of Wheat (Snow Effect, Overcast Day).jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Claude_Monet_-_Stack_of_Wheat_%28Snow_Effect%2C_Overcast_Day%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Stack_of_Wheat_(Snow_Effect,_Overcast_Day).jpg",
+    "license": "Public domain",
+    "width": 1024,
+    "height": 726,
+    "local": "claude-monet-stack-of-wheat-snow-effect-overcast-day.jpg",
+    "stats": {
+      "gray": 0.178,
+      "white": 0.511,
+      "colorful": 35,
+      "saturation": 0.164
+    }
+  },
+  {
+    "id": "Avenue de L'Opera (Effect of Snow in the Morning) IMG 6902.JPG",
+    "category": "겨울",
+    "artist": "카미유 피사로",
+    "title": "오페라 거리, 눈의 효과",
+    "year": "1898",
+    "file": "File:Avenue de L'Opera (Effect of Snow in the Morning) IMG 6902.JPG",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Avenue_de_L%27Opera_%28Effect_of_Snow_in_the_Morning%29_IMG_6902.JPG/1280px-Avenue_de_L%27Opera_%28Effect_of_Snow_in_the_Morning%29_IMG_6902.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Avenue_de_L%27Opera_(Effect_of_Snow_in_the_Morning)_IMG_6902.JPG",
+    "license": "Public domain",
+    "width": 3553,
+    "height": 2734,
+    "local": "avenue-de-l-opera-effect-of-snow-in-the-morning-img-6902.jpg",
+    "stats": {
+      "gray": 0.599,
+      "white": 0.125,
+      "colorful": 20,
+      "saturation": 0.16
     }
   }
 ]
