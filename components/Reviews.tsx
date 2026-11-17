@@ -1,13 +1,61 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { deleteNote, fetchNotes, saveNote, NOTE_TAGS, type Note } from "@/lib/reviews";
+import { deleteNote, fetchNotes, reportNote, saveNote, NOTE_TAGS, REPORT_REASONS, type Note } from "@/lib/reviews";
+import { hasBadWords } from "@/lib/etiquette";
 import { myUserId, supabaseReady } from "@/lib/supabase";
 
 const fmt = (iso: string) => {
   const d = new Date(iso);
   return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
 };
+
+const REPORTED_KEY = "andepandang-reported";
+function loadReported(): Set<string> {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(REPORTED_KEY) ?? "[]"));
+  } catch {
+    return new Set();
+  }
+}
+
+/** 남의 글 아래 작은 '신고' — 누르면 이유를 고른다 */
+function ReportButton({ noteId }: { noteId: string }) {
+  const [open, setOpen] = useState(false);
+  const [state, setState] = useState<"idle" | "sending" | "done" | "error">(() => (loadReported().has(noteId) ? "done" : "idle"));
+
+  const send = async (reason: string) => {
+    setState("sending");
+    try {
+      await reportNote(noteId, reason);
+      const r = loadReported();
+      r.add(noteId);
+      try {
+        localStorage.setItem(REPORTED_KEY, JSON.stringify([...r]));
+      } catch {}
+      setState("done");
+      setOpen(false);
+    } catch {
+      setState("error");
+    }
+  };
+
+  if (state === "done") return <span className="gb-reported">신고했어요</span>;
+  return (
+    <>
+      <button type="button" className="gb-report" aria-expanded={open} onClick={() => setOpen((v) => !v)}>신고</button>
+      {open && (
+        <div className="gb-report-box" role="group" aria-label="신고 이유">
+          <span>어떤 문제인가요?</span>
+          {REPORT_REASONS.map((r) => (
+            <button key={r} type="button" disabled={state === "sending"} onClick={() => send(r)}>{r}</button>
+          ))}
+          {state === "error" && <em>보내지 못했어요. 다시 눌러 주세요.</em>}
+        </div>
+      )}
+    </>
+  );
+}
 
 /** 상세 창 위쪽 한 줄: 방명록 N · 남기기 (누르면 방명록으로 이동) */
 export function GuestbookLink({ count, onClick }: { count: number | null; onClick: () => void }) {
@@ -76,6 +124,10 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
       setError("한마디를 적거나 정보를 하나 이상 골라 주세요.");
       return;
     }
+    if (hasBadWords(body, nickname)) {
+      setError("욕설이나 남을 낮추는 말은 쓸 수 없어요. 함께 보는 방명록이니 고운 말로 남겨 주세요.");
+      return;
+    }
     setSaving(true);
     setError(null);
     try {
@@ -85,8 +137,12 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
       await saveNote(exhibitionId, body, tags, nickname);
       setDone(mine ? "방명록을 고쳤어요." : "방명록을 남겼어요. 고마워요!");
       await load();
-    } catch {
-      setError("저장하지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요.");
+    } catch (err) {
+      setError(
+        String(err).includes("bad_words")
+          ? "욕설이나 남을 낮추는 말은 쓸 수 없어요. 함께 보는 방명록이니 고운 말로 남겨 주세요."
+          : "저장하지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요.",
+      );
     } finally {
       setSaving(false);
     }
@@ -110,7 +166,11 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
   return (
     <div className="reviews" id="reviews">
       <h3 className="rv-h">방명록</h3>
-      <p className="rv-note">점수 없이, 다녀온 감상과 다음 관람객에게 도움이 될 정보를 남겨요.</p>
+      <div className="gb-intro">
+        <p><b>예술에 높고 낮음은 없습니다.</b></p>
+        <p>앙데팡당은 심사도 상도 없이 누구나 작품을 걸 수 있었던 1884년 파리의 전시에서 이름을 따왔어요. 그래서 이곳에는 점수가 없어요.</p>
+        <p>잘했다, 못했다는 평가보다 무엇을 보고 어떤 마음이 들었는지, 감상을 남겨 주세요. 작가와 다음 관람객이 함께 읽어요.</p>
+      </div>
 
       {tagSummary.length > 0 && (
         <ul className="gb-summary" aria-label="관람객들이 남긴 정보">
@@ -125,7 +185,7 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
           id={`rv-body-${exhibitionId}`}
           value={body}
           onChange={(e) => setBody(e.target.value.slice(0, 500))}
-          placeholder="전시장에서 무엇이 마음에 남았나요?"
+          placeholder="어떤 장면이, 어떤 색이, 어떤 생각이 마음에 남았나요?"
           rows={3}
         />
         <div className="gb-tags" role="group" aria-label="정보 고르기 (선택)">
@@ -166,6 +226,7 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
                 <b>{r.nickname || "익명 관람객"}</b>
                 {r.user_id === myUserId() && <span className="rv-me">내 글</span>}
                 <time>{fmt(r.created_at)}</time>
+                {r.user_id !== myUserId() && <ReportButton noteId={r.id} />}
               </div>
               {r.body && <p>{r.body}</p>}
               {r.tags.length > 0 && (

@@ -59,3 +59,20 @@ export async function deleteNote(exhibitionId: string): Promise<void> {
   if (!uid) return;
   await rest(`reviews?exhibition_id=eq.${encodeURIComponent(exhibitionId)}&user_id=eq.${uid}`, { method: "DELETE", auth: true });
 }
+
+export const REPORT_REASONS = ["욕설·비하", "광고·홍보", "전시와 관계없는 글", "개인정보 노출"] as const;
+
+/** 방명록 글 신고. 같은 글을 다시 신고해도 오류로 보지 않는다. 3번 쌓이면 서버가 자동으로 숨긴다 */
+export async function reportNote(noteId: string, reason: string): Promise<void> {
+  const s = await session();
+  try {
+    await rest("review_reports", {
+      method: "POST",
+      auth: true,
+      headers: { Prefer: "return=minimal" },
+      body: JSON.stringify({ review_id: noteId, user_id: s.user_id, reason }),
+    });
+  } catch (e) {
+    if (!String(e).startsWith("409")) throw e;
+  }
+}
