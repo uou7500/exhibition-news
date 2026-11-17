@@ -250,6 +250,7 @@ function PatternBand({ day }: { day: number }) {
           ))}
         </div>
       ))}
+      <span className="w-credit">copyright by ehd</span>
     </div>
   );
 }
