@@ -2,7 +2,7 @@
 // 대중픽: 전시마다 네이버 블로그에 최근 30일 동안 올라온 글 수를 세어 data/popularity.json에 저장한다.
 //
 // 실행: NAVER_CLIENT_ID=... NAVER_CLIENT_SECRET=... node scripts/fetch-popularity.mjs
-// 키 발급: https://developers.naver.com → Application 등록 → 사용 API '검색'
+// 키 발급: 네이버 클라우드 플랫폼 콘솔 → NAVER API HUB → 이용 신청 → Application 등록(검색 API) → 인증 정보의 Client ID / Client Secret
 // 키가 없으면 아무것도 하지 않고 끝난다 (워크플로가 실패하지 않게).
 
 import { readFile, writeFile } from "node:fs/promises";
@@ -29,8 +29,9 @@ function queryOf(x) {
 }
 
 async function search(query) {
-  const url = `https://openapi.naver.com/v1/search/blog.json?query=${encodeURIComponent(query)}&display=100&sort=date`;
-  const res = await fetch(url, { headers: { "X-Naver-Client-Id": ID, "X-Naver-Client-Secret": SECRET } });
+  // 2026년부터 네이버 검색 API는 NAVER API HUB(네이버 클라우드 플랫폼)로 옮겨졌다. 주소와 헤더 이름이 바뀜.
+  const url = `https://naverapihub.apigw.ntruss.com/search/v1/blog?query=${encodeURIComponent(query)}&display=100&sort=date`;
+  const res = await fetch(url, { headers: { "X-NCP-APIGW-API-KEY-ID": ID, "X-NCP-APIGW-API-KEY": SECRET } });
   if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
   return res.json();
 }

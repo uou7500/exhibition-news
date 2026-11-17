@@ -28,7 +28,7 @@
 - `lib/data.ts` — 데이터 읽기. `data/exhibitions.json`이 비어 있으면 `lib/sample-exhibitions.ts` 예시 데이터를 쓴다. DB로 옮길 때 이 파일만 바꾼다.
 - `lib/korea-map.ts` — 임시 SVG 지도 윤곽 (SvgMapView 전용).
 - `scripts/fetch-exhibitions.mjs` — 공공데이터 수집기 (의존성 없음, Node 20+).
-- `scripts/fetch-popularity.mjs` — 대중픽: 네이버 블로그 검색 API로 전시별 최근 30일 글 수. GitHub Secrets `NAVER_CLIENT_ID`/`NAVER_CLIENT_SECRET` 없으면 건너뜀.
+- `scripts/fetch-popularity.mjs` — 대중픽: 네이버 블로그 검색 API로 전시별 최근 30일 글 수. 검색 API는 NAVER API HUB(네이버 클라우드 플랫폼)로 이전됨: `https://naverapihub.apigw.ntruss.com/search/v1/blog`, 헤더 `X-NCP-APIGW-API-KEY-ID`/`X-NCP-APIGW-API-KEY`. GitHub Secrets `NAVER_CLIENT_ID`/`NAVER_CLIENT_SECRET`(API HUB 키) 없으면 건너뜀.
 - `.github/workflows/fetch-exhibitions.yml` — 한국시간 9·12·15·18·24시에 수집 후 `data/` 커밋 → 끝나면 Pages 재배포.
 - `lib/remote.ts` — 앱이 열릴 때 GitHub raw(`DATA_BASE`)에서 최신 `data/*.json`을 받아 화면을 바꾼다. 실패하면 배포 때 묶인 데이터를 쓴다. (저장소가 공개여야 동작)
 - `lib/clean.ts` — 깨진 HTML 글자 정리 (서버·브라우저 공용).
