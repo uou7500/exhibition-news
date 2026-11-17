@@ -356,5 +356,105 @@
       "작가전"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-hidden-prompter-cr-2026",
+    "title": "씨알콜렉티브 10주년 기획전 《히든 프롬프터 Hidden Prompter》 강동훈 · 신미경 · 오종",
+    "venue": "씨알콜렉티브 (CR Collective)",
+    "city": "서울",
+    "lat": 37.5627,
+    "lon": 126.923,
+    "genre": "조각·설치",
+    "startDate": "2026-11-12",
+    "endDate": "2026-12-31",
+    "price": null,
+    "description": "개관 10주년을 맞은 씨알콜렉티브의 기획전으로, 강동훈·신미경·오종 세 작가가 이미지와 지각, 그 사이의 권력 관계를 다룹니다. AI를 직접 쓰지 않고 이미지와 몸의 경험을 탐구하며, 신미경은 리본 인형 이미지를 쓴 렌티큘러 작업을 선보입니다.",
+    "thumbnail": "",
+    "url": "https://www.news1.kr/life-culture/performance-exhibition/6352580",
+    "address": "서울 마포구 성미산로 120",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kim-haebin-arae-2026",
+    "title": "김해빈 개인전 《고쳐 마땅한 것》",
+    "venue": "공간아래",
+    "city": "서울",
+    "lat": 37.5866,
+    "lon": 127.0003,
+    "genre": "기타",
+    "startDate": "2026-11-18",
+    "endDate": "2026-11-22",
+    "price": null,
+    "description": "되감고 자르고 붙이는 행위로 \"바르지 않은 것\"을 고쳐 보는 닷새짜리 개인전입니다. 기억과 겉모습을 편집할 재료로 삼아, 지어낸 듯하면서도 진심 같은 이야기를 펼치고 무엇을 믿을지는 관객에게 맡깁니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-100279bc6de0ccada0babc55c6272550_4ae982f13ad9e862f58a4fa2c74770828aa9f9d5_600x0.png",
+    "url": "https://artnet.kr/p/solo-exhibitions/1573",
+    "address": "서울 종로구 혜화로9길 39",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-jung-yuna-cheongdam-2026",
+    "title": "정윤아 개인전 《Non-touch Fever》",
+    "venue": "스페이스 청담",
+    "city": "경기",
+    "lat": 37.545,
+    "lon": 127.317,
+    "genre": "회화",
+    "startDate": "2026-11-14",
+    "endDate": "2026-11-27",
+    "price": null,
+    "description": "스페이스 청담 청년작가 공모에 뽑힌 정윤아의 개인전으로, 선명한 색과 움직임이 느껴지는 화면을 선보입니다. 양평 양수리의 단독 건물 공간이며 일·월·화요일은 쉬고 오후 1~5시에 엽니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-a826dc43b792a10b422df875032f851b_3cdbcbb1cfca05844e66802c3ec3d066131167a6_768x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1598",
+    "address": "경기 양평군 양서면 양수로 98",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-hur-jua-harang-2026",
+    "title": "허주아 개인전 《곁 - 가장 아름다운 여백》",
+    "venue": "하랑갤러리",
+    "city": "서울",
+    "lat": 37.5935,
+    "lon": 126.9658,
+    "genre": "회화",
+    "startDate": "2026-11-18",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "고요한 자연 속에 사람과 꽃을 놓고, 각자의 자리를 지키며 곁에 머무는 관계를 그린 개인전입니다. 한지 위에 먹과 투명한 채색, 색연필을 겹쳐 차분하게 공존을 바라봅니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-76bb6308cc4ec530f5d42983dba3f4fc_a1a704f2b62df0d611e70e3f42692f5daf1afc48_768x0.png",
+    "url": "https://artnet.kr/p/solo-exhibitions/1592",
+    "address": "서울 종로구 자하문로38길 45",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-jeong-sine-181-2026",
+    "title": "정시네 개인전 《시선이 머무는 곳》",
+    "venue": "18-1 갤러리",
+    "city": "부산",
+    "lat": 35.1035,
+    "lon": 129.0345,
+    "genre": "회화",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-02",
+    "price": null,
+    "description": "낡은 벽과 오래된 집, 좁은 골목처럼 사라져 가는 부산 원도심 풍경을 어린 시절 기억과 겹쳐 그린 개인전입니다. 창 너머 바다를 쉼과 희망의 상징으로 담았습니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-43953b2229c611ba0ba2e3fd0c4d1bc1_4501414d5ece5122050f91efa3aa92964bfc928b_600x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1597",
+    "address": "부산 중구 대청로141번길 18-1",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]

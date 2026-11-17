@@ -67,5 +67,25 @@
     "area": "성미산로",
     "url": "http://cr-collective.co.kr/",
     "note": "마포 성미산로의 현대미술 전시공간 (2026년 개관 10주년 기획전 진행)"
+  },
+  {
+    "id": "gongganarae",
+    "name": "공간아래",
+    "search": "공간아래 혜화로9길",
+    "area": "혜화로",
+    "lat": 37.5866,
+    "lon": 127.0003,
+    "url": "https://artnet.kr/p/solo-exhibitions/1573",
+    "note": "대학로 명륜1가 골목 1층의 작은 전시 공간, 짧은 작가 개인전"
+  },
+  {
+    "id": "seocho-youth-art-gallery",
+    "name": "서리풀청년아트갤러리",
+    "search": "서리풀청년아트갤러리",
+    "area": "남부순환로",
+    "lat": 37.4842,
+    "lon": 127.0146,
+    "url": "https://artnet.kr/p/group-exhibitions/1408",
+    "note": "예술의전당 앞 지하보도 안의 청년 작가 전시 공간"
   }
 ]
