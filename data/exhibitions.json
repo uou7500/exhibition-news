@@ -1962,23 +1962,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-408418",
-    "title": "기억과 현상의 기록 - <메모>의 변주",
-    "venue": "복합문화예술공간MERGE",
-    "city": "부산",
-    "lat": 35.2335553081098,
-    "lon": 129.086382076306,
-    "genre": "기타",
-    "startDate": "2026-11-24",
-    "endDate": "2026-12-03",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/628ceca87d07429190c05fed18a81bcb.jpg",
-    "url": "https://blog.naver.com/openartsmerge/224477734292",
-    "address": "부산광역시 금정구 부산대학로50번길 49 1층",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-394057",
     "title": "그린그린 뮤지엄 : 감각 노트",
     "venue": "수원시립만석전시관",
@@ -2889,6 +2872,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/b604a1d2973844d7b95489ae103d340e.PNG",
     "url": "https://www.science.go.kr/mps/0/bbs/321/moveBbsNttDetail.do?nttSn=50316",
     "address": "대전광역시 유성구 대덕대로 481 국립중앙과학관",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-408645",
+    "title": "김민정 개인전 <우리는 모두 누군가의 온기로 살아간다>",
+    "venue": "서울시복지재단",
+    "city": "서울",
+    "lat": 37.5474587622726,
+    "lon": 126.950577944061,
+    "genre": "기타",
+    "startDate": "2026-11-17",
+    "endDate": "2026-12-24",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/570c7667316544e29c6ebdca0c9cb67f.jpg",
+    "url": "https://www.heartanc.org/",
+    "address": "서울특별시 마포구 백범로31길 21 서울시복지재단 본관 5층 SWF 갤러리",
     "source": "culture.go.kr"
   },
   {
