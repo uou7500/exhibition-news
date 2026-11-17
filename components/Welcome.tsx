@@ -172,6 +172,8 @@ export default function Welcome({
           </p>
         </header>
 
+        <PatternBand day={now ? Math.floor(now.getTime() / 86400000) : 0} />
+
         <section className="w-picks" aria-label="추천 전시">
           <div className="w-tabs" role="tablist">
             <button role="tab" type="button" aria-selected={tab === "popular"} onClick={() => setTab("popular")}>대중픽</button>
@@ -229,6 +231,25 @@ export default function Welcome({
           <button type="button" className="btn ghost" onClick={onBrowse}>전국 지도 둘러보기</button>
         </footer>
       </div>
+    </div>
+  );
+}
+
+/** 처음 화면 그림 띠: 여러 작품의 한 부분을 같은 크기 동그라미로 (누구의 작품이든 같은 크기). 날마다 순서가 돌아간다 */
+const PATTERN = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
+function PatternBand({ day }: { day: number }) {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const order = PATTERN.map((_, i) => PATTERN[(i + day) % PATTERN.length]);
+  const rows = [order.slice(0, 5), order.slice(5, 10)];
+  return (
+    <div className="w-pattern" aria-hidden="true">
+      {rows.map((row, r) => (
+        <div key={r} className="w-prow">
+          {row.map((n) => (
+            <span key={n} className="w-dot" style={{ backgroundImage: `url("${base}/pattern/${n}.jpg")` }} />
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

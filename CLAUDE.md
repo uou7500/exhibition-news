@@ -19,6 +19,7 @@
 - `components/map/KakaoMapView.tsx` — 카카오맵 (환경변수 `NEXT_PUBLIC_KAKAO_MAP_KEY`가 있을 때). 전시 핀·묶음(clusterer)·주변 편의점/카페/지하철역(장소 카테고리 검색 CS2/CE7/SW8).
 - `components/map/SvgMapView.tsx` — 키가 없을 때 쓰는 임시 윤곽 지도. `components/map/types.ts`의 `MapViewProps`를 두 지도가 같이 따른다.
 - `components/Welcome.tsx` — 시작 화면(세션마다 한 번): 오늘 열려 있는 전시 수, 대중픽/예술의 미래 탭, 내 주변/전국 버튼.
+- 시작 화면 그림 띠(`PatternBand`, `public/pattern/01~11.jpg`): 사용자(앱 만든 사람) 본인 그림의 한 부분을 같은 크기 동그라미로 엇갈려 배치, 날마다 순서가 돌아감. 사람 얼굴·몸이 크게 나온 그림, 글자·상표가 든 그림은 넣지 않는다.
 - `lib/picks.ts` — `data/popularity.json`(대중픽) 읽기.
 - `lib/future.ts` — '예술의 미래' 분류(졸업전시·실험전시·작가전): `tags`가 있으면 우선, 없으면 제목·장소·소개글 키워드로 추정. 큰 기관(미술관·문화재단 등) 개인전은 작가전에서 뺀다.
 - `lib/spaces.ts` + `data/spaces.json` — 독립공간 목록. 지도에 보라색 마름모 핀. 좌표가 없으면 브라우저에서 카카오 장소 검색(`search`)으로 찾되 주소에 `area` 글자가 있을 때만 쓴다.
