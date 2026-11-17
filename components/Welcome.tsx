@@ -1,6 +1,6 @@
 "use client";
 
-// 앱을 켰을 때 처음 보이는 화면: 오늘 열리는 전시 수, 대중픽·전문가 픽, 시작 버튼.
+// 앱을 켰을 때 처음 보이는 화면: 오늘 열리는 전시 수, 대중을 위한·예술의 미래 탭, 시작 버튼.
 
 import { useEffect, useMemo, useState } from "react";
 import type { Exhibition } from "@/lib/types";
@@ -174,7 +174,7 @@ export default function Welcome({
 
         <section className="w-picks" aria-label="추천 전시">
           <div className="w-tabs" role="tablist">
-            <button role="tab" type="button" aria-selected={tab === "popular"} onClick={() => setTab("popular")}>대중픽</button>
+            <button role="tab" type="button" aria-selected={tab === "popular"} onClick={() => setTab("popular")}>대중을 위한</button>
             <button role="tab" type="button" aria-selected={tab === "future"} onClick={() => setTab("future")}>예술의 미래</button>
           </div>
           <p className="w-basis">
@@ -198,7 +198,7 @@ export default function Welcome({
           {now && cards.length === 0 ? (
             <div className="w-empty">
               {tab === "popular"
-                ? "대중픽은 매일 새벽에 집계돼요. 첫 집계가 끝나면 여기에 순위가 나와요."
+                ? "대중을 위한 전시는 하루 다섯 번 집계돼요. 첫 집계가 끝나면 여기에 나와요."
                 : kind === "졸업전시"
                   ? "지금 열려 있는 졸업전시가 아직 없어요. 졸업전시는 공공데이터에 거의 올라오지 않아 하나씩 직접 추가하고 있어요."
                   : "지금 조건에 맞는 전시가 없어요."}
