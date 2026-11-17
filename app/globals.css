@@ -201,7 +201,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .w-count{margin:10px 0 0;display:flex;align-items:baseline;gap:6px;font-size:15px;color:var(--muted)}
 .w-count b{font-family:var(--f-display);font-size:34px;color:var(--ink);font-variant-numeric:tabular-nums;margin-left:4px}
 .w-count span{color:var(--ink)}
-.w-pattern{--d:clamp(104px,30vw,132px);margin:0 calc(-1 * max(20px, env(safe-area-inset-left, 0px)));background:var(--band);padding:12px 0 calc(12px - var(--d) * .1);overflow:hidden;display:flex;flex-direction:column}
+.w-pattern{position:relative;--d:clamp(104px,30vw,132px);margin:0 calc(-1 * max(20px, env(safe-area-inset-left, 0px)));background:var(--band);padding:12px 0 calc(12px - var(--d) * .1);overflow:hidden;display:flex;flex-direction:column}
+.w-credit{position:absolute;right:max(12px, env(safe-area-inset-right, 0px));bottom:10px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;color:rgba(255,255,255,.92);background:rgba(30,26,22,.38);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:3px 9px;border-radius:999px;pointer-events:none}
 .w-prow{display:flex;gap:8px;margin-left:-4px}
 .w-prow + .w-prow{margin-top:calc(var(--d) * -.1)}
 .w-prow:nth-child(2){margin-left:calc(var(--d) * -.55)}
