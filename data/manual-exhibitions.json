@@ -495,5 +495,81 @@
       "졸업전시"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-jnu-art-rehearsal-2026",
+    "title": "제주대학교 미술학과 제51회 졸업전시 《Rehearsal(리허설)》",
+    "venue": "예술공간 이아",
+    "city": "제주",
+    "lat": 33.5127,
+    "lon": 126.5262,
+    "genre": "기타",
+    "startDate": "2026-12-08",
+    "endDate": "2026-12-13",
+    "price": null,
+    "description": "제주대 미술학과 졸업생들이 학교 밖 무대에 서기 전의 \"리허설\"이라는 뜻을 담아 여는 제51회 졸업전시입니다. 제주시 원도심의 예술공간 이아에서 열립니다.",
+    "url": "https://www.newsnjeju.com/news/articleView.html?idxno=305001",
+    "address": "제주 제주시 중앙로14길 21",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-byun-daeyong-spacehi-2026",
+    "title": "변대용 개인전 《꽃들의 연대》",
+    "venue": "스페이스 하이 (SPACE HI)",
+    "city": "부산",
+    "lat": 35.19,
+    "lon": 129.124,
+    "genre": "조각·설치",
+    "startDate": "2026-11-04",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "친근하고 놀이 같은 조형 언어로 사람과 존재의 관계를 다뤄 온 변대용 작가의 개인전입니다. 조각과 함께 드로잉·회화도 내놓아 입체와 평면을 아우르는 작업을 보여 줍니다.",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026092701060166868",
+    "address": "부산 해운대구 재반로27번길 36-13",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-choi-junsang-ogallery-2026",
+    "title": "최준상 개인전 《연기(緣起) - 서로의 여백을 채우다》",
+    "venue": "오 갤러리 (O Gallery)",
+    "city": "부산",
+    "lat": 35.1625,
+    "lon": 129.1665,
+    "genre": "회화",
+    "startDate": "2026-11-06",
+    "endDate": "2026-12-05",
+    "price": null,
+    "description": "모든 것이 여러 원인과 조건이 얽혀 생겨난다는 불교의 \"연기\" 개념으로 최준상 작가 작품 속 시간·기억·형상·여백을 다시 읽는 개인전입니다.",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026092701060166868",
+    "address": "부산 해운대구 중동1로19번길 15",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-ju-jeongi-migwang-2026",
+    "title": "주정이 목판화展",
+    "venue": "미광화랑",
+    "city": "부산",
+    "lat": 35.155,
+    "lon": 129.118,
+    "genre": "회화",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-30",
+    "price": null,
+    "description": "부산·경남에서 오랫동안 활동해 온 원로 판화가 주정이 작가의 목판화 개인전입니다.",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026092701060166868",
+    "address": "부산 수영구 광남로172번길 2",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]
