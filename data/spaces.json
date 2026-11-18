@@ -87,5 +87,14 @@
     "lon": 127.0146,
     "url": "https://artnet.kr/p/group-exhibitions/1408",
     "note": "예술의전당 앞 지하보도 안의 청년 작가 전시 공간"
+  },
+  {
+    "id": "coso",
+    "name": "코소 (COSO)",
+    "search": "갤러리 코소 을지로",
+    "area": "창경궁로5길",
+    "url": "https://cosocoso.kr/about",
+    "instagram": "https://www.instagram.com/coso_seoul/",
+    "note": "2017년 삼청동에서 열어 2022년 을지로로 옮긴 현대미술 갤러리. 자기 언어를 만들어 가는 작가를 발굴해 소개"
   }
 ]
