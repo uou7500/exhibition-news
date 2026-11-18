@@ -3,6 +3,7 @@
 // 앱을 켰을 때 처음 보이는 화면: 오늘 열리는 전시 수, 대중을 위한·예술의 미래 탭, 시작 버튼.
 
 import { useEffect, useMemo, useState } from "react";
+import InstallApp from "./InstallApp";
 import type { Exhibition } from "@/lib/types";
 import type { PopularityData } from "@/lib/picks";
 import { FUTURE_KINDS, futureKindOf, type FutureKind } from "@/lib/future";
@@ -225,6 +226,7 @@ export default function Welcome({
         </section>
 
         <footer className="w-actions">
+          <InstallApp />
           <button type="button" className="btn" onClick={onNear}>내 주변 전시 보기</button>
           <button type="button" className="btn ghost" onClick={onBrowse}>전국 지도 둘러보기</button>
         </footer>

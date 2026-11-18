@@ -38,6 +38,7 @@
   - 에티켓: 욕설 단어는 `lib/etiquette.ts`(앱)와 `docs/supabase-etiquette.sql`의 `has_bad_words`(서버)에 같이 있다. 바꿀 땐 두 곳 모두.
   - 신고: `review_reports`(운영자만 열람). 같은 글에 신고 3번이면 자동으로 `hidden=true`.
   - 등록 요청: `submissions`에 `pending`으로 들어감. 운영자가 `status`를 `approved`로 바꾸면 `approved_submissions` 보기로 공개돼 앱이 지도에 올린다(id `sub-…`). 연락처는 공개되지 않음.
+- **홈 화면에 추가(PWA)**: `public/manifest.webmanifest`(경로는 상대 주소라 basePath와 무관), `public/icons/`(아이콘: '앙' + 파란 점, Noto Sans CJK Black으로 생성), `public/sw.js`(같은 주소 파일만, 인터넷 먼저·실패 때 사본), `components/InstallApp.tsx`(시작 화면 아래 버튼: 안드로이드는 설치 창, 아이폰은 '공유 → 홈 화면에 추가' 안내, 이미 앱으로 열었으면 숨김). 앱 메타데이터는 `app/layout.tsx`.
 - `lib/bookmarks.ts` — 관심 전시(♥) 저장. 로그인 없이 이 기기 localStorage에만.
 - `lib/paintings.ts` + `data/paintings.json` + `public/paintings/` — 시작 화면 제목 '앙데팡당' 글자 안의 오늘의 그림. 8개 분류(흐림·비·눈·화창·봄·여름·가을·겨울) × 10장, 가로 720px 사본을 우리 사이트에 저장. 서울 날씨(Open-Meteo)로 분류를 정함: 비·뇌우→비, 흐림·안개→흐림, 눈→눈, 맑음→화창+지금 계절. 한국 날짜로 후보를 번갈아 고름. 빌드할 때(`app/page.tsx`) 날씨로 오늘 그림을 미리 정해 페이지에 넣고(preload), 화면에서는 10분마다·앱으로 돌아올 때 다시 확인해 바뀌었을 때만 교체.
 - `scripts/fetch-paintings.mjs` + `scripts/paintings.candidates.json` — 후보(분류별 10장+예비)를 위키미디어 공용에서 찾아 퍼블릭 도메인만 남기고 사본 저장·색 비중 계산. `.github/workflows/paintings.yml`(수동·매월) 실행 후 Pages 재배포.
