@@ -251,6 +251,12 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 :root[data-theme="dark"] .w-actions{border-top-color:rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 -10px 24px rgba(0,0,0,.25)}
 :root[data-theme="dark"] .w-actions::before{opacity:.45}
 .w-actions .btn{flex:none;width:100%}
+.install{display:flex;flex-direction:column;gap:8px}
+.install-btn{align-self:center;display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:2px 8px 4px;font-size:13.5px;font-weight:600;color:var(--accent)}
+.install-ico{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:5px;border:1.5px solid currentColor;font-size:12px;line-height:1}
+.install-guide{margin:0;padding:10px 14px 10px 30px;font-size:13px;line-height:1.6;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.install-guide li+li{margin-top:2px}
+.install-share{width:16px;height:16px;vertical-align:-3px;margin:0 2px;color:var(--accent)}
 .w-actions .btn.ghost{background:color-mix(in srgb, var(--soft) 55%, transparent);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
 @keyframes w-in{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion: reduce){.welcome{animation:none}}
