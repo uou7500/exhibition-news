@@ -651,5 +651,25 @@
       "작가전"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-sarubia-studio-project3-2026",
+    "title": "Studio Project 3: 김세은 × 김현정",
+    "venue": "프로젝트 스페이스 사루비아",
+    "city": "서울",
+    "lat": 37.581,
+    "lon": 126.9697,
+    "genre": "기타",
+    "startDate": "2026-12-16",
+    "endDate": "2027-01-07",
+    "price": null,
+    "description": "1999년부터 실험적인 현대미술을 후원해 온 비영리 공간 프로젝트 스페이스 사루비아의 'Studio Project' 세 번째 전시예요. 김세은과 김현정 두 작가가 함께 꾸려요. 관람 시간은 공식 사이트에서 확인해 주세요.",
+    "thumbnail": "",
+    "url": "https://sarubia.org/277",
+    "address": "서울 종로구 자하문로16길 4",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
   }
 ]

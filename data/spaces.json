@@ -106,5 +106,13 @@
     "lon": 126.9898,
     "url": "https://artnet.kr/p/solo-exhibitions/1577",
     "note": "용산구 이태원동 회나무로의 작가 개인전 중심 전시 공간"
+  },
+  {
+    "id": "sarubia",
+    "name": "프로젝트 스페이스 사루비아 (PS SARUBIA)",
+    "search": "프로젝트스페이스 사루비아",
+    "area": "자하문로16길",
+    "url": "https://sarubia.org/",
+    "note": "1999년 문을 연 비영리 대안공간, 실험적인 현대미술 작가 후원·전시 (서울 종로구 자하문로16길 4 지하)"
   }
 ]
