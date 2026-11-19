@@ -671,5 +671,145 @@
       "실험전시"
     ],
     "source": "manual"
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "source": "manual",
+    "id": "manual-wess-afterbook-2026",
+    "title": "WESS 《전시후도록 2026》",
+    "venue": "WESS+",
+    "lat": 37.5745,
+    "lon": 127.0046,
+    "genre": "기타",
+    "startDate": "2026-12-11",
+    "endDate": "2026-12-14",
+    "description": "작은 독립 미술 출판물의 유통을 돕기 위해 WESS가 2020년부터 해마다 여는 전시 도록 프로그램입니다. 이미 끝난 전시들을 도록으로 다시 만나며 전시와 출판물의 관계를 생각해 보는 자리로, 올해는 충신동 WESS+에서 열립니다.",
+    "thumbnail": "https://wess.kr/wp-content/uploads/2026/11/20261109_132253.jpg",
+    "url": "https://wess.kr/program/2026-%ec%a0%84%ec%8b%9c%ed%9b%84%eb%8f%84%eb%a1%9d/",
+    "address": "서울 종로구 율곡로23길 18-9",
+    "tags": [
+      "실험전시"
+    ]
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "source": "manual",
+    "id": "manual-ewha-finearts-2026",
+    "title": "2026학년도 이화여자대학교 조형예술대학 졸업작품전시",
+    "venue": "이화여자대학교 조형예술관 A·B동 · 이화아트갤러리 · 이화아트센터",
+    "lat": 37.5636,
+    "lon": 126.9455,
+    "genre": "회화",
+    "startDate": "2026-11-24",
+    "endDate": "2026-11-29",
+    "description": "이화여대 조형예술대학 동양화·서양화·조소·도자예술·섬유예술 전공 졸업예정자들의 졸업작품전입니다. 조형예술관과 이화아트갤러리, 이화아트센터 곳곳에서 함께 열리며 관람은 오전 10시~오후 6시(전공별로 다를 수 있음)입니다.",
+    "thumbnail": "https://artndesign.ewha.ac.kr/wp-content/uploads/2026/11/2026-졸업전시-포스터_1.jpg",
+    "url": "https://artndesign.ewha.ac.kr/events-news/2026%ed%95%99%eb%85%84%eb%8f%84-%ec%a1%b0%ed%98%95%ec%98%88%ec%88%a0%eb%8c%80%ed%95%99-%ec%a1%b8%ec%97%85%ec%9e%91%ed%92%88%ec%a0%84%ec%8b%9c-11-2411-29/",
+    "address": "서울 서대문구 이화여대길 52",
+    "tags": [
+      "졸업전시"
+    ]
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "source": "manual",
+    "id": "manual-ewha-offstage-video-2026",
+    "title": "이화여자대학교 디자인학부 영상디자인전공 졸업전시 《OFFSTAGE》",
+    "venue": "이화여자대학교 조형예술관 · 이화아트센터 · 이화아트갤러리",
+    "lat": 37.5636,
+    "lon": 126.9455,
+    "genre": "미디어",
+    "startDate": "2026-11-17",
+    "endDate": "2026-11-22",
+    "description": "전공별로 한 주씩 이어 온 이화여대 디자인학부 졸업전시 《OFFSTAGE》의 마지막 주로, 영상디자인전공 졸업생들의 작품을 보여 줍니다. 무대 뒤에서 쌓아 온 과정을 밖으로 꺼내 놓는다는 뜻을 담았습니다.",
+    "thumbnail": "https://artndesign.ewha.ac.kr/wp-content/uploads/2026/10/KakaoTalk_20261027_091604338_01.jpg",
+    "url": "https://artndesign.ewha.ac.kr/events-news/2026%ed%95%99%eb%85%84%eb%8f%84-%ec%a1%b0%ed%98%95%ec%98%88%ec%88%a0%eb%8c%80%ed%95%99-%eb%94%94%ec%9e%90%ec%9d%b8%ed%95%99%eb%b6%80-%ec%a1%b8%ec%97%85%ec%a0%84%ec%8b%9c%ed%9a%8c10-27-11-22/",
+    "address": "서울 서대문구 이화여대길 52",
+    "tags": [
+      "졸업전시"
+    ]
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "source": "manual",
+    "id": "manual-dongguk-wise-vd-2026",
+    "title": "동국대학교 WISE캠퍼스 시각디자인전공 학사학위청구전 《Diverse Letters Form Our Perfect 28》",
+    "venue": "아라아트센터 3층",
+    "lat": 37.5737,
+    "lon": 126.9858,
+    "genre": "디자인",
+    "startDate": "2026-11-19",
+    "endDate": "2026-11-23",
+    "description": "동국대 WISE캠퍼스 시각디자인전공 학생 28명이 타이포그래피를 주제로 꾸린 졸업전시입니다. 저마다 개성 있는 글자들이 모여 하나의 큰 그래픽을 이룹니다.",
+    "thumbnail": "https://www.araart.co.kr/wp/wp-content/uploads/2026/11/동국대학교_전시포스터-및-설명글-850x1202.jpg",
+    "url": "https://www.araart.co.kr/14092",
+    "address": "서울 종로구 인사동9길 26",
+    "tags": [
+      "졸업전시"
+    ]
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "source": "manual",
+    "id": "manual-hansung-animation-2026",
+    "title": "한성대학교 영상애니메이션디자인트랙 졸업전시 《별종주의보 – 별난애들, 별이되다!》",
+    "venue": "아라아트센터 5층",
+    "lat": 37.5737,
+    "lon": 126.9858,
+    "genre": "미디어",
+    "startDate": "2026-11-20",
+    "endDate": "2026-11-23",
+    "description": "한성대 영상애니메이션디자인트랙 졸업생 32명이 게임·3D 모델링·영상·웹툰·아트디자인 작품을 선보입니다. 저마다 다른 빛을 내는 '별종'들이 별이 되어 가는 과정을 담았습니다.",
+    "thumbnail": "https://www.araart.co.kr/wp/wp-content/uploads/2026/11/1794790308797-850x1202.png",
+    "url": "https://www.araart.co.kr/14086",
+    "address": "서울 종로구 인사동9길 26",
+    "tags": [
+      "졸업전시"
+    ]
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "source": "manual",
+    "id": "manual-hongik-phd-wang-gu-2026",
+    "title": "WANG BORAN · GU JUNHUA 박사학위청구전",
+    "venue": "홍익대학교 현대미술관 제2관 2실 (홍문관 2층)",
+    "lat": 37.5509,
+    "lon": 126.925,
+    "genre": "기타",
+    "startDate": "2026-11-18",
+    "endDate": "2026-11-22",
+    "description": "홍익대 대학원 박사과정의 두 작가가 함께 여는 학위청구전입니다. 홍익대 현대미술관 홍문관 2층 전시실에서 수~일 오전 10시~오후 6시에 볼 수 있습니다.",
+    "thumbnail": "",
+    "url": "https://homa.hongik.ac.kr/homa/0302.do?mode=view&articleNo=160556&article.offset=0&articleLimit=10",
+    "address": "서울 마포구 와우산로 94",
+    "tags": [
+      "졸업전시"
+    ]
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "source": "manual",
+    "id": "manual-jungjin-nodeul-2026",
+    "title": "정진 개인전 《곁에 두기 좋은 활자와 그림들》",
+    "venue": "노들서가 (노들섬)",
+    "lat": 37.5176,
+    "lon": 126.9581,
+    "genre": "디자인",
+    "startDate": "2026-11-05",
+    "endDate": "2026-11-29",
+    "description": "노들섬 책방 공간 노들서가의 '오픈노들' 18번째 전시로, 정진 작가의 활자와 그림을 소개합니다. 곁에 두고 보기 좋은 글자와 그림의 관계를 살펴봅니다.",
+    "thumbnail": "",
+    "url": "https://heypop.kr/n/145838/",
+    "address": "서울 용산구 양녕로 445",
+    "tags": [
+      "작가전"
+    ]
   }
 ]

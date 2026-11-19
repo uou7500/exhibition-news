@@ -114,5 +114,23 @@
     "area": "자하문로16길",
     "url": "https://sarubia.org/",
     "note": "1999년 문을 연 비영리 대안공간, 실험적인 현대미술 작가 후원·전시 (서울 종로구 자하문로16길 4 지하)"
+  },
+  {
+    "id": "space-cadalogs",
+    "name": "스페이스 카다로그 (Space Cadalogs)",
+    "search": "스페이스 카다로그 수표로",
+    "area": "수표로",
+    "url": "https://seoulartweek.co.kr/spacecadalogs",
+    "instagram": "https://www.instagram.com/cadalogs_space/",
+    "note": "을지로 인쇄골목 건물 3층의 현대미술 전시공간 (서울 중구 수표로 58-1 3층)"
+  },
+  {
+    "id": "footnote-unit",
+    "name": "주석모음집 (Footnote Unit)",
+    "search": "주석모음집 창신동",
+    "area": "낙산성곽동길",
+    "url": "https://archivist.kr/exi?i=1789104374",
+    "instagram": "https://www.instagram.com/footnote_unit/",
+    "note": "창신동 낙산 성곽길의 작은 독립 전시공간, 연구·출판형 전시 (서울 종로구 낙산성곽동길 53)"
   }
 ]
