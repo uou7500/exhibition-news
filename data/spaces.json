@@ -96,5 +96,15 @@
     "url": "https://cosocoso.kr/about",
     "instagram": "https://www.instagram.com/coso_seoul/",
     "note": "2017년 삼청동에서 열어 2022년 을지로로 옮긴 현대미술 갤러리. 자기 언어를 만들어 가는 작가를 발굴해 소개"
+  },
+  {
+    "id": "space-willing-n-dealing",
+    "name": "스페이스 윌링앤딜링 (Space Willing N Dealing)",
+    "search": "스페이스 윌링앤딜링 이태원동",
+    "area": "이태원동",
+    "lat": 37.5381,
+    "lon": 126.9898,
+    "url": "https://artnet.kr/p/solo-exhibitions/1577",
+    "note": "용산구 이태원동 회나무로의 작가 개인전 중심 전시 공간"
   }
 ]
