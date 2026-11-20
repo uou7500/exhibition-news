@@ -811,5 +811,185 @@
     "tags": [
       "작가전"
     ]
+  },
+  {
+    "id": "manual-coso-anbuh-tata-2026",
+    "title": "안부 개인전 《Ta-Ta : 못다 한 인사》",
+    "venue": "코소 (COSO)",
+    "city": "서울",
+    "lat": 37.5675,
+    "lon": 126.9961,
+    "genre": "회화",
+    "startDate": "2026-11-06",
+    "endDate": "2026-11-22",
+    "price": null,
+    "description": "2021년 말 세상을 떠난 할머니의 일상 사진을 바탕으로 그린 회화를 선보이는 안부 작가의 개인전입니다. 색을 줄이고 붓질을 느슨하게 해 인물이 흐려지도록 그려, 사진 속 과거와 지금 그리는 시간 사이의 거리를 보여 줍니다.",
+    "thumbnail": "https://cdn.imweb.me/upload/S2022102535e8272bf6594/ad7724d20a169.jpg",
+    "url": "https://cosocoso.kr/exhibition/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=175353626&t=board",
+    "address": "서울 중구 창경궁로5길 32",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kongju-jewelry-metal-loading-2026",
+    "title": "국립공주대학교 주얼리/금속디자인학과 제23회 졸업작품전시회 《Loading》",
+    "venue": "RnL 로즈앤라임 갤러리",
+    "city": "서울",
+    "lat": 37.5617,
+    "lon": 127.0136,
+    "genre": "공예",
+    "startDate": "2026-11-18",
+    "endDate": "2026-11-22",
+    "price": null,
+    "description": "국립공주대 주얼리/금속디자인학과 4학년들의 졸업전시입니다. 금속 조명·가구·식기부터 3D 프린팅 작품, 새 재료를 섞은 주얼리까지 선보이며, 제목 'Loading'에는 계속 바뀌어 가는 작업이라는 뜻을 담았습니다.",
+    "thumbnail": "https://cdn.veritas-a.com/news/photo/202611/638161_552303_570.jpg",
+    "url": "https://www.veritas-a.com/news/articleView.html?idxno=638161",
+    "address": "서울 중구 다산로 138",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-hanbat-visual-shape-of-cloud-2026",
+    "title": "국립한밭대학교 시각·영상디자인학과 제41회 졸업작품 전시회 《Shape of Cloud》",
+    "venue": "국립한밭대학교 S1-1동 디지털도서관 2층 온빛곳",
+    "city": "대전",
+    "lat": 36.351,
+    "lon": 127.301,
+    "genre": "디자인",
+    "startDate": "2026-11-19",
+    "endDate": "2026-11-25",
+    "price": null,
+    "description": "한밭대 시각·영상디자인학과 졸업생 37명이 한 점씩 모두 37점을 선보입니다. 그래픽 디자인, 인터랙션 디자인, 영상 애니메이션 세 분야로 나뉩니다.",
+    "thumbnail": "https://cdn.newsfun.kr/news/photo/202611/224547_123393_5950.jpg",
+    "url": "https://www.newsfun.kr/news/articleView.html?idxno=224547",
+    "address": "대전 유성구 동서대로 125",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-gwangju-univ-id-direction-2026",
+    "title": "광주대학교 산업디자인학과 2026 졸업작품전 《Direction》",
+    "venue": "광주대학교 호심미술관",
+    "city": "광주",
+    "lat": 35.1105,
+    "lon": 126.883,
+    "genre": "디자인",
+    "startDate": "2026-11-19",
+    "endDate": "2026-11-27",
+    "price": null,
+    "description": "광주대 산업디자인학과 졸업생 7명이 작품 26점을 선보입니다. 졸업작품과 증강현실(AR) 전시 등으로 꾸몄습니다.",
+    "thumbnail": "",
+    "url": "https://www.veritas-a.com/news/articleView.html?idxno=638346",
+    "address": "광주 남구 효덕로 277",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-leesanghyun-a-little-more-sun-2026",
+    "title": "이상현 개인전 《a little more sun, I think》",
+    "venue": "shhh",
+    "city": "인천",
+    "lat": 37.4718,
+    "lon": 126.6262,
+    "genre": "회화",
+    "startDate": "2026-11-20",
+    "endDate": "2026-12-06",
+    "price": null,
+    "description": "인천의 간척지와 도시 외곽을 걸으며 개발과 방치 사이의 풍경을 그려 온 작가의 개인전입니다. 예전 작업을 다시 그린 나무 패널들을 겹치고 세우고 걸어, 본 장면이 기억을 거쳐 그림이 되는 과정을 보여 줍니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-b93369e1c9b314832a488b29ecddf589_f1ad988473519ceb463e9371f47fcd434cebecf5_600x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1596",
+    "address": "인천 제물포구 제물량로166번길 5",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-seoheesu-sararak-2026",
+    "title": "서희수 개인전 《사라락》",
+    "venue": "아틀리에 애채",
+    "city": "서울",
+    "lat": 37.5005,
+    "lon": 127.0365,
+    "genre": "조각·설치",
+    "startDate": "2026-12-04",
+    "endDate": "2026-12-31",
+    "price": null,
+    "description": "나무와 한지가 만나 생기는 형상으로 만남과 머묾, 사라짐의 흐름을 보여 주는 전시입니다. 계절마다 잎을 떨구고 새잎을 준비하는 나무처럼 끝과 시작이 이어지는 시간을 다룹니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-51904df7b6a7d42926fc5b6e8337ac71_382f435e873dd412047b667b00e975f888f85259_768x0.png",
+    "url": "https://artnet.kr/p/solo-exhibitions/1599",
+    "address": "서울 강남구 논현로105길 53",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-shinsuhang-mibaeseol-2026",
+    "title": "신수항 개인전 《미배설》",
+    "venue": "제이작업실",
+    "city": "부산",
+    "lat": 35.1225,
+    "lon": 129.042,
+    "genre": "기타",
+    "startDate": "2026-11-18",
+    "endDate": "2026-12-02",
+    "price": null,
+    "description": "과거의 몸과 지금의 몸이 한 시간 안에 함께 있다는 생각에서 출발한 개인전입니다. 작가의 작업실을 겸한 작은 공간에서 열립니다.",
+    "thumbnail": "https://www.busan.com/nas/wcms/wcms_data/photos/2026/11/20/2026112002485906672_l.jpg",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "부산 동구 증산동로 17",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-jungmanyoung-ocean-sound-symphony-2026",
+    "title": "정만영 개인전 《오션 사운드 심포니: 함께 감각하는 바다》",
+    "venue": "스페이스 원지",
+    "city": "부산",
+    "lat": 35.095,
+    "lon": 129.041,
+    "genre": "미디어",
+    "startDate": "2026-11-21",
+    "endDate": "2026-12-04",
+    "price": null,
+    "description": "작가가 직접 스쿠버다이빙을 배워 영도 해안 바닷속에서 모은 소리로 꾸린 사운드 작업 전시입니다. 바다를 귀와 몸으로 함께 느껴 보자고 제안합니다.",
+    "thumbnail": "https://www.busan.com/nas/wcms/wcms_data/photos/2026/11/20/2026112004573016254_l.jpg",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "부산 영도구 봉래나루로 214",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kimyuhee-sell-after-1000-years-2026",
+    "title": "김유희 개인전 《천 년 후에 팝니다》",
+    "venue": "예술지구_P 1관",
+    "city": "부산",
+    "lat": 35.2165,
+    "lon": 129.1035,
+    "genre": "기타",
+    "startDate": "2026-11-17",
+    "endDate": "2026-11-27",
+    "price": null,
+    "description": "오늘의 물건을 천 년 뒤의 유물처럼, 천 년 전 유물을 오늘의 물건처럼 바라보게 하는 전시입니다. 시간에 따라 사물의 가치가 어떻게 바뀌는지 묻습니다.",
+    "thumbnail": "https://www.busan.com/nas/wcms/wcms_data/photos/2026/11/20/2026112004553548767_l.jpg",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "부산 금정구 개좌로 162",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]

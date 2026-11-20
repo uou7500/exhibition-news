@@ -132,5 +132,52 @@
     "url": "https://archivist.kr/exi?i=1789104374",
     "instagram": "https://www.instagram.com/footnote_unit/",
     "note": "창신동 낙산 성곽길의 작은 독립 전시공간, 연구·출판형 전시 (서울 종로구 낙산성곽동길 53)"
+  },
+  {
+    "id": "forever-gallery",
+    "name": "포에버✰ (forever✰ gallery)",
+    "search": "포에버 갤러리 행촌동",
+    "area": "사직로",
+    "url": "https://forevergallery.org",
+    "instagram": "https://www.instagram.com/forever.shadowed.white.star/",
+    "note": "최태윤 작가가 행촌동에 연 작은 비영리 전시공간"
+  },
+  {
+    "id": "studiya",
+    "name": "스투디야 (Studiya)",
+    "search": "스투디야 중림동",
+    "area": "청파로",
+    "url": "https://www.studiya.org",
+    "instagram": "https://www.instagram.com/studiya.gallery/",
+    "note": "중림동의 아티스트런 독립 예술공간"
+  },
+  {
+    "id": "space-illi",
+    "name": "공간일리",
+    "search": "공간일리 신영동",
+    "area": "세검정로9길",
+    "url": "https://archivist.kr/exi?m=nws&i=1791410351",
+    "instagram": "",
+    "note": "신영동 한옥 안채를 쓰는 전시공간"
+  },
+  {
+    "id": "shhh-project",
+    "name": "shhh",
+    "search": "shhh 신생동",
+    "area": "제물량로166번길",
+    "lat": 37.4718,
+    "lon": 126.6262,
+    "url": "https://artnet.kr/p/solo-exhibitions/1596",
+    "instagram": "https://www.instagram.com/shhh___project/",
+    "note": "인천 신생동의 작가 운영 프로젝트 공간"
+  },
+  {
+    "id": "project-aaay",
+    "name": "프로젝트 아이 (Project aaay)",
+    "search": "프로젝트 아이 용호동",
+    "area": "외동반림로262번길",
+    "url": "https://instagram.com/hi.aaay",
+    "instagram": "https://instagram.com/hi.aaay",
+    "note": "창원 가로수길 주택가의 작가 중심 작은 전시공간"
   }
 ]
