@@ -34,23 +34,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-406012",
-    "title": "AS THINGS FADE - 사라지는 사이에 展",
-    "venue": "소요 갤러리",
-    "city": "대구",
-    "lat": 35.882287769978,
-    "lon": 128.618874119575,
-    "genre": "기타",
-    "startDate": "2026-11-09",
-    "endDate": "2026-11-20",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/471a81e1fa0c402fb81d0b965d7fd4ba.png",
-    "url": "https://soyogallery.kr/",
-    "address": "대구광역시 동구 아양로 43 3층 소요갤러리",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-403177",
     "title": "대전광역시 서예진흥원 <2026 송암서학회전>",
     "venue": "대전광역시 서예진흥원",
@@ -65,6 +48,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202610/0ec018b827f24fc5939743b68769dfdd.jpg",
     "url": "https://www.daejeon.go.kr/djseoye/djseoye/index.do",
     "address": "대전광역시 중구 중앙로 119 7층",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-406012",
+    "title": "AS THINGS FADE - 사라지는 사이에 展",
+    "venue": "소요 갤러리",
+    "city": "대구",
+    "lat": 35.882287769978,
+    "lon": 128.618874119575,
+    "genre": "기타",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-20",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/471a81e1fa0c402fb81d0b965d7fd4ba.png",
+    "url": "https://soyogallery.kr/",
+    "address": "대구광역시 동구 아양로 43 3층 소요갤러리",
     "source": "culture.go.kr"
   },
   {
@@ -494,22 +494,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-408501",
-    "title": "《수심: Shared Depth》",
-    "venue": "NC문화재단",
-    "city": "서울",
-    "lat": 37.5798042434578,
-    "lon": 127.004616599397,
-    "genre": "기타",
-    "startDate": "2026-11-11",
-    "endDate": "2026-11-22",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/3cc3a1fc6f274b0bb55b98a647d21dd2.png",
-    "url": "https://ncfoundation.or.kr/main",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-408621",
     "title": "전만성 개인전 《정지와 흐름의 공존》",
     "venue": "CN갤러리",
@@ -524,6 +508,22 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/8bf138c9baff46b9a9f10388b67275aa.jpg",
     "url": "https://archivist.kr/exi?m=gov&amp;i=1794436745",
     "address": "서울특별시 종로구 북촌로5길 56-7 (소격동 117-1, 정독도서관 앞)",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-408501",
+    "title": "《수심: Shared Depth》",
+    "venue": "NC문화재단",
+    "city": "서울",
+    "lat": 37.5798042434578,
+    "lon": 127.004616599397,
+    "genre": "기타",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-22",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/3cc3a1fc6f274b0bb55b98a647d21dd2.png",
+    "url": "https://ncfoundation.or.kr/main",
     "source": "culture.go.kr"
   },
   {
@@ -595,6 +595,23 @@
     "source": "culture.go.kr"
   },
   {
+    "id": "culture-407981",
+    "title": "전북대학교 예비예술인 현장연계지원사업 《능동형 창작주체 현장연계 프로젝트 결과보고전》",
+    "venue": "문화공간 기린 [전주]",
+    "city": "전주",
+    "lat": 35.8200157,
+    "lon": 127.1437069,
+    "genre": "기타",
+    "startDate": "2026-11-17",
+    "endDate": "2026-11-22",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/a0cc214b80cc43dfa6fdee08b49d8e08.jpg",
+    "url": "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4072",
+    "address": "전북특별자치도 전주시 완산구 전주객사4길 46 문화공간 기린",
+    "source": "culture.go.kr"
+  },
+  {
     "id": "culture-408907",
     "title": "[갤러리 원] 김수민 첫 개인전",
     "venue": "갤러리 원",
@@ -626,23 +643,6 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111821172417124.jpg",
     "url": "https://www.bscc.or.kr/citizen/01_perfor/?mcode=1001010400&amp;mode=2&amp;no=26548&amp;page=1",
     "address": "부산광역시 동구 자성로133번길 16 부산시민회관",
-    "source": "culture.go.kr"
-  },
-  {
-    "id": "culture-407981",
-    "title": "전북대학교 예비예술인 현장연계지원사업 《능동형 창작주체 현장연계 프로젝트 결과보고전》",
-    "venue": "문화공간 기린 [전주]",
-    "city": "전주",
-    "lat": 35.8200157,
-    "lon": 127.1437069,
-    "genre": "기타",
-    "startDate": "2026-11-17",
-    "endDate": "2026-11-22",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/a0cc214b80cc43dfa6fdee08b49d8e08.jpg",
-    "url": "https://www.jbct.or.kr/portal/site/menu/MENU_000000000000376?id=4072",
-    "address": "전북특별자치도 전주시 완산구 전주객사4길 46 문화공간 기린",
     "source": "culture.go.kr"
   },
   {
@@ -1021,23 +1021,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-404867",
-    "title": "희현 개인전 <이름 없는 것의 정원>",
-    "venue": "비커밍갤러리",
-    "city": "서울",
-    "lat": 37.5465721846655,
-    "lon": 126.859801999736,
-    "genre": "기타",
-    "startDate": "2026-11-02",
-    "endDate": "2026-11-27",
-    "price": 0,
-    "priceText": "무료 전시",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202610/d527096d13d7400fb28279707e6ccd03.jpg",
-    "url": "https://becoming-gallery.web.app",
-    "address": "서울특별시 강서구 등촌로39마길 5 102호",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-406028",
     "title": "황금빛 물결, 천년의 숨결: 반계리 은행나무 아트 오브제 프로젝트",
     "venue": "원주문화재단",
@@ -1052,6 +1035,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026110321172882656.jpg",
     "url": "http://www.wcf.or.kr/perform/concert/view.php?tsort=1&amp;msort=8&amp;s_concert_s_day=2024-11-03&amp;s_concert_e_day=2028-11-01&amp;s_concert_subject=&amp;s_concert_genre=2&amp;page=1&amp;no=3573",
     "address": "강원특별자치도 원주시 향교길 77 남산골문화센터 신명관 4층, 원주문화재단",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-404867",
+    "title": "희현 개인전 <이름 없는 것의 정원>",
+    "venue": "비커밍갤러리",
+    "city": "서울",
+    "lat": 37.5465721846655,
+    "lon": 126.859801999736,
+    "genre": "기타",
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-27",
+    "price": 0,
+    "priceText": "무료 전시",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202610/d527096d13d7400fb28279707e6ccd03.jpg",
+    "url": "https://becoming-gallery.web.app",
+    "address": "서울특별시 강서구 등촌로39마길 5 102호",
     "source": "culture.go.kr"
   },
   {
@@ -1175,23 +1175,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-406431",
-    "title": "정이핀 개인전 《여망고나시 세겹 겹쳐입기 : 姦姦姦》",
-    "venue": "전주한벽문화관",
-    "city": "전주",
-    "lat": 35.81227365984457,
-    "lon": 127.15922205086957,
-    "genre": "기타",
-    "startDate": "2026-11-05",
-    "endDate": "2026-11-28",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/6dd354bd862e48d4935895f31bb9cf3b.jpg",
-    "url": "https://archivist.kr/exi?i=1793888009",
-    "address": "전북특별자치도 전주시 완산구 전주천동로 20 전주한벽문화관",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-406061",
     "title": "서울식물원 2026 기획전 《다정한 균형: 서로를 비추는》 전시해설 프로그램",
     "venue": "서울식물원",
@@ -1206,6 +1189,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/6f2ff53af2d44c49bf40389b8ee53bb7.png",
     "url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S261017164643729589",
     "address": "서울특별시 강서구 마곡동로 161 서울식물원",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-406431",
+    "title": "정이핀 개인전 《여망고나시 세겹 겹쳐입기 : 姦姦姦》",
+    "venue": "전주한벽문화관",
+    "city": "전주",
+    "lat": 35.81227365984457,
+    "lon": 127.15922205086957,
+    "genre": "기타",
+    "startDate": "2026-11-05",
+    "endDate": "2026-11-28",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/6dd354bd862e48d4935895f31bb9cf3b.jpg",
+    "url": "https://archivist.kr/exi?i=1793888009",
+    "address": "전북특별자치도 전주시 완산구 전주천동로 20 전주한벽문화관",
     "source": "culture.go.kr"
   },
   {
@@ -1819,6 +1819,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/490b1685a2674374910903a6836740fb.jpg",
     "url": "https://www.acc.go.kr/main/exhibition.do?PID=0204&amp;action=Read&amp;bnkey=EM_0000010284",
     "address": "전남광주통합특별시 동구 문화전당로 38 국립아시아문화전당",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409026",
+    "title": "창동레지던시 입주보고서 2026",
+    "venue": "국립현대미술관 창동레지던시",
+    "city": "서울",
+    "lat": 37.64073679919137,
+    "lon": 127.03938398815403,
+    "genre": "기타",
+    "startDate": "2026-11-20",
+    "endDate": "2026-11-29",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/2cdba623904744c8a53d61358450f805.png",
+    "url": "https://www.mmca.go.kr/exhibitions/exhibitionsDetail.do?exhFlag=1&amp;exhId=202611030002114",
+    "address": "서울특별시 도봉구 덕릉로 257 국립현대미술관 창동레지던시",
     "source": "culture.go.kr"
   },
   {
@@ -2528,6 +2545,23 @@
     "source": "culture.go.kr"
   },
   {
+    "id": "culture-409016",
+    "title": "언폴드엑스 2026 《리얼리티 체크(Reality Check)》",
+    "venue": "문화역 서울 284",
+    "city": "서울",
+    "lat": 37.55589362239788,
+    "lon": 126.97158200040279,
+    "genre": "기타",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-09",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/c3e02015fa5a489fa77b752ba76e5940.png",
+    "url": "https://www.seoul284.org/program/view/category/319/state/5/menu/328?idx=379",
+    "address": "서울특별시 중구 통일로 1 문화역서울284",
+    "source": "culture.go.kr"
+  },
+  {
     "id": "culture-362073",
     "title": "'Invisible Actors'",
     "venue": "갤러리 팔조",
@@ -2718,23 +2752,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-406485",
-    "title": "나은민 展 《다가가는 방식》",
-    "venue": "슬도아트",
-    "city": "울산",
-    "lat": 35.4809043004597,
-    "lon": 129.432766326538,
-    "genre": "기타",
-    "startDate": "2026-11-07",
-    "endDate": "2026-12-13",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/c5be1dc4034b4198a0e032a115a1f526.jpg",
-    "url": "https://blog.naver.com/seuldoart/224464676247",
-    "address": "울산광역시 동구 성끝길 103 슬도아트",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-406486",
     "title": "김상현 展 《원격의 테두리》",
     "venue": "슬도아트",
@@ -2748,6 +2765,23 @@
     "priceText": "무료",
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/29e17bb3bb944585aa87314d9fe25f8d.jpg",
     "url": "https://blog.naver.com/seuldoart/224464716569",
+    "address": "울산광역시 동구 성끝길 103 슬도아트",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-406485",
+    "title": "나은민 展 《다가가는 방식》",
+    "venue": "슬도아트",
+    "city": "울산",
+    "lat": 35.4809043004597,
+    "lon": 129.432766326538,
+    "genre": "기타",
+    "startDate": "2026-11-07",
+    "endDate": "2026-12-13",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/c5be1dc4034b4198a0e032a115a1f526.jpg",
+    "url": "https://blog.naver.com/seuldoart/224464676247",
     "address": "울산광역시 동구 성끝길 103 슬도아트",
     "source": "culture.go.kr"
   },
@@ -4762,7 +4796,7 @@
     "price": null,
     "priceText": "미정",
     "description": "1970년대 인쇄 출판 분야에 한글 가로쓰기가 도입된 이후 그래픽 디자인의 변천사를 추적하는 전시다. 아날로그에서 디지털로 전환하는 환경 속에서 텍스트와 이미지의 관계를 연구해 온 디자이너의 활동상을 시대별로 재구성할 예정이다. 전시에서는 1970-80년대 사진 식자와 옵셋 인쇄 기술의 부흥기, 1980-90년대 그래픽 툴과 웹 환경으로의 이행기를 거쳐 오늘날 물질과 비물질을 넘나드는 실험적인 시도를 선보인다. 이 전시는 그래픽 디자인 실천의 흐름 속에서 기술 발전과 시각 문화의 역동적인 관계를 살피는 가운데 한국미술의 저변을 확장하려는 시도이다.",
-    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/01/rdf_2026011821233660429.jpg",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/97d437f3d8cf4abcad893fa0146db1c6.png",
     "url": "https://www.mmca.go.kr/exhibitions/exhibitionsDetail.do?exhFlag=2&amp;exhId=202601160002037",
     "address": "서울특별시 종로구 삼청로 30 국립현대미술관 서울관",
     "source": "culture.go.kr"
