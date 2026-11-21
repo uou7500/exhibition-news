@@ -238,6 +238,23 @@
     "source": "culture.go.kr"
   },
   {
+    "id": "culture-408725",
+    "title": "복천박물관 특별기획전 <함께 달린 시간: 우리 곁의 말 이야기>",
+    "venue": "복천박물관",
+    "city": "부산",
+    "lat": 35.20884267881569,
+    "lon": 129.09115820796032,
+    "genre": "기타",
+    "startDate": "2026-09-22",
+    "endDate": "2026-11-22",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111721171901826.jpg",
+    "url": "https://busandabom.net/play/view.nm?menuCd=8&amp;lang=ko&amp;url=play&amp;prg_cd=140&amp;res_no=2026090129&amp;playoftoday=Y",
+    "address": "부산광역시 동래구 복천로 63 복천박물관",
+    "source": "culture.go.kr"
+  },
+  {
     "id": "culture-400553",
     "title": "제23회 이동훈미술상 본상 수상작가전: 임송자",
     "venue": "대전시립미술관",
@@ -3712,23 +3729,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-399658",
-    "title": "스페인 미술 500년: 빛과 어둠의 연대기",
-    "venue": "예술의전당(한가람디자인미술관)",
-    "city": "서울",
-    "lat": 37.480240737,
-    "lon": 127.014213883,
-    "genre": "기타",
-    "startDate": "2026-09-22",
-    "endDate": "2027-01-20",
-    "price": 23000,
-    "priceText": "성인(만19-64세) 23,000원 / 청소년(만13-만18세) 18,000원 / 어린이(36개월 이상-만12세) 14,000원",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202609/f38848f294cf4ed2b119c5d8e2995618.png",
-    "url": "https://www.sac.or.kr/site/main/show/show_view?SN=77679",
-    "address": "서울특별시 서초구 남부순환로 2406 예술의전당(한가람디자인미술관)",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-407861",
     "title": "이신영 展 《업(Karma)》",
     "venue": "슬도아트",
@@ -4054,22 +4054,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-398425",
-    "title": "창원 현동 사람들 이야기 : 가야, 바다, 무덤",
-    "venue": "국립김해박물관",
-    "city": "김해",
-    "lat": 35.242889,
-    "lon": 128.873437,
-    "genre": "기타",
-    "startDate": "2026-09-18",
-    "endDate": "2027-02-14",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202609/b69609449d7f4958b2c63464c4060028.png",
-    "url": "https://gimhae.museum.go.kr/kr/html/sub02/020201.html?mode=V&amp;mng_no=183",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-403145",
     "title": "2026 경기도자비엔날레 국제공모전",
     "venue": "경기도자미술관",
@@ -4084,6 +4068,22 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/10/rdf_2026102221173034842.jpg",
     "url": "https://www.gmocca.org/exhibit/view?exhibitionId=631&amp;type=current",
     "address": "경기도 이천시 경충대로2697번길 263 경기도자미술관",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-398425",
+    "title": "창원 현동 사람들 이야기 : 가야, 바다, 무덤",
+    "venue": "국립김해박물관",
+    "city": "김해",
+    "lat": 35.242889,
+    "lon": 128.873437,
+    "genre": "기타",
+    "startDate": "2026-09-18",
+    "endDate": "2027-02-14",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202609/b69609449d7f4958b2c63464c4060028.png",
+    "url": "https://gimhae.museum.go.kr/kr/html/sub02/020201.html?mode=V&amp;mng_no=183",
     "source": "culture.go.kr"
   },
   {
