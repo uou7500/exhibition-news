@@ -232,5 +232,67 @@
     "area": "부산대학로50번길",
     "url": "https://artnet.kr/p/solo-exhibitions/1595",
     "note": "부산대 앞 장전동(부산대학로50번길 49)의 전시·퍼포먼스 공간"
+  },
+  {
+    "id": "gallery-meilan",
+    "name": "갤러리메일란 (Gallery meilan)",
+    "search": "갤러리메일란 부암동",
+    "area": "자하문로",
+    "lat": 37.5948,
+    "lon": 126.9612,
+    "url": "https://archivist.kr/exi?i=1775199105",
+    "instagram": "https://instagram.com/gallery_meilan",
+    "note": "거리에서 24시간 볼 수 있는 부암동 쇼윈도 갤러리, 달마다 작가가 바뀌는 릴레이 전시"
+  },
+  {
+    "id": "mihakgwan",
+    "name": "미학관",
+    "search": "미학관 홍제동",
+    "area": "홍제내2나길",
+    "lat": 37.5886,
+    "lon": 126.9446,
+    "url": "https://artinculture.kr/webzine/museum-6",
+    "note": "홍제동 주택가 2층의 개인전 중심 전시공간, 미학 읽기 모임도 연다"
+  },
+  {
+    "id": "space-aefter",
+    "name": "스페이스 애프터 (SPACE ÆFTER)",
+    "search": "스페이스 애프터 연희동",
+    "area": "연희로15길",
+    "lat": 37.5693,
+    "lon": 126.9302,
+    "url": "https://sites.google.com/view/spaceaefter/about",
+    "instagram": "https://www.instagram.com/space_aefter/",
+    "note": "미술 비평과 전시를 잇는 연희동 지하 공간, 해마다 '비평가 전시'를 연다"
+  },
+  {
+    "id": "primary-practice",
+    "name": "프라이머리 프랙티스 (Primary Practice)",
+    "search": "프라이머리 프랙티스 부암동",
+    "area": "창의문로11길",
+    "lat": 37.5935,
+    "lon": 126.9645,
+    "url": "https://www.primarypractice.kr",
+    "note": "부암동의 비영리 전시공간, 작가 개인전 위주"
+  },
+  {
+    "id": "faction-seoul",
+    "name": "Faction",
+    "search": "Faction 홍제천로6길",
+    "area": "홍제천로6길",
+    "lat": 37.5668,
+    "lon": 126.9248,
+    "url": "https://factionseoul.com/",
+    "note": "홍제천 근처 지하의 비영리 전시공간, 개인전과 작가 공모"
+  },
+  {
+    "id": "boan1942",
+    "name": "아트스페이스 보안 (보안1942)",
+    "search": "보안1942 통의동",
+    "area": "효자로",
+    "lat": 37.5772,
+    "lon": 126.9737,
+    "url": "http://www.boan1942.com/",
+    "note": "옛 보안여관 건물과 신관을 쓰는 통의동의 복합 대안 예술공간"
   }
 ]
