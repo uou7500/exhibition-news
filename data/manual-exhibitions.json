@@ -991,5 +991,125 @@
       "작가전"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-sarubia-studio-project3-ryu-park-2026",
+    "title": "2026 사루비아 스튜디오 프로젝트 3: 류준열 × 박선민",
+    "venue": "프로젝트 스페이스 사루비아",
+    "city": "서울",
+    "lat": 37.581,
+    "lon": 126.9697,
+    "genre": "사진",
+    "startDate": "2026-11-13",
+    "endDate": "2026-12-03",
+    "price": null,
+    "description": "신진작가 류준열과 멘토 작가 박선민이 멘토링 과정을 거쳐 함께 여는 2인전입니다. 류준열은 여러 계절 한강에서 찍은 사진으로 도시 속 자연을 살피고, 박선민은 사진·드로잉·영상으로 안과 밖의 관계를 탐구합니다.",
+    "thumbnail": "https://oqrvbstopuppznxqoonp.supabase.co/storage/v1/object/public/exhibition-images/cms/e5495989-95f3-4931-ba47-1810333c7669/original.png",
+    "url": "https://gallrmap.com/exhibitions/2026-studio-project-3-junyeul-ryu-sunmin-park-17f5/",
+    "address": "서울 종로구 자하문로16길 4",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-wonkwang-finearts-aoro-2026",
+    "title": "원광대학교 미술과 제11회 졸업작품전 《AORO : 우리들의 순간을 아로새기다》",
+    "venue": "익산예술의전당 미술관 제1·2전시실",
+    "city": "익산",
+    "lat": 35.9536,
+    "lon": 126.964,
+    "genre": "회화",
+    "startDate": "2026-11-24",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "원광대 미술과 졸업예정 학생들이 묻고 만들며 자라 온 과정을 담은 작품을 모은 졸업전시입니다. '아로'는 여럿을 하나로 아우른다는 옛말로, 함께 보낸 시간과 새 출발을 뜻합니다. 개막식은 24일 오후 6시입니다.",
+    "thumbnail": "https://finearts.wku.ac.kr/wp-content/uploads/sites/179/2026/10/포스터-홈페이지-팝업용_1.jpeg",
+    "url": "https://finearts.wku.ac.kr/?p=3806",
+    "address": "전북특별자치도 익산시 동서로 490",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-seoultech-fineart-2026",
+    "title": "서울과학기술대학교 조형예술학과 졸업전시 《돌에 새겨진 건 없다》",
+    "venue": "서울과학기술대학교 백주년기념관 목산갤러리 1-3층",
+    "city": "서울",
+    "lat": 37.6317,
+    "lon": 127.0772,
+    "genre": "기타",
+    "startDate": "2026-12-01",
+    "endDate": "2026-12-08",
+    "price": null,
+    "description": "서울과기대 조형예술학과 졸업생들의 졸업전시로, 백주년기념관 목산갤러리 세 개 층에서 열립니다. 관람은 3층부터 시작하며 매일 10~20시, 개막식은 12월 1일 오후 6시입니다.",
+    "thumbnail": "https://fineart.seoultech.ac.kr/storage/fineart2/bbs/58594/thumb_A00A5B4F6951428799792CE811F10005_.jpg",
+    "url": "https://fineart.seoultech.ac.kr/activities/graduation?do=commonview&bnum=58594&bidx=897413",
+    "address": "서울 노원구 공릉로 232",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-seoultech-ceramics-2026",
+    "title": "서울과학기술대학교 도예학과 제43회 졸업전시회 《땅을 딛고 오롯이》",
+    "venue": "갤러리 인사1010",
+    "city": "서울",
+    "lat": 37.5744,
+    "lon": 126.9857,
+    "genre": "공예",
+    "startDate": "2026-11-18",
+    "endDate": "2026-11-23",
+    "price": null,
+    "description": "서울과기대 도예학과의 43번째 졸업전시로, 졸업생들의 도자 작품을 인사동 갤러리 인사1010에서 선보입니다. 관람 시간은 11~19시입니다.",
+    "thumbnail": "",
+    "url": "https://ceramics.seoultech.ac.kr/gallery/events/graduate?do=commonview&bnum=57987&bidx=897807",
+    "address": "서울 종로구 인사동10길 10",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-hannam-painting-2026",
+    "title": "한남대학교 제39회 회화과 졸업작품전시회 《아무도 우리와 같지 않다》",
+    "venue": "한남대학교 AXIS HANNAM",
+    "city": "대전",
+    "lat": 36.354,
+    "lon": 127.421,
+    "genre": "회화",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-24",
+    "price": null,
+    "description": "한남대 회화과 졸업예정 학생들이 오래 다듬어 온 작품을 모은 39번째 졸업전시입니다. 교내 전시장 AXIS HANNAM에서 열립니다.",
+    "thumbnail": "https://fine-arts.hannam.ac.kr/wp-content/uploads/2026/10/2026회화과-졸전-scaled.jpg",
+    "url": "https://fine-arts.hannam.ac.kr/gallery/?mod=document&uid=367",
+    "address": "대전 대덕구 한남로 70",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kimmikyung-entangled-goma-2026",
+    "title": "김미경 사진전 《얽_힘 Entangled Forces》",
+    "venue": "아트센터고마",
+    "city": "공주",
+    "lat": 36.464,
+    "lon": 127.11,
+    "genre": "사진",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-06",
+    "price": null,
+    "description": "덩굴과 나무가 파고든 빈집을 찍은 김미경의 사진전입니다. 콘크리트와 식물을 떨어진 대상이 아니라 서로 얽힌 관계로 보여주며, 세 연작을 거치며 집과 나무의 경계가 흐려집니다.",
+    "thumbnail": "https://gongjeon.kr/web/product/big/202611/60f67d7e35fb795939e2dad52840312d.jpg",
+    "url": "https://gongjeon.kr/product/detail.html?product_no=7397&cate_no=42&display_group=1",
+    "address": "충남 공주시 고마나루길 90",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]
