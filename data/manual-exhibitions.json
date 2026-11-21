@@ -1111,5 +1111,165 @@
       "작가전"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-hoseo-player-ground-2026",
+    "title": "호서대학교 제2회 졸업전시 《PLAYER GROUND》",
+    "venue": "갤러리 수평",
+    "city": "천안",
+    "lat": 36.8075,
+    "lon": 127.149,
+    "genre": "기타",
+    "startDate": "2026-12-03",
+    "endDate": "2026-12-07",
+    "price": null,
+    "description": "호서대학교 졸업 예정 학생들의 두 번째 졸업전시입니다. 회화·조각·설치·사진·미디어 등 여러 장르 작업을 천안 원도심 갤러리 수평 지하 전시장에서 선보입니다.",
+    "thumbnail": "",
+    "url": "https://artnet.kr/p/group-exhibitions/1410",
+    "address": "충남 천안시 동남구 대흥로 321",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-ddp-next-design-2026",
+    "title": "2026 DDP 디자인대학 종합 졸업전 《내일을 여는 디자인전: DDP NEXT DESIGN》",
+    "venue": "DDP 아트홀 1·2관, 이간수문 전시장",
+    "city": "서울",
+    "lat": 37.5665,
+    "lon": 127.0092,
+    "genre": "디자인",
+    "startDate": "2026-12-01",
+    "endDate": "2026-12-05",
+    "price": null,
+    "description": "서울디자인재단이 여러 대학 디자인학과 졸업 예정 학생들을 DDP에 모아 여는 연합 졸업전입니다. 시각·제품·공간·UX 등 다양한 디자인 작업이 한자리에 모입니다.",
+    "thumbnail": "",
+    "url": "https://www.skuniv.ac.kr/main",
+    "address": "서울 중구 을지로 281",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-leehyein-7stages-2026",
+    "title": "이혜인 개인전 《7 Stages》",
+    "venue": "프라이머리 프랙티스 (Primary Practice)",
+    "city": "서울",
+    "lat": 37.5935,
+    "lon": 126.9645,
+    "genre": "회화",
+    "startDate": "2026-10-31",
+    "endDate": "2026-12-06",
+    "price": null,
+    "description": "머물렀던 장소의 감각과 기억을 그려 온 이혜인 작가의 개인전입니다. 몸이 기억하는 장소를 무대 같은 장면으로 다시 짜 회화 자체에 집중합니다.",
+    "thumbnail": "",
+    "url": "https://k-artnow.com/posts.php?co_id=1794561714",
+    "address": "서울 종로구 창의문로11길 7",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-day-for-night-aefter-2026",
+    "title": "《day for night》 박세진 · 한우리",
+    "venue": "스페이스 애프터 (SPACE ÆFTER)",
+    "city": "서울",
+    "lat": 37.5693,
+    "lon": 126.9302,
+    "genre": "미디어",
+    "startDate": "2026-10-29",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "박세진의 밤 풍경 회화와 영화 촬영 장비를 다시 짠 한우리의 영상 작업을 맞대어, 영화의 어둠과 회화의 어둠을 함께 보는 2인전입니다. 평론가 유운성이 기획한 연례 '비평가 전시'의 세 번째 편입니다.",
+    "thumbnail": "",
+    "url": "https://k-artnow.com/posts.php?co_id=1793950834",
+    "address": "서울 서대문구 연희로15길 64",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-seom-drama-boan-2026",
+    "title": "SEOM: 《Drama – Fluide Statue》",
+    "venue": "아트스페이스 보안3 (보안1942)",
+    "city": "서울",
+    "lat": 37.5772,
+    "lon": 126.9737,
+    "genre": "조각·설치",
+    "startDate": "2026-11-06",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "엄예슬·서한이 작가 그룹 SEOM:의 전시입니다. 무너졌다 다시 쌓이는 모래 풍경 사이를 걸으며 서로를 가르고 잇는 '지역성'을 몸으로 겪어 보게 합니다.",
+    "thumbnail": "",
+    "url": "https://k-artnow.com/posts.php?co_id=1794561884",
+    "address": "서울 종로구 효자로 33",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-small-things-drawingroom-2026",
+    "title": "권순영 · 함진 2인전 《Small Things》",
+    "venue": "드로잉룸 (DrawingRoom)",
+    "city": "서울",
+    "lat": 37.5808,
+    "lon": 126.9693,
+    "genre": "기타",
+    "startDate": "2026-11-06",
+    "endDate": "2026-12-12",
+    "price": null,
+    "description": "정해진 대상이 없다는 데서 출발한 2인전입니다. 함진은 재료를 붙여 아주 작은 존재들을 만들고, 권순영은 작은 화면에 촘촘히 겹친 구성을 보여 줍니다.",
+    "thumbnail": "",
+    "url": "https://k-artnow.com/posts.php?co_id=1794561475",
+    "address": "서울 종로구 자하문로7길 68-4",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kimsejin-spiraling-world-2026",
+    "title": "김세진 개인전 《회전하는 세계 Spiraling World》",
+    "venue": "아트센터 예술의시간",
+    "city": "서울",
+    "lat": 37.47,
+    "lon": 126.8965,
+    "genre": "미디어",
+    "startDate": "2026-10-15",
+    "endDate": "2026-12-05",
+    "price": null,
+    "description": "미디어 설치·조각·드로잉으로 기술 문명 속 인간다움을 묻는 전시입니다. 생각과 판단을 기술이 대신하게 된 상황을 다큐멘터리 작업 〈의인화〉를 중심으로 짚습니다.",
+    "thumbnail": "",
+    "url": "https://k-artnow.com/posts.php?co_id=1793950608",
+    "address": "서울 금천구 범안로9길 23",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-ray269-meilan-2026",
+    "title": "갤러리메일란 연간 프로젝트 《∠RAY269》 (11월 김예림 · 12월 최현지)",
+    "venue": "갤러리메일란 (Gallery meilan)",
+    "city": "서울",
+    "lat": 37.5948,
+    "lon": 126.9612,
+    "genre": "기타",
+    "startDate": "2026-01-01",
+    "endDate": "2026-12-31",
+    "price": null,
+    "description": "부암동 쇼윈도 갤러리에서 달마다 작가 한 명씩 이어 가는 1년 프로젝트입니다. 유리창 너머로 24시간 무료로 볼 수 있고, 11월은 김예림, 12월은 최현지 작가 차례입니다.",
+    "thumbnail": "https://imagedelivery.net/w4-VNNnUV8Ounl2Y9OqM-w/20260403_gallerymeilan_poster_1775199105_74584e8d/1600",
+    "url": "https://archivist.kr/exi?i=1775199105",
+    "address": "서울 종로구 자하문로 269",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
   }
 ]
