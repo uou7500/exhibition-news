@@ -1291,5 +1291,83 @@
       "작가전"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-son-yujin-mythical-detour-2026",
+    "title": "손유진 개인전 《Mythical Detour》",
+    "venue": "상업화랑 용산",
+    "city": "서울",
+    "lat": 37.5405,
+    "lon": 126.9655,
+    "genre": "회화",
+    "startDate": "2026-11-17",
+    "endDate": "2026-11-28",
+    "price": null,
+    "description": "제주 출신 화가 손유진이 자화상을 통해 이주와 지역 정체성, 기억을 들여다보는 개인전입니다. 그리스 신화의 상징을 자기 경험과 지금의 현실에 겹쳐 익숙한 장면을 낯선 풍경으로 바꿉니다.",
+    "thumbnail": "https://cdn.imweb.me/thumbnail/20261118/5a91fa88b32fe.png",
+    "url": "https://www.sahngupgallery.com/446",
+    "address": "서울 용산구 원효로97길 26",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-jo-suyeon-define-pattern-2026",
+    "title": "조수연 《DEFINE PATTERN》",
+    "venue": "유영공간 (space uooyoung)",
+    "city": "서울",
+    "lat": 37.5928,
+    "lon": 126.9985,
+    "genre": "기타",
+    "startDate": "2026-11-25",
+    "endDate": "2026-12-06",
+    "price": null,
+    "description": "성북동 옛 한옥을 쓰는 작가 공간 유영공간에서 열리는 조수연 작가의 전시입니다. 월·화요일은 문을 닫습니다.",
+    "url": "https://spaceuooyoung.art/",
+    "address": "서울 성북구 성북로16가길 1",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-park-soeun-kim-yurim-afbusan-2026",
+    "title": "박소은 《살의 기보-변주》 · 김유림 《Shining in the Wind》 2인전",
+    "venue": "부산 프랑스문화원 ART SPACE",
+    "city": "부산",
+    "lat": 35.1625,
+    "lon": 129.1555,
+    "genre": "조각·설치",
+    "startDate": "2026-11-05",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "1층에서는 박소은 작가가 몸의 감각을 묻는 도자 조각을, 2층에서는 김유림 작가가 흔들리는 마음속에서 붙잡은 희망의 순간을 그린 회화를 보여 줍니다. 두 젊은 작가의 작업을 한 건물에서 이어 볼 수 있습니다. 월요일 휴관.",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026092701060166868",
+    "address": "부산 해운대구 해운대로452번길 16",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-unfolded-bongsan-2026",
+    "title": "《UNFOLDED 언폴디드》",
+    "venue": "봉산문화회관 1전시실",
+    "city": "대구",
+    "lat": 35.8636,
+    "lon": 128.5974,
+    "genre": "회화",
+    "startDate": "2026-11-25",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "접어 두었던 기억과 감정을 펼쳐 보인다는 뜻을 담은 단체전으로, 작가 19명의 회화와 설치를 모았습니다. 색으로 감각을 드러내는 그림부터 특정한 날의 시간을 붙잡은 작업까지 다양하게 나옵니다. 월요일 휴관.",
+    "thumbnail": "https://artnet.kr/data/file/1540558593/a678360117ba820993432aebfeb09f71_4f326037f416f92b57460d78d3c45955047afd8e.jpeg",
+    "url": "https://artnet.kr/p/group-exhibitions/1382",
+    "address": "대구 중구 봉산문화길 77",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
   }
 ]
