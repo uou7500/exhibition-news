@@ -294,5 +294,93 @@
     "lon": 126.9737,
     "url": "http://www.boan1942.com/",
     "note": "옛 보안여관 건물과 신관을 쓰는 통의동의 복합 대안 예술공간"
+  },
+  {
+    "id": "alternative-space-loop",
+    "name": "대안공간 루프 (Alternative Space LOOP)",
+    "search": "대안공간루프 청계천로",
+    "area": "청계천로",
+    "lat": 37.5692,
+    "lon": 126.9968,
+    "url": "http://altspaceloop.com/",
+    "instagram": "https://www.instagram.com/alternativespaceloop/",
+    "note": "1999년 홍대에서 시작한 국내 첫 대안공간, 지금은 을지로 청계천변에서 실험미술 전시"
+  },
+  {
+    "id": "talyeongyeok-ujeongguk",
+    "name": "탈영역우정국",
+    "search": "탈영역우정국",
+    "area": "독막로20길",
+    "lat": 37.5488,
+    "lon": 126.9325,
+    "url": "https://www.ktriptips.com/kor/culture/3082465",
+    "instagram": "",
+    "note": "옛 창전동 우체국 건물을 쓰는 장르를 넘나드는 복합예술공간"
+  },
+  {
+    "id": "amado-art-space",
+    "name": "아마도예술공간 (Amado Art Space)",
+    "search": "아마도예술공간",
+    "area": "이태원로54길",
+    "lat": 37.5382,
+    "lon": 126.9988,
+    "url": "http://amadoart.org",
+    "instagram": "",
+    "note": "한남동의 비영리 대안공간, 신진 기획자·작가 전시"
+  },
+  {
+    "id": "sahngup-gallery-euljiro",
+    "name": "상업화랑 을지로 (Sahng-up Gallery)",
+    "search": "상업화랑 을지로",
+    "area": "을지로",
+    "lat": 37.5665,
+    "lon": 126.9935,
+    "url": "https://sahngupgallery.com/index",
+    "instagram": "https://www.instagram.com/sahngupgallery/",
+    "note": "을지로3가 오래된 건물 4층의 작은 동시대미술 공간"
+  },
+  {
+    "id": "jungganjijeom-1",
+    "name": "중간지점 하나 (Jungganjijeom I)",
+    "search": "중간지점 하나 을지로",
+    "area": "을지로14길",
+    "lat": 37.5657,
+    "lon": 126.9958,
+    "url": "https://seoulartweek.co.kr/jungganjijeom",
+    "instagram": "https://www.instagram.com/jungganjijeom",
+    "note": "작가 콜렉티브가 운영하는 을지로의 실험 전시공간"
+  },
+  {
+    "id": "crisp-wedge",
+    "name": "크리스프 웨지 (Crisp Wedge)",
+    "search": "크리스프 웨지",
+    "area": "양화로8길",
+    "lat": 37.5506,
+    "lon": 126.9158,
+    "url": "https://www.artbava.com/exhibits/안전-자산",
+    "instagram": "",
+    "note": "합정역 근처 지하의 작은 전시공간, 신진 작가 개인전·2인전"
+  },
+  {
+    "id": "space-uooyoung",
+    "name": "유영공간 (space uooyoung)",
+    "search": "유영공간 성북동",
+    "area": "성북로16가길",
+    "lat": 37.5928,
+    "lon": 126.9985,
+    "url": "https://spaceuooyoung.art/",
+    "instagram": "https://www.instagram.com/spaceuooyoung/",
+    "note": "작가들이 모여 실험하는 성북동의 예술·사교 공간"
+  },
+  {
+    "id": "sanghieut",
+    "name": "상히읗 (Sanghieut)",
+    "search": "상히읗 해방촌",
+    "area": "신흥로",
+    "lat": 37.5443,
+    "lon": 126.9858,
+    "url": "https://www.artbava.com/exhibits/organic-recipes",
+    "instagram": "",
+    "note": "해방촌의 독립 기획 공간, 젊은 작가 전시"
   }
 ]
