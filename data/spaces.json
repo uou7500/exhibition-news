@@ -382,5 +382,39 @@
     "url": "https://www.artbava.com/exhibits/organic-recipes",
     "instagram": "",
     "note": "해방촌의 독립 기획 공간, 젊은 작가 전시"
+  },
+  {
+    "id": "practice-yugiryeok",
+    "name": "프랙티스 유기력",
+    "search": "프랙티스 유기력 보수동",
+    "area": "보수동",
+    "lat": 35.1032,
+    "lon": 129.0262,
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "note": "부산 보수동 헌책방 골목 근처 지하의 작은 작가 운영 전시공간"
+  },
+  {
+    "id": "archiving-folder-busan",
+    "name": "아카이빙 폴더 (Archiving Folder)",
+    "search": "아카이빙 폴더 망미동",
+    "area": "망미동",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026092701060166868",
+    "note": "망미동의 밖에서 보는 창문 전시공간, 지역 청년 작가 전시를 45일마다 바꿈"
+  },
+  {
+    "id": "yesuljigu-p",
+    "name": "예술지구_P",
+    "search": "예술지구P 회동동",
+    "area": "개좌로",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "note": "부산 금정구 회동동의 작가 중심 예술공간"
+  },
+  {
+    "id": "space-wonji",
+    "name": "스페이스 원지 (Space Wonji)",
+    "search": "스페이스 원지 영도",
+    "area": "봉래나루로",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "note": "부산 영도의 전시·퍼포먼스 공간"
   }
 ]
