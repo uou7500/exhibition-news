@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T09:52:08.499Z",
+  "updatedAt": "2026-11-22T15:48:36.326Z",
   "windowDays": 30,
   "items": {
     "culture-376586": {
@@ -12,15 +12,15 @@
     },
     "culture-398164": {
       "recent": 6,
-      "total": 36290
+      "total": 36291
     },
     "culture-392802": {
       "recent": 0,
-      "total": 6617
+      "total": 6620
     },
     "culture-399622": {
       "recent": 1,
-      "total": 1358
+      "total": 1359
     },
     "culture-408507": {
       "recent": 5,
@@ -28,11 +28,11 @@
     },
     "culture-397503": {
       "recent": 0,
-      "total": 5163541
+      "total": 5164450
     },
     "culture-408725": {
       "recent": 0,
-      "total": 84118
+      "total": 84139
     },
     "culture-400553": {
       "recent": 22,
@@ -40,7 +40,7 @@
     },
     "culture-401437": {
       "recent": 3,
-      "total": 12187
+      "total": 12186
     },
     "culture-402534": {
       "recent": 2,
@@ -52,19 +52,19 @@
     },
     "culture-401761": {
       "recent": 0,
-      "total": 28553
+      "total": 28566
     },
     "culture-402885": {
       "recent": 0,
-      "total": 1598501
+      "total": 1598836
     },
     "culture-402404": {
       "recent": 0,
-      "total": 36287
+      "total": 36289
     },
     "culture-408701": {
       "recent": 0,
-      "total": 2656138
+      "total": 2656649
     },
     "culture-408700": {
       "recent": 5,
@@ -72,15 +72,15 @@
     },
     "culture-408501": {
       "recent": 0,
-      "total": 1593903
+      "total": 1594091
     },
     "culture-408621": {
       "recent": 0,
-      "total": 9801
+      "total": 9810
     },
     "culture-406260": {
       "recent": 0,
-      "total": 368921
+      "total": 369035
     },
     "culture-408408": {
       "recent": 0,
@@ -88,31 +88,31 @@
     },
     "culture-408696": {
       "recent": 6,
-      "total": 1596
+      "total": 1597
     },
     "culture-408726": {
       "recent": 6,
       "total": 9
     },
-    "culture-408836": {
-      "recent": 1,
-      "total": 1429
-    },
     "culture-408907": {
       "recent": 1,
-      "total": 2577
+      "total": 2576
+    },
+    "culture-408836": {
+      "recent": 1,
+      "total": 1430
     },
     "culture-407981": {
       "recent": 3,
-      "total": 4551
+      "total": 4549
     },
     "culture-408904": {
       "recent": 3,
-      "total": 5142
+      "total": 5141
     },
     "culture-406237": {
       "recent": 5,
-      "total": 15661
+      "total": 15665
     },
     "culture-406564": {
       "recent": 7,
@@ -124,15 +124,15 @@
     },
     "culture-407975": {
       "recent": 0,
-      "total": 17865
+      "total": 17870
     },
     "culture-407871": {
       "recent": 0,
-      "total": 3157897
+      "total": 3158583
     },
     "culture-408542": {
       "recent": 0,
-      "total": 16180459
+      "total": 16182286
     },
     "culture-400595": {
       "recent": 5,
@@ -160,7 +160,7 @@
     },
     "culture-408723": {
       "recent": 0,
-      "total": 6329
+      "total": 6330
     },
     "culture-408085": {
       "recent": 2,
@@ -168,31 +168,31 @@
     },
     "culture-405261": {
       "recent": 0,
-      "total": 14992
+      "total": 14994
     },
     "culture-408724": {
       "recent": 1,
-      "total": 5280
+      "total": 5282
     },
     "culture-402286": {
       "recent": 0,
-      "total": 119706
+      "total": 119792
     },
     "culture-402977": {
       "recent": 0,
-      "total": 944592
+      "total": 945023
     },
     "culture-407805": {
       "recent": 0,
-      "total": 1173127
+      "total": 1173358
     },
     "culture-399228": {
       "recent": 0,
-      "total": 165512
+      "total": 165544
     },
     "culture-403251": {
       "recent": 6,
-      "total": 423
+      "total": 421
     },
     "culture-406028": {
       "recent": 3,
@@ -200,31 +200,31 @@
     },
     "culture-404867": {
       "recent": 0,
-      "total": 296465
+      "total": 296539
     },
     "culture-406396": {
       "recent": 0,
-      "total": 20934
+      "total": 20943
     },
     "culture-405885": {
       "recent": 0,
-      "total": 2653152
+      "total": 2653489
     },
     "culture-374617": {
       "recent": 0,
       "total": 6162
     },
     "culture-401602": {
-      "recent": 8,
-      "total": 1056
+      "recent": 9,
+      "total": 1057
     },
     "culture-407047": {
       "recent": 0,
-      "total": 13410692
+      "total": 13413465
     },
     "culture-405544": {
       "recent": 0,
-      "total": 1018114
+      "total": 1018244
     },
     "culture-408693": {
       "recent": 2,
@@ -232,7 +232,7 @@
     },
     "culture-406061": {
       "recent": 1,
-      "total": 2954
+      "total": 2956
     },
     "culture-406431": {
       "recent": 4,
@@ -244,7 +244,7 @@
     },
     "culture-408065": {
       "recent": 0,
-      "total": 33809
+      "total": 33815
     },
     "culture-408769": {
       "recent": 0,
@@ -252,11 +252,11 @@
     },
     "culture-376498": {
       "recent": 4,
-      "total": 1637
+      "total": 1636
     },
     "culture-388570": {
       "recent": 0,
-      "total": 78858
+      "total": 78870
     },
     "culture-385021": {
       "recent": 13,
@@ -268,7 +268,7 @@
     },
     "culture-364982": {
       "recent": 0,
-      "total": 1163678
+      "total": 1169982
     },
     "culture-405907": {
       "recent": 0,
@@ -276,7 +276,7 @@
     },
     "culture-406334": {
       "recent": 0,
-      "total": 34374
+      "total": 34389
     },
     "culture-406258": {
       "recent": 0,
@@ -288,7 +288,7 @@
     },
     "culture-407426": {
       "recent": 0,
-      "total": 935696
+      "total": 935907
     },
     "culture-399845": {
       "recent": 3,
@@ -296,23 +296,23 @@
     },
     "culture-400772": {
       "recent": 0,
-      "total": 25099
+      "total": 25100
     },
     "culture-401138": {
       "recent": 2,
-      "total": 559
+      "total": 558
     },
     "culture-402535": {
       "recent": 0,
-      "total": 2658
+      "total": 2657
     },
     "culture-408837": {
       "recent": 1,
-      "total": 96319
+      "total": 96344
     },
     "culture-398921": {
       "recent": 6,
-      "total": 790
+      "total": 788
     },
     "culture-403459": {
       "recent": 17,
@@ -320,7 +320,7 @@
     },
     "culture-405151": {
       "recent": 0,
-      "total": 1218803
+      "total": 1219009
     },
     "culture-405578": {
       "recent": 2,
@@ -328,19 +328,19 @@
     },
     "culture-407654": {
       "recent": 0,
-      "total": 28261
+      "total": 28269
     },
     "culture-406238": {
       "recent": 1,
-      "total": 13354
+      "total": 13359
     },
     "culture-405689": {
       "recent": 0,
-      "total": 880
+      "total": 881
     },
     "culture-407875": {
       "recent": 0,
-      "total": 75355
+      "total": 75402
     },
     "culture-405272": {
       "recent": 3,
@@ -348,31 +348,31 @@
     },
     "culture-406257": {
       "recent": 1,
-      "total": 51234
+      "total": 51248
     },
     "culture-407974": {
       "recent": 2,
-      "total": 434
+      "total": 435
     },
     "culture-407721": {
       "recent": 0,
-      "total": 26440174
+      "total": 26442885
     },
     "culture-408525": {
       "recent": 1,
       "total": 18
     },
+    "culture-408834": {
+      "recent": 0,
+      "total": 259
+    },
     "culture-408905": {
       "recent": 0,
-      "total": 3098
+      "total": 3097
     },
     "culture-408833": {
       "recent": 0,
       "total": 1374
-    },
-    "culture-408834": {
-      "recent": 0,
-      "total": 259
     },
     "culture-408506": {
       "recent": 0,
@@ -380,11 +380,11 @@
     },
     "culture-408829": {
       "recent": 0,
-      "total": 55
+      "total": 56
     },
     "culture-409026": {
       "recent": 3,
-      "total": 1148
+      "total": 1149
     },
     "culture-408776": {
       "recent": 1,
@@ -395,12 +395,12 @@
       "total": 332
     },
     "culture-389531": {
-      "recent": 16,
-      "total": 6907
+      "recent": 19,
+      "total": 6921
     },
     "culture-387427": {
       "recent": 0,
-      "total": 59492
+      "total": 59498
     },
     "culture-392728": {
       "recent": 1,
@@ -412,15 +412,19 @@
     },
     "culture-396420": {
       "recent": 0,
-      "total": 11853
+      "total": 11859
     },
     "culture-402469": {
       "recent": 2,
-      "total": 1119
+      "total": 1120
     },
     "culture-405962": {
       "recent": 0,
-      "total": 447475
+      "total": 447519
+    },
+    "culture-409043": {
+      "recent": 0,
+      "total": 57582448
     },
     "culture-408417": {
       "recent": 0,
@@ -428,35 +432,35 @@
     },
     "culture-405904": {
       "recent": 0,
-      "total": 261965
+      "total": 261994
     },
     "culture-400744": {
       "recent": 0,
-      "total": 4127617
+      "total": 4130561
     },
     "culture-408027": {
       "recent": 0,
-      "total": 21
+      "total": 22
     },
     "culture-407696": {
       "recent": 0,
-      "total": 67592
+      "total": 67605
     },
     "culture-407667": {
-      "recent": 1,
-      "total": 7
+      "recent": 2,
+      "total": 8
     },
     "culture-407030": {
       "recent": 0,
-      "total": 18070648
+      "total": 18077388
     },
     "culture-408418": {
       "recent": 0,
-      "total": 70707
+      "total": 70729
     },
     "culture-394057": {
       "recent": 0,
-      "total": 69418
+      "total": 69432
     },
     "culture-407969": {
       "recent": 0,
@@ -468,7 +472,7 @@
     },
     "culture-405479": {
       "recent": 9,
-      "total": 1814
+      "total": 1815
     },
     "culture-407973": {
       "recent": 2,
@@ -476,11 +480,11 @@
     },
     "culture-407029": {
       "recent": 0,
-      "total": 1954436
+      "total": 1954594
     },
     "culture-408638": {
       "recent": 0,
-      "total": 130446
+      "total": 130511
     },
     "culture-366683": {
       "recent": 2,
@@ -488,11 +492,11 @@
     },
     "culture-364986": {
       "recent": 1,
-      "total": 7373
+      "total": 7381
     },
     "culture-364451": {
       "recent": 6,
-      "total": 50106
+      "total": 50145
     },
     "culture-394513": {
       "recent": 12,
@@ -500,7 +504,7 @@
     },
     "culture-398834": {
       "recent": 0,
-      "total": 1067641
+      "total": 1067694
     },
     "culture-398485": {
       "recent": 2,
@@ -511,8 +515,8 @@
       "total": 874
     },
     "culture-402538": {
-      "recent": 1,
-      "total": 16700
+      "recent": 0,
+      "total": 16720
     },
     "culture-405591": {
       "recent": 9,
@@ -528,11 +532,11 @@
     },
     "culture-407980": {
       "recent": 0,
-      "total": 302200
+      "total": 302327
     },
     "culture-407429": {
       "recent": 1,
-      "total": 35289
+      "total": 35293
     },
     "culture-408052": {
       "recent": 1,
@@ -540,11 +544,11 @@
     },
     "culture-409011": {
       "recent": 0,
-      "total": 16622
+      "total": 16629
     },
     "culture-398428": {
       "recent": 0,
-      "total": 658004
+      "total": 658256
     },
     "culture-407028": {
       "recent": 12,
@@ -552,7 +556,7 @@
     },
     "culture-409016": {
       "recent": 17,
-      "total": 203
+      "total": 205
     },
     "culture-362073": {
       "recent": 2,
@@ -560,31 +564,31 @@
     },
     "culture-409029": {
       "recent": 0,
-      "total": 39153
+      "total": 39159
     },
     "culture-400748": {
       "recent": 0,
-      "total": 288823
+      "total": 288849
     },
     "culture-406560": {
       "recent": 0,
-      "total": 394683
+      "total": 394704
     },
     "culture-406125": {
       "recent": 2,
-      "total": 32
+      "total": 33
     },
     "culture-402883": {
       "recent": 3,
-      "total": 72576
+      "total": 72591
     },
     "culture-406503": {
       "recent": 0,
-      "total": 850038
+      "total": 850231
     },
     "culture-408397": {
       "recent": 0,
-      "total": 14994
+      "total": 15024
     },
     "culture-409028": {
       "recent": 1,
@@ -596,15 +600,15 @@
     },
     "culture-384083": {
       "recent": 1,
-      "total": 4243
+      "total": 4242
     },
     "culture-394037": {
       "recent": 15,
-      "total": 5177
+      "total": 5178
     },
     "culture-402537": {
       "recent": 9,
-      "total": 2414
+      "total": 2416
     },
     "culture-406485": {
       "recent": 0,
@@ -616,19 +620,19 @@
     },
     "culture-406132": {
       "recent": 0,
-      "total": 1558
+      "total": 1559
     },
     "culture-371541": {
       "recent": 1,
-      "total": 10173
+      "total": 10172
     },
     "culture-407766": {
       "recent": 1,
-      "total": 20298
+      "total": 20304
     },
     "culture-407761": {
       "recent": 1,
-      "total": 62479
+      "total": 62517
     },
     "culture-400464": {
       "recent": 1,
@@ -636,7 +640,7 @@
     },
     "culture-407032": {
       "recent": 0,
-      "total": 8767501
+      "total": 8770323
     },
     "culture-408415": {
       "recent": 1,
@@ -664,43 +668,43 @@
     },
     "culture-401647": {
       "recent": 2,
-      "total": 4808
+      "total": 4806
     },
     "culture-402890": {
       "recent": 13,
-      "total": 393
+      "total": 394
     },
     "culture-405512": {
       "recent": 2,
-      "total": 601
+      "total": 603
     },
     "culture-405338": {
-      "recent": 9,
-      "total": 6157
+      "recent": 10,
+      "total": 6162
     },
     "culture-407425": {
       "recent": 0,
-      "total": 6512
+      "total": 6514
     },
     "culture-408645": {
       "recent": 0,
-      "total": 739052
+      "total": 739224
     },
     "culture-408894": {
       "recent": 0,
-      "total": 30814
+      "total": 30813
     },
     "culture-365902": {
       "recent": 0,
-      "total": 13183
+      "total": 13202
     },
     "culture-408835": {
       "recent": 1,
-      "total": 125
+      "total": 124
     },
     "culture-405231": {
       "recent": 0,
-      "total": 7900597
+      "total": 7901556
     },
     "culture-366684": {
       "recent": 1,
@@ -724,11 +728,11 @@
     },
     "culture-383876": {
       "recent": 0,
-      "total": 500
+      "total": 499
     },
     "culture-399226": {
       "recent": 0,
-      "total": 1579063
+      "total": 1579169
     },
     "culture-246265": {
       "recent": 3,
@@ -744,7 +748,7 @@
     },
     "culture-269031": {
       "recent": 0,
-      "total": 10106
+      "total": 10111
     },
     "culture-341122": {
       "recent": 0,
@@ -755,20 +759,20 @@
       "total": 2805
     },
     "culture-336194": {
-      "recent": 1,
-      "total": 6251
+      "recent": 0,
+      "total": 6255
     },
     "culture-339644": {
       "recent": 3,
-      "total": 1148
+      "total": 1149
     },
     "culture-345071": {
       "recent": 0,
-      "total": 739479
+      "total": 739594
     },
     "culture-359174": {
       "recent": 0,
-      "total": 3709
+      "total": 3710
     },
     "culture-360633": {
       "recent": 1,
@@ -776,19 +780,19 @@
     },
     "culture-351005": {
       "recent": 0,
-      "total": 314
+      "total": 315
     },
     "culture-368064": {
       "recent": 0,
-      "total": 324812
+      "total": 324899
     },
     "culture-374183": {
       "recent": 0,
-      "total": 1763
+      "total": 1765
     },
     "culture-385584": {
       "recent": 1,
-      "total": 5592
+      "total": 5594
     },
     "culture-387813": {
       "recent": 0,
@@ -800,35 +804,35 @@
     },
     "culture-395494": {
       "recent": 0,
-      "total": 108375
+      "total": 108419
     },
     "culture-394093": {
       "recent": 0,
-      "total": 1302970
+      "total": 1303210
     },
     "culture-394094": {
       "recent": 0,
-      "total": 163645
+      "total": 163661
     },
     "culture-401101": {
       "recent": 0,
-      "total": 267734
+      "total": 267812
     },
     "culture-345441": {
-      "recent": 35,
-      "total": 4777
+      "recent": 36,
+      "total": 4778
     },
     "culture-408527": {
       "recent": 0,
-      "total": 3930
+      "total": 3931
     },
     "culture-402299": {
       "recent": 0,
-      "total": 8608
+      "total": 8611
     },
     "culture-407873": {
       "recent": 10,
-      "total": 6419
+      "total": 6440
     },
     "culture-408692": {
       "recent": 2,
@@ -836,15 +840,15 @@
     },
     "culture-399974": {
       "recent": 2,
-      "total": 14219
+      "total": 14221
     },
     "culture-402536": {
       "recent": 15,
-      "total": 20792
+      "total": 20791
     },
     "culture-399658": {
       "recent": 84,
-      "total": 3534
+      "total": 3540
     },
     "culture-407861": {
       "recent": 0,
@@ -856,7 +860,7 @@
     },
     "culture-408077": {
       "recent": 0,
-      "total": 10034268
+      "total": 10037210
     },
     "culture-386328": {
       "recent": 0,
@@ -864,31 +868,31 @@
     },
     "culture-402892": {
       "recent": 6,
-      "total": 4337
+      "total": 4339
     },
     "culture-402044": {
       "recent": 0,
-      "total": 424781
+      "total": 424972
     },
     "culture-407042": {
       "recent": 1,
-      "total": 34328
+      "total": 34349
     },
     "culture-407876": {
       "recent": 2,
-      "total": 1652
+      "total": 1654
     },
     "culture-366251": {
-      "recent": 49,
-      "total": 28438
+      "recent": 43,
+      "total": 28502
     },
     "culture-407893": {
-      "recent": 14,
-      "total": 1378
+      "recent": 16,
+      "total": 1383
     },
     "culture-408664": {
-      "recent": 2,
-      "total": 163812
+      "recent": 1,
+      "total": 163838
     },
     "culture-395920": {
       "recent": 0,
@@ -896,15 +900,15 @@
     },
     "culture-372673": {
       "recent": 0,
-      "total": 72088
+      "total": 72101
     },
     "culture-394528": {
       "recent": 4,
       "total": 23508
     },
     "culture-395490": {
-      "recent": 33,
-      "total": 17453
+      "recent": 32,
+      "total": 17451
     },
     "culture-394036": {
       "recent": 0,
@@ -916,11 +920,11 @@
     },
     "culture-408510": {
       "recent": 8,
-      "total": 10931
+      "total": 10935
     },
     "culture-398910": {
-      "recent": 3,
-      "total": 51627
+      "recent": 5,
+      "total": 51638
     },
     "culture-403145": {
       "recent": 3,
@@ -928,51 +932,51 @@
     },
     "culture-398425": {
       "recent": 0,
-      "total": 186278
+      "total": 186309
     },
     "culture-402451": {
       "recent": 5,
-      "total": 702
+      "total": 701
     },
     "culture-400692": {
       "recent": 0,
-      "total": 3368932
+      "total": 3369665
     },
     "culture-402872": {
       "recent": 19,
-      "total": 141
+      "total": 142
     },
     "culture-405146": {
       "recent": 2,
-      "total": 459
+      "total": 460
     },
     "culture-405147": {
       "recent": 7,
       "total": 74
     },
     "culture-405483": {
-      "recent": 11,
-      "total": 1238
+      "recent": 12,
+      "total": 1239
     },
     "culture-406261": {
       "recent": 2,
-      "total": 31530
+      "total": 31534
     },
     "culture-408060": {
       "recent": 2,
-      "total": 18357
+      "total": 18364
     },
     "culture-378432": {
-      "recent": 12,
-      "total": 28026
+      "recent": 13,
+      "total": 28036
     },
     "culture-400753": {
       "recent": 5,
-      "total": 2171
+      "total": 2172
     },
     "culture-392457": {
-      "recent": 66,
-      "total": 4919
+      "recent": 67,
+      "total": 4920
     },
     "culture-402891": {
       "recent": 0,
@@ -988,15 +992,15 @@
     },
     "culture-406479": {
       "recent": 1,
-      "total": 19061
+      "total": 19067
     },
     "culture-408058": {
       "recent": 8,
-      "total": 2272
+      "total": 2269
     },
     "culture-407891": {
       "recent": 0,
-      "total": 45130
+      "total": 45140
     },
     "culture-375306": {
       "recent": 0,
@@ -1012,27 +1016,27 @@
     },
     "culture-394041": {
       "recent": 1,
-      "total": 34415
+      "total": 34417
     },
     "culture-377787": {
       "recent": 7,
-      "total": 3187
+      "total": 3189
     },
     "culture-406007": {
       "recent": 0,
       "total": 373
     },
     "culture-408057": {
-      "recent": 0,
-      "total": 289738
+      "recent": 1,
+      "total": 289813
     },
     "culture-405277": {
       "recent": 16,
-      "total": 168
+      "total": 169
     },
     "culture-407765": {
       "recent": 0,
-      "total": 599
+      "total": 600
     },
     "culture-408639": {
       "recent": 7,
@@ -1043,8 +1047,8 @@
       "total": 578
     },
     "culture-384573": {
-      "recent": 8,
-      "total": 1269
+      "recent": 9,
+      "total": 1270
     },
     "culture-402794": {
       "recent": 0,
@@ -1052,35 +1056,35 @@
     },
     "culture-374510": {
       "recent": 0,
-      "total": 20451
+      "total": 20453
     },
     "culture-394077": {
       "recent": 0,
       "total": 6024
     },
     "culture-399680": {
-      "recent": 84,
-      "total": 746
+      "recent": 85,
+      "total": 750
     },
     "culture-401516": {
       "recent": 0,
-      "total": 2826309
+      "total": 2826803
     },
     "culture-398836": {
       "recent": 7,
-      "total": 100729
+      "total": 100751
     },
     "culture-398911": {
-      "recent": 7,
-      "total": 58
+      "recent": 8,
+      "total": 59
     },
     "culture-407870": {
       "recent": 13,
-      "total": 13850
+      "total": 13855
     },
     "culture-406458": {
       "recent": 87,
-      "total": 321
+      "total": 324
     },
     "culture-408509": {
       "recent": 0,
@@ -1088,19 +1092,19 @@
     },
     "culture-407808": {
       "recent": 65,
-      "total": 6375
+      "total": 6380
     },
     "culture-365419": {
-      "recent": 14,
-      "total": 45440
+      "recent": 15,
+      "total": 45444
     },
     "culture-396765": {
       "recent": 1,
-      "total": 388
+      "total": 389
     },
     "culture-367056": {
       "recent": 1,
-      "total": 45833
+      "total": 45837
     }
   }
 }
