@@ -1271,5 +1271,25 @@
       "실험전시"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-goni-telescope-2026",
+    "title": "고니 개인전 《망원경 Telescope》",
+    "venue": "더 소소 (The SoSo)",
+    "city": "서울",
+    "lat": 37.5692,
+    "lon": 126.9968,
+    "genre": "회화",
+    "startDate": "2026-10-30",
+    "endDate": "2026-11-27",
+    "price": null,
+    "description": "고니 작가가 집 안의 사물에서 백령도 같은 먼 풍경까지 시선을 넓혀 간 수채·색연필·콜라주 작업을 보여줍니다. 망원경으로 바라본 외할아버지의 고향이 흐릿하게만 보였던 경험에서 출발해, 보이는 것과 닿을 수 있는 것 사이의 거리를 이야기합니다.",
+    "thumbnail": "",
+    "url": "https://www.nc.press/news/articleView.html?idxno=631114",
+    "address": "서울 중구 청계천로 172-1",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]
