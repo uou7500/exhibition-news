@@ -1369,5 +1369,124 @@
       "실험전시"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-snu-design-mujuso-2026",
+    "title": "서울대학교 디자인과 2026 졸업전시 《무주소 無住所》",
+    "venue": "서울대학교 220동 지하1층 우석갤러리",
+    "city": "서울",
+    "lat": 37.463,
+    "lon": 126.951,
+    "genre": "디자인",
+    "startDate": "2026-12-09",
+    "endDate": "2026-12-14",
+    "price": null,
+    "description": "정해진 길 없이 시행착오를 거치며 저마다의 길을 찾아온 서울대 디자인과 졸업생들의 졸업전시입니다. '주소가 없다'는 제목처럼 어디든 자기 자리가 될 수 있다는 생각을 작품으로 풀어냅니다.",
+    "thumbnail": "https://design-plus.storage.googleapis.com/wp-content/uploads/2026/11/23122603/20261123032558-20261123_032558-832x1174.jpg",
+    "url": "https://design.co.kr/exhibition/%eb%ac%b4%ec%a3%bc%ec%86%8c-%e7%84%a1%e4%bd%8f%e6%89%80/",
+    "address": "서울 관악구 관악로 1",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-soongsil-vd-esoego-2026",
+    "title": "숭실대학교 글로벌미래교육원 시각디자인전공 제6회 졸업전시회 《eso:ego》",
+    "venue": "숭실대학교 형남공학관 2층",
+    "city": "서울",
+    "lat": 37.4955,
+    "lon": 126.9563,
+    "genre": "디자인",
+    "startDate": "2026-12-02",
+    "endDate": "2026-12-05",
+    "price": null,
+    "description": "2년간의 실무 중심 수업에서 나온 작품을 모은 졸업전시로, 인공지능을 활용한 디지털 이미지 작업도 함께 선보입니다. 둥지를 떠나는 새처럼 학교 밖으로 나아가는 순간을 제목에 담았습니다.",
+    "thumbnail": "https://img.seoul.co.kr/img/upload/2026/11/23/SSC_20261123111757_O2.jpg",
+    "url": "https://www.seoul.co.kr/news/society/2026/11/23/20261123500106",
+    "address": "서울 동작구 상도로 369",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-scnu-photo-animula-2026",
+    "title": "국립순천대학교 사진미디어학과 제28회 졸업전시회 《ANIMULA》",
+    "venue": "국립순천대학교 70주년 기념관",
+    "city": "순천",
+    "lat": 34.969,
+    "lon": 127.479,
+    "genre": "사진",
+    "startDate": "2026-11-30",
+    "endDate": "2026-12-04",
+    "price": null,
+    "description": "졸업생 8명이 4년 동안 찍은 사진을 보여 주는 졸업전시로, 도시 건물을 독특한 색으로 다시 해석한 작업과 구조의 선·면을 담은 흑백 사진 등이 나옵니다. 서울 인사동 전시에 이어 순천에서 두 번째로 열립니다.",
+    "thumbnail": "https://cliimage.commutil.kr/phpwas/restmb_allidxmake.php?pp=002&idx=3&simg=202611121818230032103233fa31431439208141.jpg&nmt=12",
+    "url": "https://www.lawissue.co.kr/view.php?ud=2026111218115932543233fa3143_12",
+    "address": "전남 순천시 중앙로 255",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-yoon-jiwon-polaris-fofo-2026",
+    "title": "윤지원 개인전 《북극성》",
+    "venue": "갤러리 스페이스포포 (spaceFOFO)",
+    "city": "부산",
+    "lat": 35.2318,
+    "lon": 129.0861,
+    "genre": "사진",
+    "startDate": "2026-11-19",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "사진을 시간 순서대로 놓아 한 사람의 삶이 그리는 궤적을 보여 주는 개인전입니다. 스페이스포포 오픈콜로 뽑힌 신진 작가의 전시입니다(월요일 휴관).",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "부산 금정구 금정로 79",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kim-sejin-still-body-theo-2026",
+    "title": "김세진 개인전 《멈춘 몸, 멈춘 숨 Still, Body, Still, Breath》",
+    "venue": "테오 (THEO)",
+    "city": "서울",
+    "lat": 37.511,
+    "lon": 127.048,
+    "genre": "회화",
+    "startDate": "2026-11-14",
+    "endDate": "2026-12-12",
+    "price": null,
+    "description": "오늘을 사는 사람들이 느끼는 긴장·불안·미완의 감정을 몸의 형상으로 옮긴 회화 개인전입니다. 강남의 작은 지하 전시공간에서 열립니다(화–토 13–19시).",
+    "thumbnail": "https://oqrvbstopuppznxqoonp.supabase.co/storage/v1/object/public/exhibition-images/cms/93878da8-0c49-4cf9-aaa8-f32b6335c104/original.jpg",
+    "url": "https://gallrmap.com/exhibitions/still-body-still-breath-sejin-kim-549b/",
+    "address": "서울 강남구 봉은사로68길 55-3",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-surface-and-flesh-noon-2026",
+    "title": "조현선 · 허지혜 2인전 《겉과 살 Surface and Flesh》",
+    "venue": "눈 컨템포러리 (noon contemporary)",
+    "city": "서울",
+    "lat": 37.552,
+    "lon": 126.979,
+    "genre": "회화",
+    "startDate": "2026-11-13",
+    "endDate": "2026-12-13",
+    "price": null,
+    "description": "겹겹이 쌓은 조현선의 회화와 재생 종이·철사로 만든 허지혜의 조각을 함께 놓은 2인전입니다. 눈에 보이는 겉모양과 그것을 이루는 재료의 관계를 살핍니다.",
+    "thumbnail": "https://oqrvbstopuppznxqoonp.supabase.co/storage/v1/object/public/exhibition-images/cms/e2fffe73-6601-434d-87bd-8cb95cc59e0a/original.jpg",
+    "url": "https://gallrmap.com/exhibitions/surface-and-flesh-dc4c/",
+    "address": "서울 용산구 소월로 72",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]
