@@ -426,5 +426,25 @@
     "lon": 129.0861,
     "url": "http://spacefofo.kr",
     "note": "오픈콜로 신진 작가 전시를 여는 부산 금정구의 작은 전시공간"
+  },
+  {
+    "id": "modu-art-space",
+    "name": "모두미술공간",
+    "search": "모두미술공간",
+    "area": "한강대로",
+    "lat": 37.5559,
+    "lon": 126.973,
+    "url": "https://www.moduartspace.or.kr/",
+    "note": "한국장애인문화예술원이 운영하는 무료 전시공간(서울역 앞 한강대로 416 별관 5층), 장애예술인 창작 지원"
+  },
+  {
+    "id": "aither-beomil",
+    "name": "아이테르 범일가옥 (AITHER)",
+    "search": "아이테르 범일가옥",
+    "area": "범일로65번길",
+    "lat": 35.1405,
+    "lon": 129.059,
+    "url": "https://aither.kr/",
+    "note": "부산 범일동 옛 가옥을 고친 전시공간, 작가 개인전을 꾸준히 엶"
   }
 ]
