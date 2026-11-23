@@ -416,5 +416,15 @@
     "area": "봉래나루로",
     "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
     "note": "부산 영도의 전시·퍼포먼스 공간"
+  },
+  {
+    "id": "space-fofo",
+    "name": "갤러리 스페이스포포 (spaceFOFO)",
+    "search": "스페이스포포 금정로",
+    "area": "금정로",
+    "lat": 35.2318,
+    "lon": 129.0861,
+    "url": "http://spacefofo.kr",
+    "note": "오픈콜로 신진 작가 전시를 여는 부산 금정구의 작은 전시공간"
   }
 ]
