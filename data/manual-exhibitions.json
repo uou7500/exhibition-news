@@ -1488,5 +1488,125 @@
       "작가전"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-jbnu-fineart-grad-2026",
+    "title": "전북대학교 미술학과 4학년 전공별 졸업전",
+    "venue": "전북대학교 삼성문화회관 전시실",
+    "city": "전주",
+    "lat": 35.8468,
+    "lon": 127.1294,
+    "genre": "기타",
+    "startDate": "2026-11-17",
+    "endDate": "2026-11-28",
+    "price": null,
+    "description": "전북대학교 미술학과 4학년 학생들이 전공별로 준비한 졸업작품을 한자리에 모은 전시입니다. 캠퍼스 안 삼성문화회관 전시실에서 11월 말까지 열립니다.",
+    "thumbnail": "",
+    "url": "https://ssac.jbnu.ac.kr/main/menu?gc=891EYYJ",
+    "address": "전북특별자치도 전주시 덕진구 백제대로 567",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-loop-sound-effects-2026",
+    "title": "사운드 이펙트 서울 2026 을지로 — 대안공간 루프 전시 (신혜영 · 한재석)",
+    "venue": "대안공간 루프 (Alternative Space LOOP)",
+    "city": "서울",
+    "lat": 37.5692,
+    "lon": 126.9968,
+    "genre": "조각·설치",
+    "startDate": "2026-11-20",
+    "endDate": "2026-11-28",
+    "price": null,
+    "description": "을지로 소리 축제 ‘사운드 이펙트 서울 2026’과 함께 열리는 2인전입니다. 신혜영은 버려진 물건에 전자 회로를 달아 소리를 내게 하고, 한재석은 산업 폐기물·스피커·그물 등으로 공업 지역을 떠올리게 하는 소리 조각을 선보입니다.",
+    "thumbnail": "https://oqrvbstopuppznxqoonp.supabase.co/storage/v1/object/public/exhibition-images/cms/428cfab4-45e0-471b-ae33-2bc50e533927/original.jpg",
+    "url": "https://gallrmap.com/exhibitions/sound-effects-seoul-2026-euljiro-loop-exhibition-5a08/",
+    "address": "서울 중구 청계천로 172-1",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-hwang-hyeondeok-yugiryeok-2026",
+    "title": "황현덕 개인전 《놕놕》",
+    "venue": "프랙티스 유기력",
+    "city": "부산",
+    "lat": 35.1032,
+    "lon": 129.0262,
+    "genre": "기타",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "부산 보수동 헌책방 골목 근처 지하의 작가 운영 공간 프랙티스 유기력에서 열리는 황현덕 작가의 개인전입니다. 부산일보 주간 전시 안내에 소개되었습니다.",
+    "thumbnail": "",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "부산 중구 보수동1가 125-4",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kim-eungki-merge-2026",
+    "title": "김응기 개인전 《기억과 현상의 기록 - <메모>의 변주》",
+    "venue": "복합문화예술공간 MERGE?",
+    "city": "부산",
+    "lat": 35.2318,
+    "lon": 129.0838,
+    "genre": "회화",
+    "startDate": "2026-11-24",
+    "endDate": "2026-12-03",
+    "price": null,
+    "description": "아트인네이처의 ‘은퇴 작가 다큐멘터리 큐레이팅 프로젝트’ 네 번째 전시로 김응기 작가를 다룹니다. 화면을 채우고 비우며 남은 흔적과 오랜 작업 과정을 기록으로 보여 줍니다. 11월 27일 오후 5시 작가와의 대화가 있습니다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-0b6f5e4ccbc5b5ca908a3e7fe028d74a_HUbsDjdM_99b2cb0402c7fafbea2c7872a126d9a01aa661cc_600x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1595",
+    "address": "부산 금정구 부산대학로50번길 49",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-house-v-matters-keyshape-2026",
+    "title": "《집V안V일 House V Matters》 고경호 기획 그룹전",
+    "venue": "키쉐입 (KEYSHAPE)",
+    "city": "서울",
+    "lat": 37.5386,
+    "lon": 126.893,
+    "genre": "기타",
+    "startDate": "2026-11-18",
+    "endDate": "2026-12-06",
+    "price": null,
+    "description": "고경호가 기획하고 김대유·김용선·박소영·이준용이 함께한 그룹전입니다. 집과 가족을 둘러싼 경험과 기억을 회화·드로잉·사진·조각으로 풀어내며, 제목의 ‘V’로 익숙한 낱말을 갈라 집안일을 새로 보게 합니다. 수~일 13~19시.",
+    "thumbnail": "https://oqrvbstopuppznxqoonp.supabase.co/storage/v1/object/public/exhibition-images/cms/901bd262-1aa3-42cc-aa12-86854d554431/original.jpg",
+    "url": "https://gallrmap.com/exhibitions/house-v-matters-3653/",
+    "address": "서울 영등포구 양평로 100",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-seok-changwoo-modu-2026",
+    "title": "석창우 : 손끝의 물음표",
+    "venue": "모두미술공간",
+    "city": "서울",
+    "lat": 37.5559,
+    "lon": 126.973,
+    "genre": "회화",
+    "startDate": "2026-10-29",
+    "endDate": "2026-12-05",
+    "price": null,
+    "description": "한국장애인문화예술원이 운영하는 모두미술공간에서 여는 석창우 작가의 개인전입니다. 월~토 10~18시, 일요일·공휴일 휴관.",
+    "thumbnail": "",
+    "url": "https://www.moduartspace.or.kr/",
+    "address": "서울 중구 한강대로 416",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]
