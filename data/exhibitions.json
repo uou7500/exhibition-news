@@ -154,23 +154,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-408908",
-    "title": "[청주 갤러리 원] A관 이소윤 기획전 \"﻿﻿틈.틈틈,\"",
-    "venue": "CGV청주(서문) 갤러리원 1층",
-    "city": "청주",
-    "lat": 36.63508289706297,
-    "lon": 127.4869596346555,
-    "genre": "기타",
-    "startDate": "2026-11-19",
-    "endDate": "2026-11-24",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111921174167152.jpg",
-    "url": "https://www.cbfc.or.kr/home/sub.php?menukey=6444&amp;mod=view&amp;no=2516627",
-    "address": "충청북도 청주시 상당구 상당로81번길 63 CGV청주(서문)",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-408771",
     "title": "[청주 갤러리 원] B관 안수민 기획전 \"﻿﻿틈.틈틈,\"",
     "venue": "CGV청주(서문) 갤러리원 1층",
@@ -184,6 +167,23 @@
     "priceText": "무료",
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/f3e491e7d88a44eb849c386cafdaee6f.jpg",
     "url": "https://www.instagram.com/cheongju_gallery_one/",
+    "address": "충청북도 청주시 상당구 상당로81번길 63 CGV청주(서문)",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-408908",
+    "title": "[청주 갤러리 원] A관 이소윤 기획전 \"﻿﻿틈.틈틈,\"",
+    "venue": "CGV청주(서문) 갤러리원 1층",
+    "city": "청주",
+    "lat": 36.63508289706297,
+    "lon": 127.4869596346555,
+    "genre": "기타",
+    "startDate": "2026-11-19",
+    "endDate": "2026-11-24",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111921174167152.jpg",
+    "url": "https://www.cbfc.or.kr/home/sub.php?menukey=6444&amp;mod=view&amp;no=2516627",
     "address": "충청북도 청주시 상당구 상당로81번길 63 CGV청주(서문)",
     "source": "culture.go.kr"
   },
@@ -1429,6 +1429,24 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026112021172299085.jpg",
     "url": "https://www.jinju.go.kr/00130/00139/00140.web?amode=view&amp;sno=570&amp;listMode=all&amp;",
     "address": "경상남도 진주시 진양호로 476 진주문화원",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409230",
+    "title": "사유적 풍경",
+    "venue": "갤러리 그림손",
+    "city": "서울",
+    "lat": 37.57421348535665,
+    "lon": 126.98617806610517,
+    "genre": "기타",
+    "startDate": "2026-11-25",
+    "endDate": "2026-11-30",
+    "price": 0,
+    "priceText": "무료",
+    "description": "사유적 풍경 – 사실적 풍경을 넘어 사유의 공간으로\n\n안성규 작가는 도시와 하늘이 맞닿는 경계의 풍경을 통해 인간 존재의 의미와 삶의 본질을 탐구한다. 작가에게 풍경은 단순히 눈앞에 펼쳐진 자연이나 도시의 재현이 아니라, 인간이 살아온 시간과 기억, 수많은 감정이 축적된 내면의 공간이다. 도시의 건물과 불빛은 인간의 삶과 문명이 남긴 흔적을 드러내고, 그 위로 끝없이 펼쳐진 하늘은 현실을 넘어서는 무한한 세계와 사유의 가능성을 상징한다. 작가는 이 두 공간의 대비와 광활한 여백을 통해 유한한 인간과 무한한 세계가 마주하는 순간을 섬세하게 포착한다.\n\n이번 전시는 눈에 보이는 풍경을 넘어 그 안에 담긴 인간의 기억과 감정, 존재의 의미를 마주하는 여정이다. 작가는 고요한 풍경 앞에 선 다양한 존재들의 모습을 통해 인간이 느끼는 고독과 불안, 그리움과 위안, 사랑과 연민의 감정을 이야기한다. 나아가 끊임없이 변화하는 시대와 문명 속에서도 우리가 지켜야 할 인간다움과 공존의 가치를 질문한다.\n\n이 전시는 풍경을 바라보는 것을 넘어 그 풍경 앞에 선 우리 자신의 내면을 바라보게 한다. 관람객들은 작품 속 고요한 경계에서 자신만의 기억과 감정을 발견하고, 익숙한 풍경 너머에 존재하는 또 다른 사유의 세계와 마주하게 될 것이다.",
+    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/show_2026112321172779407.jpg",
+    "url": "http://www.grimson.co.kr",
+    "address": "서울특별시 종로구 인사동10길 22 갤러리 그림손",
     "source": "culture.go.kr"
   },
   {
