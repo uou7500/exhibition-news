@@ -1608,5 +1608,165 @@
       "작가전"
     ],
     "source": "manual"
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "thumbnail": "",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual",
+    "genre": "사진",
+    "id": "manual-smu-photo-trigger-2026",
+    "title": "상명대학교 사진영상미디어전공 제39회 졸업전시 《TRIGGER》",
+    "venue": "마루아트센터 2관·3관·그랜드관",
+    "lat": 37.574,
+    "lon": 126.9853,
+    "startDate": "2026-11-25",
+    "endDate": "2026-11-30",
+    "description": "상명대 사진영상미디어전공 졸업생들이 순수사진·광고사진·포토저널리즘·영상 네 갈래로 작업을 선보이는 졸업전시입니다. 제목 트리거는 셔터를 누르는 순간과 감정을 일으키는 계기를 함께 뜻합니다. 11월 28일 오후 3시에 작품 발표와 축하 행사가 열립니다.",
+    "url": "https://www.hdnews.co.kr/news/articleView.html?idxno=363542",
+    "address": "서울 종로구 인사동길 35-4"
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "thumbnail": "",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual",
+    "genre": "기타",
+    "id": "manual-kim-kyungmook-he-and-they-2026",
+    "title": "김경묵 개인전 《그 그리고 그들: He and They》",
+    "venue": "탈영역우정국",
+    "lat": 37.5478,
+    "lon": 126.9285,
+    "startDate": "2026-11-18",
+    "endDate": "2026-12-07",
+    "description": "김경묵 작가의 개인전으로, 옛 우체국 건물을 고친 마포구의 대안공간 탈영역우정국에서 열립니다.",
+    "url": "https://www.art-culture.co.kr/magazine_art_ca/4118",
+    "address": "서울 마포구 독막로20길 42"
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "thumbnail": "",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual",
+    "genre": "기타",
+    "id": "manual-park-sunyoung-cutthecake-2026",
+    "title": "박선영 개인전 《두 손의 시선》",
+    "venue": "컷더케이크 (Cut the Cake)",
+    "lat": 37.559,
+    "lon": 126.905,
+    "startDate": "2026-11-20",
+    "endDate": "2026-12-06",
+    "description": "박선영 작가의 개인전으로, 마포구 월드컵로의 작은 전시공간 컷더케이크 2층에서 열립니다. 손을 실마리로 삼은 작업을 보여 줍니다.",
+    "url": "https://www.art-culture.co.kr/magazine_art_ca/4118",
+    "address": "서울 마포구 월드컵로25길 131"
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "thumbnail": "",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual",
+    "genre": "기타",
+    "id": "manual-minkim-before-boundaries-2026",
+    "title": "민킴 개인전 《경계 이전의》",
+    "venue": "아트프로젝트 씨오 (ART PROJECT CO)",
+    "lat": 37.5455,
+    "lon": 127.041,
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-19",
+    "description": "민킴 작가의 개인전으로, 성수동의 작은 갤러리 아트프로젝트 씨오(트리마제 상가 102호)에서 열립니다. 경계가 생기기 전의 상태를 주제로 한 작업을 소개합니다.",
+    "url": "https://www.art-culture.co.kr/magazine_art_ca/4118",
+    "address": "서울 성동구 왕십리로 16"
+  },
+  {
+    "city": "인천",
+    "price": null,
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-69d197dee1267fd17a026e6518836287_e55d9968693c3a9ba04c9426f77236ce547066ec_600x0.jpg",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual",
+    "genre": "회화",
+    "id": "manual-woosol-gallery-opening-2026",
+    "title": "우솔갤러리 개관전 (우솔 개인전)",
+    "venue": "우솔갤러리",
+    "lat": 37.5284904,
+    "lon": 126.6769903,
+    "startDate": "2026-11-21",
+    "endDate": "2026-12-14",
+    "description": "작가 우솔이 직접 꾸린 공간 우솔갤러리의 문을 여는 개인전입니다. 오전 11시부터 오후 8시까지 엽니다.",
+    "url": "https://artnet.kr/p/solo-exhibitions/1610",
+    "address": "인천 서해구 서곶로 120"
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "thumbnail": "",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual",
+    "genre": "기타",
+    "id": "manual-sunho-gallery-mumo-2026",
+    "title": "순호 개인전 《머무는 공기의 겹겹의 틈사이》",
+    "venue": "갤러리무모",
+    "lat": 37.504,
+    "lon": 127.107,
+    "startDate": "2026-11-07",
+    "endDate": "2026-12-13",
+    "description": "순호 작가의 개인전으로, 송파구 가락로의 지하 전시공간 갤러리무모에서 열립니다. 공기가 머무는 겹과 틈을 제목으로 삼았습니다.",
+    "url": "https://www.art-culture.co.kr/magazine_art_ca/4118",
+    "address": "서울 송파구 가락로19길 5"
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "thumbnail": "",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual",
+    "genre": "기타",
+    "id": "manual-leejieun-gallery-mumo-2026",
+    "title": "이지은 개인전 《비어 있는 관계의 구도》",
+    "venue": "갤러리무모",
+    "lat": 37.504,
+    "lon": 127.107,
+    "startDate": "2026-11-07",
+    "endDate": "2026-12-13",
+    "description": "이지은 작가의 개인전으로, 같은 기간 갤러리무모에서 순호 개인전과 함께 열립니다. 비어 있는 관계가 만드는 구도를 주제로 합니다.",
+    "url": "https://www.art-culture.co.kr/magazine_art_ca/4118",
+    "address": "서울 송파구 가락로19길 5"
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "thumbnail": "",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual",
+    "genre": "기타",
+    "id": "manual-yoohyeri-namok-2026",
+    "title": "유혜리 개인전",
+    "venue": "남목갤러리",
+    "lat": 37.544,
+    "lon": 127.07,
+    "startDate": "2026-11-10",
+    "endDate": "2026-12-05",
+    "description": "유혜리 작가의 개인전으로, 광진구 능동로의 작은 지하 갤러리 남목갤러리에서 열립니다.",
+    "url": "https://www.art-culture.co.kr/magazine_art_ca/4118",
+    "address": "서울 광진구 능동로3나길 26"
   }
 ]

@@ -446,5 +446,27 @@
     "lon": 129.059,
     "url": "https://aither.kr/",
     "note": "부산 범일동 옛 가옥을 고친 전시공간, 작가 개인전을 꾸준히 엶"
+  },
+  {
+    "id": "cut-the-cake",
+    "name": "컷더케이크 (Cut the Cake)",
+    "search": "컷더케이크",
+    "area": "월드컵로25길",
+    "lat": 37.559,
+    "lon": 126.905,
+    "url": "https://www.art-culture.co.kr/magazine_art_ca/4118",
+    "instagram": "",
+    "note": "마포구 월드컵로의 작은 전시공간, 2026년 11~12월 박선영 개인전"
+  },
+  {
+    "id": "ssac-daegu",
+    "name": "비영리전시공간 싹 (SSAC)",
+    "search": "비영리전시공간 싹",
+    "area": "달구벌대로",
+    "lat": 35.858,
+    "lon": 128.626,
+    "url": "https://www.imaeil.com/page/view/2026103009575064678",
+    "instagram": "",
+    "note": "대구 수성구의 비영리 전시공간, 2026년 20주년·비평가와 함께하는 쓱싹프로젝트 진행"
   }
 ]
