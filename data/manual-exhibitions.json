@@ -1768,5 +1768,139 @@
     "description": "유혜리 작가의 개인전으로, 광진구 능동로의 작은 지하 갤러리 남목갤러리에서 열립니다.",
     "url": "https://www.art-culture.co.kr/magazine_art_ca/4118",
     "address": "서울 광진구 능동로3나길 26"
+  },
+  {
+    "id": "manual-shinmijeong-theref-2026",
+    "title": "신미정 개인전 《어떤 말은 떠나지 않는다 Some Pieces Never Leave》",
+    "venue": "더레퍼런스 (The Reference)",
+    "city": "서울",
+    "lat": 37.5815,
+    "lon": 126.9707,
+    "genre": "미디어",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-12",
+    "price": null,
+    "description": "대만 펑후의 7·13 사건을 배경으로, 국가폭력에 대한 몸의 기억과 그 역사를 게임 규칙으로 바꿔 놓은 후세대의 모습을 나란히 놓는 전시. 현장 조사로 모은 구술과 기록으로 만든 영상으로, 큰 역사에서 밀려난 사람들의 작은 이야기를 따라간다.",
+    "thumbnail": "https://the-ref.kr/data/file/exhibition/1375737025_e83hvxD6_e0acf626030e3cd37993b7c320b87ea57d683148.jpg",
+    "url": "https://www.the-ref.kr/exhibition.current.php?sca=current",
+    "address": "서울 종로구 자하문로24길 44",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-sorideul-factory2-2026",
+    "title": "김다움 《소리들 - On ( ) Ways》",
+    "venue": "팩토리2 (factory2)",
+    "city": "서울",
+    "lat": 37.5716,
+    "lon": 126.9718,
+    "genre": "미디어",
+    "startDate": "2026-11-13",
+    "endDate": "2026-12-06",
+    "price": null,
+    "description": "도시가 소리와 그곳을 겪은 사람들의 목소리로 어떻게 기억되는지 묻는 프로젝트. 첫 조사지인 경복궁 서쪽 창성동에서 인터뷰와 산책으로 모은 기억과 소리를 전시로 풀어낸다. 수–일 11–19시, 월·화 휴관.",
+    "url": "https://factory2.kr/609",
+    "address": "서울 종로구 새문안로 42",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-modu-seumyeodeuneun-2026",
+    "title": "2026 장애예술 콘텐츠 활성화전 《스며드는 사물들》",
+    "venue": "모두미술공간",
+    "city": "서울",
+    "lat": 37.5559,
+    "lon": 126.973,
+    "genre": "공예",
+    "startDate": "2026-11-02",
+    "endDate": "2026-12-05",
+    "price": null,
+    "description": "장애예술인 10명의 그림과 도자 작품을 쿠션·러그·텀블러·문구 같은 생활 사물로 옮긴 전시. 한국장애인문화예술원이 마련했으며, 장애예술이 일상에서 관객과 만나는 새로운 방법을 보여 준다.",
+    "thumbnail": "https://file.newswire.co.kr/data/datafile2/thumb_640/2026/11/1028147215_20261111083939_6135889206.jpg",
+    "url": "https://www.moduartspace.or.kr/",
+    "address": "서울 중구 한강대로 416",
+    "tags": [],
+    "source": "manual"
+  },
+  {
+    "id": "manual-crispwedge-narae-keum-2026",
+    "title": "Narae Keum 개인전",
+    "venue": "크리스프 웨지 (Crisp Wedge)",
+    "city": "서울",
+    "lat": 37.5506,
+    "lon": 126.9158,
+    "genre": "기타",
+    "startDate": "2026-12-10",
+    "endDate": "2026-12-27",
+    "price": null,
+    "description": "합정동 지하 전시공간 크리스프 웨지의 다음 전시로, 작가 Narae Keum의 작업을 소개한다. 공간 공식 홈페이지에 예고된 전시이며, 관람은 화~토 12~18시(전시에 따라 바뀔 수 있음).",
+    "url": "https://www.crispwedge.com/upcoming-show",
+    "address": "서울 마포구 양화로8길 32-17",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-ara-choi-malja-2026",
+    "title": "《최말자, 번지다》展",
+    "venue": "아라아트센터 4층",
+    "city": "서울",
+    "lat": 37.5737,
+    "lon": 126.9858,
+    "genre": "기타",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-29",
+    "price": "무료",
+    "description": "최말자와 남아름·이다은·장연호·최아람·최인혜가 함께한 전시로, 한국여성의전화가 주최하고 이다은이 기획했다. 인사동 아라아트센터 4층에서 무료로 볼 수 있으며 월요일은 쉰다.",
+    "thumbnail": "https://www.araart.co.kr/wp/wp-content/uploads/2026/11/포스터저용량.png",
+    "url": "https://www.araart.co.kr/14062",
+    "address": "서울 종로구 인사동9길 26",
+    "tags": [],
+    "source": "manual"
+  },
+  {
+    "id": "manual-hongik-vcd-fieldtest-2026",
+    "title": "2026 홍익대학교 시각디자인과 졸업전시 《FIELD TEST》",
+    "venue": "홍익대학교 홍문관 1층·7층",
+    "city": "서울",
+    "lat": 37.5509,
+    "lon": 126.925,
+    "genre": "디자인",
+    "startDate": "2026-12-07",
+    "endDate": "2026-12-12",
+    "price": null,
+    "description": "홍익대 시각디자인과 졸업주간 전시. 작업실을 벗어나 디자인을 실제 현장에서 시험해 본다는 뜻의 'Field Test'가 주제로, 사람·공간·빛·바람에 따라 움직이는 커다란 천이 전시의 중심 오브제다. 화~금 10~20시, 토 10~18시(월요일은 층별 시간 다름).",
+    "thumbnail": "https://2026.hongiksidi.com/og.png?v=1106w",
+    "url": "https://2026.hongiksidi.com/",
+    "address": "서울 마포구 와우산로 94",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-gtec-vcd-nextstop-2026",
+    "title": "경기과학기술대학교 시각정보디자인학과 제15회 졸업작품전 《NEXT STOP IS_?》",
+    "venue": "마루아트센터 본관 2층 5관",
+    "city": "서울",
+    "lat": 37.574,
+    "lon": 126.9853,
+    "genre": "디자인",
+    "startDate": "2026-11-25",
+    "endDate": "2026-11-30",
+    "price": null,
+    "description": "경기과기대 시각정보디자인학과 졸업생 22명이 참여하는 졸업작품전. '다음 정거장은?'이라는 질문을 지하철 순환선 지도와 픽셀 그래픽으로 풀어, 저마다 그리는 앞날을 작품에 담았다.",
+    "thumbnail": "https://cdn.veritas-a.com/news/photo/202611/638393_552533_5623.jpg",
+    "url": "https://www.veritas-a.com/news/articleView.html?idxno=638393",
+    "address": "서울 종로구 인사동길 35-4",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
   }
 ]
