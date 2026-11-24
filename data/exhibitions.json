@@ -698,6 +698,23 @@
     "source": "culture.go.kr"
   },
   {
+    "id": "culture-399845",
+    "title": "[아트센터 화이트블럭] 박미례 개인전 ≪해산첩(海山帖)≫",
+    "venue": "아트센터 화이트블럭",
+    "city": "파주",
+    "lat": 37.78888535046657,
+    "lon": 126.69939974903895,
+    "genre": "기타",
+    "startDate": "2026-10-02",
+    "endDate": "2026-11-29",
+    "price": 3000,
+    "priceText": "3,000원 (카페 이용시 무료, 강원도민 무료)",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202609/c765209a8b4b42e9b5bc7e24fef32598.png",
+    "url": "https://whiteblock.org/%EC%A0%84%EC%8B%9C/view/6298967",
+    "address": "경기도 파주시 탄현면 헤이리마을길 72 아트센터 화이트블럭",
+    "source": "culture.go.kr"
+  },
+  {
     "id": "culture-400772",
     "title": "경기창작캠퍼스 프로젝트 레지던시 기획전시 《우리가 서로 사랑한 이유에 대해서는 묻지 않기로 해요》",
     "venue": "경기창작센터",
@@ -2016,23 +2033,6 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/show_2026112021172082282.jpg",
     "url": "http://www.hiddenmgallery.com",
     "address": "서울특별시 강남구 논현로86길 16 서울 강남구 논현로86길 16",
-    "source": "culture.go.kr"
-  },
-  {
-    "id": "culture-400748",
-    "title": "[주오스트리아 한국문화원] Still/ Moving",
-    "venue": "강남문화재단",
-    "city": "서울",
-    "lat": 37.51632112050374,
-    "lon": 127.04231377611299,
-    "genre": "기타",
-    "startDate": "2026-10-02",
-    "endDate": "2026-12-11",
-    "price": null,
-    "priceText": "[홈페이지 내용 참고]",
-    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/10/rdf_2026100221173954969.jpg",
-    "url": "https://www.gangnam.go.kr/office/gfac/board/gfac_artcube_02/493/view.do?mid=gfac_artcube_02",
-    "address": "서울특별시 강남구 선릉로 668 강남문화재단",
     "source": "culture.go.kr"
   },
   {
