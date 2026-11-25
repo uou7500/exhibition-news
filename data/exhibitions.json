@@ -493,6 +493,23 @@
     "source": "culture.go.kr"
   },
   {
+    "id": "culture-409433",
+    "title": "생활예술 지원사업 <양양 발견> 파레트, 두 번째 색을 입다",
+    "venue": "양양문화복지회관",
+    "city": "양양",
+    "lat": 38.0770173957,
+    "lon": 128.626903467,
+    "genre": "기타",
+    "startDate": "2026-11-25",
+    "endDate": "2026-11-28",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/781b86d044964e76a573b63d32b287fe.png",
+    "url": "https://www.yycf.or.kr/contents/general_notices_view.html?idx=1987&amp;bbs_idx=1&amp;page=1&amp;key=",
+    "address": "강원특별자치도 양양군 양양읍 일출로 540 양양 문화복지회관",
+    "source": "culture.go.kr"
+  },
+  {
     "id": "culture-376498",
     "title": "클레이아크김해미술관 개관 20주년 특별기획전 <주름과 덧댐>",
     "venue": "클레이아크 김해미술관",
@@ -1157,23 +1174,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-409279",
-    "title": "늘봄캘리그라피디자인협회 《제4회 협회전 &lsquo;한 획의 쉼&rsquo;》",
-    "venue": "천안예술의전당",
-    "city": "천안",
-    "lat": 36.75606837695557,
-    "lon": 127.2254122710195,
-    "genre": "디자인",
-    "startDate": "2026-11-24",
-    "endDate": "2026-11-29",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/398c1f0fba7f467b8dc6682f1f63697f.png",
-    "url": "https://www.cfac.or.kr/bbs/board.php?bo_table=notice&amp;wr_id=539&amp;page=1",
-    "address": "충청남도 천안시 동남구 성남면 종합휴양지로 185 천안예술의전당",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-408704",
     "title": "김정윤 개인전 《연못의 모서리를 늘리는 방법》",
     "venue": "복합문화지구 누에",
@@ -1188,6 +1188,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/29f15b3fed47429ebee79144d5579602.jpg",
     "url": "https://archivist.kr/exi?m=gov&amp;i=1793673784",
     "address": "전북특별자치도 완주군 용진읍 완주로 462-9 복합문화지구 누에",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409279",
+    "title": "늘봄캘리그라피디자인협회 《제4회 협회전 &lsquo;한 획의 쉼&rsquo;》",
+    "venue": "천안예술의전당",
+    "city": "천안",
+    "lat": 36.75606837695557,
+    "lon": 127.2254122710195,
+    "genre": "디자인",
+    "startDate": "2026-11-24",
+    "endDate": "2026-11-29",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/398c1f0fba7f467b8dc6682f1f63697f.png",
+    "url": "https://www.cfac.or.kr/bbs/board.php?bo_table=notice&amp;wr_id=539&amp;page=1",
+    "address": "충청남도 천안시 동남구 성남면 종합휴양지로 185 천안예술의전당",
     "source": "culture.go.kr"
   },
   {
@@ -2414,23 +2431,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-407766",
-    "title": "[우리동네 MG갤러리] 유재희 작가 《잠깐 반짝였던 것들의 자리》",
-    "venue": "MG북울산새마을금고 우리동네 MG갤러리",
-    "city": "울산",
-    "lat": 35.555626524602,
-    "lon": 129.35656521305,
-    "genre": "기타",
-    "startDate": "2026-11-23",
-    "endDate": "2026-12-18",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/feefbf50865f4907bb2a39a24bf479a6.jpg",
-    "url": "https://mggallery.kr",
-    "address": "울산광역시 북구 명촌로 52 2층",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-407761",
     "title": "[우리동네 MG갤러리] 전재석 작가 《익숙한 풍경 다시 바라보기》",
     "venue": "MG초읍동새마을금고 본점 우리동네MG갤러리",
@@ -2445,6 +2445,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/964b2e9385584319872fbc4202c7ec6d.jpg",
     "url": "https://mggallery.kr/",
     "address": "부산광역시 부산진구 성지로 90 2층",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-407766",
+    "title": "[우리동네 MG갤러리] 유재희 작가 《잠깐 반짝였던 것들의 자리》",
+    "venue": "MG북울산새마을금고 우리동네 MG갤러리",
+    "city": "울산",
+    "lat": 35.555626524602,
+    "lon": 129.35656521305,
+    "genre": "기타",
+    "startDate": "2026-11-23",
+    "endDate": "2026-12-18",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/feefbf50865f4907bb2a39a24bf479a6.jpg",
+    "url": "https://mggallery.kr",
+    "address": "울산광역시 북구 명촌로 52 2층",
     "source": "culture.go.kr"
   },
   {
@@ -2891,6 +2908,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/09/rdf_2026091821225081738.jpg",
     "url": "https://www.uac.or.kr/newuac/performance/performance_04D.php?EXB_CODE=202609161736220",
     "address": "경기도 의정부시 의정로 1 의정부예술의전당",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409420",
+    "title": "이도은 &ldquo;청향의 뜰 : 먹빛으로 피어난 이야기&rdquo;",
+    "venue": "KR갤러리",
+    "city": "광주",
+    "lat": 34.7946688364308,
+    "lon": 126.42957612320845,
+    "genre": "기타",
+    "startDate": "2026-12-01",
+    "endDate": "2026-12-30",
+    "price": 0,
+    "priceText": "무료관람",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/9ad16743ae1e4e0183110eb775f93f43.png",
+    "url": "https://blog.naver.com/kr_gallery/224491012868",
+    "address": "전남광주통합특별시 목포시 평화로 38 6층",
     "source": "culture.go.kr"
   },
   {
