@@ -2082,5 +2082,145 @@
     "tags": [
       "작가전"
     ]
+  },
+  {
+    "id": "manual-jangyujae-bifc-2026",
+    "title": "장유재 개인전 《실재와 실제의 기하학: 인지적 기억, 물질적 허상, 그리고 가전의 시뮬라크르》",
+    "venue": "부산국제금융센터(BIFC) 1·2층",
+    "city": "부산",
+    "lat": 35.1464917,
+    "lon": 129.0658548,
+    "genre": "조각·설치",
+    "startDate": "2026-11-11",
+    "endDate": "2026-12-18",
+    "price": null,
+    "description": "고급 가전을 생활 수준의 상징으로 삼아, 눈에 보이는 것과 기억이 믿는 것 사이의 틈을 다룬다. 값싼 폼보드로 만든 실물 크기 가전, 진짜 금속 부품과 가짜를 이어 붙인 작업으로 지각을 얼마나 믿을 수 있는지 묻는다. 주말·공휴일 휴관.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-d2e9096a38a959802505ec76e6828f45_1788b00b7552299174cf709672b28dab3f55bb00_600x0.png",
+    "url": "https://artnet.kr/p/solo-exhibitions/1605",
+    "address": "부산 남구 문현금융로 40",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-yunseokwon-spacebv-2026",
+    "title": "윤석원 개인전 《여일 如一: The Yesterday Yet to Come》",
+    "venue": "붐빌 space bv",
+    "city": "부산",
+    "lat": 35.2938197,
+    "lon": 129.1110958,
+    "genre": "회화",
+    "startDate": "2026-11-10",
+    "endDate": "2026-12-30",
+    "price": null,
+    "description": "옛 사진과 기록, 일상의 이미지에서 미래의 풍경을 찾는 회화전이다. 가로세로 붓질과 흐릿하게 겹친 이미지로 과거의 기록을 현재와 미래의 단서로 다룬다. 화~토 12~18시.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-4d4c844ee348d211a5f5b6b5e2a3aa6e_c8a93288abb72ff71112ed3e5474c5d5c862d546_768x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1580",
+    "address": "부산 금정구 체육공원로 595",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-yunchangsu-sangan-2026",
+    "title": "윤창수 개인전 《상안(想顔)》",
+    "venue": "청년창조발전소 1층",
+    "city": "부산",
+    "lat": 35.1330659,
+    "lon": 129.100505,
+    "genre": "사진",
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-30",
+    "price": null,
+    "description": "청년들의 얼굴을 60초 장노출로 찍은 사진 프로젝트다. 숨과 작은 움직임이 한 장에 겹쳐, 얼굴을 고정된 모습이 아니라 흔들리는 상태로 보여 준다. 일요일·공휴일 휴관.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/5ca632395170f7fc4886a0f2325302ea_e6956d5caab7f25d581e7ca9a045f16d3c2d6d9e.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1576",
+    "address": "부산 남구 용소로46번길 7",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-jeongminjin-sojip-2026",
+    "title": "정민진 개인전 《안녕(安寧)》",
+    "venue": "소집",
+    "city": "강릉",
+    "lat": 37.7619146,
+    "lon": 128.9396638,
+    "genre": "회화",
+    "startDate": "2026-11-07",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "할아버지의 기억을 그린 2021년 전시에 이어, 할머니와 함께한 시간에서 출발한 회화를 보여 준다. 소중한 순간이 지금의 사람들에게도 온기가 될 수 있다는 마음을 담았다. 월·화 휴관.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-d477d90323540e3f020912c0290bce8a_b048209e6d1e099db84e47f699d5effb3ca321e0_600x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1555",
+    "address": "강원 강릉시 공항길30번길 5",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-choieunjung-time-2026",
+    "title": "최은정 기획초대전 《시간》",
+    "venue": "세종뮤지엄갤러리 2관 (세종대학교 대양AI센터)",
+    "city": "서울",
+    "lat": 37.5516093,
+    "lon": 127.0731836,
+    "genre": "회화",
+    "startDate": "2026-11-18",
+    "endDate": "2026-12-01",
+    "price": null,
+    "description": "한지를 겹겹이 쌓아 시간과 재료의 흔적을 보여 주는 약 40점의 작업이다. 1997년부터 약 30년의 작업을 돌아본다. 09:30~17:00.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-86e1b8b0f914443f1adb602ecd69d8ab_08482b9831e6e5261ecc997e3bbae874602b1dcc_768x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1601",
+    "address": "서울 광진구 능동로 209",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kimsan-nowhere-2026",
+    "title": "김산 개인전 《Nowhere, Somewhere 어디에도 없는, 어딘가의 숲》",
+    "venue": "현대백화점 무역센터점 8층 H. art LAB",
+    "city": "서울",
+    "lat": 37.5086151,
+    "lon": 127.0597651,
+    "genre": "회화",
+    "startDate": "2026-11-15",
+    "endDate": "2027-01-02",
+    "price": null,
+    "description": "신비로운 숲에 사는 흰 사슴(백록)을 그린 혼합매체 회화전이다. 잎·이끼·물을 빽빽하게 그려 실제 자연보다 깊어 보이는 숲을 만들고, 보는 사람이 저마다의 '낙원'을 떠올리게 한다. 운영 시간은 백화점 영업시간을 따른다.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-ac20263a9529d024bb142c9f5bcb33f3_05dfbd5099428041304cd9bd587937615e9c87f8_600x0.jpg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1591",
+    "address": "서울 강남구 테헤란로 517",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kimkyungwon-cell-2026",
+    "title": "김경원 개인전 《셀의 항해 2026》",
+    "venue": "문아트그라운드 뮤지엄 문 갤러리",
+    "city": "용인",
+    "lat": 37.3317336,
+    "lon": 127.1927859,
+    "genre": "회화",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "전통 옻칠 기법을 현대미술로 넓힌 회화·설치·영상 작업이다. 세포(셀)를 쌓인 경험의 상징으로 삼아, 옻칠을 겹쳐 기억과 감정을 보여 준다. 작업실을 기록한 영상도 함께 상영한다. 월요일 휴관.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/2b334cc2b3d55f911cbe9e154f1abf9c_75d2232b14280788748df0874627914c85af7b27.jpeg",
+    "url": "https://artnet.kr/p/solo-exhibitions/1568",
+    "address": "경기 용인시 처인구 모현읍 문형동림로101번길 37",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]
