@@ -1902,5 +1902,185 @@
       "졸업전시"
     ],
     "source": "manual"
+  },
+  {
+    "city": "부산",
+    "price": null,
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-56074c72b3ac133b957c7dfbfef0d800_4149b168acda4ac7ac3a069787583e98c59135fa_600x0.jpg",
+    "source": "manual",
+    "id": "manual-mareun-hyeo-geumgang-2026",
+    "title": "《마른 혀,》 부산 청년작가 20인 기획전",
+    "venue": "금강빌딩 (지하1층·3층)",
+    "lat": 35.2303,
+    "lon": 129.0867,
+    "genre": "기타",
+    "startDate": "2026-12-07",
+    "endDate": "2026-12-18",
+    "description": "부산에서 활동하는 젊은 작가 20명이 모인 기획 단체전. 말하고 싶지만 아직 채워지지 않은 갈증을 '마른 혀'라는 말로 풀었고, 하나의 주제로 묶기보다 작가마다 자기 경험에서 출발한 작업을 보여 준다. 오픈아츠스페이스머지 기획.",
+    "url": "https://artnet.kr/p/group-exhibitions/1412",
+    "address": "부산 금정구 금강로 186-1",
+    "tags": [
+      "실험전시"
+    ]
+  },
+  {
+    "city": "부산",
+    "price": "무료",
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-c6ee44047ab5b07664d88d9617ad1a03_d38cccf197d853e22e34886106b7d70c83ba479e_600x0.jpg",
+    "source": "manual",
+    "id": "manual-gonggam-leoand-2026",
+    "title": "《공(空).감(感)》 최례 · 김효은 2인전",
+    "venue": "레오앤갤러리 (Leo& Gallery)",
+    "lat": 35.2115,
+    "lon": 128.982,
+    "genre": "기타",
+    "startDate": "2026-11-28",
+    "endDate": "2027-01-28",
+    "description": "전통 수성 목판으로 만든 최례의 추상 작업과, 이름 모를 사람들의 옛 사진으로 만든 김효은의 책 작업을 함께 보여 주는 2인전. 비어 있음과 사라진 기억, 보는 사람이 채우는 빈자리를 다룬다. 월·화요일 휴관.",
+    "url": "https://artnet.kr/p/group-exhibitions/1413",
+    "address": "부산 강서구 체육공원로6번길 50",
+    "tags": [
+      "작가전"
+    ]
+  },
+  {
+    "city": "부산",
+    "price": null,
+    "thumbnail": "https://artnet.kr/data/file/1540558593/thumb-49f07e37858a429ce55e8dc07868a308_9559ec0d49da3ac8df96596c1726759d2d85f729_600x0.jpg",
+    "source": "manual",
+    "id": "manual-geugot-haeundae-2026",
+    "title": "《그곳, 그 자리》 2026 시선-이음 기획전시",
+    "venue": "해운대문화회관 제2전시실",
+    "lat": 35.1712,
+    "lon": 129.1776,
+    "genre": "사진",
+    "startDate": "2026-12-24",
+    "endDate": "2026-12-31",
+    "description": "남윤미·박윤경·이은별·Julia JS Won 네 사진가가 일상 풍경과 기억, 각자의 자리를 담은 사진전. 인화 사진과 디지털 슬라이드, 직접 넘겨 볼 수 있는 작가 책으로 꾸몄다.",
+    "url": "https://artnet.kr/p/group-exhibitions/1411",
+    "address": "부산 해운대구 양운로 97",
+    "tags": [
+      "작가전"
+    ]
+  },
+  {
+    "city": "서울",
+    "price": null,
+    "thumbnail": "https://oqrvbstopuppznxqoonp.supabase.co/storage/v1/object/public/exhibition-images/cms/127ecbce-5d67-4b54-b93d-dbf6d561236f/original.png",
+    "source": "manual",
+    "id": "manual-shortening-light-artnchoi-2026",
+    "title": "《짧아지는 낮 The Shortening Light》 서도이 · 유재연 · 전병구",
+    "venue": "아트앤초이스 (ART&CHOI'S)",
+    "lat": 37.5373,
+    "lon": 126.9998,
+    "genre": "회화",
+    "startDate": "2026-12-03",
+    "endDate": "2026-12-30",
+    "description": "낮과 밤, 한 해의 끝과 시작 사이의 시간을 그린 회화 3인전. 서도이는 사라짐과 다시 태어남의 이미지를, 유재연은 밤 풍경 속 스치는 빛을, 전병구는 일상 풍경에 쌓인 시간을 그린다.",
+    "url": "https://gallrmap.com/exhibitions/the-shortening-light-doi-seo-jaeyeon-yoo-byungkoo-jeon-8d82/",
+    "address": "서울 용산구 이태원로45길 37",
+    "tags": [
+      "작가전"
+    ]
+  },
+  {
+    "city": "울산",
+    "price": null,
+    "thumbnail": "",
+    "source": "manual",
+    "id": "manual-next-color-musemuseum-2026",
+    "title": "뮤즈세움 연말 기획전 5th 《다음의 색》",
+    "venue": "뮤즈세움 갤러리",
+    "lat": 35.6235,
+    "lon": 129.169,
+    "genre": "기타",
+    "startDate": "2026-11-19",
+    "endDate": "2026-12-04",
+    "description": "김가윤·김진규 등 여러 작가가 참여하는 뮤즈세움의 다섯 번째 연말 기획전. 한 해를 마무리하며 다음에 올 색을 묻는다. 일·월요일 휴관.",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "울산 울주군 두동면 서하천전로 213",
+    "tags": [
+      "작가전"
+    ]
+  },
+  {
+    "city": "부산",
+    "price": null,
+    "thumbnail": "",
+    "source": "manual",
+    "id": "manual-players-dategallery-2026",
+    "title": "박기원 · 윤상렬 2인전 《Players》",
+    "venue": "데이트갤러리",
+    "lat": 35.1585,
+    "lon": 129.16,
+    "genre": "기타",
+    "startDate": "2026-11-19",
+    "endDate": "2026-12-30",
+    "description": "박기원과 윤상렬 두 작가가 함께 여는 2인전. 해운대 바닷가 근처 갤러리 2층에서 연말까지 열린다.",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "부산 해운대구 해운대해변로298번길 5",
+    "tags": [
+      "작가전"
+    ]
+  },
+  {
+    "city": "부산",
+    "price": null,
+    "thumbnail": "",
+    "source": "manual",
+    "id": "manual-mirror-lina-busan-2026",
+    "title": "김병진 · 김재용 2인전 《Mirror: The Poetics of Connection》",
+    "venue": "리나갤러리 부산",
+    "lat": 35.183,
+    "lon": 129.2,
+    "genre": "기타",
+    "startDate": "2026-11-14",
+    "endDate": "2027-01-07",
+    "description": "김병진과 김재용이 '거울'과 '연결'을 주제로 꾸민 2인전. 송정 바닷가 근처 갤러리에서 해를 넘겨 열린다.",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "부산 해운대구 송정광어골로 85-1",
+    "tags": [
+      "작가전"
+    ]
+  },
+  {
+    "city": "부산",
+    "price": null,
+    "thumbnail": "",
+    "source": "manual",
+    "id": "manual-kwak-taeim-arian-2026",
+    "title": "곽태임 개인전 《다시, 나에게로 Come back Home》",
+    "venue": "아리안갤러리",
+    "lat": 35.159,
+    "lon": 129.1785,
+    "genre": "기타",
+    "startDate": "2026-11-10",
+    "endDate": "2026-11-27",
+    "description": "곽태임 작가의 개인전. 나 자신에게로 돌아가는 일을 주제로 한 작업을 달맞이길의 작은 갤러리에서 보여 준다.",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "부산 해운대구 달맞이길117번가길 175",
+    "tags": [
+      "작가전"
+    ]
+  },
+  {
+    "city": "부산",
+    "price": null,
+    "thumbnail": "",
+    "source": "manual",
+    "id": "manual-ahn-jinui-oknp-2026",
+    "title": "안진의 개인전 《In Tension, In Bloom》",
+    "venue": "OKNP (그랜드조선 부산 4층)",
+    "lat": 35.159,
+    "lon": 129.162,
+    "genre": "기타",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-20",
+    "description": "안진의 작가의 개인전. 긴장과 피어남이 함께 있는 순간을 주제로 그랜드조선 부산 4층 OKNP에서 열린다.",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026102119174767033",
+    "address": "부산 해운대구 해운대해변로 292",
+    "tags": [
+      "작가전"
+    ]
   }
 ]
