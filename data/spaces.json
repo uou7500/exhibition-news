@@ -477,5 +477,16 @@
     "url": "https://www.onsu-gonggan.com/",
     "instagram": "https://www.instagram.com/os_gonggan/",
     "note": "마포 서교동의 작은 전시공간, 신진 작가 개인전이 1~2주 단위로 이어짐"
+  },
+  {
+    "id": "leoand-gallery",
+    "name": "레오앤갤러리 (Leo& Gallery)",
+    "search": "레오앤갤러리 대저동",
+    "area": "대저",
+    "lat": 35.2115,
+    "lon": 128.982,
+    "url": "https://artnet.kr/p/group-exhibitions/1413",
+    "instagram": "",
+    "note": "부산 강서구 대저동의 작은 갤러리. 2인전과 작가와의 만남·특강을 꾸준히 연다."
   }
 ]
