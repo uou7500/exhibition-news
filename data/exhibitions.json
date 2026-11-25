@@ -374,6 +374,23 @@
     "source": "culture.go.kr"
   },
   {
+    "id": "culture-406431",
+    "title": "정이핀 개인전 《여망고나시 세겹 겹쳐입기 : 姦姦姦》",
+    "venue": "전주한벽문화관",
+    "city": "전주",
+    "lat": 35.81227365984457,
+    "lon": 127.15922205086957,
+    "genre": "기타",
+    "startDate": "2026-11-05",
+    "endDate": "2026-11-28",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/6dd354bd862e48d4935895f31bb9cf3b.jpg",
+    "url": "https://archivist.kr/exi?i=1793888009",
+    "address": "전북특별자치도 전주시 완산구 전주천동로 20 전주한벽문화관",
+    "source": "culture.go.kr"
+  },
+  {
     "id": "culture-406391",
     "title": "우병출 개인전",
     "venue": "청화랑",
@@ -406,23 +423,6 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/6f2ff53af2d44c49bf40389b8ee53bb7.png",
     "url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S261017164643729589",
     "address": "서울특별시 강서구 마곡동로 161 서울식물원",
-    "source": "culture.go.kr"
-  },
-  {
-    "id": "culture-406431",
-    "title": "정이핀 개인전 《여망고나시 세겹 겹쳐입기 : 姦姦姦》",
-    "venue": "전주한벽문화관",
-    "city": "전주",
-    "lat": 35.81227365984457,
-    "lon": 127.15922205086957,
-    "genre": "기타",
-    "startDate": "2026-11-05",
-    "endDate": "2026-11-28",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/6dd354bd862e48d4935895f31bb9cf3b.jpg",
-    "url": "https://archivist.kr/exi?i=1793888009",
-    "address": "전북특별자치도 전주시 완산구 전주천동로 20 전주한벽문화관",
     "source": "culture.go.kr"
   },
   {
@@ -681,23 +681,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-399845",
-    "title": "[아트센터 화이트블럭] 박미례 개인전 ≪해산첩(海山帖)≫",
-    "venue": "아트센터 화이트블럭",
-    "city": "파주",
-    "lat": 37.78888535046657,
-    "lon": 126.69939974903895,
-    "genre": "기타",
-    "startDate": "2026-10-02",
-    "endDate": "2026-11-29",
-    "price": 3000,
-    "priceText": "3,000원 (카페 이용시 무료, 강원도민 무료)",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202609/c765209a8b4b42e9b5bc7e24fef32598.png",
-    "url": "https://whiteblock.org/%EC%A0%84%EC%8B%9C/view/6298967",
-    "address": "경기도 파주시 탄현면 헤이리마을길 72 아트센터 화이트블럭",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-400772",
     "title": "경기창작캠퍼스 프로젝트 레지던시 기획전시 《우리가 서로 사랑한 이유에 대해서는 묻지 않기로 해요》",
     "venue": "경기창작센터",
@@ -712,6 +695,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202610/cecec79dc9e646cd99df079e81b3e767.png",
     "url": "https://archivist.kr/exi?m=gov&amp;i=1790894356",
     "address": "경기도 안산시 단원구 선감로 101-19 경기창작센터",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-399845",
+    "title": "[아트센터 화이트블럭] 박미례 개인전 ≪해산첩(海山帖)≫",
+    "venue": "아트센터 화이트블럭",
+    "city": "파주",
+    "lat": 37.78888535046657,
+    "lon": 126.69939974903895,
+    "genre": "기타",
+    "startDate": "2026-10-02",
+    "endDate": "2026-11-29",
+    "price": 3000,
+    "priceText": "3,000원 (카페 이용시 무료, 강원도민 무료)",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202609/c765209a8b4b42e9b5bc7e24fef32598.png",
+    "url": "https://whiteblock.org/%EC%A0%84%EC%8B%9C/view/6298967",
+    "address": "경기도 파주시 탄현면 헤이리마을길 72 아트센터 화이트블럭",
     "source": "culture.go.kr"
   },
   {
@@ -902,23 +902,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-407875",
-    "title": "2026 IAP 오픈스튜디오",
-    "venue": "인천아트플랫폼",
-    "city": "인천",
-    "lat": 37.47251383983643,
-    "lon": 126.62024922759471,
-    "genre": "기타",
-    "startDate": "2026-11-06",
-    "endDate": "2026-11-29",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/86ab8286d87a4e33b2c7c81591dd9744.jpg",
-    "url": "https://inartplatform.kr/program/view?no=1362",
-    "address": "인천광역시 제물포구 제물량로218번길 3 인천아트플랫폼",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-405272",
     "title": "김환, 남종현 <마주하는, 마주하지 않는 Facing, Without Facing>",
     "venue": "16아카이브",
@@ -967,6 +950,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/0bd46cc1802748e8a2dcedeafadb5b4f.png",
     "url": "https://archivist.kr/exi?m=gov&amp;i=1794521935",
     "address": "경기도 양평군 양평읍 문화복지길 2 양평군립미술관",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-407875",
+    "title": "2026 IAP 오픈스튜디오",
+    "venue": "인천아트플랫폼",
+    "city": "인천",
+    "lat": 37.47251383983643,
+    "lon": 126.62024922759471,
+    "genre": "기타",
+    "startDate": "2026-11-06",
+    "endDate": "2026-11-29",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/86ab8286d87a4e33b2c7c81591dd9744.jpg",
+    "url": "https://inartplatform.kr/program/view?no=1362",
+    "address": "인천광역시 제물포구 제물량로218번길 3 인천아트플랫폼",
     "source": "culture.go.kr"
   },
   {
@@ -1021,23 +1021,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-408833",
-    "title": "2026 인천아트플랫폼 지역연계 프로젝트 <IAP 아트랩> 개항장 공예마을 《개항장을 잇다》",
-    "venue": "인천아트플랫폼",
-    "city": "인천",
-    "lat": 37.47251383983643,
-    "lon": 126.62024922759471,
-    "genre": "공예",
-    "startDate": "2026-11-17",
-    "endDate": "2026-11-29",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111821172378816.jpg",
-    "url": "https://inartplatform.kr/program/view?no=1379",
-    "address": "인천광역시 제물포구 제물량로218번길 3 인천아트플랫폼",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-408905",
     "title": "예본교회-한국독립교회 선교단체연합회KAICAM <첫사랑>",
     "venue": "애니메이션박물관",
@@ -1052,6 +1035,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111921173912398.jpg",
     "url": "https://www.gica.or.kr/Ani/M20000/M20300/boardView?board_key=12693&amp;page=1",
     "address": "강원특별자치도 춘천시 서면 박사로 854 애니메이션박물관",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-408833",
+    "title": "2026 인천아트플랫폼 지역연계 프로젝트 <IAP 아트랩> 개항장 공예마을 《개항장을 잇다》",
+    "venue": "인천아트플랫폼",
+    "city": "인천",
+    "lat": 37.47251383983643,
+    "lon": 126.62024922759471,
+    "genre": "공예",
+    "startDate": "2026-11-17",
+    "endDate": "2026-11-29",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111821172378816.jpg",
+    "url": "https://inartplatform.kr/program/view?no=1379",
+    "address": "인천광역시 제물포구 제물량로218번길 3 인천아트플랫폼",
     "source": "culture.go.kr"
   },
   {
@@ -1846,23 +1846,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-407979",
-    "title": "여름을 수집하는 방법",
-    "venue": "무안군오승우미술관",
-    "city": "광주",
-    "lat": 34.8525750169448,
-    "lon": 126.415283310838,
-    "genre": "기타",
-    "startDate": "2026-11-07",
-    "endDate": "2026-12-06",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111221173021997.jpg",
-    "url": "https://www.muan.go.kr/museum/exhibition/project/schedule?idx=15207625&amp;category_1=%EC%A0%84%EC%8B%9C&amp;mode=view",
-    "address": "전남광주통합특별시 무안군 삼향읍 초의길 7 무안군오승우미술관",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-407980",
     "title": "자연의 선율",
     "venue": "무안군오승우미술관",
@@ -1876,6 +1859,23 @@
     "priceText": "무료",
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111221173126460.jpg",
     "url": "https://www.muan.go.kr/museum/exhibition/project/schedule?idx=15207617&amp;category_1=%EC%A0%84%EC%8B%9C&amp;mode=view",
+    "address": "전남광주통합특별시 무안군 삼향읍 초의길 7 무안군오승우미술관",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-407979",
+    "title": "여름을 수집하는 방법",
+    "venue": "무안군오승우미술관",
+    "city": "광주",
+    "lat": 34.8525750169448,
+    "lon": 126.415283310838,
+    "genre": "기타",
+    "startDate": "2026-11-07",
+    "endDate": "2026-12-06",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026111221173021997.jpg",
+    "url": "https://www.muan.go.kr/museum/exhibition/project/schedule?idx=15207625&amp;category_1=%EC%A0%84%EC%8B%9C&amp;mode=view",
     "address": "전남광주통합특별시 무안군 삼향읍 초의길 7 무안군오승우미술관",
     "source": "culture.go.kr"
   },
@@ -2294,23 +2294,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-406486",
-    "title": "김상현 展 《원격의 테두리》",
-    "venue": "슬도아트",
-    "city": "울산",
-    "lat": 35.4809043004597,
-    "lon": 129.432766326538,
-    "genre": "기타",
-    "startDate": "2026-11-07",
-    "endDate": "2026-12-13",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/29e17bb3bb944585aa87314d9fe25f8d.jpg",
-    "url": "https://blog.naver.com/seuldoart/224464716569",
-    "address": "울산광역시 동구 성끝길 103 슬도아트",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-406485",
     "title": "나은민 展 《다가가는 방식》",
     "venue": "슬도아트",
@@ -2324,6 +2307,23 @@
     "priceText": "무료",
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/c5be1dc4034b4198a0e032a115a1f526.jpg",
     "url": "https://blog.naver.com/seuldoart/224464676247",
+    "address": "울산광역시 동구 성끝길 103 슬도아트",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-406486",
+    "title": "김상현 展 《원격의 테두리》",
+    "venue": "슬도아트",
+    "city": "울산",
+    "lat": 35.4809043004597,
+    "lon": 129.432766326538,
+    "genre": "기타",
+    "startDate": "2026-11-07",
+    "endDate": "2026-12-13",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/29e17bb3bb944585aa87314d9fe25f8d.jpg",
+    "url": "https://blog.naver.com/seuldoart/224464716569",
     "address": "울산광역시 동구 성끝길 103 슬도아트",
     "source": "culture.go.kr"
   },
@@ -2431,23 +2431,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-407761",
-    "title": "[우리동네 MG갤러리] 전재석 작가 《익숙한 풍경 다시 바라보기》",
-    "venue": "MG초읍동새마을금고 본점 우리동네MG갤러리",
-    "city": "부산",
-    "lat": 35.178652742064,
-    "lon": 129.053483079556,
-    "genre": "기타",
-    "startDate": "2026-11-23",
-    "endDate": "2026-12-18",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/964b2e9385584319872fbc4202c7ec6d.jpg",
-    "url": "https://mggallery.kr/",
-    "address": "부산광역시 부산진구 성지로 90 2층",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-407766",
     "title": "[우리동네 MG갤러리] 유재희 작가 《잠깐 반짝였던 것들의 자리》",
     "venue": "MG북울산새마을금고 우리동네 MG갤러리",
@@ -2462,6 +2445,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/feefbf50865f4907bb2a39a24bf479a6.jpg",
     "url": "https://mggallery.kr",
     "address": "울산광역시 북구 명촌로 52 2층",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-407761",
+    "title": "[우리동네 MG갤러리] 전재석 작가 《익숙한 풍경 다시 바라보기》",
+    "venue": "MG초읍동새마을금고 본점 우리동네MG갤러리",
+    "city": "부산",
+    "lat": 35.178652742064,
+    "lon": 129.053483079556,
+    "genre": "기타",
+    "startDate": "2026-11-23",
+    "endDate": "2026-12-18",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/964b2e9385584319872fbc4202c7ec6d.jpg",
+    "url": "https://mggallery.kr/",
+    "address": "부산광역시 부산진구 성지로 90 2층",
     "source": "culture.go.kr"
   },
   {
@@ -2532,6 +2532,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/show_202611132123313654.png",
     "url": "http://www.gallerywe.com",
     "address": "경기도 용인시 수지구 호수로52번길 25-17 경기 용인시 수지구 호수로52번길 25-17",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409432",
+    "title": "2026 해움&middot;새들 입주작가 프로젝트: 양정은 《Re/Dis-sonance》",
+    "venue": "일산호수공원 고양시 예술창작공간 해움새들",
+    "city": "고양",
+    "lat": 37.65494145747631,
+    "lon": 126.76875080807983,
+    "genre": "기타",
+    "startDate": "2026-12-04",
+    "endDate": "2026-12-19",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/6c5155b904f141229c5bb75c480092bc.jpg",
+    "url": "https://www.haeum-saedeul.com",
+    "address": "경기도 고양시 일산동구 호수로 595 호수공원",
     "source": "culture.go.kr"
   },
   {
@@ -4259,6 +4276,23 @@
     "source": "culture.go.kr"
   },
   {
+    "id": "culture-409449",
+    "title": "《요모조모 이슬기》",
+    "venue": "서울시립미술관",
+    "city": "서울",
+    "lat": 37.56413824910192,
+    "lon": 126.97376336838333,
+    "genre": "기타",
+    "startDate": "2026-11-26",
+    "endDate": "2027-02-28",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/94fd0abcdb9140e789156ff612da386e.jpg",
+    "url": "https://sema.seoul.go.kr/kr/whatson/exhibition/detail?exNo=1596752",
+    "address": "서울특별시 중구 덕수궁길 61 서울시립미술관 서소문본관",
+    "source": "culture.go.kr"
+  },
+  {
     "id": "culture-368076",
     "title": "2026 소장품전 《블랑 블랙 파노라마》",
     "venue": "수원시립미술관",
@@ -4476,6 +4510,40 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/9780a85301bf40bda53ce728df9d15fa.png",
     "url": "https://www.mmca.go.kr/exhibitions/exhibitionsDetail.do?exhFlag=1&amp;exhId=202609220002094",
     "address": "경기도 과천시 광명로 313 국립현대미술관 과천관",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409448",
+    "title": "마리 앙투아네트 스타일",
+    "venue": "국립중앙박물관",
+    "city": "서울",
+    "lat": 37.52406305836529,
+    "lon": 126.98023689950804,
+    "genre": "기타",
+    "startDate": "2026-12-18",
+    "endDate": "2027-03-31",
+    "price": 8000,
+    "priceText": "성인 8,000원 / 청소년 6,000원 / 어린이 4,000원 / 만 6세 미만 미취학 아동 및 만 65세 이상 무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/f7b9ab7718d14ba897296d59845fa46a.png",
+    "url": "https://www.museum.go.kr/MUSEUM/contents/M0202020000.do?schM=view&amp;menuId=current&amp;exhiSpThemId=3763677&amp;listType=gallery",
+    "address": "서울특별시 용산구 서빙고로 137 국립중앙박물관",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409446",
+    "title": "모던 아트의 탄생 - 스위스 쿤스트하우스 취리히 소장품 특별전",
+    "venue": "국립중앙박물관",
+    "city": "서울",
+    "lat": 37.52406305836529,
+    "lon": 126.98023689950804,
+    "genre": "기타",
+    "startDate": "2026-11-27",
+    "endDate": "2027-04-18",
+    "price": 20000,
+    "priceText": "성인 20,000원 / 청소년 18,000원 / 어린이 12,000원",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/e341ba11a3ac4da391bbf1625f7df604.png",
+    "url": "https://www.ticketlink.co.kr/product/66182",
+    "address": "서울특별시 용산구 서빙고로 137 국립중앙박물관",
     "source": "culture.go.kr"
   },
   {
