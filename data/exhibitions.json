@@ -392,23 +392,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-409527",
-    "title": "[카페 여우꼬리풀] 사진누리 제2회 기획&middot;전시",
-    "venue": "원주문화재단",
-    "city": "원주",
-    "lat": 37.34110177541522,
-    "lon": 127.94993359168912,
-    "genre": "사진",
-    "startDate": "2026-11-24",
-    "endDate": "2026-11-28",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026112521175707915.jpg",
-    "url": "http://www.wcf.or.kr/perform/concert/view.php?tsort=1&amp;msort=8&amp;s_concert_s_day=2024-11-25&amp;s_concert_e_day=2028-11-23&amp;s_concert_subject=&amp;s_concert_genre=2&amp;page=1&amp;no=3611",
-    "address": "강원특별자치도 원주시 향교길 77 남산골문화센터 신명관 4층, 원주문화재단",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-409366",
     "title": "[아뜰리에] Young, Older, Further",
     "venue": "성동문화원",
@@ -423,6 +406,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026112421172311478.jpg",
     "url": "https://www.sdfac.or.kr/kor/sdfac/performance/plan_view.do?p_idx=1708&amp;page=1&amp;p_kind=exhibit&amp;s_idx=&amp;pfmIng=1&amp;s_keyword=&amp;_csrf=32b3b7ce-6eea-4c37-9463-d0df2721ba66",
     "address": "서울특별시 성동구 왕십리로 281 성동문화원",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409527",
+    "title": "[카페 여우꼬리풀] 사진누리 제2회 기획&middot;전시",
+    "venue": "원주문화재단",
+    "city": "원주",
+    "lat": 37.34110177541522,
+    "lon": 127.94993359168912,
+    "genre": "사진",
+    "startDate": "2026-11-24",
+    "endDate": "2026-11-28",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/rdf_2026112521175707915.jpg",
+    "url": "http://www.wcf.or.kr/perform/concert/view.php?tsort=1&amp;msort=8&amp;s_concert_s_day=2024-11-25&amp;s_concert_e_day=2028-11-23&amp;s_concert_subject=&amp;s_concert_genre=2&amp;page=1&amp;no=3611",
+    "address": "강원특별자치도 원주시 향교길 77 남산골문화센터 신명관 4층, 원주문화재단",
     "source": "culture.go.kr"
   },
   {
@@ -2102,6 +2102,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/146484c0770344db8041fa3f5c84742b.jpg",
     "url": "https://www.instagram.com/_the.soil.scatters?utm_source=ig_web_button_share_sheet&amp;gwpx=ZDNlZDc0MzIxNw==",
     "address": "서울특별시 용산구 한남대로 108 한익환서울아트박물관",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409623",
+    "title": "이기철 조각전 - FAT PET",
+    "venue": "갤러리소헌&소헌컨템포러리",
+    "city": "대구",
+    "lat": 35.8566820408798,
+    "lon": 128.604684996293,
+    "genre": "조각·설치",
+    "startDate": "2026-11-25",
+    "endDate": "2026-12-11",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/e83c503b85d041928c220a411068be34.jpg",
+    "url": "http://www.gallerysoheon.com",
+    "address": "대구광역시 중구 동덕로 18 갤러리소헌",
     "source": "culture.go.kr"
   },
   {
@@ -4498,23 +4515,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-409455",
-    "title": "2026 얍-프로젝트 《돌봄 연습》",
-    "venue": "수원시립미술관",
-    "city": "수원",
-    "lat": 37.28265312084571,
-    "lon": 127.01586583721596,
-    "genre": "기타",
-    "startDate": "2026-11-26",
-    "endDate": "2027-03-07",
-    "price": 4000,
-    "priceText": "성인 4,000원 / 청소년, 군인 2,000원 / 어린이 1,000원",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/153766cadb7140dda1d6b1c62e691c43.png",
-    "url": "https://suma.suwon.go.kr/exhi/current_view.do?lang=ko&amp;ge_idx=1271",
-    "address": "경기도 수원시 팔달구 정조로 833 수원시립미술관",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-409456",
     "title": "《이영일》",
     "venue": "수원시립미술관",
@@ -4528,6 +4528,23 @@
     "priceText": "성인 4,000원 / 청소년, 군인 2,000원 / 어린이 1,000원",
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/ab87b50f02a04f189a8a9e1f792ba902.jpg",
     "url": "https://suma.suwon.go.kr/exhi/current_view.do?lang=ko&amp;ge_idx=1273",
+    "address": "경기도 수원시 팔달구 정조로 833 수원시립미술관",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409455",
+    "title": "2026 얍-프로젝트 《돌봄 연습》",
+    "venue": "수원시립미술관",
+    "city": "수원",
+    "lat": 37.28265312084571,
+    "lon": 127.01586583721596,
+    "genre": "기타",
+    "startDate": "2026-11-26",
+    "endDate": "2027-03-07",
+    "price": 4000,
+    "priceText": "성인 4,000원 / 청소년, 군인 2,000원 / 어린이 1,000원",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/153766cadb7140dda1d6b1c62e691c43.png",
+    "url": "https://suma.suwon.go.kr/exhi/current_view.do?lang=ko&amp;ge_idx=1271",
     "address": "경기도 수원시 팔달구 정조로 833 수원시립미술관",
     "source": "culture.go.kr"
   },
