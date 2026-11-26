@@ -2382,5 +2382,282 @@
       "졸업전시"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-son-heemin-circa-2026",
+    "title": "손희민 개인전 《키르카 Circa》",
+    "venue": "통의동 보안여관 (보안1942)",
+    "city": "서울",
+    "lat": 37.5772,
+    "lon": 126.9737,
+    "genre": "조각·설치",
+    "startDate": "2026-11-21",
+    "endDate": "2026-12-13",
+    "price": null,
+    "description": "화석처럼 형성·발굴·보존되는 중인 듯한 상상의 생물 조각을 옛 여관의 방과 복도 곳곳에 놓은 개인전입니다. AI로 만든 이미지에서 출발했고, 일부 작품 안에서는 소리가 납니다. 화~일 12~18시, 월요일 휴관.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/14_copy_D1cuOwc.jpg",
+    "url": "https://www.artbava.com/exhibits/손희민-개인전-키르카-heemin-son-circa",
+    "address": "서울 종로구 효자로 33",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-replat-pointing-array-2026",
+    "title": "홍주희 《가리키던 배열 [→ ■ ↺]》",
+    "venue": "전시공간 리:플랫 (RE:PLAT)",
+    "city": "서울",
+    "lat": 37.5669,
+    "lon": 126.9784,
+    "genre": "디자인",
+    "startDate": "2026-11-16",
+    "endDate": "2026-11-28",
+    "price": null,
+    "description": "지난 전시들에서 관람객을 안내하던 방향 문구를 모아 한 공간에 다시 배열한 디자인 전시입니다. 원래 맥락에서 떨어져 나온 안내문이 새 규칙이 되어 다른 방향을 가리킵니다. 수~토 13~19시.",
+    "url": "https://www.artbava.com/exhibits/가리키던-배열",
+    "address": "서울 중구 세종대로16길 27",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-lee-jisu-hwin-2026",
+    "title": "이지수 개인전 《hwin》",
+    "venue": "콤플렉스갤러리",
+    "city": "서울",
+    "lat": 37.5508,
+    "lon": 126.9786,
+    "genre": "공예",
+    "startDate": "2026-11-18",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "수분을 빨아들이는 석고 틀 안에서 흙이 모양을 잡는 과정을 다룬 도자 개인전입니다. 같은 틀에서 나와도 가마 속에서 저마다 다르게 휘고 녹은 형태들을 보여 줍니다. 화~일 11~18시.",
+    "url": "https://www.artbava.com/exhibits/이지수-개인전-hwin",
+    "address": "서울 용산구 후암로 59",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kim-minyoung-spice-road-2026",
+    "title": "김민영 개인전 《스파이스 로드 Spice Road》",
+    "venue": "미학관",
+    "city": "서울",
+    "lat": 37.5886,
+    "lon": 126.9446,
+    "genre": "미디어",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "향신료 무역의 역사를 오늘날 의약품 유통에 겹쳐 보며, 공식 경로 밖의 의약품 암시장과 환자 공동체를 따라가는 개인전입니다. 자본과 개인의 몸 사이에서 돌봄과 통치가 얽히는 모습을 영상과 설치로 보여 줍니다. 수~일 13~18시.",
+    "url": "https://www.artbava.com/exhibits/김민영-개인전-스파이스-로드-spice-road",
+    "address": "서울 서대문구 홍제내2나길 2",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kang-soyul-sojip-2026",
+    "title": "강소율 개인전 《숲 : 눈이 언제 그칠지 궁금하다》",
+    "venue": "소집",
+    "city": "강릉",
+    "lat": 37.7619146,
+    "lon": 128.9396638,
+    "genre": "공예",
+    "startDate": "2026-12-04",
+    "endDate": "2026-12-13",
+    "price": null,
+    "description": "눈 덮인 겨울 산숲을 그려 넣은 도자 작업을 선보이는 개인전입니다. 숲의 기억과 한 해 끝의 바람을 담아, 조용하고 느려도 괜찮다는 마음을 전합니다. 12~18시, 월·화 휴관.",
+    "thumbnail": "https://artnet.kr/data/file/1540558452/thumb-22391cae0df5a21b32fdc507376aa1be_0ed30b48912b6414ed942e8bdb5854075f479c5c_600x0.png",
+    "url": "https://artnet.kr/p/solo-exhibitions/1615",
+    "address": "강원 강릉시 공항길30번길 5",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-lee-doyub-blind-mice-2026",
+    "title": "이도엽 개인전 《눈먼 쥐 Blind Mice》",
+    "venue": "캡션서울 (Caption Seoul)",
+    "city": "서울",
+    "lat": 37.5393546528345,
+    "lon": 126.96719809616023,
+    "genre": "기타",
+    "startDate": "2026-11-21",
+    "endDate": "2026-12-20",
+    "price": null,
+    "description": "용산 원효로의 작은 전시공간 캡션서울에서 열리는 이도엽 작가의 개인전입니다. 수~일 13~19시, 월·화 휴관.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/916920648_18025488392947156_312632229601313999_n.jpg",
+    "url": "https://www.artbava.com/exhibits/이도엽-개인전-눈먼-쥐-lee-doyub-blind-mice",
+    "address": "서울 용산구 원효로81길 5",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-messmass-cut-in-2026",
+    "title": "《컷 인 Cut In》 김우진 · 윤여진 · 이성은",
+    "venue": "메스매스 (Messmass)",
+    "city": "서울",
+    "lat": 37.678336919946,
+    "lon": 127.043504078537,
+    "genre": "기타",
+    "startDate": "2026-11-21",
+    "endDate": "2026-12-20",
+    "price": null,
+    "description": "도봉구의 작은 공간 메스매스가 직접 기획한 올해 마지막 전시로, 젊은 작가 세 명이 함께합니다. 수~일 11~20시.",
+    "thumbnail": "https://cdn.artbava.com/media/xlarge/img/14_gY9MOt8.webp",
+    "url": "https://www.artbava.com/exhibits/컷-인-cut-in",
+    "address": "서울 도봉구 도봉로169나길 32",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-fim-plastikos-2026",
+    "title": "《Plastikos》 이성경 · 한성우 · 최봉석",
+    "venue": "FIM",
+    "city": "서울",
+    "lat": 37.53417799641923,
+    "lon": 127.01041464840011,
+    "genre": "회화",
+    "startDate": "2026-11-21",
+    "endDate": "2026-12-24",
+    "price": null,
+    "description": "'모양을 빚을 수 있는'이라는 뜻의 고대 그리스어에서 제목을 딴 3인전으로, 회화와 조각 약 20점을 보여 줍니다. 하나의 뜻으로 고정되지 않는 이미지로 타인을 이해하고 그리는 방식을 묻습니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/902094697_17966584668229710_2843419913425957340_n.jpg",
+    "url": "https://www.artbava.com/exhibits/plastikos",
+    "address": "서울 용산구 유엔빌리지길 11",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-lee-sipyeong-potential-remains-2026",
+    "title": "이시평 개인전 《Potential Remains》",
+    "venue": "파이프갤러리 (Pipe Gallery)",
+    "city": "서울",
+    "lat": 37.53415142280763,
+    "lon": 127.00081461642567,
+    "genre": "조각·설치",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-23",
+    "price": null,
+    "description": "나뭇가지에 돌을 끼우고 바위에 동전을 올리듯, 소원을 빌며 사물에 남긴 흔적을 재료의 성질로 다시 빚은 작업을 보여 줍니다. 지난날의 손길과 앞날의 바람을 끝나지 않은 과정으로 다룹니다.",
+    "thumbnail": "https://cdn.artbava.com/media/xlarge/img/910292898_18113445773462338_3623162671707745480_n.webp",
+    "url": "https://www.artbava.com/exhibits/이시평-potential-remains",
+    "address": "서울 용산구 대사관로 21",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-mobycan-scrap-screen-story-2026",
+    "title": "《스크랩, 스크린, 스토리 Scrap, Screen, Story》 박지나 · 오승언 · 정이지",
+    "venue": "MO BY CAN",
+    "city": "서울",
+    "lat": 37.5377057640742,
+    "lon": 126.99492537767193,
+    "genre": "회화",
+    "startDate": "2026-11-24",
+    "endDate": "2026-12-30",
+    "price": null,
+    "description": "캔파운데이션 명륜동 작업실 10주년을 맞아 연 회화 3인전입니다. 일상과 미디어에서 모은 이미지를 화면 위에서 다시 엮어 새로운 이야기를 만듭니다.",
+    "thumbnail": "https://cdn.artbava.com/media/xlarge/exhibit-img/14_vXUylFu.webp",
+    "url": "https://www.artbava.com/exhibits/Scrap-Screen-Story",
+    "address": "서울 용산구 이태원로27길 101",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-lee-heehyun-old-world-2026",
+    "title": "이희현 개인전 《오래된 세상 (2026)》",
+    "venue": "공작새방",
+    "city": "서울",
+    "lat": 37.58273156198718,
+    "lon": 126.9803714103903,
+    "genre": "회화",
+    "startDate": "2026-11-11",
+    "endDate": "2026-12-05",
+    "price": null,
+    "description": "익숙한 풍경과 사물을 옅고 바랜 화면으로 그려, 일상에서 살짝 비켜난 '오래된 세상'을 보여 줍니다. 2014년 같은 이름의 개인전에서 시작한 생각을 이어 간 전시입니다. 수~토 13~18시.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/14_copy_tM6NXoR.jpg",
+    "url": "https://www.artbava.com/exhibits/이희현-오래된-세상-2026",
+    "address": "서울 종로구 팔판길 1-14",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kwon-eunsan-00km-2026",
+    "title": "권은산 개인전 《0.0KM》",
+    "venue": "YPC SPACE",
+    "city": "서울",
+    "lat": 37.56245179541029,
+    "lon": 127.00037067744796,
+    "genre": "조각·설치",
+    "startDate": "2026-11-06",
+    "endDate": "2026-12-06",
+    "price": null,
+    "description": "도로를 달리며 모은 재료로 익숙한 도시의 모습을 다시 짜 맞춘 작업입니다. 진짜와 가짜가 뒤섞여 어수선하지만 눈을 떼기 어려운, 희극에 가까운 장면을 만듭니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/883559065_18191723104410357_4942517207637774672_n.jpg",
+    "url": "https://www.artbava.com/exhibits/권은산-개인전-00km",
+    "address": "서울 중구 퇴계로 258",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-jeon-bokyung-boot-body-2026",
+    "title": "전보경 개인전 《Re: Re: Re: Re: Re: Boot Body》",
+    "venue": "낙원412",
+    "city": "서울",
+    "lat": 37.5727919244104,
+    "lon": 126.98809593005,
+    "genre": "미디어",
+    "startDate": "2026-11-05",
+    "endDate": "2026-12-01",
+    "price": null,
+    "description": "몸을 다친 뒤 익숙하던 움직임과 감각이 흩어졌다가 다시 짜이는 과정을 영상, 설치, 워크숍으로 보여 줍니다. 회복을 예전으로 돌아가는 일이 아니라 새로운 몸의 리듬을 찾는 일로 봅니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/872368095_18373649050240644_4395173678502146136_n.jpg",
+    "url": "https://www.artbava.com/exhibits/전보경-개인전-re-re-re-re-re-boot-body",
+    "address": "서울 종로구 삼일대로 428",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-mo-family-business-2026",
+    "title": "《FaMily Business》 Mokyo · Wifemania · Harison · Yeop · Internet@rbite",
+    "venue": "MO",
+    "city": "서울",
+    "lat": 37.537563961375135,
+    "lon": 126.99900714098952,
+    "genre": "회화",
+    "startDate": "2026-11-20",
+    "endDate": "2026-12-06",
+    "price": null,
+    "description": "서로 다른 분야에서 활동하는 다섯 작가가 잉크, 아크릴, 유화, 에어브러시, 펜으로 저마다의 회화를 보여 주는 그룹전입니다. 타투 기계로 함께 만든 신작도 나옵니다.",
+    "thumbnail": "https://cdn.artbava.com/media/xlarge/img/900852752_18120035366013973_1232510837266834934_n.webp",
+    "url": "https://www.artbava.com/exhibits/family-business",
+    "address": "서울 용산구 이태원로55길 37-10",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
   }
 ]

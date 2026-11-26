@@ -554,5 +554,60 @@
     "url": "https://www.artbava.com/exhibits/한수지-제논피부-외부의-내장-내부의-외피",
     "instagram": "https://www.instagram.com/thewillow1955",
     "note": "동대문구 고산자로36길의 2층 전시공간"
+  },
+  {
+    "id": "messmass",
+    "name": "메스매스 (Messmass)",
+    "search": "메스매스 도봉",
+    "area": "도봉로169나길",
+    "lat": 37.678336919946,
+    "lon": 127.043504078537,
+    "url": "https://www.artbava.com/exhibits/컷-인-cut-in",
+    "instagram": "https://www.instagram.com/messmass2025",
+    "note": "도봉구 건물 4층의 작은 전시공간, 직접 기획전을 연다"
+  },
+  {
+    "id": "caption-seoul",
+    "name": "캡션서울 (Caption Seoul)",
+    "search": "캡션서울 원효로",
+    "area": "원효로81길",
+    "lat": 37.5393546528345,
+    "lon": 126.96719809616023,
+    "url": "https://www.artbava.com/exhibits/이도엽-개인전-눈먼-쥐-lee-doyub-blind-mice",
+    "instagram": "https://www.instagram.com/caption.seoul/",
+    "note": "용산 원효로의 작은 2층 전시공간"
+  },
+  {
+    "id": "gongjaksaebang",
+    "name": "공작새방",
+    "search": "공작새방 팔판동",
+    "area": "팔판길",
+    "lat": 37.58273156198718,
+    "lon": 126.9803714103903,
+    "url": "https://www.artbava.com/exhibits/이희현-오래된-세상-2026",
+    "instagram": "",
+    "note": "삼청동 팔판길 골목의 작은 전시공간"
+  },
+  {
+    "id": "ypc-space",
+    "name": "YPC SPACE",
+    "search": "YPC SPACE 퇴계로",
+    "area": "퇴계로",
+    "lat": 37.56245179541029,
+    "lon": 127.00037067744796,
+    "url": "https://www.artbava.com/exhibits/권은산-개인전-00km",
+    "instagram": "",
+    "note": "충무로 퇴계로 건물 4층의 프로젝트 공간"
+  },
+  {
+    "id": "nakwon412",
+    "name": "낙원412",
+    "search": "낙원412 낙원상가",
+    "area": "삼일대로",
+    "lat": 37.5727919244104,
+    "lon": 126.98809593005,
+    "url": "https://www.artbava.com/exhibits/전보경-개인전-re-re-re-re-re-boot-body",
+    "instagram": "",
+    "note": "낙원상가 412호의 작은 전시공간"
   }
 ]
