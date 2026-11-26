@@ -287,6 +287,16 @@ export default function ExhibitionMap({
   };
 
   // ----- 상세 창: 아래로 끌어서 닫기 (휴대폰) -----
+  // 검색창 밖(지도·목록)을 누르면 키보드를 내린다
+  useEffect(() => {
+    const onDown = (e: PointerEvent) => {
+      const q = document.getElementById("q");
+      if (q && document.activeElement === q && !(e.target as HTMLElement).closest(".search")) q.blur();
+    };
+    document.addEventListener("pointerdown", onDown, true);
+    return () => document.removeEventListener("pointerdown", onDown, true);
+  }, []);
+
   const hasSelection = selectedId !== null;
   useEffect(() => {
     const el = detailRef.current;
@@ -404,13 +414,20 @@ export default function ExhibitionMap({
           >
             앙데팡당<span aria-hidden="true">.</span>
           </button>
-          <label className="search">
+          <form
+            className="search"
+            role="search"
+            onSubmit={(e) => {
+              e.preventDefault();
+              (document.getElementById("q") as HTMLInputElement | null)?.blur();
+            }}
+          >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
               <circle cx="11" cy="11" r="7" />
               <path d="m20 20-4-4" />
             </svg>
-            <input id="q" type="search" placeholder="전시명, 미술관, 도시 검색" aria-label="검색" value={query} onChange={(e) => setQuery(e.target.value)} />
-          </label>
+            <input id="q" type="search" placeholder="전시명, 미술관, 도시 검색" aria-label="검색" enterKeyHint="search" value={query} onChange={(e) => setQuery(e.target.value)} />
+          </form>
         </div>
         <div className="chips">
           {([["all", "전체"], ["on", "진행 중"], ["upcoming", "개막 예정"]] as [StatusFilter, string][]).map(([k, l]) => (
