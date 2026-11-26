@@ -10,7 +10,7 @@ import type { MapViewProps } from "./types";
 
 interface View { s: number; tx: number; ty: number }
 
-export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq, onMapDrag }: MapViewProps) {
+export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq, onMapDrag, votes }: MapViewProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [view, setView] = useState<View>({ s: 1, tx: 0, ty: 0 });
@@ -236,8 +236,9 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
             const st = statusOf(x).kind;
             const cls = ["mk", x.price === 0 ? "free" : "", st === "upcoming" ? "soon" : "", x.id === selectedId ? "sel" : ""].join(" ");
             return (
-              <button key={x.id} className={cls} style={{ left: p[0], top: p[1] }} aria-label={`${x.title}, ${x.venue}`} onClick={() => onSelect(x.id)}>
+              <button key={x.id} className={cls} style={{ left: p[0], top: p[1] }} aria-label={votes[x.id] ? `${x.title}, ${x.venue}, 추천 ${votes[x.id]}` : `${x.title}, ${x.venue}`} onClick={() => onSelect(x.id)}>
                 <span className="pin"><i /></span>
+                {!!votes[x.id] && <span className="vb" aria-hidden="true">👍{votes[x.id]}</span>}
                 {(view.s > 5 || x.id === selectedId) && <span className="lab">{x.title}</span>}
               </button>
             );

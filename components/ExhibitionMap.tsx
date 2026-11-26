@@ -14,7 +14,8 @@ import { futureKindOf } from "@/lib/future";
 import { loadLatest } from "@/lib/remote";
 import { fetchApproved } from "@/lib/submissions";
 import { useBookmarks } from "@/lib/bookmarks";
-import { Guestbook, GuestbookLink } from "./Reviews";
+import { Guestbook, GuestbookLink, VoteSummary } from "./Reviews";
+import { fetchVoteCounts, type VoteCount } from "@/lib/reviews";
 import SubmitForm from "./SubmitForm";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
@@ -111,6 +112,20 @@ export default function ExhibitionMap({
       alive = false;
     };
   }, []);
+  // 방명록의 추천·비추천 수 (지도 핀·목록·상세에 표시)
+  const [voteCounts, setVoteCounts] = useState<Record<string, VoteCount>>({});
+  const refreshVotes = useCallback(() => {
+    fetchVoteCounts().then(setVoteCounts).catch(() => {});
+  }, []);
+  useEffect(() => {
+    refreshVotes();
+  }, [refreshVotes]);
+  const upVotes = useMemo(() => {
+    const o: Record<string, number> = {};
+    for (const [id, c] of Object.entries(voteCounts)) if (c.up) o[id] = c.up;
+    return o;
+  }, [voteCounts]);
+
   const allExhibitions = useMemo(() => (approved.length ? [...exhibitions, ...approved] : exhibitions), [exhibitions, approved]);
 
   // 관심 전시 (이 기기에 저장)
@@ -394,6 +409,7 @@ export default function ExhibitionMap({
     locateSeq,
     onMapDrag,
     spaces: shownSpaces,
+    votes: upVotes,
   };
 
   return (
@@ -544,7 +560,10 @@ export default function ExhibitionMap({
                       {dist.has(x.id) && <span className="dist">{formatDistance(dist.get(x.id)!)}</span>}
                       {x.venue} · {x.city}
                     </p>
-                    <p>{formatDate(x.startDate)} – {formatDate(x.endDate)}</p>
+                    <p>
+                      {formatDate(x.startDate)} – {formatDate(x.endDate)}
+                      {!!upVotes[x.id] && <span className="item-vote" aria-label={`추천 ${upVotes[x.id]}`}> · 👍 {upVotes[x.id]}</span>}
+                    </p>
                   </span>
                   <span className={"price" + (x.price === 0 ? " free" : "")}>{formatPrice(x.price)}</span>
                 </button>
@@ -569,6 +588,8 @@ export default function ExhibitionMap({
             onClose={() => setSelectedId(null)}
             isSaved={saved.has(selected.id)}
             onToggleSaved={() => toggleSaved(selected.id)}
+            votes={voteCounts[selected.id]}
+            onVotesChanged={refreshVotes}
           />
         )}
       </aside>
@@ -577,7 +598,7 @@ export default function ExhibitionMap({
   );
 }
 
-function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved }: {
+function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved, votes, onVotesChanged }: {
   x: Exhibition;
   distance?: number;
   myLoc: MyLocation | null;
@@ -585,6 +606,8 @@ function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved
   onClose: () => void;
   isSaved: boolean;
   onToggleSaved: () => void;
+  votes?: VoteCount;
+  onVotesChanged: () => void;
 }) {
   const st = statusOf(x);
   const [finding, setFinding] = useState(false);
@@ -697,6 +720,7 @@ function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved
             <span className={"tag" + (st.kind === "ending" ? " end" : st.kind === "upcoming" ? " up" : "")}>{st.label}</span>
             <span className="tag">{x.genre}</span>
             <h2>{x.title}</h2>
+            {votes && <VoteSummary up={votes.up} down={votes.down} />}
             <GuestbookLink count={noteCount} onClick={() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "start" })} />
             <div className="d-venue">
               {x.venue} · {x.city}
@@ -717,7 +741,7 @@ function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved
               {x.url ? " 아래 '전시 안내 보기'에서 자세한 내용을 볼 수 있어요." : ""}
             </p>
           )}
-          <Guestbook exhibitionId={x.id} onCount={setNoteCount} />
+          <Guestbook exhibitionId={x.id} onCount={setNoteCount} onSaved={onVotesChanged} />
         </div>
       </div>
       <div className="cta">

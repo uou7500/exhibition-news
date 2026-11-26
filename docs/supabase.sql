@@ -2,7 +2,7 @@
 -- Supabase 대시보드 → SQL Editor → New query 에 이 내용을 통째로 붙여넣고 Run.
 -- (Authentication → Sign In / Providers 에서 "Allow anonymous sign-ins"도 켜야 한다)
 
--- ===== 방명록 (표 이름은 reviews 그대로, 점수 없음) =====
+-- ===== 방명록 (표 이름은 reviews 그대로, 별점 없이 추천·비추천만) =====
 create table if not exists public.reviews (
   id uuid primary key default gen_random_uuid(),
   exhibition_id text not null check (char_length(exhibition_id) between 1 and 120),
@@ -10,11 +10,12 @@ create table if not exists public.reviews (
   nickname text check (char_length(nickname) <= 20),
   body text check (char_length(body) <= 500),
   tags text[] not null default '{}' check (cardinality(tags) <= 8),  -- 정보 태그
+  vote smallint constraint reviews_vote_check check (vote in (-1, 1)), -- 1 추천, -1 비추천, null 고르지 않음
   hidden boolean not null default false,          -- 운영자가 숨길 때 true
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   unique (exhibition_id, user_id),                 -- 한 기기(사용자)당 전시 하나에 글 하나
-  constraint reviews_not_empty check (char_length(coalesce(body, '')) > 0 or cardinality(tags) > 0)
+  constraint reviews_not_empty check (char_length(coalesce(body, '')) > 0 or cardinality(tags) > 0 or vote is not null)
 );
 alter table public.reviews enable row level security;
 
@@ -26,6 +27,16 @@ drop policy if exists "reviews_update_own" on public.reviews;
 create policy "reviews_update_own" on public.reviews for update to authenticated using (auth.uid() = user_id) with check (auth.uid() = user_id and hidden = false);
 drop policy if exists "reviews_delete_own" on public.reviews;
 create policy "reviews_delete_own" on public.reviews for delete to authenticated using (auth.uid() = user_id);
+
+-- 전시별 추천·비추천 수 (숨긴 글 제외) — 지도 핀의 👍 숫자
+create or replace view public.exhibition_votes as
+  select exhibition_id,
+         count(*) filter (where vote = 1)  as up,
+         count(*) filter (where vote = -1) as down
+  from public.reviews
+  where hidden = false and vote is not null
+  group by exhibition_id;
+grant select on public.exhibition_votes to anon, authenticated;
 
 
 -- ===== 전시 등록 요청 =====

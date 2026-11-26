@@ -34,7 +34,7 @@
 - `lib/remote.ts` — 앱이 열릴 때 GitHub raw(`DATA_BASE`)에서 최신 `data/*.json`을 받아 화면을 바꾼다. 실패하면 배포 때 묶인 데이터를 쓴다. (저장소가 공개여야 동작)
 - `lib/clean.ts` — 깨진 HTML 글자 정리 (서버·브라우저 공용).
 - **Supabase** (방명록·전시 등록 요청): `lib/supabase.ts`(라이브러리 없이 REST, 기기마다 익명 로그인), `lib/reviews.ts`, `lib/submissions.ts`, `components/Reviews.tsx`, `components/SubmitForm.tsx`. 테이블·보안 규칙은 `docs/supabase.sql`(SQL Editor에 붙여 실행). URL·anon 키는 `lib/config.ts`(공개용 값). 비어 있으면 리뷰·등록은 '준비 중'.
-  - 방명록(표 이름 `reviews`): 별점 없이 감상 한마디 + 정보 태그(`lib/reviews.ts`의 `NOTE_TAGS`). 전시당 기기 하나에 글 하나(고치기·지우기 가능). 숨기려면 `hidden=true`. 2026-11-18 별점을 없앰(`docs/supabase-guestbook.sql`). 위에 안내문("예술에 높고 낮음은 없습니다")을 둔다.
+  - 방명록(표 이름 `reviews`): 감상 한마디 + 정보 태그(`lib/reviews.ts`의 `NOTE_TAGS`) + 추천(👍)/비추천(👎) 중 하나(`vote` 1/-1, 선택). 전시당 기기 하나에 글 하나(고치기·지우기 가능)라 한 기기 한 표. 숨기려면 `hidden=true`. 2026-11-18 별점을 없앰(`docs/supabase-guestbook.sql`), 2026-11-27 추천·비추천 추가(`docs/supabase-votes.sql`, 집계 보기 `exhibition_votes`). 지도 핀·목록에 👍 추천 수, 상세에 추천·비추천 수. 위에 안내문("예술에 높고 낮음은 없습니다")을 둔다.
   - 에티켓: 욕설 단어는 `lib/etiquette.ts`(앱)와 `docs/supabase-etiquette.sql`의 `has_bad_words`(서버)에 같이 있다. 바꿀 땐 두 곳 모두.
   - 신고: `review_reports`(운영자만 열람). 같은 글에 신고 3번이면 자동으로 `hidden=true`.
   - 등록 요청: `submissions`에 `pending`으로 들어감. 운영자가 `status`를 `approved`로 바꾸면 `approved_submissions` 보기로 공개돼 앱이 지도에 올린다(id `sub-…`). 연락처는 공개되지 않음.
@@ -54,7 +54,7 @@
 ## 결정 사항
 
 - 시작 화면 탭: '대중을 위한'(예전 이름 대중픽, 옆 탭과 이어 읽으면 "대중을 위한 예술의 미래") = 최근 30일 네이버 블로그 언급 수(진행 중 전시, 상위 10). 예술의 미래 = 졸업전시·실험전시·소규모 작가전 (전문가 픽은 2026-11 사용자 요청으로 없앰).
-- 별점·순위처럼 전시에 등급을 매기는 장치는 넣지 않는다(앙데팡당 취지: 심사·상 없음). 지도·목록에 점수 표시 금지. 관람객 글은 점수 없는 방명록으로.
+- 별점·순위처럼 전시에 등급을 매기는 장치는 넣지 않는다(앙데팡당 취지: 심사·상 없음). 관람객 글은 방명록으로. 예외(2026-11-27 사용자 결정): 방명록의 추천·비추천과 지도 핀·목록의 👍 추천 수는 둔다.
 - 수동 데이터(manual-exhibitions, spaces)는 확인된 실제 정보만 넣는다. 주소·날짜를 추측해 넣지 않는다.
 
 - 웹앱(PWA) 먼저, 앱스토어 앱은 나중 (같은 코드 재활용).

@@ -32,4 +32,6 @@ export interface MapViewProps {
   onMapDrag: () => void;
   /** 지도에 보일 독립공간 (카카오맵만 지원) */
   spaces: Space[];
+  /** 전시별 추천(👍) 수. 0이면 표시하지 않음 */
+  votes: Record<string, number>;
 }
