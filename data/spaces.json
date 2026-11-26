@@ -499,5 +499,60 @@
     "url": "https://www.harpersbazaar.co.kr/artwalk/community/detail/6372",
     "instagram": "",
     "note": "부산 원도심 창작공간 또따또가가 운영하는 실험·매개 전시공간 (중구 대청로135번길 5, 1층)"
+  },
+  {
+    "id": "windmill",
+    "name": "윈드밀 (Windmill)",
+    "search": "윈드밀 원효로",
+    "area": "원효로",
+    "lat": 37.5385,
+    "lon": 126.969,
+    "url": "https://www.artbava.com/exhibits/무너진-기둥에서도-살아가야-한다",
+    "instagram": "https://www.instagram.com/windmill.perform/",
+    "note": "용산 원효로의 퍼포먼스 중심 작가 운영 공간"
+  },
+  {
+    "id": "chamber-seongbuk",
+    "name": "챔버 (Chamber)",
+    "search": "챔버 동소문로",
+    "area": "동소문로",
+    "lat": 37.5893,
+    "lon": 127.008,
+    "url": "https://www.artbava.com/exhibits/황웅태-개인전-미상들",
+    "instagram": "https://www.instagram.com/chamber26_6/",
+    "note": "성북구 동소문로의 작은 단층 전시공간"
+  },
+  {
+    "id": "komplex-gallery",
+    "name": "콤플렉스갤러리 (Komplex Gallery)",
+    "search": "콤플렉스갤러리 후암로",
+    "area": "후암로",
+    "lat": 37.5508,
+    "lon": 126.9786,
+    "url": "https://www.artbava.com/exhibits/장소연-개인전-feral",
+    "instagram": "https://www.instagram.com/gallery_komplex/",
+    "note": "용산 후암동의 작은 전시공간, 신진 작가 개인전이 이어짐"
+  },
+  {
+    "id": "replat",
+    "name": "전시공간 리:플랫 (RE:PLAT)",
+    "search": "리플랫 세종대로16길",
+    "area": "세종대로16길",
+    "lat": 37.5669,
+    "lon": 126.9784,
+    "url": "https://www.artbava.com/exhibits/가리키던-배열",
+    "instagram": "https://www.instagram.com/re.plat/",
+    "note": "중구 남양빌딩 402호의 작은 전시공간 (수~토 운영)"
+  },
+  {
+    "id": "the-willow",
+    "name": "더 윌로 (The WilloW)",
+    "search": "더 윌로 고산자로36길",
+    "area": "고산자로36길",
+    "lat": 37.5795,
+    "lon": 127.037,
+    "url": "https://www.artbava.com/exhibits/한수지-제논피부-외부의-내장-내부의-외피",
+    "instagram": "https://www.instagram.com/thewillow1955",
+    "note": "동대문구 고산자로36길의 2층 전시공간"
   }
 ]
