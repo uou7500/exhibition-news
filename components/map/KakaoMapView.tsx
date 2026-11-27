@@ -145,10 +145,23 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
     const pins = pinsRef.current;
     clusterer.clear();
     pins.clear();
+    // 직접 넣은 전시는 주소로 다시 찾은 좌표를 이 기기에 저장해 둔다 → 저장된 좌표가 있으면 처음부터 그 자리에 만든다
+    const cachedPos = (x: Exhibition): [number, number] | null => {
+      if (x.source !== "manual" || !x.address) return null;
+      try {
+        const hit = localStorage.getItem(`addr-geo:${x.address}`);
+        if (!hit) return null;
+        const [lat, lon] = hit.split(",").map(Number);
+        return lat && lon ? [lat, lon] : null;
+      } catch {
+        return null;
+      }
+    };
     const overlays = items.map((x) => {
       const el = pinElement(x, () => latest.current.onSelect(x.id));
+      const pos = cachedPos(x) ?? [x.lat, x.lon];
       const overlay = new kakao.maps.CustomOverlay({
-        position: new kakao.maps.LatLng(x.lat, x.lon),
+        position: new kakao.maps.LatLng(pos[0], pos[1]),
         content: el,
         xAnchor: 0.5,
         yAnchor: 1,
@@ -160,27 +173,26 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
     });
     clusterer.addMarkers(overlays);
 
-    // 직접 넣은 전시는 좌표가 캠퍼스 단위 근사값일 수 있어, 주소로 정확한 위치를 다시 찾는다
+    // 직접 넣은 전시는 좌표가 캠퍼스 단위 근사값일 수 있어, 주소로 정확한 위치를 다시 찾는다 (저장된 좌표가 없는 것만).
+    // 핀을 옮길 때마다 묶음을 다시 계산하면 앱이 멈추므로, 묶음 다시 계산은 잠깐 모았다가 한 번만 한다.
     const geocoder = new kakao.maps.services.Geocoder();
+    let redrawTimer: ReturnType<typeof setTimeout> | null = null;
+    const redrawSoon = () => {
+      if (redrawTimer) return;
+      redrawTimer = setTimeout(() => {
+        redrawTimer = null;
+        clusterer.redraw();
+      }, 250);
+    };
     for (const x of items) {
-      if (x.source !== "manual" || !x.address) continue;
+      if (x.source !== "manual" || !x.address || cachedPos(x)) continue;
       const pin = pins.get(x.id);
       if (!pin) continue;
       const key = `addr-geo:${x.address}`;
       const move = (lat: number, lon: number) => {
         pin.overlay.setPosition(new kakao.maps.LatLng(lat, lon));
-        clusterer.redraw();
+        redrawSoon();
       };
-      try {
-        const hit = localStorage.getItem(key);
-        if (hit) {
-          const [lat, lon] = hit.split(",").map(Number);
-          if (lat && lon) {
-            move(lat, lon);
-            continue;
-          }
-        }
-      } catch {}
       geocoder.addressSearch(x.address, (res: any[], status: string) => {
         if (status !== kakao.maps.services.Status.OK || !res[0]) return;
         const lat = Number(res[0].y);
