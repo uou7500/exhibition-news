@@ -609,5 +609,38 @@
     "url": "https://www.artbava.com/exhibits/전보경-개인전-re-re-re-re-re-boot-body",
     "instagram": "",
     "note": "낙원상가 412호의 작은 전시공간"
+  },
+  {
+    "id": "yojeum-misul",
+    "name": "요즘미술",
+    "search": "요즘미술 혜화동",
+    "area": "혜화로9길",
+    "lat": 37.5862,
+    "lon": 126.9996,
+    "url": "https://www.artbava.com/exhibits/프롬-사할린",
+    "instagram": "https://www.instagram.com/art_thesedays",
+    "note": "혜화동 건물 3층의 작은 전시공간, 강연도 여는 곳"
+  },
+  {
+    "id": "salon-5120",
+    "name": "문화살롱5120",
+    "search": "문화살롱5120 공릉동",
+    "area": "공릉로51길",
+    "lat": 37.6238,
+    "lon": 127.0748,
+    "url": "https://www.artbava.com/exhibits/염하기2026",
+    "instagram": "https://www.instagram.com/salon_5120/",
+    "note": "노원구 공릉동 지하의 작은 문화·전시공간"
+  },
+  {
+    "id": "osisun",
+    "name": "오시선 (OSISUN)",
+    "search": "오시선 성수동",
+    "area": "성덕정길",
+    "lat": 37.5398,
+    "lon": 127.0565,
+    "url": "https://www.artbava.com/exhibits/햄버거-먹는-사람-먹는-햄버거",
+    "instagram": "https://www.instagram.com/osisun.ch/",
+    "note": "성수동, 옥상까지 네 층을 쓰는 작은 전시공간"
   }
 ]
