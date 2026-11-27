@@ -121,35 +121,69 @@ function walkText(m: number): string {
 const d = (a: Exhibition, b: Exhibition) => distanceM(a.lat, a.lon, b.lat, b.lon);
 
 /**
- * 동선 고르기: 후보마다 출발점으로 삼아 '가장 가까운 다음 곳'을 이어 붙이고,
- * 전체 거리가 가장 짧은 묶음을 고른다. 작은 전시가 하나라도 들어간 묶음을 조금 더 우선한다(앙데팡당).
+ * 동선 고르기: 서로 다른 장소 n곳을 잇는 길 중 걷는 거리 합이 가장 짧은 것을 찾는다(출발점·순서 모두 비교).
+ * - 같은 건물(이름이 같거나 50m 안)의 전시는 한 장소로 묶는다. 대표는 작은 전시 → 일찍 끝나는 전시 순.
+ *   같은 건물의 다른 전시는 카드 설명에 '같은 건물에 하나 더'로 알려 준다.
+ * - 한 구간은 4km 안에서만 (다른 도시로 건너뛰지 않게).
+ * - must가 있으면 그 조건(예: 물어본 동네 주소)에 맞는 장소가 하나 이상 들어가야 한다.
+ * 가지치기 탐색(지금까지 길이가 이미 최단보다 길면 그만 봄)이라 후보가 수십 곳이어도 금방 끝난다.
+ * 거리가 거의 같은(100m 안) 길이 여럿이면 작은 전시가 더 많이 든 길을 고른다.
  */
-function planRoute(cands: Exhibition[], n: number, starts: Exhibition[] = cands): Exhibition[] {
-  let best: Exhibition[] = [];
-  let bestScore = Infinity;
-  for (const start of starts.slice(0, 80)) {
-    const route = [start];
-    // '3곳'은 서로 다른 장소 3곳: 같은 건물(장소 이름이 같거나 50m 안)의 전시는 한 번만 넣는다.
-    // 같은 건물의 다른 전시는 카드 설명에 '같은 건물에 하나 더'로 알려 준다.
-    const venueFull = (x: Exhibition) => route.some((r) => samePlace(r, x));
-    const left = cands.filter((x) => x !== start);
-    while (route.length < n) {
-      const last = route[route.length - 1];
-      let k = -1;
-      // 다음 곳은 4km 안에서만 (다른 도시로 건너뛰지 않게)
-      for (let i = 0; i < left.length; i++) if (!venueFull(left[i]) && d(last, left[i]) <= 4000 && (k < 0 || d(last, left[i]) < d(last, left[k]))) k = i;
-      if (k < 0) break;
-      route.push(left.splice(k, 1)[0]);
+function planRoute(cands: Exhibition[], n: number, must: (x: Exhibition) => boolean = () => true): Exhibition[] {
+  // 1) 장소로 묶기
+  const order = [...cands].sort(
+    (a, b) => Number(isSmall(b)) - Number(isSmall(a)) || +parseDate(a.endDate) - +parseDate(b.endDate),
+  );
+  const places: Exhibition[] = [];
+  for (const x of order) if (!places.some((p) => samePlace(p, x))) places.push(x);
+  const m = Math.min(places.length, 60);
+  const P = places.slice(0, m);
+  if (m === 0) return [];
+  const k = Math.min(n, m);
+  // 2) 거리표와 '가까운 순' 이웃 목록
+  const D = P.map((a) => P.map((b) => d(a, b)));
+  const near = D.map((row) => row.map((_, j) => j).sort((i, j) => row[i] - row[j]));
+  const smallCount = (path: number[]) => path.filter((i) => isSmall(P[i])).length;
+  let best: number[] = [];
+  let bestLen = Infinity;
+  let steps = 0;
+  const used = new Array<boolean>(m).fill(false);
+  const path: number[] = [];
+  const dfs = (len: number) => {
+    if (++steps > 400_000) return; // 혹시 모를 과부하 방지 (그때까지 찾은 최단을 쓴다)
+    if (path.length === k) {
+      if (!path.some((i) => must(P[i]))) return;
+      const sc = smallCount(path);
+      const bsc = smallCount(best);
+      if (len < bestLen - 100 || (len <= bestLen + 100 && sc > bsc) || (len < bestLen && sc >= bsc)) {
+        bestLen = len;
+        best = [...path];
+      }
+      return;
     }
-    let total = 0;
-    for (let i = 1; i < route.length; i++) total += d(route[i - 1], route[i]);
-    const score = total - (route.some(isSmall) ? 1500 : 0) + (n - route.length) * 1e7;
-    if (score < bestScore) {
-      bestScore = score;
-      best = route;
+    const last = path[path.length - 1];
+    for (const j of near[last]) {
+      if (used[j]) continue;
+      const leg = D[last][j];
+      if (leg > 4000) break; // 이웃은 가까운 순 → 이후는 모두 4km 넘음
+      if (len + leg > bestLen + 100) break; // 더 가 봐야 최단보다 길다
+      used[j] = true;
+      path.push(j);
+      dfs(len + leg);
+      path.pop();
+      used[j] = false;
     }
+  };
+  for (let s = 0; s < m; s++) {
+    used[s] = true;
+    path.push(s);
+    dfs(0);
+    path.pop();
+    used[s] = false;
   }
-  return best;
+  if (best.length) return best.map((i) => P[i]);
+  // n곳을 이을 수 없으면 한 곳 줄여서 다시
+  return k > 1 ? planRoute(cands, k - 1, must) : [];
 }
 
 /** 답에 작은 전시가 하나도 없을 때, 가까이 있는 작은 전시 하나를 찾는다 */
@@ -304,7 +338,7 @@ export function previewAnswer(question: string, all: Exhibition[], popularity?: 
     // 그 동네 주소만으로 곳 수가 모자라면, 동네 전시에서 출발해 1.5km 안의 옆 동네 전시까지 넓혀 채운다
     if (route.length < n && list.length) {
       const near = beforePlace.filter((x) => list.some((p) => d(p, x) <= 1500));
-      const wider = planRoute(near, n, list);
+      const wider = planRoute(near, n, inPlace);
       if (wider.length > route.length) {
         route = wider;
         widened = true;
@@ -343,7 +377,7 @@ export function previewAnswer(question: string, all: Exhibition[], popularity?: 
           : "";
     return withSmall(
       {
-        text: `'${conds.join(" · ")}' ${route.length}곳 동선이에요. 가까운 곳끼리 이어지게 순서를 정했어요 (걷는 거리 모두 합쳐 약 ${w.m >= 1000 ? `${(w.m / 1000).toFixed(1)}km` : `${w.m}m`}).${short}\n관람 시간과 쉬는 날은 전시마다 달라서, 가기 전에 각 전시 안내를 확인해 주세요.`,
+        text: `'${conds.join(" · ")}' ${route.length}곳 동선이에요. 걷는 거리가 가장 짧아지도록 장소와 순서를 골랐어요 (모두 합쳐 약 ${w.m >= 1000 ? `${(w.m / 1000).toFixed(1)}km` : `${w.m}m`}).${short}\n관람 시간과 쉬는 날은 전시마다 달라서, 가기 전에 각 전시 안내를 확인해 주세요.`,
         ids: route.map((x) => x.id),
         total: list.length,
         notes,
