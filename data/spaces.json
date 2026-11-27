@@ -642,5 +642,89 @@
     "url": "https://www.artbava.com/exhibits/햄버거-먹는-사람-먹는-햄버거",
     "instagram": "https://www.instagram.com/osisun.ch/",
     "note": "성수동, 옥상까지 네 층을 쓰는 작은 전시공간"
+  },
+  {
+    "id": "wwnn-samcheong",
+    "name": "WWNN",
+    "search": "WWNN 삼청로",
+    "area": "삼청로5길",
+    "lat": 37.5815,
+    "lon": 126.981,
+    "url": "https://www.artbava.com/exhibits/최수련-개인전-개자원-무덤-wwnn",
+    "note": "삼청동의 작은 전시공간"
+  },
+  {
+    "id": "artspace-gongwon",
+    "name": "아트스페이스 공-원",
+    "search": "아트스페이스 공-원 경기대로7길",
+    "area": "경기대로7길",
+    "lat": 37.5625,
+    "lon": 126.964,
+    "url": "https://www.artbava.com/exhibits/셰에라자드의-섬망-scheherazade-in-delirium",
+    "note": "서대문구의 실험적 영상·설치 전시공간"
+  },
+  {
+    "id": "space-afroasia",
+    "name": "스페이스 아프로아시아 (Space Afroasia)",
+    "search": "스페이스 아프로아시아 동두천",
+    "area": "중앙로353번길",
+    "lat": 37.9195,
+    "lon": 127.059,
+    "url": "https://www.artbava.com/exhibits/가족이라-부르리",
+    "note": "동두천 캠프 케이시 앞 옛 상가를 쓰는 이주·공동체 주제 예술공간"
+  },
+  {
+    "id": "outhouse-mangwon",
+    "name": "별관 (outhouse)",
+    "search": "별관 망원동",
+    "area": "망원로",
+    "lat": 37.558,
+    "lon": 126.9033,
+    "url": "https://outhouse.kr/",
+    "instagram": "https://www.instagram.com/outhouse.seoul/",
+    "note": "망원동 망원로 2층의 작은 전시공간, 신진 작가 개인전 위주"
+  },
+  {
+    "id": "space-tum",
+    "name": "SPACE TUM (스페이스틈)",
+    "search": "스페이스틈 망원동",
+    "area": "망원로",
+    "lat": 37.5576,
+    "lon": 126.9043,
+    "url": "https://padograph.com/ko/events/6143",
+    "instagram": "https://www.instagram.com/art.space.tum/",
+    "note": "망원동의 작은 전시공간, 기획 그룹전을 연다"
+  },
+  {
+    "id": "yangja-space",
+    "name": "양자 (YANGJA)",
+    "search": "양자 답십리",
+    "area": "사가정로2길",
+    "lat": 37.569,
+    "lon": 127.0525,
+    "url": "https://padograph.com/ko/spaces/441",
+    "instagram": "https://www.instagram.com/yangja.space/",
+    "note": "답십리의 지하 독립 전시공간, 작가 주도 실험 전시"
+  },
+  {
+    "id": "rainbowcube",
+    "name": "레인보우큐브 (RAINBOWCUBE)",
+    "search": "레인보우큐브 합정동",
+    "area": "토정로2길",
+    "lat": 37.5486,
+    "lon": 126.9139,
+    "url": "http://www.rainbowcube-space.co.kr/",
+    "instagram": "https://www.instagram.com/rainbowcube_gallery/",
+    "note": "합정동 주택을 고친 전시공간, 신진 작가 '처음의 개인전' 지원"
+  },
+  {
+    "id": "www-space-mangwon",
+    "name": "WWW SPACE",
+    "search": "WWW SPACE 망원동",
+    "area": "망원로6길",
+    "lat": 37.5559,
+    "lon": 126.9058,
+    "url": "https://wwwspace.kr/",
+    "note": "망원동의 작가 지원 전시공간(1관 망원로6길 37 B1, 2관 월드컵로 163-5), 공모로 매달 전시"
   }
 ]
