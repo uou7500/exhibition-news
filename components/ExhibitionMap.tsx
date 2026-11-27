@@ -16,6 +16,7 @@ import { fetchApproved } from "@/lib/submissions";
 import { useBookmarks } from "@/lib/bookmarks";
 import { Guestbook, GuestbookLink } from "./Reviews";
 import SubmitForm from "./SubmitForm";
+import Assistant, { AssistantButton } from "./Assistant";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
 import { POI_LABELS, type PoiCode } from "./map/types";
@@ -25,6 +26,8 @@ const POI_CODES: PoiCode[] = ["CS2", "CE7", "SW8"];
 type StatusFilter = "all" | "on" | "upcoming";
 
 const DESKTOP = 900;
+/** 내려간 대화창 띠의 높이(px). globals.css의 --ai-peek과 같게 */
+const AI_PEEK = 64;
 const KAKAO_KEY = KAKAO_MAP_KEY;
 
 /** 카카오맵 길찾기 주소. 출발지를 알면 출발지까지 넣는다. */
@@ -117,6 +120,10 @@ export default function ExhibitionMap({
   const { saved, toggle: toggleSaved } = useBookmarks();
   const [savedOnly, setSavedOnly] = useState(false);
   const [showSubmit, setShowSubmit] = useState(false);
+  // 전시 도우미 대화창. 휴대폰에서 전시 카드를 누르면 "min"(아래로 내려가 띠만 남음)
+  const [askMode, setAskMode] = useState<"closed" | "open" | "min">("closed");
+  const askOpen = askMode !== "closed";
+  const closeAsk = useCallback(() => setAskMode("closed"), []);
   const [query, setQuery] = useState("");
   // null = 아무것도 고르지 않음 (전체와 같은 결과)
   const [status, setStatus] = useState<StatusFilter | null>(null);
@@ -354,6 +361,13 @@ export default function ExhibitionMap({
     };
   }, [desktop, hasSelection]);
 
+  // 휴대폰 → 컴퓨터 크기로 바뀌면 내려가 있던 대화창을 다시 편다
+  useEffect(() => {
+    if (desktop) setAskMode((m) => (m === "min" ? "open" : m));
+  }, [desktop]);
+  // 대화창 띠가 남아 있으면 그만큼 목록·상세·버튼을 올린다 (휴대폰)
+  const peek = askMode === "min" && !desktop ? AI_PEEK : 0;
+
   const select = useCallback((id: string) => {
     setSelectedId(id);
     setListOpen(false);
@@ -397,7 +411,7 @@ export default function ExhibitionMap({
   };
 
   return (
-    <div className="app">
+    <div className={"app" + (peek ? " ai-peek" : "") + (selected && desktop ? " detail-open" : "")}>
       {KAKAO_KEY ? <KakaoMapView appKey={KAKAO_KEY} {...mapProps} /> : <SvgMapView {...mapProps} />}
 
       <div className="top">
@@ -471,7 +485,7 @@ export default function ExhibitionMap({
       <button
         type="button"
         className={"locate" + (myLoc ? " on" : "") + (locating ? " busy" : "")}
-        style={!desktop && sheetH ? { bottom: sheetH + 14 } : undefined}
+        style={!desktop && sheetH ? { bottom: sheetH + 14 + peek } : undefined}
         aria-label="내 위치로 이동"
         onClick={() => locate()}
       >
@@ -482,6 +496,15 @@ export default function ExhibitionMap({
         </svg>
       </button>
       {locError && <div className="map-msg" role="alert">{locError}</div>}
+      {!askOpen && (
+        <AssistantButton
+          style={!desktop && sheetH ? { bottom: sheetH + 14 } : undefined}
+          onClick={() => {
+            setListOpen(false);
+            setAskMode("open");
+          }}
+        />
+      )}
 
       {showWelcome && (
         <Welcome
@@ -572,6 +595,19 @@ export default function ExhibitionMap({
           />
         )}
       </aside>
+      <Assistant
+        open={askOpen}
+        minimized={askMode === "min" && !desktop}
+        selectedId={selectedId}
+        exhibitions={allExhibitions}
+        onClose={closeAsk}
+        onRestore={() => setAskMode("open")}
+        onOpenExhibition={(id) => {
+          // 대화창은 닫지 않는다: 휴대폰은 아래로 내려 띠만 남기고, 컴퓨터는 상세 창 왼쪽으로 비켜 선다
+          if (!desktop) setAskMode("min");
+          openFromList(id);
+        }}
+      />
       {showSubmit && <SubmitForm onClose={() => setShowSubmit(false)} />}
     </div>
   );
