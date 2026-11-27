@@ -124,6 +124,8 @@ export default function ExhibitionMap({
   const [askMode, setAskMode] = useState<"closed" | "open" | "min">("closed");
   const askOpen = askMode !== "closed";
   const closeAsk = useCallback(() => setAskMode("closed"), []);
+  // 전시 도우미가 짠 동선 (지도에 번호·점선으로 표시)
+  const [routeReq, setRouteReq] = useState<{ ids: string[]; seq: number } | null>(null);
   const [query, setQuery] = useState("");
   // null = 아무것도 고르지 않음 (전체와 같은 결과)
   const [status, setStatus] = useState<StatusFilter | null>(null);
@@ -162,6 +164,11 @@ export default function ExhibitionMap({
   const [locError, setLocError] = useState<string | null>(null);
 
   const selected = allExhibitions.find((x) => x.id === selectedId) ?? null;
+  const route = useMemo(() => {
+    if (!routeReq) return null;
+    const stops = routeReq.ids.map((id) => allExhibitions.find((x) => x.id === id)).filter((x): x is Exhibition => !!x);
+    return stops.length > 1 ? { stops, seq: routeReq.seq } : null;
+  }, [routeReq, allExhibitions]);
 
   const baseFiltered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -408,6 +415,7 @@ export default function ExhibitionMap({
     locateSeq,
     onMapDrag,
     spaces: shownSpaces,
+    route,
   };
 
   return (
@@ -496,6 +504,13 @@ export default function ExhibitionMap({
         </svg>
       </button>
       {locError && <div className="map-msg" role="alert">{locError}</div>}
+      {route && (
+        <div className="route-banner" role="status">
+          <span className="route-banner-dot" aria-hidden="true" />
+          동선 {route.stops.length}곳을 지도에 그렸어요
+          <button type="button" onClick={() => setRouteReq(null)} aria-label="동선 지우기">지우기</button>
+        </div>
+      )}
       {!askOpen && (
         <AssistantButton
           style={!desktop && sheetH ? { bottom: sheetH + 14 } : undefined}
@@ -599,6 +614,13 @@ export default function ExhibitionMap({
         open={askOpen}
         minimized={askMode === "min" && !desktop}
         selectedId={selectedId}
+        routeIds={routeReq?.ids ?? null}
+        onShowRoute={(ids) => {
+          setSelectedId(null);
+          setListOpen(false);
+          if (!desktop) setAskMode("min");
+          setRouteReq((r) => ({ ids, seq: (r?.seq ?? 0) + 1 }));
+        }}
         exhibitions={allExhibitions}
         popularity={popularity}
         onClose={closeAsk}
