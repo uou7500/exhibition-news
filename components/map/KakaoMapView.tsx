@@ -61,7 +61,7 @@ function pinElement(x: Exhibition, onClick: () => void): HTMLButtonElement {
   return el;
 }
 
-export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces }: MapViewProps & { appKey: string }) {
+export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces, route }: MapViewProps & { appKey: string }) {
   const boxRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const clustererRef = useRef<any>(null);
@@ -406,6 +406,59 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       overlays.forEach((o) => o.setMap(null));
     };
   }, [ready, spaces]);
+
+  // ----- 전시 도우미 동선: 번호 + 점선 -----
+  useEffect(() => {
+    if (!ready || !route || route.stops.length < 2) return;
+    const kakao = window.kakao;
+    const map = mapRef.current;
+    // 직접 넣은 전시는 핀과 같은 자리(주소로 다시 찾은 좌표)를 쓴다
+    const pos = route.stops.map((x) => {
+      if (x.source === "manual" && x.address) {
+        try {
+          const hit = localStorage.getItem(`addr-geo:${x.address}`);
+          if (hit) {
+            const [lat, lon] = hit.split(",").map(Number);
+            if (lat && lon) return new kakao.maps.LatLng(lat, lon);
+          }
+        } catch {}
+      }
+      return new kakao.maps.LatLng(x.lat, x.lon);
+    });
+    const line = new kakao.maps.Polyline({
+      path: pos,
+      strokeWeight: 4,
+      strokeColor: "#7b2ff7",
+      strokeOpacity: 0.85,
+      strokeStyle: "shortdash",
+    });
+    line.setMap(map);
+    const nums = route.stops.map((x, i) => {
+      const el = document.createElement("button");
+      el.type = "button";
+      el.className = "route-num";
+      el.textContent = String(i + 1);
+      el.setAttribute("aria-label", `${i + 1}번째: ${x.title}`);
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        latest.current.onSelect(x.id);
+      });
+      // 같은 건물에 두 곳이면 번호가 겹치지 않게 살짝 옆으로
+      const same = route.stops.slice(0, i).filter((p) => Math.abs(p.lat - x.lat) < 1e-4 && Math.abs(p.lon - x.lon) < 1e-4).length;
+      const o = new kakao.maps.CustomOverlay({ position: pos[i], content: el, xAnchor: 0.5 - same * 1.1, yAnchor: 2.1, clickable: true, zIndex: 15 });
+      o.setMap(map);
+      return o;
+    });
+    const bounds = new kakao.maps.LatLngBounds();
+    pos.forEach((p: any) => bounds.extend(p));
+    const isDesk = latest.current.desktop;
+    // 위: 검색·필터, 아래: 목록 시트 + 대화창 띠(모바일), 왼쪽: 목록 패널, 오른쪽: 대화창(데스크톱)
+    map.setBounds(bounds, isDesk ? 80 : 190, isDesk ? 440 : 50, isDesk ? 60 : 290, isDesk ? 420 : 50);
+    return () => {
+      line.setMap(null);
+      nums.forEach((o) => o.setMap(null));
+    };
+  }, [ready, route?.seq]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ----- 확대·축소 버튼 -----
   const zoomBy = (d: number) => {

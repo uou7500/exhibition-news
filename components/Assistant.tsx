@@ -5,8 +5,9 @@ import type { Exhibition } from "@/lib/types";
 import { formatDate, statusOf } from "@/lib/status";
 import { SUGGESTIONS, askAssistant, assistantLive, type AssistantReply } from "@/lib/assistant";
 import Poster from "./Poster";
+import type { PopularityData } from "@/lib/picks";
 
-type Msg = { id: number; from: "me" | "ai"; text: string; ids?: string[]; total?: number };
+type Msg = { id: number; from: "me" | "ai"; text: string } & Partial<Omit<AssistantReply, "text">>;
 
 const HELLO: Msg = {
   id: 0,
@@ -23,18 +24,27 @@ export default function Assistant({
   minimized = false,
   selectedId = null,
   exhibitions,
+  popularity,
   onClose,
   onRestore,
   onOpenExhibition,
+  onShowRoute,
+  routeIds = null,
 }: {
   open: boolean;
   minimized?: boolean;
   /** 지금 상세 창에 열린 전시 (카드에 표시) */
   selectedId?: string | null;
   exhibitions: Exhibition[];
+  /** 인기(최근 블로그 언급 수) — 시작 화면 '대중을 위한' 탭과 같은 자료 */
+  popularity?: PopularityData;
   onClose: () => void;
   onRestore: () => void;
   onOpenExhibition: (id: string) => void;
+  /** 동선을 지도에 그려 달라는 요청 (순서대로 전시 id) */
+  onShowRoute: (ids: string[]) => void;
+  /** 지금 지도에 그려져 있는 동선 */
+  routeIds?: string[] | null;
 }) {
   const [msgs, setMsgs] = useState<Msg[]>([HELLO]);
   const [text, setText] = useState("");
@@ -78,11 +88,11 @@ export default function Assistant({
     setBusy(true);
     let reply: AssistantReply;
     try {
-      reply = await askAssistant(question, exhibitions);
+      reply = await askAssistant(question, exhibitions, popularity);
     } catch {
       reply = { text: "지금은 답을 가져오지 못했어요. 잠시 후 다시 물어봐 주세요.", ids: [], total: 0 };
     }
-    setMsgs((m) => [...m, { id: seq.current++, from: "ai", text: reply.text, ids: reply.ids, total: reply.total }]);
+    setMsgs((m) => [...m, { ...reply, id: seq.current++, from: "ai" }]);
     setBusy(false);
   };
 
@@ -92,6 +102,33 @@ export default function Assistant({
   };
 
   const onlyHello = msgs.length === 1;
+
+  /** 전시 카드. step이 있으면 동선 순서 번호를 붙인다 */
+  const card = (id: string, note?: string, step?: number) => {
+    const x = byId.get(id);
+    if (!x) return null;
+    const st = statusOf(x);
+    const sel = id === selectedId;
+    return (
+      <button type="button" className={"ai-card" + (sel ? " sel" : "")} aria-current={sel ? "true" : undefined} onClick={() => onOpenExhibition(id)}>
+        <span className="ai-thumb-wrap">
+          <Poster exhibition={x} className="ai-thumb" />
+          {step !== undefined && <span className="ai-step" aria-label={`${step}번째`}>{step}</span>}
+        </span>
+        <span className="ai-card-t">
+          <b>{x.title}</b>
+          <small>{x.venue} · {x.city}</small>
+          <small>
+            {st.kind === "ending" ? <span className="tag end">{st.label}</span> : st.kind === "upcoming" ? <span className="tag up">{st.label}</span> : null}
+            {formatDate(x.startDate)} – {formatDate(x.endDate)}
+            {x.price === 0 && <span className="ai-free"> · 무료</span>}
+          </small>
+          {note && <small className="ai-note">{note}</small>}
+        </span>
+        {sel ? <span className="ai-now">보는 중</span> : <span className="ai-go" aria-hidden="true">›</span>}
+      </button>
+    );
+  };
 
   return (
     <>
@@ -127,30 +164,31 @@ export default function Assistant({
             <div key={m.id} className={"ai-msg " + m.from}>
               <p className="ai-bubble">{m.text}</p>
               {m.ids && m.ids.length > 0 && (
-                <ul className="ai-cards">
-                  {m.ids.map((id) => {
-                    const x = byId.get(id);
-                    if (!x) return null;
-                    const st = statusOf(x);
-                    return (
-                      <li key={id}>
-                        <button type="button" className={"ai-card" + (id === selectedId ? " sel" : "")} aria-current={id === selectedId ? "true" : undefined} onClick={() => onOpenExhibition(id)}>
-                          <Poster exhibition={x} className="ai-thumb" />
-                          <span className="ai-card-t">
-                            <b>{x.title}</b>
-                            <small>{x.venue} · {x.city}</small>
-                            <small>
-                              {st.kind === "ending" ? <span className="tag end">{st.label}</span> : st.kind === "upcoming" ? <span className="tag up">{st.label}</span> : null}
-                              {formatDate(x.startDate)} – {formatDate(x.endDate)}
-                              {x.price === 0 && <span className="ai-free"> · 무료</span>}
-                            </small>
-                          </span>
-                          {id === selectedId ? <span className="ai-now">보는 중</span> : <span className="ai-go" aria-hidden="true">›</span>}
-                        </button>
-                      </li>
-                    );
-                  })}
+                <ul className={"ai-cards" + (m.route ? " route" : "")}>
+                  {m.ids.map((id, i) => (
+                    <li key={id}>{card(id, m.notes?.[id], m.route ? i + 1 : undefined)}</li>
+                  ))}
                 </ul>
+              )}
+              {m.route && m.ids && m.ids.length > 1 && (
+                <button
+                  type="button"
+                  className={"ai-route-btn" + (routeIds?.join() === m.ids.join() ? " on" : "")}
+                  onClick={() => onShowRoute(m.ids!)}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="5" cy="18" r="2.5" />
+                    <circle cx="19" cy="6" r="2.5" />
+                    <path d="M7.5 18H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h7.5" />
+                  </svg>
+                  {routeIds?.join() === m.ids.join() ? "지도에 동선이 그려져 있어요" : "지도에서 동선 보기"}
+                </button>
+              )}
+              {m.extra && byId.has(m.extra.id) && (
+                <div className="ai-extra">
+                  <p className="ai-extra-h">✦ {m.extra.note}</p>
+                  {card(m.extra.id)}
+                </div>
               )}
             </div>
           ))}

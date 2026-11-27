@@ -2,7 +2,7 @@
 :root{
   --sea:#dde5ec; --land:#fbfbf8; --coast:#9aa9b8; --ink:#1d2430; --muted:#5f6b7a; --warm-gray:#9a918a;
   --line:#d6dde4; --panel:#ffffff; --accent:#0071e3; --accent-ink:#ffffff; --free:#13795b; --warn:#b4471a;
-  --soft:#eaf3fe; --band:#d9cfc4; --brand-bg:#f36c21; --brand-ink:#111111;
+  --soft:#eaf3fe; --band:#d9cfc4; --brand-bg:#f36c21; --brand-ink:#111111; --future:#7b2ff7;
   --f-display:"Gowun Batang", "Nanum Myeongjo", serif;
   --f-body:"IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --f-mono:"IBM Plex Mono", ui-monospace, monospace;
@@ -11,11 +11,11 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --sea:#121821; --land:#232b36; --coast:#4c5a6b; --ink:#e8ecf2; --muted:#9aa6b5; --warm-gray:#b3aaa2;
   --line:#344050; --panel:#1a212b; --accent:#0a84ff; --accent-ink:#ffffff; --free:#4fd1a1; --warn:#ff9a6b;
-  --soft:#1c2a3d; --band:#d9cfc4; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}}
+  --soft:#1c2a3d; --band:#d9cfc4; --future:#a57bff; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}}
 :root[data-theme="dark"]{
   --sea:#121821; --land:#232b36; --coast:#4c5a6b; --ink:#e8ecf2; --muted:#9aa6b5; --warm-gray:#b3aaa2;
   --line:#344050; --panel:#1a212b; --accent:#0a84ff; --accent-ink:#ffffff; --free:#4fd1a1; --warn:#ff9a6b;
-  --soft:#1c2a3d; --band:#d9cfc4; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}
+  --soft:#1c2a3d; --band:#d9cfc4; --future:#a57bff; --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}
 html{height:100%;box-sizing:border-box}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;height:100%;background:var(--sea);color:var(--ink);font-family:var(--f-body);font-size:14px;overflow:hidden}
@@ -374,6 +374,21 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .ai-card-t b{font-size:13.5px;font-weight:600;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ai-card-t small{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
 .ai-free{color:var(--free);font-weight:600}
+.ai-card-t .ai-note{color:var(--accent);font-weight:600;white-space:normal}
+/* 동선 번호 · 작은 전시 */
+.ai-thumb-wrap{position:relative;display:block}
+.ai-step{position:absolute;left:-6px;top:-6px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--future);color:#fff;font-size:12px;font-weight:700;border:2px solid var(--panel);font-variant-numeric:tabular-nums}
+.ai-cards.route{position:relative}
+.ai-route-btn{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;border:1px solid var(--future);background:var(--panel);color:var(--future);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600}
+.ai-route-btn.on{background:var(--future);color:#fff}
+.ai-extra{display:flex;flex-direction:column;gap:6px;width:100%;min-width:min(300px,78vw);border-left:3px solid var(--future);padding-left:10px}
+.ai-extra-h{margin:0;font-size:12.5px;font-weight:600;color:var(--future)}
+.route-num{width:28px;height:28px;border-radius:50%;border:2.5px solid #fff;background:#7b2ff7;color:#fff;font-size:14px;font-weight:700;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.35);padding:0;font-variant-numeric:tabular-nums}
+.route-num.svg{position:absolute;transform:translate(-50%,0);pointer-events:auto}
+.route-banner{position:absolute;z-index:16;left:50%;transform:translateX(-50%);top:160px;display:flex;align-items:center;gap:8px;background:var(--panel);color:var(--ink);font-size:13px;font-weight:600;padding:6px 6px 6px 12px;border-radius:999px;box-shadow:var(--shadow);white-space:nowrap}
+.route-banner-dot{width:10px;height:10px;border-radius:50%;background:var(--future)}
+.route-banner button{border:0;background:var(--soft);color:var(--ink);border-radius:999px;padding:5px 10px;font-size:12.5px;font-weight:600}
+@media (min-width:900px){.route-banner{left:calc(50% + 200px);top:24px}}
 .ai-go{font-size:20px;color:var(--muted);line-height:1}
 .ai-card.sel{border-color:var(--accent);background:var(--soft)}
 .ai-now{font-size:11px;font-weight:600;color:var(--accent);white-space:nowrap}
