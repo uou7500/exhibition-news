@@ -105,19 +105,40 @@ function draw(c: CanvasRenderingContext2D, x: Exhibition, w: number, h: number) 
 export default function Poster({ exhibition, className }: { exhibition: Exhibition; className?: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
+  // 화면 가까이 왔을 때 한 번만 그린다 (목록의 포스터를 한꺼번에 그리면 앱이 처음에 멈춘다).
+  // 같은 전시의 자료를 새로 받아도(객체만 바뀜) 다시 그리지 않도록 id·장르로만 다시 그린다.
+  const { id, genre, thumbnail } = exhibition;
+  const latest = useRef(exhibition);
+  latest.current = exhibition;
   useEffect(() => {
     const cv = ref.current;
-    if (!cv || exhibition.thumbnail) return;
-    const w = cv.clientWidth || 52;
-    const h = cv.clientHeight || 66;
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
-    cv.width = w * dpr;
-    cv.height = h * dpr;
-    const c = cv.getContext("2d");
-    if (!c) return;
-    c.scale(dpr, dpr);
-    draw(c, exhibition, w, h);
-  }, [exhibition]);
+    if (!cv || thumbnail) return;
+    const paint = () => {
+      const w = cv.clientWidth || 52;
+      const h = cv.clientHeight || 66;
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      cv.width = w * dpr;
+      cv.height = h * dpr;
+      const c = cv.getContext("2d");
+      if (!c) return;
+      c.scale(dpr, dpr);
+      draw(c, latest.current, w, h);
+    };
+    if (typeof IntersectionObserver === "undefined") {
+      paint();
+      return;
+    }
+    const io = new IntersectionObserver(
+      (es) => {
+        if (!es.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        paint();
+      },
+      { rootMargin: "300px" },
+    );
+    io.observe(cv);
+    return () => io.disconnect();
+  }, [id, genre, thumbnail]);
 
   if (exhibition.thumbnail) {
     // eslint-disable-next-line @next/next/no-img-element
