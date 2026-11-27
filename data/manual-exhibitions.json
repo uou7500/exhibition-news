@@ -2799,5 +2799,264 @@
       "실험전시"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-cbnu-design-prescription-2026",
+    "title": "충북대학교 디자인학과 졸업전시회 《처방전》",
+    "venue": "RnL 로즈앤라임 갤러리 2층",
+    "city": "서울",
+    "lat": 37.5617,
+    "lon": 127.0136,
+    "genre": "디자인",
+    "startDate": "2026-12-02",
+    "endDate": "2026-12-07",
+    "price": null,
+    "description": "충북대 디자인학과 4학년 13명이 일상에서 놓치기 쉬운 불편과 결핍을 찾아 저마다의 디자인 해법을 '처방전'처럼 내놓는 졸업전시입니다. 편집·패키지·포스터·UX/UI 디자인 작업을 선보이며, 관람 시간은 매일 오전 10시~오후 6시입니다.",
+    "thumbnail": "https://cdn.veritas-a.com/news/photo/202611/639858_554000_2134.jpg",
+    "url": "https://www.veritas-a.com/news/articleView.html?idxno=639858",
+    "address": "서울 중구 다산로 138",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-isumignon-omg-2026",
+    "title": "이수미뇽미년 《가없는 가족 (En(D)r(Ag)e)less》",
+    "venue": "OMG",
+    "city": "서울",
+    "lat": 37.5362,
+    "lon": 127.0005,
+    "genre": "기타",
+    "startDate": "2026-11-28",
+    "endDate": "2026-12-10",
+    "price": null,
+    "description": "작가 이수미뇽미년의 전시로, 가족이라는 관계의 끝없음과 분노를 제목에 겹쳐 담았습니다. 한남동 OMG에서 매일 오후 1시부터 6시까지 열립니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/62407ebe1845e_copy.jpg",
+    "url": "https://www.artbava.com/exhibits/이수미뇽미년-가없는-가족-endrageless",
+    "address": "서울 용산구 대사관로12길 8",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-insanghwa-everyart-2026",
+    "title": "《인상화: 아무 말도 하지 않는 시간》 김수영 · 민재영 · 박병래 · 서동욱 · 안성하 · 이수진 · 정보영 · 정태완",
+    "venue": "에브리아트",
+    "city": "서울",
+    "lat": 37.5652,
+    "lon": 126.9985,
+    "genre": "회화",
+    "startDate": "2026-11-19",
+    "endDate": "2026-12-19",
+    "price": null,
+    "description": "구체적인 대상을 그리되 장면이 화가의 지각에 머무는 방식에 집중하는 '인상화' 두 번째 그룹전입니다. 도시의 벽, 미디어 이미지, 햇빛 든 빈 방 같은 장면을 여덟 작가가 그렸습니다. 화~토 12~17시.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/14_JzPHD3A.jpg",
+    "url": "https://www.artbava.com/exhibits/인상화-아무-말도-하지-않는-시간",
+    "address": "서울 중구 동호로 353",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-yuhyewon-jeonsigongan-2026",
+    "title": "유혜원 개인전 《Home, still Home》",
+    "venue": "전시공간 (홍익로5길)",
+    "city": "서울",
+    "lat": 37.553,
+    "lon": 126.9225,
+    "genre": "회화",
+    "startDate": "2026-11-18",
+    "endDate": "2026-12-08",
+    "price": null,
+    "description": "고층 건물의 공허함과 집이라는 일상 공간에서 놓치기 쉬운 감정을 작가만의 시각 언어로 다룹니다. 상상 속 욕망의 공간에서 실제 장소로 시선을 옮긴 전시입니다. 화~토 10~18시.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/901258887_18482458762140574_3722996098976743811_n.jpg",
+    "url": "https://www.artbava.com/exhibits/유혜원-개인전-home-still-home",
+    "address": "서울 마포구 홍익로5길 59",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-ahnjungju-whistle-2026",
+    "title": "안정주 개인전 《정지 비행》",
+    "venue": "휘슬 (Whistle)",
+    "city": "서울",
+    "lat": 37.5378,
+    "lon": 126.9905,
+    "genre": "미디어",
+    "startDate": "2026-11-28",
+    "endDate": "2027-01-16",
+    "price": null,
+    "description": "지질학적 시간, 디지털 이미지, 사회적 기억, 사람이 아닌 존재의 감각이 밤이라는 조건에서 서로 머무는 방식을 탐구합니다. 서둘러 착지하지 않고 미세하게 계속 움직이는 상태를 '정지 비행'이라 부릅니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/914835720_18475643674191352_2810844835525065129_n.jpg",
+    "url": "https://www.artbava.com/exhibits/안정주-개인전-정지-비행",
+    "address": "서울 용산구 회나무로13길 12",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-byeonsanghwan-cheongju-2026",
+    "title": "변상환 개인전 《소문난 잔치집》",
+    "venue": "청주미술창작스튜디오",
+    "city": "청주",
+    "lat": 36.6165,
+    "lon": 127.51,
+    "genre": "조각·설치",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-09",
+    "price": null,
+    "description": "일상 사물로 조각·회화·판화를 가르는 조건(무게, 부피, 표면, 과정)을 연구해 온 작가의 개인전입니다. 조각이면서 회화로, 평면이면서 입체로 읽히는 작업을 보여 줍니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/20261125073356693J7k0Ga.jpg",
+    "url": "https://www.artbava.com/exhibits/변상환-개인전-소문난-잔치집",
+    "address": "충북 청주시 상당구 용암로 55",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kimmyeongdeuk-cheongju-2026",
+    "title": "김명득 개인전 《자기조건화: 오늘을 지우는 사람》",
+    "venue": "청주미술창작스튜디오",
+    "city": "청주",
+    "lat": 36.6165,
+    "lon": 127.51,
+    "genre": "미디어",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-09",
+    "price": null,
+    "description": "세계가 데이터로 번역될 때 생기는 오류와 왜곡을 관객이 참여하는 작업으로 보여 줍니다. 디지털 변환의 어긋남을 기계가 세상을 인식하는 방식을 드러내는 단서로 다룹니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/15_es5iFpN.jpg",
+    "url": "https://www.artbava.com/exhibits/김명득-자기조건화-오늘을-지우는-사람",
+    "address": "충북 청주시 상당구 용암로 55",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-choisuryeon-wwnn-2026",
+    "title": "최수련 개인전 《개자원 무덤》 (WWNN)",
+    "venue": "WWNN",
+    "city": "서울",
+    "lat": 37.5815,
+    "lon": 126.981,
+    "genre": "회화",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-09",
+    "price": null,
+    "description": "갤러리 조선에서 열린 같은 제목의 전시에 이어 WWNN에서 펼쳐지는 최수련 개인전입니다. 옛 화보 『개자원화전』을 실마리로 삼습니다.",
+    "url": "https://www.artbava.com/exhibits/최수련-개인전-개자원-무덤-wwnn",
+    "address": "서울 종로구 삼청로5길 20",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-choixooang-spaceso-2026",
+    "title": "최수앙 개인전 《여름, 가위, 숨구멍》",
+    "venue": "스페이스소 (Space So)",
+    "city": "서울",
+    "lat": 37.5925,
+    "lon": 126.966,
+    "genre": "조각·설치",
+    "startDate": "2026-11-20",
+    "endDate": "2026-12-19",
+    "price": null,
+    "description": "조각가 최수앙의 개인전입니다. 화~토 11~19시에 열고 일·월은 쉽니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/14_33nnXX6.jpg",
+    "url": "https://www.artbava.com/exhibits/최수앙-개인전-여름-가위-숨구멍",
+    "address": "서울 종로구 자하문로 242",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-scheherazade-gongwon-2026",
+    "title": "서현석 《셰에라자드의 섬망 Scheherazade in Delirium》",
+    "venue": "아트스페이스 공-원",
+    "city": "서울",
+    "lat": 37.5625,
+    "lon": 126.964,
+    "genre": "미디어",
+    "startDate": "2026-11-19",
+    "endDate": "2026-11-29",
+    "price": null,
+    "description": "낮에는 희미하게 비치고 밤에는 온전히 상영되는 영상 작업 〈밤의 가스파르〉가 중심입니다. 오후 5시 밤 상영은 미리 신청해야 합니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/14_copy_yCS7Dix.jpg",
+    "url": "https://www.artbava.com/exhibits/셰에라자드의-섬망-scheherazade-in-delirium",
+    "address": "서울 서대문구 경기대로7길 54",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-gajok-afroasia-2026",
+    "title": "《가족이라 부르리》 류성실 · 미르완 안단×안드리 리안샤 · 박민영 · 박론디 · 박인순 · 안상범 · 안효성 · 이선민 · 임흥순 · 정연두 · 최원준",
+    "venue": "스페이스 아프로아시아 (동두천 캠프 케이시 주변 4곳)",
+    "city": "동두천",
+    "lat": 37.9195,
+    "lon": 127.059,
+    "genre": "기타",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "price": null,
+    "description": "혈연과 혼인을 넘어 공동체, 연대, 사람이 아닌 존재와의 관계로 넓어지는 '가족'을 다룹니다. 미군과 이주노동자, 주민이 함께 사는 동두천의 옛 클럽, 피자 가게, 과일 가게 등에 작품을 놓았습니다. 화·수 휴관.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/1_gXjljWA.jpg",
+    "url": "https://www.artbava.com/exhibits/가족이라-부르리",
+    "address": "경기 동두천시 중앙로353번길 7",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-new-wave-hikerground-2026",
+    "title": "《NEW WAVE》 신진작가 10인 특별전 (1부) 김형수 · 신종민 · 음하영 · 장수익 · 최하나",
+    "venue": "하이커 그라운드 4층 로컬그라운드",
+    "city": "서울",
+    "lat": 37.5691,
+    "lon": 126.9803,
+    "genre": "기타",
+    "startDate": "2026-11-27",
+    "endDate": "2027-01-20",
+    "price": null,
+    "description": "한국화랑협회와 한국관광공사가 함께 여는 신진작가 전시로, 젊은 작가 10명을 두 번에 나눠 보여 줍니다. 1부에서는 디지털 회화와 애니메이션, 전선으로 그린 평면, 게임 그래픽에서 출발한 조각을 볼 수 있습니다. 화~일 10시~20시, 월요일 휴관.",
+    "thumbnail": "https://cdn.artkoreatv.com/news/thumbnail/202611/105861_340046_4014_v150.jpg",
+    "url": "https://www.artkoreatv.com/news/articleView.html?idxno=105861",
+    "address": "서울 중구 청계천로 40",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kimjinsoo-jejugallery-2026",
+    "title": "김진수 개인전 《당신은 그곳에 있었습니다》",
+    "venue": "제주갤러리 (인사아트센터 B1)",
+    "city": "서울",
+    "lat": 37.574,
+    "lon": 126.9853,
+    "genre": "회화",
+    "startDate": "2026-11-25",
+    "endDate": "2026-12-14",
+    "price": null,
+    "description": "2026 제주갤러리 공모에 뽑힌 김진수 작가의 개인전입니다. 한지와 석채 같은 전통 재료에 디지털 이미지 처리를 더해, 사람이 머물다 간 자연 풍경 속의 기억과 부재를 그립니다.",
+    "thumbnail": "https://cdn.artkoreatv.com/news/thumbnail/202611/105765_339526_418_v150.jpg",
+    "url": "https://www.artkoreatv.com/news/articleView.html?idxno=105765",
+    "address": "서울 종로구 인사동길 41-1",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]
