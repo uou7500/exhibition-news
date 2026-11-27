@@ -5,8 +5,9 @@ import type { Exhibition } from "@/lib/types";
 import { formatDate, statusOf } from "@/lib/status";
 import { SUGGESTIONS, askAssistant, assistantLive, type AssistantReply } from "@/lib/assistant";
 import Poster from "./Poster";
+import type { PopularityData } from "@/lib/picks";
 
-type Msg = { id: number; from: "me" | "ai"; text: string; ids?: string[]; total?: number };
+type Msg = { id: number; from: "me" | "ai"; text: string; ids?: string[]; total?: number; notes?: Record<string, string> };
 
 const HELLO: Msg = {
   id: 0,
@@ -23,6 +24,7 @@ export default function Assistant({
   minimized = false,
   selectedId = null,
   exhibitions,
+  popularity,
   onClose,
   onRestore,
   onOpenExhibition,
@@ -32,6 +34,8 @@ export default function Assistant({
   /** 지금 상세 창에 열린 전시 (카드에 표시) */
   selectedId?: string | null;
   exhibitions: Exhibition[];
+  /** 인기(최근 블로그 언급 수) — 시작 화면 '대중을 위한' 탭과 같은 자료 */
+  popularity?: PopularityData;
   onClose: () => void;
   onRestore: () => void;
   onOpenExhibition: (id: string) => void;
@@ -78,11 +82,11 @@ export default function Assistant({
     setBusy(true);
     let reply: AssistantReply;
     try {
-      reply = await askAssistant(question, exhibitions);
+      reply = await askAssistant(question, exhibitions, popularity);
     } catch {
       reply = { text: "지금은 답을 가져오지 못했어요. 잠시 후 다시 물어봐 주세요.", ids: [], total: 0 };
     }
-    setMsgs((m) => [...m, { id: seq.current++, from: "ai", text: reply.text, ids: reply.ids, total: reply.total }]);
+    setMsgs((m) => [...m, { id: seq.current++, from: "ai", text: reply.text, ids: reply.ids, total: reply.total, notes: reply.notes }]);
     setBusy(false);
   };
 
@@ -144,6 +148,7 @@ export default function Assistant({
                               {formatDate(x.startDate)} – {formatDate(x.endDate)}
                               {x.price === 0 && <span className="ai-free"> · 무료</span>}
                             </small>
+                            {m.notes?.[id] && <small className="ai-note">{m.notes[id]}</small>}
                           </span>
                           {id === selectedId ? <span className="ai-now">보는 중</span> : <span className="ai-go" aria-hidden="true">›</span>}
                         </button>

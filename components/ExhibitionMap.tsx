@@ -600,6 +600,7 @@ export default function ExhibitionMap({
         minimized={askMode === "min" && !desktop}
         selectedId={selectedId}
         exhibitions={allExhibitions}
+        popularity={popularity}
         onClose={closeAsk}
         onRestore={() => setAskMode("open")}
         onOpenExhibition={(id) => {
