@@ -17,6 +17,7 @@ import { useBookmarks } from "@/lib/bookmarks";
 import { Guestbook, GuestbookLink, VoteSummary } from "./Reviews";
 import { fetchVoteCounts, type VoteCount } from "@/lib/reviews";
 import SubmitForm from "./SubmitForm";
+import Assistant, { AssistantButton } from "./Assistant";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
 import { POI_LABELS, type PoiCode } from "./map/types";
@@ -26,6 +27,8 @@ const POI_CODES: PoiCode[] = ["CS2", "CE7", "SW8"];
 type StatusFilter = "all" | "on" | "upcoming";
 
 const DESKTOP = 900;
+/** 내려간 대화창 띠의 높이(px). globals.css의 --ai-peek과 같게 */
+const AI_PEEK = 64;
 const KAKAO_KEY = KAKAO_MAP_KEY;
 
 /** 카카오맵 길찾기 주소. 출발지를 알면 출발지까지 넣는다. */
@@ -50,6 +53,25 @@ function naverAppUrl(x: Exhibition): string {
   });
   return `nmap://route/public?${q.toString()}`;
 }
+
+/** 두 전시 목록이 화면에 보이는 내용까지 같은지 (최신 자료를 받았을 때 다시 그릴지 정하는 데 쓴다) */
+function sameExhibitions(a: Exhibition[], b: Exhibition[]): boolean {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) {
+    const x = a[i];
+    const y = b[i];
+    if (
+      x.id !== y.id || x.title !== y.title || x.venue !== y.venue || x.startDate !== y.startDate || x.endDate !== y.endDate ||
+      x.lat !== y.lat || x.lon !== y.lon || x.price !== y.price || x.thumbnail !== y.thumbnail || x.url !== y.url ||
+      x.description !== y.description || x.address !== y.address || x.genre !== y.genre
+    )
+      return false;
+  }
+  return true;
+}
+
+/** 목록은 처음에 이만큼만 그리고, 아래로 내리면 더 붙인다 (전시 400여 개를 한꺼번에 그리면 앱이 처음 몇 초 멈춘다) */
+const LIST_PAGE = 30;
 
 function isMobile(): boolean {
   return typeof navigator !== "undefined" && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent + (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.userAgent) ? " iPad" : ""));
@@ -102,8 +124,9 @@ export default function ExhibitionMap({
     let alive = true;
     loadLatest().then((d) => {
       if (!alive) return;
-      if (d.exhibitions) setExhibitions(d.exhibitions);
-      if (d.popularity) setPopularity(d.popularity);
+      // 배포 때 묶인 자료와 같으면 바꾸지 않는다 → 목록·지도 핀·포스터를 처음부터 다시 그리는 일(시작 직후 버벅임)을 피한다
+      if (d.exhibitions) setExhibitions((prev) => (sameExhibitions(prev, d.exhibitions!) ? prev : d.exhibitions!));
+      if (d.popularity) setPopularity((prev) => (prev.updatedAt === d.popularity!.updatedAt ? prev : d.popularity!));
     });
     fetchApproved()
       .then((a) => alive && setApproved(a))
@@ -132,6 +155,12 @@ export default function ExhibitionMap({
   const { saved, toggle: toggleSaved } = useBookmarks();
   const [savedOnly, setSavedOnly] = useState(false);
   const [showSubmit, setShowSubmit] = useState(false);
+  // 전시 도우미 대화창. 휴대폰에서 전시 카드를 누르면 "min"(아래로 내려가 띠만 남음)
+  const [askMode, setAskMode] = useState<"closed" | "open" | "min">("closed");
+  const askOpen = askMode !== "closed";
+  const closeAsk = useCallback(() => setAskMode("closed"), []);
+  // 전시 도우미가 짠 동선 (지도에 번호·점선으로 표시)
+  const [routeReq, setRouteReq] = useState<{ ids: string[]; seq: number } | null>(null);
   const [query, setQuery] = useState("");
   // null = 아무것도 고르지 않음 (전체와 같은 결과)
   const [status, setStatus] = useState<StatusFilter | null>(null);
@@ -170,6 +199,11 @@ export default function ExhibitionMap({
   const [locError, setLocError] = useState<string | null>(null);
 
   const selected = allExhibitions.find((x) => x.id === selectedId) ?? null;
+  const route = useMemo(() => {
+    if (!routeReq) return null;
+    const stops = routeReq.ids.map((id) => allExhibitions.find((x) => x.id === id)).filter((x): x is Exhibition => !!x);
+    return stops.length > 1 ? { stops, seq: routeReq.seq } : null;
+  }, [routeReq, allExhibitions]);
 
   const baseFiltered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -195,10 +229,19 @@ export default function ExhibitionMap({
   }, [allExhibitions, myLoc]);
 
   const inRadius = !!(myLoc && radius);
-  const filtered = useMemo(
+  const filteredRaw = useMemo(
     () => (myLoc && radius ? baseFiltered.filter((x) => (dist.get(x.id) ?? Infinity) <= radius) : baseFiltered),
     [baseFiltered, myLoc, radius, dist],
   );
+  // 내용이 같으면 예전 배열을 그대로 쓴다: 관심 전시 불러오기·승인 전시 받기처럼 결과가 안 바뀌는 갱신에
+  // 지도 핀 400여 개를 다시 만드는 일(시작 직후 버벅임)을 막는다
+  const filteredPrev = useRef<Exhibition[]>([]);
+  const filtered = useMemo(() => {
+    const prev = filteredPrev.current;
+    if (prev.length === filteredRaw.length && prev.every((x, i) => x === filteredRaw[i])) return prev;
+    filteredPrev.current = filteredRaw;
+    return filteredRaw;
+  }, [filteredRaw]);
 
   // 목록: 조건(카테고리·검색·무료 등)에 맞는 전시 전체. 반경을 고르면 그 안으로 좁힌다.
   // 내 위치를 알면 가까운 순, 모르면 마감이 가까운 순.
@@ -207,6 +250,22 @@ export default function ExhibitionMap({
     if (myLoc) return arr.sort((a, b) => (dist.get(a.id) ?? 0) - (dist.get(b.id) ?? 0));
     return arr.sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate));
   }, [filtered, myLoc, dist]);
+  // 목록을 나눠 그리기: 조건이 바뀌면 처음 30개부터, 아래 끝이 보이면 30개씩 더
+  const [listLimit, setListLimit] = useState(LIST_PAGE);
+  const moreRef = useRef<HTMLDivElement>(null);
+  useEffect(() => setListLimit(LIST_PAGE), [query, status, genres, freeOnly, futureOnly, savedOnly, radius, myLoc]);
+  useEffect(() => {
+    const el = moreRef.current;
+    if (!el || listLimit >= visible.length) return;
+    const io = new IntersectionObserver(
+      (es) => {
+        if (es.some((e) => e.isIntersecting)) setListLimit((n) => n + LIST_PAGE);
+      },
+      { root: el.parentElement, rootMargin: "400px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [listLimit, visible.length]);
   const hasFilter = !!query.trim() || (status !== null && status !== "all") || genres.size > 0 || freeOnly || futureOnly || savedOnly;
 
   // ----- 내 위치 -----
@@ -369,6 +428,13 @@ export default function ExhibitionMap({
     };
   }, [desktop, hasSelection]);
 
+  // 휴대폰 → 컴퓨터 크기로 바뀌면 내려가 있던 대화창을 다시 편다
+  useEffect(() => {
+    if (desktop) setAskMode((m) => (m === "min" ? "open" : m));
+  }, [desktop]);
+  // 대화창 띠가 남아 있으면 그만큼 목록·상세·버튼을 올린다 (휴대폰)
+  const peek = askMode === "min" && !desktop ? AI_PEEK : 0;
+
   const select = useCallback((id: string) => {
     setSelectedId(id);
     setListOpen(false);
@@ -410,10 +476,11 @@ export default function ExhibitionMap({
     onMapDrag,
     spaces: shownSpaces,
     votes: upVotes,
+    route,
   };
 
   return (
-    <div className="app">
+    <div className={"app" + (peek ? " ai-peek" : "") + (selected && desktop ? " detail-open" : "")}>
       {KAKAO_KEY ? <KakaoMapView appKey={KAKAO_KEY} {...mapProps} /> : <SvgMapView {...mapProps} />}
 
       <div className="top">
@@ -487,7 +554,7 @@ export default function ExhibitionMap({
       <button
         type="button"
         className={"locate" + (myLoc ? " on" : "") + (locating ? " busy" : "")}
-        style={!desktop && sheetH ? { bottom: sheetH + 14 } : undefined}
+        style={!desktop && sheetH ? { bottom: sheetH + 14 + peek } : undefined}
         aria-label="내 위치로 이동"
         onClick={() => locate()}
       >
@@ -498,6 +565,22 @@ export default function ExhibitionMap({
         </svg>
       </button>
       {locError && <div className="map-msg" role="alert">{locError}</div>}
+      {route && (
+        <div className="route-banner" role="status">
+          <span className="route-banner-dot" aria-hidden="true" />
+          동선 {route.stops.length}곳을 지도에 그렸어요
+          <button type="button" onClick={() => setRouteReq(null)} aria-label="동선 지우기">지우기</button>
+        </div>
+      )}
+      {!askOpen && (
+        <AssistantButton
+          style={!desktop && sheetH ? { bottom: sheetH + 14 } : undefined}
+          onClick={() => {
+            setListOpen(false);
+            setAskMode("open");
+          }}
+        />
+      )}
 
       {showWelcome && (
         <Welcome
@@ -548,7 +631,7 @@ export default function ExhibitionMap({
               )}
             </div>
           ) : (
-            visible.map((x) => {
+            visible.slice(0, listLimit).map((x) => {
               const st = statusOf(x);
               return (
                 <button key={x.id} className={"item" + (x.id === selectedId ? " sel" : "")} onClick={() => openFromList(x.id)}>
@@ -570,6 +653,7 @@ export default function ExhibitionMap({
               );
             })
           )}
+          {listLimit < visible.length && <div ref={moreRef} className="list-more" aria-hidden="true" />}
           <button type="button" className="submit-link" onClick={() => setShowSubmit(true)}>
             찾는 전시가 없나요? <b>전시 등록 요청하기</b>
           </button>
@@ -593,6 +677,27 @@ export default function ExhibitionMap({
           />
         )}
       </aside>
+      <Assistant
+        open={askOpen}
+        minimized={askMode === "min" && !desktop}
+        selectedId={selectedId}
+        routeIds={routeReq?.ids ?? null}
+        onShowRoute={(ids) => {
+          setSelectedId(null);
+          setListOpen(false);
+          if (!desktop) setAskMode("min");
+          setRouteReq((r) => ({ ids, seq: (r?.seq ?? 0) + 1 }));
+        }}
+        exhibitions={allExhibitions}
+        popularity={popularity}
+        onClose={closeAsk}
+        onRestore={() => setAskMode("open")}
+        onOpenExhibition={(id) => {
+          // 대화창은 닫지 않는다: 휴대폰은 아래로 내려 띠만 남기고, 컴퓨터는 상세 창 왼쪽으로 비켜 선다
+          if (!desktop) setAskMode("min");
+          openFromList(id);
+        }}
+      />
       {showSubmit && <SubmitForm onClose={() => setShowSubmit(false)} />}
     </div>
   );

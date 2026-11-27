@@ -10,7 +10,7 @@ import type { MapViewProps } from "./types";
 
 interface View { s: number; tx: number; ty: number }
 
-export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq, onMapDrag, votes }: MapViewProps) {
+export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq, onMapDrag, route, votes }: MapViewProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [view, setView] = useState<View>({ s: 1, tx: 0, ty: 0 });
@@ -176,6 +176,32 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locateSeq, radius]);
 
+  // 전시 도우미 동선에 지도 맞추기
+  useEffect(() => {
+    if (!route || route.stops.length < 2) return;
+    const { w, h } = sizeRef.current;
+    const pts = route.stops.map((x) => project(x.lat, x.lon));
+    const xs = pts.map((p) => p[0]);
+    const ys = pts.map((p) => p[1]);
+    const L = desktop ? 420 : 40;
+    const R = desktop ? 440 : 40;
+    const T = desktop ? 80 : 190;
+    const B = desktop ? 60 : 290;
+    const bw = Math.max(0.02, Math.max(...xs) - Math.min(...xs));
+    const bh = Math.max(0.02, Math.max(...ys) - Math.min(...ys));
+    const s = Math.max(0.5, Math.min(400, (w - L - R) / bw, (h - T - B) / bh));
+    const cx = L + (w - L - R) / 2;
+    const cy = T + (h - T - B) / 2;
+    const mx = (Math.max(...xs) + Math.min(...xs)) / 2;
+    const my = (Math.max(...ys) + Math.min(...ys)) / 2;
+    setView({ s, tx: cx - mx * s, ty: cy - my * s });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [route?.seq]);
+
+  // 동선을 그리는 동안: 동선 전시는 크게, 나머지는 작고 흐리게
+  const routeOrder = useMemo(() => (route && route.stops.length > 1 ? route.stops.map((x) => x.id) : []), [route]);
+  const onRoute = useMemo(() => new Set(routeOrder), [routeOrder]);
+
   const groups = useMemo(() => {
     const pts = items.map((x) => ({ x, p: toScreen(x) }));
     const radius = view.s > 14 ? 0 : 34;
@@ -209,6 +235,17 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
           <path d={LAND_PATH} fill="var(--land)" stroke="var(--coast)" strokeWidth={1.2} strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
           <ellipse {...JEJU} fill="var(--land)" stroke="var(--coast)" strokeWidth={1.2} vectorEffect="non-scaling-stroke" />
           <path d={DMZ_PATH} fill="none" stroke="var(--coast)" strokeWidth={1.2} strokeDasharray="4 4" vectorEffect="non-scaling-stroke" />
+          {route && route.stops.length > 1 && (
+            <polyline
+              points={route.stops.map((x) => project(x.lat, x.lon).join(",")).join(" ")}
+              fill="none"
+              stroke="#7b2ff7"
+              strokeWidth={4}
+              strokeDasharray="6 6"
+              strokeLinecap="round"
+              vectorEffect="non-scaling-stroke"
+            />
+          )}
           {myLoc && radius && (() => {
             const [mx, my] = project(myLoc.lat, myLoc.lon);
             return <circle cx={mx} cy={my} r={(radius / 111_320) * 125} fill="var(--accent)" fillOpacity={0.07} stroke="var(--accent)" strokeWidth={2} vectorEffect="non-scaling-stroke" />;
@@ -234,12 +271,12 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
           if (g.length === 1) {
             const { x, p } = g[0];
             const st = statusOf(x).kind;
-            const cls = ["mk", x.price === 0 ? "free" : "", st === "upcoming" ? "soon" : "", x.id === selectedId ? "sel" : ""].join(" ");
+            const cls = ["mk", x.price === 0 ? "free" : "", st === "upcoming" ? "soon" : "", x.id === selectedId ? "sel" : "", onRoute.has(x.id) ? "on-route" : onRoute.size ? "dim" : ""].join(" ");
             return (
               <button key={x.id} className={cls} style={{ left: p[0], top: p[1] }} aria-label={votes[x.id] ? `${x.title}, ${x.venue}, 추천 ${votes[x.id]}` : `${x.title}, ${x.venue}`} onClick={() => onSelect(x.id)}>
-                <span className="pin"><i /></span>
+                <span className="pin"><i>{onRoute.has(x.id) ? routeOrder.indexOf(x.id) + 1 : null}</i></span>
                 {!!votes[x.id] && <span className="vb" aria-hidden="true">👍{votes[x.id]}</span>}
-                {(view.s > 5 || x.id === selectedId) && <span className="lab">{x.title}</span>}
+                {(onRoute.size ? onRoute.has(x.id) : view.s > 5 || x.id === selectedId) && <span className="lab">{x.title}</span>}
               </button>
             );
           }
@@ -253,6 +290,29 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
           );
         })}
       </div>
+
+      {route && route.stops.length > 1 && (
+        <div className="overlay">
+          {route.stops.map((x, i) => {
+            // 핀이 보이는 전시는 핀 안에 번호가 있다 → 핀이 없는 전시만 번호를 따로 띄운다
+            if (items.some((it) => it.id === x.id)) return null;
+            const [px, py] = project(x.lat, x.lon);
+            const same = route.stops.slice(0, i).filter((p) => Math.abs(p.lat - x.lat) < 1e-4 && Math.abs(p.lon - x.lon) < 1e-4).length;
+            return (
+              <button
+                key={x.id}
+                type="button"
+                className="route-num svg"
+                style={{ left: view.tx + px * view.s + same * 28, top: view.ty + py * view.s - 44 }}
+                aria-label={`${i + 1}번째: ${x.title}`}
+                onClick={() => onSelect(x.id)}
+              >
+                {i + 1}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       <div className={"zoom" + (detailOpen && desktop ? " shifted" : "")}>
         <button type="button" aria-label="확대" onClick={() => zoomAt(...center(), 1.8)}>+</button>

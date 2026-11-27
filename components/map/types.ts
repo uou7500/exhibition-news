@@ -32,6 +32,8 @@ export interface MapViewProps {
   onMapDrag: () => void;
   /** 지도에 보일 독립공간 (카카오맵만 지원) */
   spaces: Space[];
+  /** 전시 도우미가 짠 동선: 순서대로 번호를 붙이고 선으로 잇는다. seq가 바뀌면 지도를 동선에 맞춘다 */
+  route?: { stops: Exhibition[]; seq: number } | null;
   /** 전시별 추천(👍) 수. 0이면 표시하지 않음 */
   votes: Record<string, number>;
 }

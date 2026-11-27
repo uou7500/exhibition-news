@@ -78,7 +78,7 @@ function pinElement(x: Exhibition, up: number, onClick: () => void): HTMLButtonE
   return el;
 }
 
-export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces, votes }: MapViewProps & { appKey: string }) {
+export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces, route, votes }: MapViewProps & { appKey: string }) {
   const boxRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const clustererRef = useRef<any>(null);
@@ -163,10 +163,23 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
     const pins = pinsRef.current;
     clusterer.clear();
     pins.clear();
+    // 직접 넣은 전시는 주소로 다시 찾은 좌표를 이 기기에 저장해 둔다 → 저장된 좌표가 있으면 처음부터 그 자리에 만든다
+    const cachedPos = (x: Exhibition): [number, number] | null => {
+      if (x.source !== "manual" || !x.address) return null;
+      try {
+        const hit = localStorage.getItem(`addr-geo:${x.address}`);
+        if (!hit) return null;
+        const [lat, lon] = hit.split(",").map(Number);
+        return lat && lon ? [lat, lon] : null;
+      } catch {
+        return null;
+      }
+    };
     const overlays = items.map((x) => {
       const el = pinElement(x, votesRef.current[x.id] ?? 0, () => latest.current.onSelect(x.id));
+      const pos = cachedPos(x) ?? [x.lat, x.lon];
       const overlay = new kakao.maps.CustomOverlay({
-        position: new kakao.maps.LatLng(x.lat, x.lon),
+        position: new kakao.maps.LatLng(pos[0], pos[1]),
         content: el,
         xAnchor: 0.5,
         yAnchor: 1,
@@ -178,27 +191,26 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
     });
     clusterer.addMarkers(overlays);
 
-    // 직접 넣은 전시는 좌표가 캠퍼스 단위 근사값일 수 있어, 주소로 정확한 위치를 다시 찾는다
+    // 직접 넣은 전시는 좌표가 캠퍼스 단위 근사값일 수 있어, 주소로 정확한 위치를 다시 찾는다 (저장된 좌표가 없는 것만).
+    // 핀을 옮길 때마다 묶음을 다시 계산하면 앱이 멈추므로, 묶음 다시 계산은 잠깐 모았다가 한 번만 한다.
     const geocoder = new kakao.maps.services.Geocoder();
+    let redrawTimer: ReturnType<typeof setTimeout> | null = null;
+    const redrawSoon = () => {
+      if (redrawTimer) return;
+      redrawTimer = setTimeout(() => {
+        redrawTimer = null;
+        clusterer.redraw();
+      }, 250);
+    };
     for (const x of items) {
-      if (x.source !== "manual" || !x.address) continue;
+      if (x.source !== "manual" || !x.address || cachedPos(x)) continue;
       const pin = pins.get(x.id);
       if (!pin) continue;
       const key = `addr-geo:${x.address}`;
       const move = (lat: number, lon: number) => {
         pin.overlay.setPosition(new kakao.maps.LatLng(lat, lon));
-        clusterer.redraw();
+        redrawSoon();
       };
-      try {
-        const hit = localStorage.getItem(key);
-        if (hit) {
-          const [lat, lon] = hit.split(",").map(Number);
-          if (lat && lon) {
-            move(lat, lon);
-            continue;
-          }
-        }
-      } catch {}
       geocoder.addressSearch(x.address, (res: any[], status: string) => {
         if (status !== kakao.maps.services.Status.OK || !res[0]) return;
         const lat = Number(res[0].y);
@@ -436,6 +448,77 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       overlays.forEach((o) => o.setMap(null));
     };
   }, [ready, spaces]);
+
+  // ----- 전시 도우미 동선: 번호 + 점선 -----
+  useEffect(() => {
+    if (!ready || !route || route.stops.length < 2) return;
+    const kakao = window.kakao;
+    const map = mapRef.current;
+    // 직접 넣은 전시는 핀과 같은 자리(주소로 다시 찾은 좌표)를 쓴다
+    const pos = route.stops.map((x) => {
+      if (x.source === "manual" && x.address) {
+        try {
+          const hit = localStorage.getItem(`addr-geo:${x.address}`);
+          if (hit) {
+            const [lat, lon] = hit.split(",").map(Number);
+            if (lat && lon) return new kakao.maps.LatLng(lat, lon);
+          }
+        } catch {}
+      }
+      return new kakao.maps.LatLng(x.lat, x.lon);
+    });
+    const line = new kakao.maps.Polyline({
+      path: pos,
+      strokeWeight: 4,
+      strokeColor: "#7b2ff7",
+      strokeOpacity: 0.85,
+      strokeStyle: "shortdash",
+    });
+    line.setMap(map);
+    // 핀이 있는 전시는 핀 안에 번호를 넣고(아래 효과), 핀이 없는 전시(필터로 숨은 전시)만 따로 번호를 띄운다
+    const nums = route.stops.flatMap((x, i) => {
+      if (pinsRef.current.has(x.id)) return [];
+      const el = document.createElement("button");
+      el.type = "button";
+      el.className = "route-num";
+      el.textContent = String(i + 1);
+      el.setAttribute("aria-label", `${i + 1}번째: ${x.title}`);
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        latest.current.onSelect(x.id);
+      });
+      // 같은 건물에 두 곳이면 번호가 겹치지 않게 살짝 옆으로
+      const same = route.stops.slice(0, i).filter((p) => Math.abs(p.lat - x.lat) < 1e-4 && Math.abs(p.lon - x.lon) < 1e-4).length;
+      const o = new kakao.maps.CustomOverlay({ position: pos[i], content: el, xAnchor: 0.5 - same * 1.1, yAnchor: 2.1, clickable: true, zIndex: 15 });
+      o.setMap(map);
+      return [o];
+    });
+    const bounds = new kakao.maps.LatLngBounds();
+    pos.forEach((p: any) => bounds.extend(p));
+    const isDesk = latest.current.desktop;
+    // 위: 검색·필터, 아래: 목록 시트 + 대화창 띠(모바일), 왼쪽: 목록 패널, 오른쪽: 대화창(데스크톱)
+    map.setBounds(bounds, isDesk ? 80 : 190, isDesk ? 440 : 50, isDesk ? 60 : 290, isDesk ? 420 : 50);
+    return () => {
+      line.setMap(null);
+      nums.forEach((o) => o.setMap(null));
+    };
+  }, [ready, route?.seq]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // 동선을 그리는 동안: 동선 전시는 크게(보라 핀·이름표), 나머지 핀·독립공간은 작고 흐리게
+  const routeKey = route && route.stops.length > 1 ? route.stops.map((x) => x.id).join("|") : "";
+  useEffect(() => {
+    if (!ready) return;
+    const order = routeKey ? routeKey.split("|") : [];
+    const on = new Set(order);
+    boxRef.current?.classList.toggle("routing", on.size > 0);
+    pinsRef.current.forEach(({ overlay, el }, id) => {
+      const r = on.has(id);
+      el.classList.toggle("on-route", r);
+      const dot = el.querySelector(".pin i");
+      if (dot) dot.textContent = r ? String(order.indexOf(id) + 1) : "";
+      overlay.setZIndex(id === selectedId ? 10 : !on.size ? 3 : r ? 9 : 1);
+    });
+  }, [ready, routeKey, items, selectedId]);
 
   // ----- 확대·축소 버튼 -----
   const zoomBy = (d: number) => {
