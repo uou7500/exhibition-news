@@ -1320,7 +1320,7 @@
     "lat": 37.5928,
     "lon": 126.9985,
     "genre": "기타",
-    "startDate": "2026-11-25",
+    "startDate": "2026-11-24",
     "endDate": "2026-12-06",
     "price": null,
     "description": "성북동 옛 한옥을 쓰는 작가 공간 유영공간에서 열리는 조수연 작가의 전시입니다. 월·화요일은 문을 닫습니다.",
@@ -2655,6 +2655,146 @@
     "thumbnail": "https://cdn.artbava.com/media/xlarge/img/900852752_18120035366013973_1232510837266834934_n.webp",
     "url": "https://www.artbava.com/exhibits/family-business",
     "address": "서울 용산구 이태원로55길 37-10",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-park-cheonwook-coso-2026",
+    "title": "박천욱 개인전 《모두의 정면 Facing Everyone》",
+    "venue": "코소 (COSO)",
+    "city": "서울",
+    "lat": 37.5664,
+    "lon": 126.9978,
+    "genre": "조각·설치",
+    "startDate": "2026-11-26",
+    "endDate": "2026-12-02",
+    "price": null,
+    "description": "나무 원기둥과 각기둥을 여러 각도로 잘라 그 단면을 펼쳐 놓은 조각 전시입니다. 보는 사람이 어디에 서고 어떻게 움직이느냐에 따라 조각의 '정면'이 달라진다는 생각을 보여 줍니다. 13~19시 운영.",
+    "thumbnail": "https://cdn.imweb.me/thumbnail/20261126/1f7affd649b0f.jpg",
+    "url": "https://cosocoso.kr/exhibition/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=175985066&t=board",
+    "address": "서울 중구 창경궁로5길 32",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-thesedays-from-sakhalin-2026",
+    "title": "《프롬 사할린 From Sakhalin》 김누리 · 송지형 · 신미정",
+    "venue": "요즘미술",
+    "city": "서울",
+    "lat": 37.5862,
+    "lon": 126.9996,
+    "genre": "기타",
+    "startDate": "2026-12-04",
+    "endDate": "2026-12-23",
+    "price": null,
+    "description": "1939~1945년 사할린으로 강제 동원된 뒤 돌아오지 못한 조선인들의 역사와 귀환의 기억을 현대미술로 다루는 3인전입니다. 12월 12일과 19일 오후 2시에 연계 강연이 열립니다.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/14_vIgcioz.jpg",
+    "url": "https://www.artbava.com/exhibits/프롬-사할린",
+    "address": "서울 종로구 혜화로9길 7",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-salon5120-salting-2026",
+    "title": "《염하기(2026)》 김한솔 · 남민오 · 류정하 · 배윤재 · 신승엽",
+    "venue": "문화살롱5120",
+    "city": "서울",
+    "lat": 37.6238,
+    "lon": 127.0748,
+    "genre": "기타",
+    "startDate": "2026-12-02",
+    "endDate": "2026-12-14",
+    "price": null,
+    "description": "소금에 절이는 일을 보존이면서 떠나보내기인 과정으로 보고, 해마다 되풀이하며 바뀌어 가는 아카이브를 여는 5인전입니다. 동대문구 '양자'(사가정로2길 135 지하1층)와 두 곳에서 함께 열립니다. 일·월·공휴일 휴관.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/14_copy_DBoX4I2.jpg",
+    "url": "https://www.artbava.com/exhibits/염하기2026",
+    "address": "서울 노원구 공릉로51길 20",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-osisun-hamburger-2026",
+    "title": "《햄버거 먹는 사람 먹는 햄버거》 밈모 · 신하라 · 안태원 · 정성진",
+    "venue": "오시선 (OSISUN)",
+    "city": "서울",
+    "lat": 37.5398,
+    "lon": 127.0565,
+    "genre": "조각·설치",
+    "startDate": "2026-11-15",
+    "endDate": "2026-12-12",
+    "price": null,
+    "description": "햄버거의 겹 구조를 빌려 네 작가의 작품을 옥상까지 건물 네 층에 쌓아 하나의 햄버거처럼 꾸린 그룹전입니다. 소비와 문화 권력을 비판하면서도 여전히 그것을 원하는 모순을 드러냅니다. 화요일 휴관.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/1_copy_9cZXWia.jpg",
+    "url": "https://www.artbava.com/exhibits/햄버거-먹는-사람-먹는-햄버거",
+    "address": "서울 성동구 성덕정길 112",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-kiche-leesihyun-2026",
+    "title": "이시현 개인전 《MICR(0)CLIMATE 미기후》",
+    "venue": "갤러리기체 (Gallery Kiche)",
+    "city": "서울",
+    "lat": 37.5893,
+    "lon": 127.0003,
+    "genre": "회화",
+    "startDate": "2026-11-19",
+    "endDate": "2026-12-17",
+    "price": null,
+    "description": "좁은 곳에서만 생기는 기후인 '미기후'를 빌려, 면과 면 사이·겹친 선·흐려진 흔적을 기억과 선택의 자국으로 그린 회화 개인전입니다. 일·월 휴관.",
+    "thumbnail": "https://cdn.artbava.com/media/xlarge/img/902058505_18654308125005046_3210523796046068041_n.webp",
+    "url": "https://www.artbava.com/exhibits/이시현-micr0climate-미기후",
+    "address": "서울 성북구 창경궁로43길 27",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-seoularts-vcd-save-as-2026",
+    "title": "제51회 서울예술대학교 시각디자인전공 졸업전시회 《다른 이름으로 저장하기》",
+    "venue": "서울예술대학교 남산캠퍼스 심재순관 B1F–2F",
+    "city": "서울",
+    "lat": 37.5577,
+    "lon": 126.984,
+    "genre": "디자인",
+    "startDate": "2026-12-01",
+    "endDate": "2026-12-06",
+    "price": null,
+    "description": "서울예술대학교 시각디자인전공 졸업반이 남산캠퍼스 심재순관 지하 1층부터 2층까지 졸업 작품을 보여 주는 제51회 졸업전시입니다. 12월 1일 오후 6시 오프닝, 1~5일 12~20시, 마지막 날은 16시까지.",
+    "thumbnail": "",
+    "url": "https://www.seoularts.ac.kr/web/main/mainPage.do",
+    "address": "서울 중구 소파로 138",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-artplug-yeonsu-occupied-2026",
+    "title": "아트플러그 연수 2026 기획전·오픈스튜디오 《OCCUPIED 9/9》",
+    "venue": "아트플러그 연수",
+    "city": "인천",
+    "lat": 37.4196,
+    "lon": 126.6565,
+    "genre": "기타",
+    "startDate": "2026-12-03",
+    "endDate": "2026-12-11",
+    "price": null,
+    "description": "연수문화재단 레지던시 아트플러그 연수의 입주 작가 9명이 한 해 동안의 작업을 전시실과 미디어룸에서 보여 주는 전시입니다. 12월 4~5일에는 작업실을 열어 스튜디오 투어와 작가와의 대화, 워크숍을 진행합니다. 월요일 휴관.",
+    "thumbnail": "https://cdn.webeconomy.co.kr/news/photo/202611/2394353_1205838_441.jpg",
+    "url": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2394353",
+    "address": "인천 연수구 청량로101번길 33",
     "tags": [
       "실험전시"
     ],
