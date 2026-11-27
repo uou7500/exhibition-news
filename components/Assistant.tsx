@@ -14,16 +14,26 @@ const HELLO: Msg = {
   text: "안녕하세요, 전시 도우미예요. 동네, 날짜, 장르를 말씀해 주시면 앙데팡당 지도에 있는 전시 중에서 찾아 드릴게요.",
 };
 
-/** 전시 도우미 대화창. open=false면 숨기기만 한다 (대화 내용은 앱을 닫기 전까지 남는다). */
+/**
+ * 전시 도우미 대화창. open=false면 숨기기만 한다 (대화 내용은 앱을 닫기 전까지 남는다).
+ * minimized: 휴대폰에서 전시 카드를 눌렀을 때 — 창이 아래로 내려가 윗부분(띠)만 남고, 띠를 누르면 다시 올라온다.
+ */
 export default function Assistant({
   open,
+  minimized = false,
+  selectedId = null,
   exhibitions,
   onClose,
+  onRestore,
   onOpenExhibition,
 }: {
   open: boolean;
+  minimized?: boolean;
+  /** 지금 상세 창에 열린 전시 (카드에 표시) */
+  selectedId?: string | null;
   exhibitions: Exhibition[];
   onClose: () => void;
+  onRestore: () => void;
   onOpenExhibition: (id: string) => void;
 }) {
   const [msgs, setMsgs] = useState<Msg[]>([HELLO]);
@@ -38,11 +48,11 @@ export default function Assistant({
   useEffect(() => {
     const el = scrollRef.current;
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
-  }, [msgs, busy, open]);
+  }, [msgs, busy]);
 
   // Esc로 닫기
   useEffect(() => {
-    if (!open) return;
+    if (!open || minimized) return; // 내려가 있을 땐 Esc가 전시 상세를 닫게 둔다
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Escape") return;
       e.stopImmediatePropagation();
@@ -50,7 +60,7 @@ export default function Assistant({
     };
     window.addEventListener("keydown", onKey, true);
     return () => window.removeEventListener("keydown", onKey, true);
-  }, [open, onClose]);
+  }, [open, minimized, onClose]);
 
   // 입력칸 높이를 글 길이에 맞춘다 (최대 4줄 정도)
   useEffect(() => {
@@ -85,17 +95,24 @@ export default function Assistant({
 
   return (
     <>
-      <div className={"ai-backdrop" + (open ? " show" : "")} onClick={onClose} aria-hidden="true" />
-      <section className={"ai-sheet" + (open ? " show" : "")} role="dialog" aria-modal="true" aria-label="전시 도우미" aria-hidden={!open}>
+      <div className={"ai-backdrop" + (open && !minimized ? " show" : "")} onClick={onClose} aria-hidden="true" />
+      <section
+        className={"ai-sheet" + (open ? " show" : "") + (minimized ? " min" : "")}
+        role="dialog"
+        aria-modal={!minimized}
+        aria-label="전시 도우미"
+        aria-hidden={!open}
+      >
         <header className="ai-head">
-          <div className="ai-title">
+          {minimized && <span className="ai-grab" aria-hidden="true" />}
+          <button type="button" className="ai-title" onClick={minimized ? onRestore : undefined} tabIndex={minimized ? 0 : -1} aria-label={minimized ? "대화창 다시 올리기" : undefined}>
             <span className="ai-avatar" aria-hidden="true">✦</span>
-            <div>
-              <h2>전시 도우미</h2>
-              <p>{assistantLive ? "앙데팡당 전시 목록에서 찾아 드려요" : "미리보기 · 아직 AI가 연결되지 않았어요"}</p>
-            </div>
-          </div>
-          {!onlyHello && (
+            <span className="ai-title-t">
+              <span className="ai-name">전시 도우미</span>
+              <span className="ai-sub">{minimized ? "눌러서 대화 이어 가기 ▴" : assistantLive ? "앙데팡당 전시 목록에서 찾아 드려요" : "미리보기 · 아직 AI가 연결되지 않았어요"}</span>
+            </span>
+          </button>
+          {!onlyHello && !minimized && (
             <button type="button" className="ai-reset" onClick={reset}>
               새 대화
             </button>
@@ -105,7 +122,7 @@ export default function Assistant({
           </button>
         </header>
 
-        <div className="ai-scroll" ref={scrollRef}>
+        <div className="ai-scroll" ref={scrollRef} inert={minimized}>
           {msgs.map((m) => (
             <div key={m.id} className={"ai-msg " + m.from}>
               <p className="ai-bubble">{m.text}</p>
@@ -117,7 +134,7 @@ export default function Assistant({
                     const st = statusOf(x);
                     return (
                       <li key={id}>
-                        <button type="button" className="ai-card" onClick={() => onOpenExhibition(id)}>
+                        <button type="button" className={"ai-card" + (id === selectedId ? " sel" : "")} aria-current={id === selectedId ? "true" : undefined} onClick={() => onOpenExhibition(id)}>
                           <Poster exhibition={x} className="ai-thumb" />
                           <span className="ai-card-t">
                             <b>{x.title}</b>
@@ -128,7 +145,7 @@ export default function Assistant({
                               {x.price === 0 && <span className="ai-free"> · 무료</span>}
                             </small>
                           </span>
-                          <span className="ai-go" aria-hidden="true">›</span>
+                          {id === selectedId ? <span className="ai-now">보는 중</span> : <span className="ai-go" aria-hidden="true">›</span>}
                         </button>
                       </li>
                     );
@@ -158,6 +175,7 @@ export default function Assistant({
         </div>
 
         <form
+          inert={minimized}
           className="ai-compose"
           onSubmit={(e) => {
             e.preventDefault();

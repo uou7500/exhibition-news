@@ -347,9 +347,10 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
   transition:transform .28s ease,visibility 0s linear .28s}
 .ai-sheet.show{transform:none;visibility:visible;transition:transform .28s ease}
 .ai-head{display:flex;align-items:center;gap:8px;padding:14px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px));border-bottom:1px solid var(--line)}
-.ai-title{flex:1;min-width:0;display:flex;align-items:center;gap:10px}
-.ai-title h2{margin:0;font-family:var(--f-display);font-size:18px;line-height:1.2}
-.ai-title p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+.ai-title{flex:1;min-width:0;display:flex;align-items:center;gap:10px;border:0;background:none;padding:0;text-align:left;color:inherit;cursor:default}
+.ai-title-t{display:flex;flex-direction:column;min-width:0}
+.ai-name{font-family:var(--f-display);font-size:18px;font-weight:700;line-height:1.2}
+.ai-sub{margin-top:2px;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ai-avatar{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--brand-bg);color:var(--brand-ink);font-size:16px}
 .ai-reset{flex:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 11px;font-size:12.5px}
 .ai-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:14px;
@@ -374,6 +375,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .ai-card-t small{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
 .ai-free{color:var(--free);font-weight:600}
 .ai-go{font-size:20px;color:var(--muted);line-height:1}
+.ai-card.sel{border-color:var(--accent);background:var(--soft)}
+.ai-now{font-size:11px;font-weight:600;color:var(--accent);white-space:nowrap}
 .ai-suggest{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
 .ai-suggest .chip{box-shadow:none;font-size:13.5px;padding:8px 13px}
 .ai-compose{border-top:1px solid var(--line);padding:10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px));background:var(--panel)}
@@ -383,12 +386,24 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .ai-send{flex:none;width:36px;height:36px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
 .ai-send:disabled{opacity:.35;cursor:not-allowed}
 .ai-fine{word-break:keep-all;margin:7px 2px 0;font-size:11px;line-height:1.5;color:var(--muted);text-align:center}
+/* 내려간 대화창: 윗부분(띠)만 남기고, 누르면 다시 올라온다 (휴대폰) */
+.app{--ai-peek:64px}
+.ai-head{position:relative;min-height:var(--ai-peek)}
+.ai-sheet.min{transform:translateY(calc(100% - var(--ai-peek) - env(safe-area-inset-bottom, 0px)));box-shadow:0 -6px 20px rgba(20,28,45,.16)}
+.ai-sheet.min .ai-head{border-bottom-color:transparent;padding-top:12px}
+.ai-sheet.min .ai-title{cursor:pointer}
+.ai-sheet.min .ai-sub{color:var(--accent);font-weight:600}
+.ai-grab{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:36px;height:4px;border-radius:2px;background:var(--line)}
+.app.ai-peek .list{bottom:calc(var(--ai-peek) + env(safe-area-inset-bottom, 0px));transition:max-height .28s ease,bottom .28s ease}
+.app.ai-peek .detail{bottom:calc(var(--ai-peek) + env(safe-area-inset-bottom, 0px));max-height:calc(90% - var(--ai-peek))}
 @media (min-width:900px){
   .ai-fab{right:auto;left:456px;bottom:24px!important}
+  /* 상세 창이 열리면 대화창은 그 왼쪽으로 비켜 선다 */
+  .app.detail-open .ai-sheet{right:442px;width:min(400px, max(320px, calc(100vw - 858px)))}
   .ai-backdrop{background:transparent}
   .ai-sheet{left:auto;right:16px;bottom:16px;top:auto;width:400px;height:min(660px, calc(100% - 32px));border-radius:14px;transform:translateY(20px);opacity:0;
-    transition:transform .22s ease,opacity .22s ease,visibility 0s linear .22s}
-  .ai-sheet.show{transform:none;opacity:1;transition:transform .22s ease,opacity .22s ease}
+    transition:transform .22s ease,opacity .22s ease,right .22s ease,visibility 0s linear .22s}
+  .ai-sheet.show{transform:none;opacity:1;transition:transform .22s ease,opacity .22s ease,right .22s ease}
   .ai-msg{max-width:92%}
 }
 @media (prefers-reduced-motion: reduce){.ai-sheet,.ai-backdrop,.ai-fab{transition:none}.ai-typing i{animation:none;opacity:.6}}
