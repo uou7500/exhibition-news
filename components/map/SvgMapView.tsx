@@ -198,6 +198,10 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route?.seq]);
 
+  // 동선을 그리는 동안: 동선 전시는 크게, 나머지는 작고 흐리게
+  const routeOrder = useMemo(() => (route && route.stops.length > 1 ? route.stops.map((x) => x.id) : []), [route]);
+  const onRoute = useMemo(() => new Set(routeOrder), [routeOrder]);
+
   const groups = useMemo(() => {
     const pts = items.map((x) => ({ x, p: toScreen(x) }));
     const radius = view.s > 14 ? 0 : 34;
@@ -267,11 +271,11 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
           if (g.length === 1) {
             const { x, p } = g[0];
             const st = statusOf(x).kind;
-            const cls = ["mk", x.price === 0 ? "free" : "", st === "upcoming" ? "soon" : "", x.id === selectedId ? "sel" : ""].join(" ");
+            const cls = ["mk", x.price === 0 ? "free" : "", st === "upcoming" ? "soon" : "", x.id === selectedId ? "sel" : "", onRoute.has(x.id) ? "on-route" : onRoute.size ? "dim" : ""].join(" ");
             return (
               <button key={x.id} className={cls} style={{ left: p[0], top: p[1] }} aria-label={`${x.title}, ${x.venue}`} onClick={() => onSelect(x.id)}>
-                <span className="pin"><i /></span>
-                {(view.s > 5 || x.id === selectedId) && <span className="lab">{x.title}</span>}
+                <span className="pin"><i>{onRoute.has(x.id) ? routeOrder.indexOf(x.id) + 1 : null}</i></span>
+                {(onRoute.size ? onRoute.has(x.id) : view.s > 5 || x.id === selectedId) && <span className="lab">{x.title}</span>}
               </button>
             );
           }
@@ -289,6 +293,8 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
       {route && route.stops.length > 1 && (
         <div className="overlay">
           {route.stops.map((x, i) => {
+            // 핀이 보이는 전시는 핀 안에 번호가 있다 → 핀이 없는 전시만 번호를 따로 띄운다
+            if (items.some((it) => it.id === x.id)) return null;
             const [px, py] = project(x.lat, x.lon);
             const same = route.stops.slice(0, i).filter((p) => Math.abs(p.lat - x.lat) < 1e-4 && Math.abs(p.lon - x.lon) < 1e-4).length;
             return (

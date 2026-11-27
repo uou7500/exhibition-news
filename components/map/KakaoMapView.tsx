@@ -433,7 +433,9 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       strokeStyle: "shortdash",
     });
     line.setMap(map);
-    const nums = route.stops.map((x, i) => {
+    // 핀이 있는 전시는 핀 안에 번호를 넣고(아래 효과), 핀이 없는 전시(필터로 숨은 전시)만 따로 번호를 띄운다
+    const nums = route.stops.flatMap((x, i) => {
+      if (pinsRef.current.has(x.id)) return [];
       const el = document.createElement("button");
       el.type = "button";
       el.className = "route-num";
@@ -447,7 +449,7 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       const same = route.stops.slice(0, i).filter((p) => Math.abs(p.lat - x.lat) < 1e-4 && Math.abs(p.lon - x.lon) < 1e-4).length;
       const o = new kakao.maps.CustomOverlay({ position: pos[i], content: el, xAnchor: 0.5 - same * 1.1, yAnchor: 2.1, clickable: true, zIndex: 15 });
       o.setMap(map);
-      return o;
+      return [o];
     });
     const bounds = new kakao.maps.LatLngBounds();
     pos.forEach((p: any) => bounds.extend(p));
@@ -459,6 +461,22 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       nums.forEach((o) => o.setMap(null));
     };
   }, [ready, route?.seq]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // 동선을 그리는 동안: 동선 전시는 크게(보라 핀·이름표), 나머지 핀·독립공간은 작고 흐리게
+  const routeKey = route && route.stops.length > 1 ? route.stops.map((x) => x.id).join("|") : "";
+  useEffect(() => {
+    if (!ready) return;
+    const order = routeKey ? routeKey.split("|") : [];
+    const on = new Set(order);
+    boxRef.current?.classList.toggle("routing", on.size > 0);
+    pinsRef.current.forEach(({ overlay, el }, id) => {
+      const r = on.has(id);
+      el.classList.toggle("on-route", r);
+      const dot = el.querySelector(".pin i");
+      if (dot) dot.textContent = r ? String(order.indexOf(id) + 1) : "";
+      overlay.setZIndex(id === selectedId ? 10 : !on.size ? 3 : r ? 9 : 1);
+    });
+  }, [ready, routeKey, items, selectedId]);
 
   // ----- 확대·축소 버튼 -----
   const zoomBy = (d: number) => {
