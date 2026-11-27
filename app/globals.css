@@ -389,6 +389,17 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .route-banner-dot{width:10px;height:10px;border-radius:50%;background:var(--future)}
 .route-banner button{border:0;background:var(--soft);color:var(--ink);border-radius:999px;padding:5px 10px;font-size:12.5px;font-weight:600}
 @media (min-width:900px){.route-banner{left:calc(50% + 200px);top:24px}}
+/* 동선을 그리는 동안: 동선 전시만 크게, 나머지는 작고 흐리게 (카카오맵 .kmap.routing / 임시 지도 .dim) */
+.kmap.routing .mk.k:not(.on-route){opacity:.4;transform:scale(.55);transform-origin:50% 100%}
+.kmap.routing .mk.k:not(.on-route) .lab{display:none!important}
+.kmap.routing .mk.k.on-route .lab{display:block;max-width:180px;font-size:12.5px}
+.kmap.routing .space-pin{opacity:.35}
+.kmap.routing .space-name{display:none}
+.mk.on-route .pin{background:var(--future);transform:rotate(-45deg) scale(1.3)}
+.mk.on-route .pin i{width:15px;height:15px;display:grid;place-items:center;font-style:normal;font-size:10.5px;font-weight:800;line-height:1;color:var(--future);background:#fff;font-variant-numeric:tabular-nums}
+.mk.on-route .lab{border:1.5px solid var(--future)}
+.mk.dim{opacity:.4;transform:translate(-50%,-100%) scale(.55)}
+.mk{transition:opacity .2s ease}
 .ai-go{font-size:20px;color:var(--muted);line-height:1}
 .ai-card.sel{border-color:var(--accent);background:var(--soft)}
 .ai-now{font-size:11px;font-weight:600;color:var(--accent);white-space:nowrap}
