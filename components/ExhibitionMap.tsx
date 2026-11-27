@@ -16,6 +16,7 @@ import { fetchApproved } from "@/lib/submissions";
 import { useBookmarks } from "@/lib/bookmarks";
 import { Guestbook, GuestbookLink } from "./Reviews";
 import SubmitForm from "./SubmitForm";
+import Assistant, { AssistantButton } from "./Assistant";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
 import { POI_LABELS, type PoiCode } from "./map/types";
@@ -117,6 +118,9 @@ export default function ExhibitionMap({
   const { saved, toggle: toggleSaved } = useBookmarks();
   const [savedOnly, setSavedOnly] = useState(false);
   const [showSubmit, setShowSubmit] = useState(false);
+  // 전시 도우미 대화창
+  const [askOpen, setAskOpen] = useState(false);
+  const closeAsk = useCallback(() => setAskOpen(false), []);
   const [query, setQuery] = useState("");
   // null = 아무것도 고르지 않음 (전체와 같은 결과)
   const [status, setStatus] = useState<StatusFilter | null>(null);
@@ -482,6 +486,13 @@ export default function ExhibitionMap({
         </svg>
       </button>
       {locError && <div className="map-msg" role="alert">{locError}</div>}
+      <AssistantButton
+        style={!desktop && sheetH ? { bottom: sheetH + 14 } : undefined}
+        onClick={() => {
+          setListOpen(false);
+          setAskOpen(true);
+        }}
+      />
 
       {showWelcome && (
         <Welcome
@@ -572,6 +583,15 @@ export default function ExhibitionMap({
           />
         )}
       </aside>
+      <Assistant
+        open={askOpen}
+        exhibitions={allExhibitions}
+        onClose={closeAsk}
+        onOpenExhibition={(id) => {
+          setAskOpen(false);
+          openFromList(id);
+        }}
+      />
       {showSubmit && <SubmitForm onClose={() => setShowSubmit(false)} />}
     </div>
   );
