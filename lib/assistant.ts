@@ -100,6 +100,11 @@ function isSmall(x: Exhibition): boolean {
   return futureKindOf(x) !== null && !BIG_VENUE.test(x.venue);
 }
 
+/** 같은 건물(장소 이름이 같거나 50m 안)인지 — 지도에서 핀이 겹치는 곳 */
+function samePlace(a: Exhibition, b: Exhibition): boolean {
+  return a.venue === b.venue || distanceM(a.lat, a.lon, b.lat, b.lon) < 50;
+}
+
 /** 걷는 거리 어림: 직선거리 × 1.3, 분속 67m(시속 약 4km) */
 function walk(m: number): { m: number; min: number } {
   const road = Math.round(m * 1.3);
@@ -119,13 +124,14 @@ const d = (a: Exhibition, b: Exhibition) => distanceM(a.lat, a.lon, b.lat, b.lon
  * 동선 고르기: 후보마다 출발점으로 삼아 '가장 가까운 다음 곳'을 이어 붙이고,
  * 전체 거리가 가장 짧은 묶음을 고른다. 작은 전시가 하나라도 들어간 묶음을 조금 더 우선한다(앙데팡당).
  */
-function planRoute(cands: Exhibition[], n: number): Exhibition[] {
+function planRoute(cands: Exhibition[], n: number, starts: Exhibition[] = cands): Exhibition[] {
   let best: Exhibition[] = [];
   let bestScore = Infinity;
-  for (const start of cands.slice(0, 80)) {
+  for (const start of starts.slice(0, 80)) {
     const route = [start];
-    // 한 건물에 몰리지 않게, 같은 장소는 두 곳까지만
-    const venueFull = (x: Exhibition) => route.filter((r) => r.venue === x.venue).length >= 2;
+    // '3곳'은 서로 다른 장소 3곳: 같은 건물(장소 이름이 같거나 50m 안)의 전시는 한 번만 넣는다.
+    // 같은 건물의 다른 전시는 카드 설명에 '같은 건물에 하나 더'로 알려 준다.
+    const venueFull = (x: Exhibition) => route.some((r) => samePlace(r, x));
     const left = cands.filter((x) => x !== start);
     while (route.length < n) {
       const last = route[route.length - 1];
@@ -264,6 +270,7 @@ export function previewAnswer(question: string, all: Exhibition[], popularity?: 
   const place = words.find((w) => placeMatch(w) || all.some((x) => where(x).includes(w)));
   const placeKeys = place ? placeMatch(place) ?? [place] : null;
   const inPlace = (x: Exhibition) => !placeKeys || placeKeys.some((k) => where(x).includes(k));
+  const beforePlace = list;
   if (place) {
     list = list.filter(inPlace);
     conds.unshift(place);
@@ -292,14 +299,28 @@ export function previewAnswer(question: string, all: Exhibition[], popularity?: 
     const num = q.match(/(\d)\s*(곳|군데|개)/)?.[1];
     const word = Object.keys(COUNT_WORDS).find((k) => new RegExp(`${k}\\s*(곳|군데)`).test(q));
     const n = Math.min(5, Math.max(2, num ? Number(num) : word ? COUNT_WORDS[word] : 3));
-    if (list.length < 2) {
+    let route = planRoute(list, n);
+    let widened = false;
+    // 그 동네 주소만으로 곳 수가 모자라면, 동네 전시에서 출발해 1.5km 안의 옆 동네 전시까지 넓혀 채운다
+    if (route.length < n && list.length) {
+      const near = beforePlace.filter((x) => list.some((p) => d(p, x) <= 1500));
+      const wider = planRoute(near, n, list);
+      if (wider.length > route.length) {
+        route = wider;
+        widened = true;
+      }
+    }
+    if (route.length < 2) {
       return {
-        text: `'${conds.join(" · ")}' 조건으로는 이어서 볼 전시가 ${list.length ? "한 곳뿐이에요" : "없어요"}. 날짜나 동네를 바꿔 다시 물어봐 주세요.`,
-        ids: list.map((x) => x.id),
-        total: list.length,
+        text: `'${conds.join(" · ")}' 조건으로는 이어서 볼 전시가 ${route.length ? "한 곳뿐이에요" : "없어요"}. 날짜나 동네를 바꿔 다시 물어봐 주세요.`,
+        ids: route.map((x) => x.id),
+        total: route.length,
       };
     }
-    const route = planRoute(list, n);
+
+    const inRoute = new Set(route.map((x) => x.id));
+    /** 동선 장소마다, 같은 건물에서 그날 함께 볼 수 있는 다른 전시 */
+    const alsoHere = (x: Exhibition) => (widened ? beforePlace : list).filter((o) => !inRoute.has(o.id) && samePlace(o, x));
     let total = 0;
     const notes: Record<string, string> = {};
     route.forEach((x, i) => {
@@ -310,9 +331,16 @@ export function previewAnswer(question: string, all: Exhibition[], popularity?: 
         total += m;
         notes[x.id] = `${tag}${walkText(m)}`;
       } else notes[x.id] = `${tag}마지막 곳`;
+      const more = alsoHere(x);
+      if (more.length) notes[x.id] += ` · 같은 건물에 전시 ${more.length}개 더 (${more[0].title.slice(0, 18)}${more[0].title.length > 18 ? "…" : ""}${more.length > 1 ? " 등" : ""})`;
     });
     const w = walk(total);
-    const short = route.length < n ? ` 조건에 맞는 곳이 ${route.length}곳뿐이라 그만큼만 묶었어요.` : "";
+    const short =
+      route.length < n
+        ? ` 4km 안에서 이어 볼 수 있는 장소가 ${route.length}곳뿐이라 그만큼만 묶었어요.`
+        : widened
+          ? ` ${place} 주소만으로는 장소가 모자라서, 바로 옆 동네 전시도 넣었어요.`
+          : "";
     return withSmall(
       {
         text: `'${conds.join(" · ")}' ${route.length}곳 동선이에요. 가까운 곳끼리 이어지게 순서를 정했어요 (걷는 거리 모두 합쳐 약 ${w.m >= 1000 ? `${(w.m / 1000).toFixed(1)}km` : `${w.m}m`}).${short}\n관람 시간과 쉬는 날은 전시마다 달라서, 가기 전에 각 전시 안내를 확인해 주세요.`,
