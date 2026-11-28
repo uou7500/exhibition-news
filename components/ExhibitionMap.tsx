@@ -11,6 +11,7 @@ import type { PopularityData } from "@/lib/picks";
 import type { Space } from "@/lib/spaces";
 import type { TodayArt } from "@/lib/paintings";
 import { futureKindOf } from "@/lib/future";
+import { NEAR_ONLY_BELOW, matchLevel, searchTerms } from "@/lib/search";
 import { loadLatest } from "@/lib/remote";
 import { fetchApproved } from "@/lib/submissions";
 import { useBookmarks } from "@/lib/bookmarks";
@@ -51,17 +52,6 @@ function directionsUrl(x: Exhibition, from: MyLocation | null): string {
   const to = `${encodeURIComponent(x.venue)},${x.lat},${x.lon}`;
   if (!from) return `https://map.kakao.com/link/to/${to}`;
   return `https://map.kakao.com/link/from/${encodeURIComponent("내 위치")},${from.lat},${from.lon}/to/${to}`;
-}
-
-/** 검색에 쓰는 글자: 제목·장소·도시·장르·주소·다른 이름(keywords). 소문자, 띄어쓰기 없앰 */
-const searchCache = new WeakMap<Exhibition, string>();
-function searchText(x: Exhibition): string {
-  let s = searchCache.get(x);
-  if (s === undefined) {
-    s = [x.title, x.venue, x.city, x.genre, x.address ?? "", ...(x.keywords ?? [])].join(" ").toLowerCase().replace(/\s+/g, "");
-    searchCache.set(x, s);
-  }
-  return s;
 }
 
 /** 해외 전시인지 (country가 비어 있거나 "KR"이면 국내) */
@@ -258,9 +248,22 @@ export default function ExhibitionMap({
     return stops.length > 1 ? { stops, seq: routeReq.seq } : null;
   }, [routeReq, allExhibitions]);
 
+  // 검색어에 맞는 정도 (2 정확, 1 비슷). 정확히 맞는 전시가 충분하면 비슷한 것은 뺀다
+  const searchLevels = useMemo(() => {
+    const terms = searchTerms(query);
+    if (!terms.length) return null;
+    const m = new Map<string, number>();
+    let exact = 0;
+    for (const x of regionItems) {
+      const lv = matchLevel(x, terms);
+      if (lv) m.set(x.id, lv);
+      if (lv === 2) exact++;
+    }
+    if (exact >= NEAR_ONLY_BELOW) for (const [id, lv] of m) if (lv === 1) m.delete(id);
+    return m;
+  }, [regionItems, query]);
+
   const baseFiltered = useMemo(() => {
-    // 띄어쓰기는 무시하고, 여러 낱말이면 모두 들어 있는 전시만 (예: "현대 갤러리", "삼청로 사진")
-    const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
     return regionItems.filter((x) => {
       const st = statusOf(x).kind;
       if (st === "over") return false;
@@ -270,13 +273,11 @@ export default function ExhibitionMap({
       if (freeOnly && x.price !== 0) return false;
       if (futureOnly && !futureKindOf(x)) return false;
       if (savedOnly && !saved.has(x.id)) return false;
-      if (terms.length) {
-        const hay = searchText(x);
-        if (!terms.every((t) => hay.includes(t))) return false;
-      }
+      // 띄어쓰기는 무시하고, 여러 낱말이면 모두 맞는 전시만. 줄임말·비슷한 이름도 찾는다 (lib/search.ts)
+      if (searchLevels && !searchLevels.has(x.id)) return false;
       return true;
     });
-  }, [regionItems, query, status, genres, freeOnly, futureOnly, savedOnly, saved]);
+  }, [regionItems, searchLevels, status, genres, freeOnly, futureOnly, savedOnly, saved]);
 
   // 내 위치에서 각 전시까지 거리(미터)
   const dist = useMemo(() => {
@@ -302,11 +303,14 @@ export default function ExhibitionMap({
 
   // 목록: 조건(카테고리·검색·무료 등)에 맞는 전시 전체. 반경을 고르면 그 안으로 좁힌다.
   // 내 위치를 알면 가까운 순, 모르면 마감이 가까운 순.
+  // 검색어가 있으면 정확히 맞는 전시를 먼저, 비슷한 전시를 그 뒤에.
   const visible = useMemo(() => {
     const arr = [...filtered];
-    if (myLoc) return arr.sort((a, b) => (dist.get(a.id) ?? 0) - (dist.get(b.id) ?? 0));
-    return arr.sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate));
-  }, [filtered, myLoc, dist]);
+    if (myLoc) arr.sort((a, b) => (dist.get(a.id) ?? 0) - (dist.get(b.id) ?? 0));
+    else arr.sort((a, b) => +parseDate(a.endDate) - +parseDate(b.endDate));
+    if (searchLevels) arr.sort((a, b) => (searchLevels.get(b.id) ?? 0) - (searchLevels.get(a.id) ?? 0));
+    return arr;
+  }, [filtered, myLoc, dist, searchLevels]);
   // 목록을 나눠 그리기: 조건이 바뀌면 처음 30개부터, 아래 끝이 보이면 30개씩 더
   const [listLimit, setListLimit] = useState(LIST_PAGE);
   const moreRef = useRef<HTMLDivElement>(null);
@@ -629,6 +633,12 @@ export default function ExhibitionMap({
               ))}
             </>
           )}
+        </div>
+        <div className="legend-row">
+          <button type="button" className="future-legend" aria-pressed={futureOnly} onClick={() => setFutureOnly((v) => !v)} title="누르면 이 전시들만 지도에 남아요">
+            <span className="mk-star" aria-hidden="true" />
+            미래가 기대되는 작은 전시들
+          </button>
         </div>
       </div>
 

@@ -278,7 +278,7 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
                 <span className="pin"><i>{onRoute.has(x.id) ? routeOrder.indexOf(x.id) + 1 : null}</i></span>
                 {!!votes[x.id] && <span className="vb" aria-hidden="true">👍{votes[x.id]}</span>}
                 {(onRoute.size ? onRoute.has(x.id) : view.s > 5 || x.id === selectedId) && <span className="lab">{x.title}</span>}
-                {futureKindOf(x) && <span className="mk-star" aria-hidden="true">★</span>}
+                {futureKindOf(x) && <span className="mk-star" aria-hidden="true" />}
               </button>
             );
           }
