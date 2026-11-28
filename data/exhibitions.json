@@ -103,23 +103,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-406061",
-    "title": "서울식물원 2026 기획전 《다정한 균형: 서로를 비추는》 전시해설 프로그램",
-    "venue": "서울식물원",
-    "city": "서울",
-    "lat": 37.57223989822923,
-    "lon": 126.83283944543928,
-    "genre": "기타",
-    "startDate": "2026-11-05",
-    "endDate": "2026-11-28",
-    "price": 0,
-    "priceText": "무료(서울식물원 온실, 주제정원 입장료 별도)",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/6f2ff53af2d44c49bf40389b8ee53bb7.png",
-    "url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S261017164643729589",
-    "address": "서울특별시 강서구 마곡동로 161 서울식물원",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-406391",
     "title": "우병출 개인전",
     "venue": "청화랑",
@@ -135,6 +118,23 @@
     "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/show_2026110521172303291.jpg",
     "url": "http://www.chungartgallery.com",
     "address": "서울특별시 강남구 삼성로147길 4 서울 강남구 삼성로147길 4",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-406061",
+    "title": "서울식물원 2026 기획전 《다정한 균형: 서로를 비추는》 전시해설 프로그램",
+    "venue": "서울식물원",
+    "city": "서울",
+    "lat": 37.57223989822923,
+    "lon": 126.83283944543928,
+    "genre": "기타",
+    "startDate": "2026-11-05",
+    "endDate": "2026-11-28",
+    "price": 0,
+    "priceText": "무료(서울식물원 온실, 주제정원 입장료 별도)",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/6f2ff53af2d44c49bf40389b8ee53bb7.png",
+    "url": "https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S261017164643729589",
+    "address": "서울특별시 강서구 마곡동로 161 서울식물원",
     "source": "culture.go.kr"
   },
   {
@@ -1153,24 +1153,6 @@
     "priceText": "무료",
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/d35b242be6e746a39a48cb13c14c3767.jpg",
     "url": "https://blog.naver.com/gallery3366",
-    "source": "culture.go.kr"
-  },
-  {
-    "id": "culture-409043",
-    "title": "기억의 시간",
-    "venue": "갤러리 자인제노",
-    "city": "서울",
-    "lat": 37.5796332801339,
-    "lon": 126.972136086372,
-    "genre": "조각·설치",
-    "startDate": "2026-11-16",
-    "endDate": "2026-11-30",
-    "price": 0,
-    "priceText": "무료",
-    "description": "전시 기획의도\n\n기억은 과거에 머무는 것이 아니라 현재의 시선과 감각을 통해 끊임없이 새롭게 구성된다. 우리가 익숙하게 바라보던 풍경도 시간이 흐르면서 다른 의미로 다가오고, 사라져가는 것들은 기억 속에서 또 다른 모습으로 되살아난다.\n\n제미영 작가의 개인전 《기억의 시간》은 한국 전통 건축의 상징인 한옥의 기와지붕을 통해 시간의 흔적과 기억의 의미를 탐색하는 전시다.\n\n작가는 부드럽게 이어지는 처마의 곡선과 반복되는 기와의 선에서 한국적 조형미를 발견한다. 한지와 실크, 천 조각을 자르고 이어 붙이며 바느질하는 과정을 통해 익숙한 한옥의 풍경을 해체하고 새로운 이미지로 재구성한다. 전통 조각보를 연상시키는 다채로운 색채와 기하학적 구성은 회화와 공예, 구상과 추상의 경계를 넘나들며 독창적인 조형언어를 만들어낸다.\n\n특히 반복되는 바느질의 행위는 단순한 제작기법을 넘어 시간과 기억을 축적하는 과정이다. 작은 조각들이 모여 하나의 지붕과 풍경을 이루듯, 흩어진 기억 또한 현재의 감각과 만나 새로운 의미를 얻는다.\n\n빠르게 변화하는 도시에서 점차 사라져가는 한옥의 풍경은 작가의 손끝에서 다시 태어난다. 이는 과거에 대한 단순한 향수가 아니라, 전통의 아름다움을 오늘의 시각으로 재해석하고 새로운 생명력을 부여하는 작업이다.\n\n갤러리 자인제노는 이번 전시를 통해 관람객들이 한옥의 지붕에 깃든 삶의 흔적과 한국적 미감을 새롭게 발견하고, 전통과 현대, 기억과 현재가 만나는 지점에서 우리 문화의 지속적인 가치를 되새기는 시간을 갖기를 기대한다.",
-    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/show_2026112221171487437.jpg",
-    "url": "http://www.zeinxeno.co.kr",
-    "address": "서울특별시 종로구 자하문로10길 9-4 서울 종로구 자하문로10길 9-4",
     "source": "culture.go.kr"
   },
   {
@@ -2210,23 +2192,6 @@
     "source": "culture.go.kr"
   },
   {
-    "id": "culture-406485",
-    "title": "나은민 展 《다가가는 방식》",
-    "venue": "슬도아트",
-    "city": "울산",
-    "lat": 35.4809043004597,
-    "lon": 129.432766326538,
-    "genre": "기타",
-    "startDate": "2026-11-07",
-    "endDate": "2026-12-13",
-    "price": 0,
-    "priceText": "무료",
-    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/c5be1dc4034b4198a0e032a115a1f526.jpg",
-    "url": "https://blog.naver.com/seuldoart/224464676247",
-    "address": "울산광역시 동구 성끝길 103 슬도아트",
-    "source": "culture.go.kr"
-  },
-  {
     "id": "culture-406486",
     "title": "김상현 展 《원격의 테두리》",
     "venue": "슬도아트",
@@ -2240,6 +2205,23 @@
     "priceText": "무료",
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/29e17bb3bb944585aa87314d9fe25f8d.jpg",
     "url": "https://blog.naver.com/seuldoart/224464716569",
+    "address": "울산광역시 동구 성끝길 103 슬도아트",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-406485",
+    "title": "나은민 展 《다가가는 방식》",
+    "venue": "슬도아트",
+    "city": "울산",
+    "lat": 35.4809043004597,
+    "lon": 129.432766326538,
+    "genre": "기타",
+    "startDate": "2026-11-07",
+    "endDate": "2026-12-13",
+    "price": 0,
+    "priceText": "무료",
+    "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/c5be1dc4034b4198a0e032a115a1f526.jpg",
+    "url": "https://blog.naver.com/seuldoart/224464676247",
     "address": "울산광역시 동구 성끝길 103 슬도아트",
     "source": "culture.go.kr"
   },
@@ -2258,6 +2240,24 @@
     "thumbnail": "https://www.culture.go.kr/upload/ucms/oneCltInfo/2026/202611/fb1b1d9d0fa54f84bb9a2ba6462a6e4e.jpg",
     "url": "https://www.sdfac.or.kr/kor/sdfac/board/noti_view.do?page=1&amp;b_idx=9436&amp;bbs_id=noti&amp;article_category=&amp;searchCnd=3&amp;searchWrd=&amp;_csrf=e8f0c14c-bfb8-4ab8-acf3-5b792ce01d0b",
     "address": "서울특별시 성동구 왕십리광장로 17 비트플렉스 4층 갤러리허브",
+    "source": "culture.go.kr"
+  },
+  {
+    "id": "culture-409363",
+    "title": "Landscape of Quietude",
+    "venue": "더컬럼스 갤러리",
+    "city": "서울",
+    "lat": 37.5365547446218,
+    "lon": 126.998439733192,
+    "genre": "회화",
+    "startDate": "2026-11-16",
+    "endDate": "2026-12-15",
+    "price": 0,
+    "priceText": "무료",
+    "description": "칼럼스 갤러리는 한국 작가 이현정의 개인전을 선보인다. 2023년 전시 이후 서울에서 다시 갖는 이번 전시는 2026년에 제작한 근작 회화로 구성된다. 작품에는 물성과 사색, 그리고 자연과 시간, 내면의 풍경이 맺는 시적인 관계에 대한 작가의 지속적인 탐구가 담겨 있다.\n\n이현정은 한지와 먹, 천연 안료 같은 전통 재료로 작업한다. 섬세한 질감과 리듬감 있는 형태, 미묘한 색의 변화는 상상의 풍경을 떠올리게 한다. 작품은 산과 흐르는 물, 지형, 자연의 유기적인 형상을 연상시키지만 하나의 해석에 머무르지 않는다. 재현과 추상, 익숙함과 낯섦 사이에 놓여 있다.\n\n최근작에서는 짙은 푸른 안료가 층층이 쌓인 단색조 화면과 함께 나타나, 깊이와 움직임, 분위기를 한층 더한다. 반복되는 선과 굽이치는 윤곽은 시각적 리듬을 만들어 내며, 느리게 흐르는 시간과 끊임없이 변화하는 자연을 떠올리게 한다. 처음에는 웅장하고 강렬해 보이지만, 점차 고요하고 친밀한 면모가 드러나며 관람객을 눈앞의 이미지 너머 보다 사색적인 경험으로 이끈다.\n\n작가는 〈Quietude〉, 〈Contemplation〉, 〈Insolite〉, 〈Chemin infini(끝없는 길)〉 등의 작품을 통해 정적을 에너지와 기억, 변화가 공존하는 상태로 바라본다. 작품에는 통제와 즉흥, 물질의 존재감과 정신적 성찰 사이의 섬세한 균형이 담겨 있다. 이번 신작 시리즈로 서울을 다시 찾은 이현정은 전통적인 한국의 미감을 현대적인 추상 언어로 풀어내며 그 해석을 이어 간다. 작품 앞에서 관람객은 걸음을 늦추고 바라보며, 보이는 세계와 마음의 풍경 사이에 깊은 울림이 있음을 발견하게 된다.",
+    "thumbnail": "https://www.culture.go.kr/upload/rdf/26/11/show_2026112421172149660.jpeg",
+    "url": "http://www.columnsgallery.com",
+    "address": "서울특별시 용산구 이태원로45길 22 LOG빌딩",
     "source": "culture.go.kr"
   },
   {
