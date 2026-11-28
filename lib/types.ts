@@ -8,8 +8,10 @@ export interface Exhibition {
   id: string;
   title: string;
   venue: string;
-  /** 시·군 이름. 예: "서울", "부산", "완주" */
+  /** 시·군 이름. 예: "서울", "부산", "완주" (해외는 한글 도시 이름. 예: "로스앤젤레스") */
   city: string;
+  /** 나라 코드. 비어 있으면 한국. 해외 전시(data/overseas-exhibitions.json)는 "US" */
+  country?: string;
   lat: number;
   lon: number;
   genre: Genre;

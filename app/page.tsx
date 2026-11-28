@@ -1,5 +1,5 @@
 import ExhibitionMap from "@/components/ExhibitionMap";
-import { getExhibitions } from "@/lib/data";
+import { getExhibitions, getOverseas } from "@/lib/data";
 import { getPopularity } from "@/lib/picks";
 import { getSpaces } from "@/lib/spaces";
 import { seoulWeatherCode, todayArt } from "@/lib/paintings";
@@ -12,6 +12,7 @@ export default async function Home() {
   return (
     <ExhibitionMap
       exhibitions={items}
+      overseas={getOverseas()}
       isSample={isSample}
       popularity={getPopularity()}
       spaces={getSpaces()}
