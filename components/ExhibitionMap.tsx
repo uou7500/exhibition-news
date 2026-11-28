@@ -30,6 +30,17 @@ const DESKTOP = 900;
 /** 세계 지도에는 주변 장소·독립공간이 없다 (렌더링마다 새 값이 생기지 않게 밖에 둔다) */
 const NO_POI = new Set<PoiCode>();
 const NO_SPACES: Space[] = [];
+
+/** 지도 위에서 고르는 지역. 해외 전시는 경도로 미국 서부(로키산맥 서쪽)·동부를 나눈다 */
+type Region = "kr" | "usw" | "use";
+const US_WEST_MAX_LON = -104;
+const REGION_INFO: Record<Exclude<Region, "kr">, { label: string; bounds: [[number, number], [number, number]] }> = {
+  usw: { label: "미국 서부", bounds: [[32.4, -124.8], [48.2, -116.5]] },
+  use: { label: "미국 동부", bounds: [[25.4, -81.2], [42.6, -70.8]] },
+};
+function regionOf(x: Exhibition): Exclude<Region, "kr"> {
+  return x.lon < US_WEST_MAX_LON ? "usw" : "use";
+}
 /** 내려간 대화창 띠의 높이(px). globals.css의 --ai-peek과 같게 */
 const AI_PEEK = 64;
 const KAKAO_KEY = KAKAO_MAP_KEY;
@@ -142,7 +153,7 @@ export default function ExhibitionMap({
   const [popularity, setPopularity] = useState(initialPopularity);
   const [overseas, setOverseas] = useState(initialOverseas);
   // 지금 보는 지역: 국내(카카오맵) / 미국 서부(세계 지도)
-  const [region, setRegion] = useState<"kr" | "us">("kr");
+  const [region, setRegion] = useState<Region>("kr");
   // 운영자가 승인한 '전시 등록 요청'은 Supabase에서 받아 함께 보여준다
   const [approved, setApproved] = useState<Exhibition[]>([]);
   useEffect(() => {
@@ -163,7 +174,9 @@ export default function ExhibitionMap({
   }, []);
   const allExhibitions = useMemo(() => (approved.length ? [...exhibitions, ...approved] : exhibitions), [exhibitions, approved]);
   // 지도·목록·필터가 쓰는 전시: 고른 지역의 것만. (시작 화면·전시 도우미는 국내 전시만 쓴다)
-  const regionItems = region === "us" ? overseas : allExhibitions;
+  const usWest = useMemo(() => overseas.filter((x) => regionOf(x) === "usw"), [overseas]);
+  const usEast = useMemo(() => overseas.filter((x) => regionOf(x) === "use"), [overseas]);
+  const regionItems = region === "usw" ? usWest : region === "use" ? usEast : allExhibitions;
 
   // 관심 전시 (이 기기에 저장)
   const { saved, toggle: toggleSaved } = useBookmarks();
@@ -468,7 +481,7 @@ export default function ExhibitionMap({
   }, []);
 
   // 지역을 바꾸면 고른 전시·동선·반경을 비운다 (다른 나라 반경 안에는 전시가 없으니)
-  const chooseRegion = (r: "kr" | "us") => {
+  const chooseRegion = (r: Region) => {
     if (r === region) return;
     setRegion(r);
     setSelectedId(null);
@@ -499,13 +512,13 @@ export default function ExhibitionMap({
     locateSeq,
     onMapDrag,
     spaces: shownSpaces,
-    route: region === "us" ? null : route,
+    route: region !== "kr" ? null : route,
   };
 
   return (
     <div className={"app" + (peek ? " ai-peek" : "") + (selected && desktop ? " detail-open" : "")}>
-      {region === "us" ? (
-        <WorldMapView {...mapProps} poi={NO_POI} spaces={NO_SPACES} />
+      {region !== "kr" ? (
+        <WorldMapView key={region} {...mapProps} poi={NO_POI} spaces={NO_SPACES} homeBounds={REGION_INFO[region].bounds} homeLabel={REGION_INFO[region].label} />
       ) : KAKAO_KEY ? (
         <KakaoMapView appKey={KAKAO_KEY} {...mapProps} />
       ) : (
@@ -545,7 +558,8 @@ export default function ExhibitionMap({
           {overseas.length > 0 && (
             <>
               <button className="chip region-chip" aria-pressed={region === "kr"} onClick={() => chooseRegion("kr")}>국내</button>
-              <button className="chip region-chip" aria-pressed={region === "us"} onClick={() => chooseRegion("us")}>미국 서부</button>
+              {usWest.length > 0 && <button className="chip region-chip" aria-pressed={region === "usw"} onClick={() => chooseRegion("usw")}>미국 서부</button>}
+              {usEast.length > 0 && <button className="chip region-chip" aria-pressed={region === "use"} onClick={() => chooseRegion("use")}>미국 동부</button>}
               <span className="sep" />
             </>
           )}
@@ -651,7 +665,7 @@ export default function ExhibitionMap({
         >
           <span className="grab" />
           <span className="list-title">
-            <h2>{inRadius && radius ? `내 위치 ${radiusLabel(radius)} 안 전시` : hasFilter ? "조건에 맞는 전시" : region === "us" ? "미국 서부 전시" : "전국 전시"}</h2>
+            <h2>{inRadius && radius ? `내 위치 ${radiusLabel(radius)} 안 전시` : hasFilter ? "조건에 맞는 전시" : region !== "kr" ? `${REGION_INFO[region].label} 전시` : "전국 전시"}</h2>
             <small>
               {`${visible.length}개 · ${myLoc ? "가까운 순" : "마감 임박 순"}`}
               <span className="list-toggle">{listOpen ? "접기 ▾" : "펼치기 ▴"}</span>
