@@ -32,5 +32,7 @@ export interface Exhibition {
   /** 데이터 출처 */
   /** 직접 붙인 분류. 예: ["졸업전시"], ["실험전시"], ["작가전"] */
   tags?: string[];
+  /** 검색용 다른 이름. 예: 갤러리현대 → ["현대갤러리", "현대화랑", "Gallery Hyundai"] */
+  keywords?: string[];
   source: "sample" | "culture.go.kr" | "manual";
 }

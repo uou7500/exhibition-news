@@ -24,7 +24,7 @@
 - `lib/picks.ts` — `data/popularity.json`(대중픽) 읽기.
 - `lib/future.ts` — '예술의 미래' 분류(졸업전시·실험전시·작가전): `tags`가 있으면 우선, 없으면 제목·장소·소개글 키워드로 추정. 큰 기관(미술관·문화재단 등) 개인전은 작가전에서 뺀다.
 - `lib/spaces.ts` + `data/spaces.json` — 독립공간 목록. 지도에 보라색 마름모 핀. 좌표가 없으면 브라우저에서 카카오 장소 검색(`search`)으로 찾되 주소에 `area` 글자가 있을 때만 쓴다.
-- `data/manual-exhibitions.json` — 공공데이터에 없는 전시를 직접 넣는 곳(졸업전시, 독립공간 전시). `Exhibition` 형태, `source: "manual"`, `tags`로 분류 지정. `lib/data.ts`가 합친다.
+- `data/manual-exhibitions.json` — 공공데이터에 없는 전시를 직접 넣는 곳(졸업전시, 독립공간 전시). `Exhibition` 형태, `source: "manual"`, `tags`로 분류 지정. 흔히 다르게 부르는 이름은 `keywords`(예: 갤러리현대 → "현대갤러리", "현대화랑")에 넣는다. `lib/data.ts`가 합친다.
 - `components/Poster.tsx` — 썸네일이 없을 때 장르별 생성 포스터.
 - `lib/types.ts` — `Exhibition` 타입. 모든 데이터는 이 형태를 따른다.
 - `lib/data.ts` — 데이터 읽기. `data/exhibitions.json`이 비어 있으면 `lib/sample-exhibitions.ts` 예시 데이터를 쓴다. DB로 옮길 때 이 파일만 바꾼다.
@@ -54,6 +54,8 @@
 - 좌표 없는 항목은 현재 버린다 → 카카오 로컬 API 주소 검색으로 보완 예정.
 
 - 시작 속도(앱을 열면 몇 초 터치가 안 되던 문제, 2026-11-27): 목록은 30개씩 나눠 그림(`LIST_PAGE`, 끝이 보이면 더), 생성 포스터는 화면 가까이 올 때 한 번만 그림, 최신 자료가 배포 자료와 같으면 바꾸지 않음(`sameExhibitions`), 필터 결과가 같으면 같은 배열 유지(지도 핀 재생성 방지), 카카오 핀은 저장된 주소 좌표로 처음부터 만들고 묶음 재계산은 모아서 한 번.
+
+- 검색(`searchText`, `components/ExhibitionMap.tsx`): 제목·장소·도시·장르·주소·`keywords`에서 찾는다. 띄어쓰기는 무시하고, 여러 낱말이면 모두 들어 있는 전시만.
 
 ## 결정 사항
 
