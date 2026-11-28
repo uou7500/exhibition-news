@@ -434,3 +434,13 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
   .ai-msg{max-width:92%}
 }
 @media (prefers-reduced-motion: reduce){.ai-sheet,.ai-backdrop,.ai-fab{transition:none}.ai-typing i{animation:none;opacity:.6}}
+
+/* 해외(미국 서부) 지도: Leaflet + OpenStreetMap (components/map/WorldMapView.tsx) */
+.wmap{z-index:0;isolation:isolate;font:inherit}
+.wmap .wmk{overflow:visible;background:none;border:0}
+.wmap .wmk .mk.k{position:absolute;left:0;top:0;transform:translate(-50%,-100%)}
+.wmap .wmk .me-dot{position:absolute;left:0;top:0;transform:translate(-50%,-50%)}
+.wmap .leaflet-control-attribution{font-size:10px;background:rgba(255,255,255,.75)}
+/* 국내 / 미국 서부 고르기 */
+.region-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.route-dot.google{border-color:var(--accent)}

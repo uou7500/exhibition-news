@@ -17,6 +17,7 @@
 - `app/` — Next.js App Router. `page.tsx`가 데이터를 읽어 `ExhibitionMap`에 넘긴다.
 - `components/ExhibitionMap.tsx` — 필터, 목록 시트, 상세 패널, 지도 엔진 선택 (클라이언트 컴포넌트).
 - `components/map/KakaoMapView.tsx` — 카카오맵 (환경변수 `NEXT_PUBLIC_KAKAO_MAP_KEY`가 있을 때). 전시 핀·묶음(clusterer)·주변 편의점/카페/지하철역(장소 카테고리 검색 CS2/CE7/SW8).
+- `components/map/WorldMapView.tsx` + `data/overseas-exhibitions.json` — 해외(지금은 미국 서부) 전시. 카카오맵은 한국 밖이 거의 안 그려져서, 지도 위 '국내 / 미국 서부' 칩으로 고르면 Leaflet 1.9.4(unpkg에서 불러옴)+OpenStreetMap 바탕 지도로 바뀐다(출처 표시 필수). 해외 전시는 `country: "US"`, `city`는 한글 도시 이름, `address`는 영문 주소, 관람료는 `priceText`(예: "일반 $25")에 원문대로, 무료면 `price: 0`. 길찾기는 구글 지도. 국내 전시와 섞지 않는다: 시작 화면·전시 도우미·대중을 위한 탭은 국내만. 주변 장소·독립공간·동선은 국내 지도에만 있다.
 - `components/map/SvgMapView.tsx` — 키가 없을 때 쓰는 임시 윤곽 지도. `components/map/types.ts`의 `MapViewProps`를 두 지도가 같이 따른다.
 - `components/Welcome.tsx` — 시작 화면(세션마다 한 번): 오늘 열려 있는 전시 수, 대중픽/예술의 미래 탭, 내 주변/전국 버튼.
 - 시작 화면 그림 띠(`PatternBand`, `public/pattern/01~11.jpg`): 사용자(앱 만든 사람) 본인 그림의 한 부분을 같은 크기 동그라미로 엇갈려 배치, 날마다 순서가 돌아감. 사람 얼굴·몸이 크게 나온 그림, 글자·상표가 든 그림은 넣지 않는다.

@@ -20,12 +20,14 @@ async function getJson<T>(name: string): Promise<T | null> {
   }
 }
 
-export async function loadLatest(): Promise<{ exhibitions: Exhibition[] | null; popularity: PopularityData | null }> {
-  const [collected, manual, popularity] = await Promise.all([
+export async function loadLatest(): Promise<{ exhibitions: Exhibition[] | null; popularity: PopularityData | null; overseas: Exhibition[] | null }> {
+  const [collected, manual, popularity, overseasRaw] = await Promise.all([
     getJson<Exhibition[]>("exhibitions.json"),
     getJson<Exhibition[]>("manual-exhibitions.json"),
     getJson<PopularityData>("popularity.json"),
+    getJson<Exhibition[]>("overseas-exhibitions.json"),
   ]);
   const exhibitions = collected && collected.length ? [...collected, ...(manual ?? [])].map(cleanExhibition) : null;
-  return { exhibitions, popularity };
+  const overseas = Array.isArray(overseasRaw) ? overseasRaw.map(cleanExhibition) : null;
+  return { exhibitions, popularity, overseas };
 }
