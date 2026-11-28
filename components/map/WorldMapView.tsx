@@ -1,6 +1,6 @@
 "use client";
 
-// 해외(지금은 미국 서부) 전시 지도. 카카오맵은 한국 밖 지도가 거의 그려지지 않아 따로 쓴다.
+// 해외(미국 서부·동부) 전시 지도. 카카오맵은 한국 밖 지도가 거의 그려지지 않아 따로 쓴다.
 // Leaflet(지도 라이브러리)을 unpkg에서 불러오고, 바탕 지도는 OpenStreetMap(무료, 출처 표시 필수).
 // 주변 장소·독립공간·동선은 국내 지도에만 있다.
 
@@ -15,8 +15,7 @@ declare global {
 }
 
 const LEAFLET_VER = "1.9.4";
-/** 미국 서부 전체가 보이는 범위 (남서쪽, 북동쪽) */
-const US_WEST: [[number, number], [number, number]] = [[32.4, -124.8], [48.2, -116.5]];
+type Bounds = [[number, number], [number, number]];
 const DETAIL_ZOOM = 15;
 const LABEL_ZOOM = 11;
 
@@ -59,7 +58,12 @@ function pinElement(x: Exhibition): HTMLButtonElement {
   return el;
 }
 
-export default function WorldMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq, onMapDrag }: MapViewProps) {
+export default function WorldMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq, onMapDrag, homeBounds, homeLabel }: MapViewProps & {
+  /** 처음·'전체' 버튼을 누를 때 보여 줄 범위 (남서쪽, 북동쪽) */
+  homeBounds: Bounds;
+  /** 예: "미국 서부" */
+  homeLabel: string;
+}) {
   const boxRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const layerRef = useRef<any>(null);
@@ -93,7 +97,7 @@ export default function WorldMapView({ items, selectedId, onSelect, onVisibleCha
           maxZoom: 19,
           attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>',
         }).addTo(map);
-        map.fitBounds(US_WEST);
+        map.fitBounds(homeBounds);
         layerRef.current = L.layerGroup().addTo(map);
         map.on("dragstart", () => latest.current.onMapDrag());
         map.on("moveend zoomend", () => {
@@ -208,16 +212,16 @@ export default function WorldMapView({ items, selectedId, onSelect, onVisibleCha
   }, [ready, locateSeq]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const zoomBy = (d: number) => mapRef.current?.setZoom(mapRef.current.getZoom() + d);
-  const home = () => mapRef.current?.fitBounds(US_WEST);
+  const home = () => mapRef.current?.fitBounds(homeBounds);
 
   return (
     <>
-      <div ref={boxRef} className="kmap wmap" aria-label="미국 서부 전시 지도" />
+      <div ref={boxRef} className="kmap wmap" aria-label={`${homeLabel} 전시 지도`} />
       {error && <div className="map-msg">{error} 잠시 후 새로고침해 주세요.</div>}
       <div className={"zoom" + (detailOpen && desktop ? " shifted" : "")}>
         <button type="button" aria-label="확대" onClick={() => zoomBy(1)}>+</button>
         <button type="button" aria-label="축소" onClick={() => zoomBy(-1)}>−</button>
-        <button type="button" className="home" aria-label="미국 서부 전체 보기" onClick={home}>전체</button>
+        <button type="button" className="home" aria-label={`${homeLabel} 전체 보기`} onClick={home}>전체</button>
       </div>
     </>
   );
