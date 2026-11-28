@@ -7,7 +7,7 @@ import { KAKAO_MAP_KEY } from "@/lib/config";
 import { RADIUS_STEPS, distanceM, formatDistance, radiusLabel, type MyLocation } from "@/lib/geo";
 import Poster from "./Poster";
 import Welcome from "./Welcome";
-import type { PopularityData } from "@/lib/picks";
+import { topPopular, type PopularityData } from "@/lib/picks";
 import type { Space } from "@/lib/spaces";
 import type { TodayArt } from "@/lib/paintings";
 import { futureKindOf } from "@/lib/future";
@@ -187,6 +187,8 @@ export default function ExhibitionMap({
   // 지도·목록·필터가 쓰는 전시: 고른 지역의 것만. (시작 화면·전시 도우미는 국내 전시만 쓴다)
   const usWest = useMemo(() => overseas.filter((x) => regionOf(x) === "usw"), [overseas]);
   const usEast = useMemo(() => overseas.filter((x) => regionOf(x) === "use"), [overseas]);
+  // '대중을 위한' 상위 10개 (시작 화면 탭과 같은 기준) → 지도 이름표 노란 테두리
+  const popularIds = useMemo(() => new Set(topPopular(allExhibitions, popularity).map((r) => r.x.id)), [allExhibitions, popularity]);
   const regionItems = region === "usw" ? usWest : region === "use" ? usEast : allExhibitions;
 
   // 관심 전시 (이 기기에 저장)
@@ -528,6 +530,7 @@ export default function ExhibitionMap({
     onMapDrag,
     spaces: shownSpaces,
     route: region !== "kr" ? null : route,
+    popularIds,
   };
 
   return (

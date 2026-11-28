@@ -5,7 +5,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import InstallApp from "./InstallApp";
 import type { Exhibition } from "@/lib/types";
-import type { PopularityData } from "@/lib/picks";
+import { topPopular, type PopularityData } from "@/lib/picks";
 import { FUTURE_KINDS, futureKindOf, type FutureKind } from "@/lib/future";
 import { formatDate, statusOf } from "@/lib/status";
 import Poster from "./Poster";
@@ -141,17 +141,8 @@ export default function Welcome({
 
   const popular: Card[] = useMemo(() => {
     if (!now) return [];
-    return Object.entries(popularity.items)
-      .map(([id, v]) => ({ x: byId.get(id), v }))
-      .filter((r): r is { x: Exhibition; v: { recent: number; total: number } } => {
-        if (!r.x || r.v.recent <= 0) return false;
-        const k = statusOf(r.x).kind;
-        return k === "on" || k === "ending";
-      })
-      .sort((a, b) => b.v.recent - a.v.recent)
-      .slice(0, 10)
-      .map((r, i) => ({ x: r.x, rank: i + 1, meta: `최근 ${popularity.windowDays}일 블로그 ${r.v.recent}건` }));
-  }, [popularity, byId, now]);
+    return topPopular(exhibitions, popularity).map((r, i) => ({ x: r.x, rank: i + 1, meta: `최근 ${popularity.windowDays}일 블로그 ${r.recent}건` }));
+  }, [popularity, exhibitions, now]);
 
   // 예술의 미래: 졸업전시·실험전시·소규모 작가전. 진행 중 → 마감 가까운 순, 그다음 2주 안에 개막하는 전시
   const futureAll = useMemo(() => {
