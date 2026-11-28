@@ -7,6 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Exhibition } from "@/lib/types";
 import { statusOf } from "@/lib/status";
+import { futureKindOf } from "@/lib/future";
 import type { MapViewProps } from "./types";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -55,6 +56,13 @@ function pinElement(x: Exhibition): HTMLButtonElement {
   lab.className = "lab";
   lab.textContent = x.title;
   el.append(pin, lab);
+  if (futureKindOf(x)) {
+    const star = document.createElement("span");
+    star.className = "mk-star";
+    star.setAttribute("aria-hidden", "true");
+    star.textContent = "★";
+    el.append(star);
+  }
   return el;
 }
 
