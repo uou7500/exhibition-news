@@ -2,7 +2,7 @@
 :root{
   --sea:#dde5ec; --land:#fbfbf8; --coast:#9aa9b8; --ink:#1d2430; --muted:#5f6b7a; --warm-gray:#9a918a;
   --line:#d6dde4; --panel:#ffffff; --accent:#0071e3; --accent-ink:#ffffff; --free:#13795b; --warn:#b4471a;
-  --soft:#eaf3fe; --band:#d9cfc4; --brand-bg:#f36c21; --pop:#f2b705; --brand-ink:#111111; --future:#7b2ff7;
+  --soft:#eaf3fe; --band:#d9cfc4; --brand-bg:#f36c21; --pop:#ffd60a; --brand-ink:#111111; --future:#7b2ff7;
   --f-display:"Gowun Batang", "Nanum Myeongjo", serif;
   --f-body:"IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --f-mono:"IBM Plex Mono", ui-monospace, monospace;
