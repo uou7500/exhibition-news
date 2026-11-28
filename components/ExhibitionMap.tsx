@@ -20,6 +20,7 @@ import SubmitForm from "./SubmitForm";
 import Assistant, { AssistantButton } from "./Assistant";
 import SvgMapView from "./map/SvgMapView";
 import KakaoMapView from "./map/KakaoMapView";
+import WorldMapView from "./map/WorldMapView";
 import { POI_LABELS, type PoiCode } from "./map/types";
 
 const GENRES: Genre[] = ["회화", "미디어", "사진", "조각·설치", "공예", "디자인", "기타"];
@@ -27,6 +28,9 @@ const POI_CODES: PoiCode[] = ["CS2", "CE7", "SW8"];
 type StatusFilter = "all" | "on" | "upcoming";
 
 const DESKTOP = 900;
+/** 세계 지도에는 주변 장소·독립공간이 없다 (렌더링마다 새 값이 생기지 않게 밖에 둔다) */
+const NO_POI = new Set<PoiCode>();
+const NO_SPACES: Space[] = [];
 /** 내려간 대화창 띠의 높이(px). globals.css의 --ai-peek과 같게 */
 const AI_PEEK = 64;
 const KAKAO_KEY = KAKAO_MAP_KEY;
@@ -36,6 +40,22 @@ function directionsUrl(x: Exhibition, from: MyLocation | null): string {
   const to = `${encodeURIComponent(x.venue)},${x.lat},${x.lon}`;
   if (!from) return `https://map.kakao.com/link/to/${to}`;
   return `https://map.kakao.com/link/from/${encodeURIComponent("내 위치")},${from.lat},${from.lon}/to/${to}`;
+}
+
+/** 해외 전시인지 (country가 비어 있거나 "KR"이면 국내) */
+function isOverseas(x: Exhibition): boolean {
+  return !!x.country && x.country !== "KR";
+}
+
+/** 구글 지도 길찾기 (해외 전시용. 출발지는 구글 지도가 현재 위치로 채운다) */
+function googleDirectionsUrl(x: Exhibition): string {
+  return `https://www.google.com/maps/dir/?api=1&destination=${x.lat},${x.lon}`;
+}
+
+/** 목록·상세에 보일 관람료. 해외 전시는 원화가 아니라 원문 표기(예: "일반 $25")를 그대로 보여 준다 */
+function priceLabel(x: Exhibition): string {
+  if (x.priceText && (x.price !== null || isOverseas(x))) return x.priceText;
+  return formatPrice(x.price);
 }
 
 /** 네이버 지도 웹 주소 (앱이 없거나 컴퓨터일 때). 장소 이름·주소로 검색해 연다. */
@@ -103,12 +123,15 @@ function useDesktop() {
 
 export default function ExhibitionMap({
   exhibitions: initialExhibitions,
+  overseas: initialOverseas = [],
   isSample,
   popularity: initialPopularity,
   spaces,
   initialArt,
 }: {
   exhibitions: Exhibition[];
+  /** 해외(미국 서부) 전시. '미국 서부' 버튼을 누르면 이 목록과 세계 지도로 바뀐다 */
+  overseas?: Exhibition[];
   isSample: boolean;
   popularity: PopularityData;
   spaces: Space[];
@@ -118,6 +141,9 @@ export default function ExhibitionMap({
   // 배포 때 묶인 데이터로 먼저 그리고, 열리자마자 최신 데이터를 받아 바꾼다
   const [exhibitions, setExhibitions] = useState(initialExhibitions);
   const [popularity, setPopularity] = useState(initialPopularity);
+  const [overseas, setOverseas] = useState(initialOverseas);
+  // 지금 보는 지역: 국내(카카오맵) / 미국 서부(세계 지도)
+  const [region, setRegion] = useState<"kr" | "us">("kr");
   // 운영자가 승인한 '전시 등록 요청'은 Supabase에서 받아 함께 보여준다
   const [approved, setApproved] = useState<Exhibition[]>([]);
   useEffect(() => {
@@ -126,6 +152,7 @@ export default function ExhibitionMap({
       if (!alive) return;
       // 배포 때 묶인 자료와 같으면 바꾸지 않는다 → 목록·지도 핀·포스터를 처음부터 다시 그리는 일(시작 직후 버벅임)을 피한다
       if (d.exhibitions) setExhibitions((prev) => (sameExhibitions(prev, d.exhibitions!) ? prev : d.exhibitions!));
+      if (d.overseas) setOverseas((prev) => (sameExhibitions(prev, d.overseas!) ? prev : d.overseas!));
       if (d.popularity) setPopularity((prev) => (prev.updatedAt === d.popularity!.updatedAt ? prev : d.popularity!));
     });
     fetchApproved()
@@ -150,6 +177,8 @@ export default function ExhibitionMap({
   }, [voteCounts]);
 
   const allExhibitions = useMemo(() => (approved.length ? [...exhibitions, ...approved] : exhibitions), [exhibitions, approved]);
+  // 지도·목록·필터가 쓰는 전시: 고른 지역의 것만. (시작 화면·전시 도우미는 국내 전시만 쓴다)
+  const regionItems = region === "us" ? overseas : allExhibitions;
 
   // 관심 전시 (이 기기에 저장)
   const { saved, toggle: toggleSaved } = useBookmarks();
@@ -198,7 +227,7 @@ export default function ExhibitionMap({
   const [locating, setLocating] = useState(false);
   const [locError, setLocError] = useState<string | null>(null);
 
-  const selected = allExhibitions.find((x) => x.id === selectedId) ?? null;
+  const selected = regionItems.find((x) => x.id === selectedId) ?? null;
   const route = useMemo(() => {
     if (!routeReq) return null;
     const stops = routeReq.ids.map((id) => allExhibitions.find((x) => x.id === id)).filter((x): x is Exhibition => !!x);
@@ -207,7 +236,7 @@ export default function ExhibitionMap({
 
   const baseFiltered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return allExhibitions.filter((x) => {
+    return regionItems.filter((x) => {
       const st = statusOf(x).kind;
       if (st === "over") return false;
       if (status === "on" && !(st === "on" || st === "ending")) return false;
@@ -219,14 +248,14 @@ export default function ExhibitionMap({
       if (q && !(x.title + x.venue + x.city + x.genre).toLowerCase().includes(q)) return false;
       return true;
     });
-  }, [allExhibitions, query, status, genres, freeOnly, futureOnly, savedOnly, saved]);
+  }, [regionItems, query, status, genres, freeOnly, futureOnly, savedOnly, saved]);
 
   // 내 위치에서 각 전시까지 거리(미터)
   const dist = useMemo(() => {
     const m = new Map<string, number>();
-    if (myLoc) for (const x of allExhibitions) m.set(x.id, distanceM(myLoc.lat, myLoc.lon, x.lat, x.lon));
+    if (myLoc) for (const x of regionItems) m.set(x.id, distanceM(myLoc.lat, myLoc.lon, x.lat, x.lon));
     return m;
-  }, [allExhibitions, myLoc]);
+  }, [regionItems, myLoc]);
 
   const inRadius = !!(myLoc && radius);
   const filteredRaw = useMemo(
@@ -253,7 +282,7 @@ export default function ExhibitionMap({
   // 목록을 나눠 그리기: 조건이 바뀌면 처음 30개부터, 아래 끝이 보이면 30개씩 더
   const [listLimit, setListLimit] = useState(LIST_PAGE);
   const moreRef = useRef<HTMLDivElement>(null);
-  useEffect(() => setListLimit(LIST_PAGE), [query, status, genres, freeOnly, futureOnly, savedOnly, radius, myLoc]);
+  useEffect(() => setListLimit(LIST_PAGE), [query, status, genres, freeOnly, futureOnly, savedOnly, radius, myLoc, region]);
   useEffect(() => {
     const el = moreRef.current;
     if (!el || listLimit >= visible.length) return;
@@ -453,6 +482,16 @@ export default function ExhibitionMap({
     return () => removeEventListener("keydown", onKey);
   }, []);
 
+  // 지역을 바꾸면 고른 전시·동선·반경을 비운다 (다른 나라 반경 안에는 전시가 없으니)
+  const chooseRegion = (r: "kr" | "us") => {
+    if (r === region) return;
+    setRegion(r);
+    setSelectedId(null);
+    setRouteReq(null);
+    setRadius(null);
+    setListOpen(false);
+  };
+
   const toggle = <T,>(set: React.Dispatch<React.SetStateAction<Set<T>>>, v: T) =>
     set((prev) => {
       const n = new Set(prev);
@@ -476,12 +515,18 @@ export default function ExhibitionMap({
     onMapDrag,
     spaces: shownSpaces,
     votes: upVotes,
-    route,
+    route: region === "us" ? null : route,
   };
 
   return (
     <div className={"app" + (peek ? " ai-peek" : "") + (selected && desktop ? " detail-open" : "")}>
-      {KAKAO_KEY ? <KakaoMapView appKey={KAKAO_KEY} {...mapProps} /> : <SvgMapView {...mapProps} />}
+      {region === "us" ? (
+        <WorldMapView {...mapProps} poi={NO_POI} spaces={NO_SPACES} />
+      ) : KAKAO_KEY ? (
+        <KakaoMapView appKey={KAKAO_KEY} {...mapProps} />
+      ) : (
+        <SvgMapView {...mapProps} />
+      )}
 
       <div className="top">
         <div className="bar">
@@ -513,6 +558,13 @@ export default function ExhibitionMap({
           </form>
         </div>
         <div className="chips">
+          {overseas.length > 0 && (
+            <>
+              <button className="chip region-chip" aria-pressed={region === "kr"} onClick={() => chooseRegion("kr")}>국내</button>
+              <button className="chip region-chip" aria-pressed={region === "us"} onClick={() => chooseRegion("us")}>미국 서부</button>
+              <span className="sep" />
+            </>
+          )}
           {([["all", "전체"], ["on", "진행 중"], ["upcoming", "개막 예정"]] as [StatusFilter, string][]).map(([k, l]) => (
             <button key={k} className="chip" aria-pressed={status === k} onClick={() => setStatus((cur) => (cur === k ? null : k))}>{l}</button>
           ))}
@@ -532,7 +584,7 @@ export default function ExhibitionMap({
               {radiusLabel(r)}
             </button>
           ))}
-          {KAKAO_KEY && (
+          {KAKAO_KEY && region === "kr" && (
             <>
               <span className="sep" />
               <span className="chips-label">주변</span>
@@ -565,7 +617,7 @@ export default function ExhibitionMap({
         </svg>
       </button>
       {locError && <div className="map-msg" role="alert">{locError}</div>}
-      {route && (
+      {route && region === "kr" && (
         <div className="route-banner" role="status">
           <span className="route-banner-dot" aria-hidden="true" />
           동선 {route.stops.length}곳을 지도에 그렸어요
@@ -588,6 +640,7 @@ export default function ExhibitionMap({
           popularity={popularity}
           onPick={(id) => {
             dismissWelcome();
+            setRegion("kr");
             openFromList(id);
           }}
           onNear={() => {
@@ -614,7 +667,7 @@ export default function ExhibitionMap({
         >
           <span className="grab" />
           <span className="list-title">
-            <h2>{inRadius && radius ? `내 위치 ${radiusLabel(radius)} 안 전시` : hasFilter ? "조건에 맞는 전시" : "전국 전시"}</h2>
+            <h2>{inRadius && radius ? `내 위치 ${radiusLabel(radius)} 안 전시` : hasFilter ? "조건에 맞는 전시" : region === "us" ? "미국 서부 전시" : "전국 전시"}</h2>
             <small>
               {`${visible.length}개 · ${myLoc ? "가까운 순" : "마감 임박 순"}`}
               <span className="list-toggle">{listOpen ? "접기 ▾" : "펼치기 ▴"}</span>
@@ -648,7 +701,7 @@ export default function ExhibitionMap({
                       {!!upVotes[x.id] && <span className="item-vote" aria-label={`추천 ${upVotes[x.id]}`}> · 👍 {upVotes[x.id]}</span>}
                     </p>
                   </span>
-                  <span className={"price" + (x.price === 0 ? " free" : "")}>{formatPrice(x.price)}</span>
+                  <span className={"price" + (x.price === 0 ? " free" : "")}>{isOverseas(x) && x.price !== 0 ? (x.priceText ? "유료" : formatPrice(x.price)) : formatPrice(x.price)}</span>
                 </button>
               );
             })
@@ -683,6 +736,7 @@ export default function ExhibitionMap({
         selectedId={selectedId}
         routeIds={routeReq?.ids ?? null}
         onShowRoute={(ids) => {
+          setRegion("kr");
           setSelectedId(null);
           setListOpen(false);
           if (!desktop) setAskMode("min");
@@ -695,6 +749,7 @@ export default function ExhibitionMap({
         onOpenExhibition={(id) => {
           // 대화창은 닫지 않는다: 휴대폰은 아래로 내려 띠만 남기고, 컴퓨터는 상세 창 왼쪽으로 비켜 선다
           if (!desktop) setAskMode("min");
+          setRegion("kr");
           openFromList(id);
         }}
       />
@@ -835,7 +890,7 @@ function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved
           <dl className="facts">
             <dt>기간</dt><dd>{formatDate(x.startDate)} – {formatDate(x.endDate)}</dd>
             {x.hours && (<><dt>관람 시간</dt><dd>{x.hours}</dd></>)}
-            <dt>관람료</dt><dd>{x.price !== null && x.priceText ? x.priceText : formatPrice(x.price)}</dd>
+            <dt>관람료</dt><dd>{priceLabel(x)}</dd>
             <dt>장소</dt><dd>{x.address ?? x.venue}</dd>
           </dl>
           {x.description ? (
@@ -861,12 +916,20 @@ function Detail({ x, distance, myLoc, onLocated, onClose, isSaved, onToggleSaved
             <>
               <div className="route-scrim" aria-hidden="true" onClick={() => setRouteOpen(false)} />
               <div className="route-menu" role="menu" aria-label="어느 지도로 길찾기 할까요?">
+                {isOverseas(x) ? (
+                  <a role="menuitem" href={googleDirectionsUrl(x)} target="_blank" rel="noopener noreferrer" onClick={() => setRouteOpen(false)}>
+                    <span className="route-dot google" aria-hidden="true" />구글 지도
+                  </a>
+                ) : (
+                <>
                 <a role="menuitem" href={directionsUrl(x, myLoc)} target="_blank" rel="noopener noreferrer" onClick={(e) => { if (myLoc) setRouteOpen(false); openDirections(e); }}>
                   <span className="route-dot kakao" aria-hidden="true" />카카오맵
                 </a>
                 <a role="menuitem" href={naverWebUrl(x)} target="_blank" rel="noopener noreferrer" onClick={openNaver}>
                   <span className="route-dot naver" aria-hidden="true" />네이버 지도
                 </a>
+                </>
+                )}
               </div>
             </>
           )}
