@@ -6,6 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Exhibition } from "@/lib/types";
 import { statusOf } from "@/lib/status";
+import { futureKindOf } from "@/lib/future";
 import { radiusBounds } from "@/lib/geo";
 import { POI_LABELS, type MapViewProps, type PoiCode } from "./types";
 
@@ -57,6 +58,15 @@ function setVoteBadge(el: HTMLElement, up: number) {
   b.textContent = `👍${up}`;
 }
 
+/** '예술의 미래' 전시 핀 위 작은 주황 별 */
+function starElement(): HTMLSpanElement {
+  const s = document.createElement("span");
+  s.className = "mk-star";
+  s.setAttribute("aria-hidden", "true");
+  s.textContent = "★";
+  return s;
+}
+
 function pinElement(x: Exhibition, up: number, onClick: () => void): HTMLButtonElement {
   const st = statusOf(x).kind;
   const el = document.createElement("button");
@@ -70,6 +80,7 @@ function pinElement(x: Exhibition, up: number, onClick: () => void): HTMLButtonE
   lab.className = "lab";
   lab.textContent = x.title;
   el.append(pin, lab);
+  if (futureKindOf(x)) el.append(starElement());
   setVoteBadge(el, up);
   el.addEventListener("click", (e) => {
     e.stopPropagation();

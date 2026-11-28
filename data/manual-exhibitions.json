@@ -3137,5 +3137,49 @@
       "작가전"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-galleryhyundai-myoungho-lee-nothing-2026",
+    "title": "이명호 개인전 《(no)thing》",
+    "venue": "갤러리현대",
+    "city": "서울",
+    "lat": 37.5797,
+    "lon": 126.9812,
+    "genre": "사진",
+    "startDate": "2026-10-29",
+    "endDate": "2026-12-20",
+    "price": null,
+    "description": "사진가 이명호가 8년 만에 갤러리현대에서 여는 개인전으로, 사진과 손으로 형태를 오려 낸 이미지, 대형 캔버스 작업 등 근작 30여 점을 선보입니다. 해수면 상승으로 사라질 위기의 섬나라를 담은 〈키리바시〉 연작과 덕수궁 선원전 터의 회화나무를 찍은 〈헤리티지〉 연작이 중심입니다.",
+    "thumbnail": "https://www.galleryhyundai.com/public/2026/10/22/15/11/23/034109d0-7f66-4eb7-a5c4-e2793d3bc6a4.resize_large.jpg",
+    "url": "https://www.galleryhyundai.com/exhibition/view/18",
+    "address": "서울 종로구 삼청로 14",
+    "keywords": [
+      "현대갤러리",
+      "현대화랑",
+      "Gallery Hyundai"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-galleryhyundai-park-minjoon-imaginatio-2026",
+    "title": "박민준 개인전 《IMAGINATIO》",
+    "venue": "갤러리현대 (현대화랑, 삼청로 8)",
+    "city": "서울",
+    "lat": 37.5784,
+    "lon": 126.981,
+    "genre": "회화",
+    "startDate": "2026-11-11",
+    "endDate": "2026-12-27",
+    "price": null,
+    "description": "화가 박민준이 수채·아크릴·금박으로 그린 종이 작품 35점과 샹들리에 조각 〈데리다의 회전목마〉를 선보이는 개인전입니다. 신화와 문학, 영화, 작가가 직접 쓴 소설에서 길어 올린 반인반수의 초현실적 인물들이 유머와 우화로 욕망과 믿음을 이야기합니다.",
+    "thumbnail": "https://www.galleryhyundai.com/public/2026/10/22/12/3/57/f7179a44-c968-4d55-8f5c-2876b71ce818.resize_large.jpg",
+    "url": "https://www.galleryhyundai.com/exhibition/view/17",
+    "address": "서울 종로구 삼청로 8",
+    "keywords": [
+      "현대갤러리",
+      "현대화랑",
+      "Gallery Hyundai"
+    ],
+    "source": "manual"
   }
 ]

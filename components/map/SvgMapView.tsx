@@ -5,6 +5,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Exhibition } from "@/lib/types";
 import { statusOf } from "@/lib/status";
+import { futureKindOf } from "@/lib/future";
 import { CITY_LABELS, DMZ_PATH, JEJU, LAND_PATH, MAP_HEIGHT, MAP_WIDTH, project } from "@/lib/korea-map";
 import type { MapViewProps } from "./types";
 
@@ -277,6 +278,7 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
                 <span className="pin"><i>{onRoute.has(x.id) ? routeOrder.indexOf(x.id) + 1 : null}</i></span>
                 {!!votes[x.id] && <span className="vb" aria-hidden="true">👍{votes[x.id]}</span>}
                 {(onRoute.size ? onRoute.has(x.id) : view.s > 5 || x.id === selectedId) && <span className="lab">{x.title}</span>}
+                {futureKindOf(x) && <span className="mk-star" aria-hidden="true">★</span>}
               </button>
             );
           }
