@@ -72,7 +72,7 @@ function pinElement(x: Exhibition, onClick: () => void): HTMLButtonElement {
   return el;
 }
 
-export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces, route, popularIds }: MapViewProps & { appKey: string }) {
+export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces, route }: MapViewProps & { appKey: string }) {
   const boxRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const clustererRef = useRef<any>(null);
@@ -226,11 +226,6 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       overlay.setZIndex(on ? 10 : 3);
     });
   }, [selectedId, items, ready]);
-
-  // '대중을 위한' 상위 10개: 이름표 검정 테두리
-  useEffect(() => {
-    pinsRef.current.forEach(({ el }, id) => el.classList.toggle("pop", !!popularIds?.has(id)));
-  }, [popularIds, items, ready]);
 
   // 확대 정도에 따라 핀 이름표 보이기
   useEffect(() => {

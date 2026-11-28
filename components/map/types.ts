@@ -34,6 +34,4 @@ export interface MapViewProps {
   spaces: Space[];
   /** 전시 도우미가 짠 동선: 순서대로 번호를 붙이고 선으로 잇는다. seq가 바뀌면 지도를 동선에 맞춘다 */
   route?: { stops: Exhibition[]; seq: number } | null;
-  /** '대중을 위한' 상위 10개 전시 ID: 지도 이름표에 노란 테두리 */
-  popularIds?: Set<string>;
 }

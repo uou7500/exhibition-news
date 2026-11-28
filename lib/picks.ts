@@ -13,7 +13,7 @@ export function getPopularity(): PopularityData {
   return popularity as PopularityData;
 }
 
-/** '대중을 위한' 상위 전시: 지금 열려 있고 최근 언급이 있는 전시를 언급 수 많은 순으로 n개 (시작 화면 탭·지도 검정 테두리 이름표가 같이 쓴다) */
+/** '대중을 위한' 상위 전시: 지금 열려 있고 최근 언급이 있는 전시를 언급 수 많은 순으로 n개 (시작 화면 탭) */
 export function topPopular(exhibitions: Exhibition[], data: PopularityData, n = 10): { x: Exhibition; recent: number }[] {
   const byId = new Map(exhibitions.map((x) => [x.id, x]));
   const out: { x: Exhibition; recent: number }[] = [];
