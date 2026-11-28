@@ -2,7 +2,7 @@
 :root{
   --sea:#dde5ec; --land:#fbfbf8; --coast:#9aa9b8; --ink:#1d2430; --muted:#5f6b7a; --warm-gray:#9a918a;
   --line:#d6dde4; --panel:#ffffff; --accent:#0071e3; --accent-ink:#ffffff; --free:#13795b; --warn:#b4471a;
-  --soft:#eaf3fe; --band:#d9cfc4; --brand-bg:#f36c21; --pop:#ffd60a; --brand-ink:#111111; --future:#7b2ff7;
+  --soft:#eaf3fe; --band:#d9cfc4; --brand-bg:#f36c21; --brand-ink:#111111; --future:#7b2ff7;
   --f-display:"Gowun Batang", "Nanum Myeongjo", serif;
   --f-body:"IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --f-mono:"IBM Plex Mono", ui-monospace, monospace;
@@ -445,7 +445,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .region-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .route-dot.google{border-color:var(--accent)}
 
-/* 지도 표시: '대중을 위한' 상위 10개는 이름표 노란 테두리, '예술의 미래' 전시는 핀 위 주황 별 */
-.mk.pop .lab{border:2px solid var(--pop);padding:1px 6px}
+/* 지도 표시: '대중을 위한' 상위 10개는 이름표 검정 테두리, '예술의 미래' 전시는 핀 위 주황 별 */
+.mk.pop .lab{border:2px solid var(--ink);padding:1px 6px}
 .mk-star{position:absolute;top:-7px;left:calc(50% + 6px);font-size:13px;line-height:1;color:var(--brand-bg);text-shadow:0 0 2px var(--panel),0 0 2px var(--panel),0 1px 3px rgba(0,0,0,.35);pointer-events:none}
 .mk.dim .mk-star,.kmap.routing .mk.k:not(.on-route) .mk-star{display:none}

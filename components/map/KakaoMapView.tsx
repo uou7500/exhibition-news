@@ -227,7 +227,7 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
     });
   }, [selectedId, items, ready]);
 
-  // '대중을 위한' 상위 10개: 이름표 노란 테두리
+  // '대중을 위한' 상위 10개: 이름표 검정 테두리
   useEffect(() => {
     pinsRef.current.forEach(({ el }, id) => el.classList.toggle("pop", !!popularIds?.has(id)));
   }, [popularIds, items, ready]);

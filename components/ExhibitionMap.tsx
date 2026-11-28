@@ -187,7 +187,7 @@ export default function ExhibitionMap({
   // 지도·목록·필터가 쓰는 전시: 고른 지역의 것만. (시작 화면·전시 도우미는 국내 전시만 쓴다)
   const usWest = useMemo(() => overseas.filter((x) => regionOf(x) === "usw"), [overseas]);
   const usEast = useMemo(() => overseas.filter((x) => regionOf(x) === "use"), [overseas]);
-  // '대중을 위한' 상위 10개 (시작 화면 탭과 같은 기준) → 지도 이름표 노란 테두리
+  // '대중을 위한' 상위 10개 (시작 화면 탭과 같은 기준) → 지도 이름표 검정 테두리
   const popularIds = useMemo(() => new Set(topPopular(allExhibitions, popularity).map((r) => r.x.id)), [allExhibitions, popularity]);
   const regionItems = region === "usw" ? usWest : region === "use" ? usEast : allExhibitions;
 
