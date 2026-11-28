@@ -60,7 +60,6 @@ function pinElement(x: Exhibition): HTMLButtonElement {
     const star = document.createElement("span");
     star.className = "mk-star";
     star.setAttribute("aria-hidden", "true");
-    star.textContent = "★";
     el.append(star);
   }
   return el;

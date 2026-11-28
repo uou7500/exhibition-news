@@ -42,12 +42,11 @@ function loadKakao(appKey: string): Promise<any> {
   return sdkPromise;
 }
 
-/** '예술의 미래' 전시 핀 위 작은 주황 별 */
+/** '예술의 미래' 전시 핀 위 작은 노란 종이 별(그림은 CSS .mk-star) */
 function starElement(): HTMLSpanElement {
   const s = document.createElement("span");
   s.className = "mk-star";
   s.setAttribute("aria-hidden", "true");
-  s.textContent = "★";
   return s;
 }
 

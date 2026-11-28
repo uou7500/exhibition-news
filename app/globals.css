@@ -2,7 +2,7 @@
 :root{
   --sea:#dde5ec; --land:#fbfbf8; --coast:#9aa9b8; --ink:#1d2430; --muted:#5f6b7a; --warm-gray:#9a918a;
   --line:#d6dde4; --panel:#ffffff; --accent:#0071e3; --accent-ink:#ffffff; --free:#13795b; --warn:#b4471a;
-  --soft:#eaf3fe; --band:#d9cfc4; --brand-bg:#f36c21; --star:#ffcc00; --brand-ink:#111111; --future:#7b2ff7;
+  --soft:#eaf3fe; --band:#d9cfc4; --brand-bg:#f36c21; --brand-ink:#111111; --future:#7b2ff7;
   --f-display:"Gowun Batang", "Nanum Myeongjo", serif;
   --f-body:"IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --f-mono:"IBM Plex Mono", ui-monospace, monospace;
@@ -445,6 +445,13 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid 
 .region-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .route-dot.google{border-color:var(--accent)}
 
-/* 지도 표시: '예술의 미래' 전시는 핀 위 노란 별 */
-.mk-star{position:absolute;top:-7px;left:calc(50% + 6px);font-size:13px;line-height:1;color:var(--star);-webkit-text-stroke:.6px rgba(120,80,0,.55);text-shadow:0 1px 3px rgba(0,0,0,.35);pointer-events:none}
+/* 지도 표시: '예술의 미래' 전시는 핀 위 노란 종이 별(앱 아이콘의 손으로 오린 별 모양) */
+.mk-star{position:absolute;top:-9px;left:calc(50% + 4px);width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Cpath d=%22M23.8 1.9 L25.5 15.4 L36.4 18.3 L25.5 23.2 L28.3 37.1 L18.7 27.5 L8.7 30.6 L13.5 21.1 L4.7 12.5 L16.5 13.9Z%22 fill=%22%23f7d117%22 stroke=%22%23c99a00%22 stroke-width=%22.8%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.35));pointer-events:none}
 .mk.dim .mk-star,.kmap.routing .mk.k:not(.on-route) .mk-star{display:none}
+
+/* 지도 범례: 노란 별 = 미래가 기대되는 작은 전시들 (누르면 그 전시만) */
+.legend-row{display:flex;pointer-events:none}
+.future-legend{pointer-events:auto;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:color-mix(in srgb, var(--panel) 88%, transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:999px;padding:5px 11px 5px 8px;font-size:12.5px;white-space:nowrap;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.future-legend .mk-star{position:static;width:16px;height:16px;flex:none}
+.future-legend[aria-pressed="true"]{border-color:var(--ink);font-weight:600}
+@media (min-width:900px){.legend-row{position:absolute;top:2px;left:416px}}
