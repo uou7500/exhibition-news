@@ -20,7 +20,7 @@
 - `components/map/WorldMapView.tsx` + `data/overseas-exhibitions.json` — 해외(미국 서부·동부) 전시. 카카오맵은 한국 밖이 거의 안 그려져서, 지도 위 '국내 / 미국 서부 / 미국 동부' 칩으로 고르면(서부·동부는 경도 -104°로 나눔, `REGION_INFO`) Leaflet 1.9.4(unpkg에서 불러옴)+OpenStreetMap 바탕 지도로 바뀐다(출처 표시 필수). 해외 전시는 `country: "US"`, `city`는 한글 도시 이름, `address`는 영문 주소, 관람료는 `priceText`(예: "일반 $25")에 원문대로, 무료면 `price: 0`. 길찾기는 구글 지도. 국내 전시와 섞지 않는다: 시작 화면·전시 도우미·대중을 위한 탭은 국내만. 주변 장소·독립공간·동선은 국내 지도에만 있다.
 - `components/map/SvgMapView.tsx` — 키가 없을 때 쓰는 임시 윤곽 지도. `components/map/types.ts`의 `MapViewProps`를 두 지도가 같이 따른다.
 - `components/Welcome.tsx` — 시작 화면(세션마다 한 번): 오늘 열려 있는 전시 수, 대중픽/예술의 미래 탭, 내 주변/전국 버튼.
-- 시작 화면 그림 띠(`PatternBand`, `public/pattern/01~11.jpg`): 사용자(앱 만든 사람) 본인 그림의 한 부분을 같은 크기 동그라미로 엇갈려 배치, 날마다 순서가 돌아감. 사람 얼굴·몸이 크게 나온 그림, 글자·상표가 든 그림은 넣지 않는다.
+- 시작 화면 그림 띠(`PatternBand`, `public/pattern/01~11.jpg`): 사용자(앱 만든 사람) 본인 그림의 한 부분을 같은 크기 동그라미로 엇갈려 배치, 날마다 순서가 돌아감. 첫 화면 아래 버튼 위로 '대중을 위한·예술의 미래' 탭 줄이 살짝 보이도록 화면 높이에 맞춰 띠를 3줄→2줄→1줄로 줄이고 동그라미 크기를 맞춘다(`fitBand`, `PICKS_PEEK`). 사람 얼굴·몸이 크게 나온 그림, 글자·상표가 든 그림은 넣지 않는다.
 - `lib/picks.ts` — `data/popularity.json`(대중픽) 읽기.
 - `lib/future.ts` — '예술의 미래' 분류(졸업전시·실험전시·작가전): `tags`가 있으면 우선, 없으면 제목·장소·소개글 키워드로 추정. 큰 기관(미술관·문화재단 등) 개인전은 작가전에서 뺀다.
 - `lib/spaces.ts` + `data/spaces.json` — 독립공간 목록. 지도에 보라색 마름모 핀. 좌표가 없으면 브라우저에서 카카오 장소 검색(`search`)으로 찾되 주소에 `area` 글자가 있을 때만 쓴다.

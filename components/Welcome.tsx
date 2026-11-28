@@ -2,7 +2,7 @@
 
 // 앱을 켰을 때 처음 보이는 화면: 오늘 열리는 전시 수, 대중을 위한·예술의 미래 탭, 시작 버튼.
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import InstallApp from "./InstallApp";
 import type { Exhibition } from "@/lib/types";
 import type { PopularityData } from "@/lib/picks";
@@ -12,6 +12,24 @@ import Poster from "./Poster";
 import { candidatesFor, imageSources, seoulWeatherCode, type TodayArt } from "@/lib/paintings";
 
 type Tab = "popular" | "future";
+/** 처음 화면에서 아래 버튼 위로 '대중을 위한·예술의 미래' 탭 줄이 이만큼(px) 보이게 그림 띠 줄 수·크기를 맞춘다 */
+const PICKS_PEEK = 72;
+
+/** 그림 띠 모양: 줄 수와 동그라미 크기(px). null = CSS 기본(3줄, clamp(104px,30vw,132px)) */
+type BandFit = { rows: number; dot: number | null };
+/**
+ * 띠 높이 = 위아래 여백 24px + 0.9 × 줄 수 × 동그라미 크기 (줄끼리 10%씩 겹침).
+ * 3줄 → 2줄 → 1줄 순서로, 동그라미가 너무 작아지지 않는 가장 많은 줄을 고른다.
+ */
+function fitBand(room: number, normal: number): BandFit {
+  for (const [rows, min] of [[3, 88], [2, 80]] as const) {
+    const d = Math.floor((room - 24) / (0.9 * rows));
+    if (d >= normal) return { rows, dot: rows === 3 ? null : normal };
+    if (d >= min) return { rows, dot: d };
+  }
+  const d = Math.floor((room - 24) / 0.9);
+  return { rows: 1, dot: Math.max(64, Math.min(normal, d)) };
+}
 const WEEKDAYS = "일월화수목금토";
 
 interface Card {
@@ -41,6 +59,32 @@ export default function Welcome({
   const [now, setNow] = useState<Date | null>(null);
   useEffect(() => setNow(new Date()), []);
   const [tab, setTab] = useState<Tab>("popular");
+
+  // 첫 화면에 추천 탭이 살짝 보이도록 그림 띠의 줄 수·동그라미 크기를 화면 높이에 맞춘다
+  const rootRef = useRef<HTMLDivElement>(null);
+  const bandRef = useRef<HTMLDivElement>(null);
+  const footRef = useRef<HTMLElement>(null);
+  const [band, setBand] = useState<BandFit>({ rows: 3, dot: null });
+  useEffect(() => {
+    const root = rootRef.current;
+    const bandEl = bandRef.current;
+    const foot = footRef.current;
+    if (!root || !bandEl || !foot) return;
+    const fit = () => {
+      // CSS 기본 크기: clamp(104px, 30vw, 132px)
+      const normal = Math.min(132, Math.max(104, window.innerWidth * 0.3));
+      // 띠가 쓸 수 있는 높이: 화면 - 아래 버튼 - 띠 위쪽(제목 등) - 띠 아래 간격 22px - 탭이 보일 만큼
+      const room = root.clientHeight - foot.offsetHeight - bandEl.offsetTop - 22 - PICKS_PEEK;
+      const next = fitBand(room, normal);
+      setBand((cur) => (cur.rows === next.rows && cur.dot === next.dot ? cur : next));
+    };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(root);
+    ro.observe(foot);
+    if (bandEl.previousElementSibling) ro.observe(bandEl.previousElementSibling);
+    return () => ro.disconnect();
+  }, []);
   const [kind, setKind] = useState<FutureKind | null>(null);
 
   // 오늘의 그림: 서울 날씨에 맞는 색 비중의 그림을 제목 글자 안에 넣는다.
@@ -147,7 +191,7 @@ export default function Welcome({
   const dateLine = now ? `${now.getMonth() + 1}월 ${now.getDate()}일 ${WEEKDAYS[now.getDay()]}요일` : " ";
 
   return (
-    <div className="welcome" role="dialog" aria-modal="true" aria-label="앙데팡당 시작 화면">
+    <div ref={rootRef} className="welcome" role="dialog" aria-modal="true" aria-label="앙데팡당 시작 화면">
       <div className="w-inner">
         <header className="w-head">
           <p className="w-date">{dateLine}</p>
@@ -171,7 +215,7 @@ export default function Welcome({
           </p>
         </header>
 
-        <PatternBand day={now ? Math.floor(now.getTime() / 86400000) : 0} />
+        <PatternBand ref={bandRef} rows={band.rows} dot={band.dot} day={now ? Math.floor(now.getTime() / 86400000) : 0} />
 
         <section className="w-picks" aria-label="추천 전시">
           <div className="w-tabs" role="tablist">
@@ -225,7 +269,7 @@ export default function Welcome({
           )}
         </section>
 
-        <footer className="w-actions">
+        <footer ref={footRef} className="w-actions">
           <InstallApp />
           <button type="button" className="btn" onClick={onNear}>내 주변 전시 보기</button>
           <button type="button" className="btn ghost" onClick={onBrowse}>전국 지도 둘러보기</button>
@@ -237,12 +281,12 @@ export default function Welcome({
 
 /** 처음 화면 그림 띠: 여러 작품의 한 부분을 같은 크기 동그라미로 (누구의 작품이든 같은 크기). 날마다 순서가 돌아간다 */
 const PATTERN = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
-function PatternBand({ day }: { day: number }) {
+function PatternBand({ day, rows: rowCount, dot, ref }: { day: number; rows: number; dot: number | null; ref: React.Ref<HTMLDivElement> }) {
   const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const order = PATTERN.map((_, i) => PATTERN[(i + day) % PATTERN.length]);
-  const rows = [order.slice(0, 4), order.slice(4, 8), [...order.slice(8, 11), order[0]]];
+  const rows = [order.slice(0, 4), order.slice(4, 8), [...order.slice(8, 11), order[0]]].slice(0, rowCount);
   return (
-    <div className="w-pattern" aria-hidden="true">
+    <div ref={ref} className="w-pattern" aria-hidden="true" style={dot ? ({ "--d": `${dot}px` } as React.CSSProperties) : undefined}>
       {rows.map((row, r) => (
         <div key={r} className="w-prow">
           {row.map((n) => (
