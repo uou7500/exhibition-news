@@ -711,5 +711,106 @@
       "실험전시"
     ],
     "source": "manual"
+  },
+  {
+    "id": "us-205-hudson-provisional-city-2026",
+    "title": "Provisional City",
+    "venue": "205 Hudson Gallery (Hunter College Art Galleries)",
+    "city": "뉴욕",
+    "country": "US",
+    "lat": 40.7236,
+    "lon": -74.0079,
+    "genre": "기타",
+    "startDate": "2026-10-29",
+    "endDate": "2027-02-06",
+    "price": null,
+    "description": "헌터 칼리지 미술대학원(MFA)을 나온 작가 8명이 함께하는 단체전으로, 같은 학교 석사 졸업생이 기획했습니다. 회화, 조각, 설치, 영상으로 늘 바뀌는 도시의 모습과 기억의 흔적을 다룹니다.",
+    "thumbnail": "https://images.squarespace-cdn.com/content/v1/57ab6f341b631bb0ce76339e/e77f26de-80c8-488c-9aca-53396cf52878/Jensen.jpg",
+    "url": "https://www.205hudsongallery.org/calendar/provisional-city",
+    "address": "205 Hudson St, New York, NY 10013",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "us-sva-book-show-2026",
+    "title": "The Book Show (MFA Illustration as Visual Essay)",
+    "venue": "SVA Gramercy Gallery",
+    "city": "뉴욕",
+    "country": "US",
+    "lat": 40.7385,
+    "lon": -73.9826,
+    "genre": "디자인",
+    "startDate": "2026-11-21",
+    "endDate": "2026-12-09",
+    "price": 0,
+    "description": "스쿨 오브 비주얼 아츠(SVA) 일러스트레이션 석사 과정 2027년 졸업 예정 학생들이 직접 만든 그림책·작가 책을 보여 주는 전시입니다. 이 과정 출신 작가들이 골라 꾸렸고, 누구나 무료로 볼 수 있습니다. 추수감사절 연휴(11월 25일 오후~29일)에는 문을 닫습니다.",
+    "thumbnail": "https://assets.sva.edu/heroImage/for-event-page-book-show-1794326683.jpg",
+    "url": "https://sva.edu/events/mfa-illustration-as-visual-essay-exhibition-fall-2026",
+    "address": "209 E 23rd St, 1st Floor, New York, NY 10010",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "us-bric-briclab-2026",
+    "title": "From the BRIClab: Works from the 2025-26 Artist Residencies",
+    "venue": "BRIC House",
+    "city": "브루클린",
+    "country": "US",
+    "lat": 40.6886,
+    "lon": -73.9787,
+    "genre": "기타",
+    "startDate": "2026-10-20",
+    "endDate": "2026-12-12",
+    "price": null,
+    "description": "브루클린의 비영리 예술 기관 BRIC의 입주 작가 11명이 입주 기간에 만들거나 키운 새 작업을 보여 줍니다. 회화, 설치, 사진, 섬유, 영상으로 정체성, 이주, 기억, 기술과 생태를 다룹니다.",
+    "thumbnail": "https://bricartsmedia.org/wp-content/uploads/2026/09/True-American-007.jpg",
+    "url": "https://bricartsmedia.org/exhibition/from-the-briclab-works-from-the-2025-26-artist-residencies/",
+    "address": "647 Fulton St, Brooklyn, NY 11217",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "us-craft-contemporary-castro-arias-2026",
+    "title": "Carlos Castro Arias: Vandalismo Artesanal",
+    "venue": "Craft Contemporary",
+    "city": "로스앤젤레스",
+    "country": "US",
+    "lat": 34.0625,
+    "lon": -118.3548,
+    "genre": "조각·설치",
+    "startDate": "2026-11-15",
+    "endDate": "2027-05-02",
+    "price": null,
+    "description": "콜롬비아 작가 카를로스 카스트로 아리아스의 LA 첫 개인전입니다. 정복자 흉상 같은 청동 조각 조각들을 콜롬비아 전통 바구니 짜기·구슬 공예로 감싸, 기념비가 나라의 이야기를 어떻게 만들어 왔는지 묻습니다. 전시 내내 바구니에 채워 두는 농산물은 관람객이 가져갈 수 있습니다.",
+    "thumbnail": "https://img.artrabbit.com/events/carlos-castro-arias-vandalismo-artesanal/images/PKxhyCT2R08a/690x460/image-1.jpg",
+    "url": "https://www.craftcontemporary.org/exhibitions/carlos-castro-arias-vandalismo-artesanal/",
+    "address": "5814 Wilshire Blvd, Los Angeles, CA 90036",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "us-henry-joiri-minaya-2026",
+    "title": "Joiri Minaya: To Hell with Hibiscus",
+    "venue": "Henry Art Gallery (University of Washington)",
+    "city": "시애틀",
+    "country": "US",
+    "lat": 47.6567,
+    "lon": -122.3115,
+    "genre": "조각·설치",
+    "startDate": "2026-07-25",
+    "endDate": "2027-05-02",
+    "price": 0,
+    "description": "도미니카계 작가 조이리 미나야가 하와이안 셔츠부터 식민지 기념비를 덮는 꽃무늬 천까지, '열대'라는 만들어진 이미지를 비판하는 섬유 작업을 보여 줍니다. 시애틀을 출발점 삼아 남반구 여러 지역의 역사를 잇습니다. 2027년 1월 5일~2월 19일에는 쉽니다.",
+    "url": "https://henryart.org/exhibitions/joiri-minaya",
+    "address": "15th Ave NE & NE 41st St, Seattle, WA 98195",
+    "source": "manual"
   }
 ]

@@ -3058,5 +3058,84 @@
       "작가전"
     ],
     "source": "manual"
+  },
+  {
+    "id": "manual-komplex-galvani-2026",
+    "title": "김신영 · 장순원 2인전 《갈바니의 개구리 다리 Galvani's Frog Legs》",
+    "venue": "콤플렉스갤러리",
+    "city": "서울",
+    "lat": 37.5508,
+    "lon": 126.9786,
+    "genre": "회화",
+    "startDate": "2026-11-11",
+    "endDate": "2026-12-05",
+    "price": null,
+    "description": "죽은 개구리 다리가 전기 자극에 움찔했다는 갈바니의 실험에서 제목을 따온 2인전입니다. 김신영은 몸의 힘과 몸짓이 남은 건식 드로잉을, 장순원은 시체를 움직이는 인도 설화 속 정령 베탈라 이야기를 바탕으로 한 그림을 보여 주며, 멈춘 이미지 안에 숨은 움직임을 묻습니다. 화–토 11시–18시.",
+    "thumbnail": "https://www.komplex.kr/media/pages/exhibitions/galvani-s-frog-legs/b52ce94f02-1794293101/261107_18.jpg",
+    "url": "https://www.komplex.kr/exhibitions/galvani-s-frog-legs",
+    "address": "서울 용산구 후암로 59",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-cau-offgrid-2026",
+    "title": "2026 중앙대학교 미술학부 서양화전공 제78회 졸업전시 《OFF GRID》",
+    "venue": "중앙대학교 서울캠퍼스 아트센터 301갤러리",
+    "city": "서울",
+    "lat": 37.5045,
+    "lon": 126.9571,
+    "genre": "회화",
+    "startDate": "2026-12-07",
+    "endDate": "2026-12-12",
+    "price": null,
+    "description": "중앙대 서양화전공 졸업생들이 정해진 틀과 질서를 벗어나 저마다의 창작 영역을 세워 보려는 졸업전시입니다. '격자 밖'이라는 뜻의 제목처럼 익숙한 미술 언어에 질문을 던지는 작품들을 모았습니다. 월–토 9시–22시, 일요일 휴관.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/14_copy_aJozmtF.jpg",
+    "url": "https://www.artbava.com/exhibits/2026-%EC%A4%91%EC%95%99%EB%8C%80%ED%95%99%EA%B5%90-%EC%98%88%EC%88%A0%EB%8C%80%ED%95%99-%EB%AF%B8%EC%88%A0%ED%95%99%EB%B6%80-%EC%84%9C%EC%96%91%ED%99%94%EC%A0%84%EA%B3%B5-%EC%A0%9C-78%ED%9A%8C-%EC%A1%B8%EC%97%85%EC%A0%84%EC%8B%9C-off-grid",
+    "address": "서울 동작구 흑석로 84",
+    "tags": [
+      "졸업전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-onkim-tongue-scales-2026",
+    "title": "김온 《입안의 말비늘: 소노글리픽 스코어 Tongue Scales: Sonoglyphic Scores》",
+    "venue": "코리아나미술관",
+    "city": "서울",
+    "lat": 37.5241,
+    "lon": 127.0328,
+    "genre": "미디어",
+    "startDate": "2026-12-11",
+    "endDate": "2026-12-19",
+    "price": null,
+    "description": "말이 되기 전 소리의 떨림을 다루는 김온의 '소노글리픽 악보'를 정가 가수 윤미애와 비트박서 잭브라이언이 목소리로 풀어내는 공연형 전시입니다. 12월 11일 저녁 여는 공연, 12~18일 몰입형 전시, 19일 닫는 공연이 이어지며, 관객은 악보를 보거나 소리 내어 읽으며 저마다 다른 소리를 만들어 봅니다. 사전 예약제, 일요일 휴관.",
+    "thumbnail": "https://cdn.artbava.com/media/exhibit-img/14_YrI8fep.jpg",
+    "url": "https://www.artbava.com/exhibits/%EA%B9%80%EC%98%A8-%EC%9E%85%EC%95%88%EC%9D%98-%EB%A7%90%EB%B9%84%EB%8A%98-%EC%86%8C%EB%85%B8%EA%B8%80%EB%A6%AC%ED%94%BD-%EC%8A%A4%EC%BD%94%EC%96%B4-onkim-tongue-scales-sonoglyphic-scores",
+    "address": "서울 강남구 언주로 827",
+    "tags": [
+      "실험전시"
+    ],
+    "source": "manual"
+  },
+  {
+    "id": "manual-p21-keem-jiyoung-2026",
+    "title": "김지영 개인전 《휘청이는 새벽》",
+    "venue": "P21",
+    "city": "서울",
+    "lat": 37.539,
+    "lon": 126.9912,
+    "genre": "회화",
+    "startDate": "2026-10-30",
+    "endDate": "2026-12-12",
+    "price": null,
+    "description": "P21에서 2년 만에 여는 김지영 작가의 개인전입니다. 새 회화 연작 'Blue Glow'와 드로잉, 디지털 프린트, 파라핀 작업 등 35점으로 삶과 죽음, 시간에 대한 오랜 관심을 새로운 화면으로 풀어냅니다.",
+    "url": "https://ocula.com/art-galleries/p21/exhibitions/keem-jiyoung-wavering-down/",
+    "address": "서울 용산구 회나무로 66",
+    "tags": [
+      "작가전"
+    ],
+    "source": "manual"
   }
 ]
