@@ -42,6 +42,22 @@ function loadKakao(appKey: string): Promise<any> {
   return sdkPromise;
 }
 
+/** 핀 위 작은 '👍 N' 표시 (0이면 없앰) */
+function setVoteBadge(el: HTMLElement, up: number) {
+  let b = el.querySelector<HTMLSpanElement>(".vb");
+  if (!up) {
+    b?.remove();
+    return;
+  }
+  if (!b) {
+    b = document.createElement("span");
+    b.className = "vb";
+    b.setAttribute("aria-hidden", "true");
+    el.appendChild(b);
+  }
+  b.textContent = `👍${up}`;
+}
+
 /** '예술의 미래' 전시 핀 위 작은 노란 종이 별(그림은 CSS .mk-star) */
 function starElement(): HTMLSpanElement {
   const s = document.createElement("span");
@@ -50,12 +66,12 @@ function starElement(): HTMLSpanElement {
   return s;
 }
 
-function pinElement(x: Exhibition, onClick: () => void): HTMLButtonElement {
+function pinElement(x: Exhibition, up: number, onClick: () => void): HTMLButtonElement {
   const st = statusOf(x).kind;
   const el = document.createElement("button");
   el.type = "button";
   el.className = ["mk", "k", x.price === 0 ? "free" : "", st === "upcoming" ? "soon" : ""].join(" ").trim();
-  el.setAttribute("aria-label", `${x.title}, ${x.venue}`);
+  el.setAttribute("aria-label", up ? `${x.title}, ${x.venue}, 추천 ${up}` : `${x.title}, ${x.venue}`);
   const pin = document.createElement("span");
   pin.className = "pin";
   pin.appendChild(document.createElement("i"));
@@ -64,6 +80,7 @@ function pinElement(x: Exhibition, onClick: () => void): HTMLButtonElement {
   lab.textContent = x.title;
   el.append(pin, lab);
   if (futureKindOf(x)) el.append(starElement());
+  setVoteBadge(el, up);
   el.addEventListener("click", (e) => {
     e.stopPropagation();
     onClick();
@@ -71,11 +88,12 @@ function pinElement(x: Exhibition, onClick: () => void): HTMLButtonElement {
   return el;
 }
 
-export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces, route }: MapViewProps & { appKey: string }) {
+export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, poi, myLoc, radius, locateSeq, onMapDrag, spaces, route, votes }: MapViewProps & { appKey: string }) {
   const boxRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
   const clustererRef = useRef<any>(null);
   const pinsRef = useRef(new Map<string, { overlay: any; el: HTMLButtonElement }>());
+  const votesRef = useRef(votes);
   const poiOverlaysRef = useRef<any[]>([]);
   const meRef = useRef<{ dot: any; circle: any } | null>(null);
   const [ready, setReady] = useState(false);
@@ -168,7 +186,7 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
       }
     };
     const overlays = items.map((x) => {
-      const el = pinElement(x, () => latest.current.onSelect(x.id));
+      const el = pinElement(x, votesRef.current[x.id] ?? 0, () => latest.current.onSelect(x.id));
       const pos = cachedPos(x) ?? [x.lat, x.lon];
       const overlay = new kakao.maps.CustomOverlay({
         position: new kakao.maps.LatLng(pos[0], pos[1]),
@@ -216,6 +234,18 @@ export default function KakaoMapView({ appKey, items, selectedId, onSelect, onVi
     reportVisible();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready, items]);
+
+  // 추천 수가 새로 들어오거나 바뀌면 핀 위 숫자만 고친다
+  useEffect(() => {
+    votesRef.current = votes;
+    pinsRef.current.forEach(({ el }, id) => {
+      const up = votes[id] ?? 0;
+      setVoteBadge(el, up);
+      const x = items.find((i) => i.id === id);
+      if (x) el.setAttribute("aria-label", up ? `${x.title}, ${x.venue}, 추천 ${up}` : `${x.title}, ${x.venue}`);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [votes]);
 
   // 선택한 핀 강조
   useEffect(() => {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { deleteNote, fetchNotes, reportNote, saveNote, NOTE_TAGS, REPORT_REASONS, type Note } from "@/lib/reviews";
+import { deleteNote, fetchNotes, reportNote, saveNote, NOTE_TAGS, REPORT_REASONS, type Note, type Vote } from "@/lib/reviews";
 import { hasBadWords } from "@/lib/etiquette";
 import { myUserId, supabaseReady } from "@/lib/supabase";
 
@@ -66,12 +66,24 @@ export function GuestbookLink({ count, onClick }: { count: number | null; onClic
   );
 }
 
-/** 상세 창 안의 방명록: 감상 한마디 + 정보 태그. 점수·평균은 없다 */
-export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onCount: (n: number | null) => void }) {
+/** 상세 창 위쪽: 👍 추천 N · 👎 비추천 M */
+export function VoteSummary({ up, down }: { up: number; down: number }) {
+  if (!up && !down) return null;
+  return (
+    <span className="vote-sum" aria-label={`추천 ${up}, 비추천 ${down}`}>
+      <span>👍 추천 {up}</span>
+      <span>👎 비추천 {down}</span>
+    </span>
+  );
+}
+
+/** 상세 창 안의 방명록: 감상 한마디 + 정보 태그 + 추천·비추천 */
+export function Guestbook({ exhibitionId, onCount, onSaved }: { exhibitionId: string; onCount: (n: number | null) => void; onSaved?: () => void }) {
   const [list, setList] = useState<Note[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [body, setBody] = useState("");
   const [tags, setTags] = useState<string[]>([]);
+  const [vote, setVote] = useState<Vote | null>(null);
   const [nickname, setNickname] = useState("");
   const [saving, setSaving] = useState(false);
   const [done, setDone] = useState<string | null>(null);
@@ -85,6 +97,7 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
         if (mine) {
           setBody(mine.body ?? "");
           setTags(mine.tags);
+          setVote(mine.vote);
           setNickname(mine.nickname ?? "");
         }
       })
@@ -95,6 +108,7 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
     onCount(null);
     setBody("");
     setTags([]);
+    setVote(null);
     setDone(null);
     setError(null);
     try {
@@ -120,8 +134,8 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!body.trim() && tags.length === 0) {
-      setError("한마디를 적거나 정보를 하나 이상 골라 주세요.");
+    if (!body.trim() && tags.length === 0 && vote === null) {
+      setError("추천·비추천을 고르거나, 한마디를 적거나, 정보를 하나 이상 골라 주세요.");
       return;
     }
     if (hasBadWords(body, nickname)) {
@@ -134,9 +148,10 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
       try {
         localStorage.setItem("andepandang-nickname", nickname.trim());
       } catch {}
-      await saveNote(exhibitionId, body, tags, nickname);
+      await saveNote(exhibitionId, body, tags, nickname, vote);
       setDone(mine ? "방명록을 고쳤어요." : "방명록을 남겼어요. 고마워요!");
       await load();
+      onSaved?.();
     } catch (err) {
       setError(
         String(err).includes("bad_words")
@@ -154,8 +169,10 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
       await deleteNote(exhibitionId);
       setBody("");
       setTags([]);
+      setVote(null);
       setDone("방명록을 지웠어요.");
       await load();
+      onSaved?.();
     } catch {
       setError("지우지 못했어요.");
     } finally {
@@ -168,7 +185,7 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
       <h3 className="rv-h">방명록</h3>
       <div className="gb-intro">
         <p><b>예술에 높고 낮음은 없습니다.</b></p>
-        <p>앙데팡당은 심사도 상도 없이 누구나 작품을 걸 수 있었던 1884년 파리의 전시에서 이름을 따왔어요. 그래서 이곳에는 점수가 없습니다.</p>
+        <p>앙데팡당은 심사도 상도 없이 누구나 작품을 걸 수 있었던 1884년 파리의 전시에서 이름을 따왔어요. 그래서 별점 대신 다른 분께 권하고 싶은지만 👍·👎로 남겨요.</p>
         <p>잘했다, 못했다는 평가보다 무엇을 보고 어떤 마음이 들었는지, 감상을 남겨 주세요. 예술의 참된 아름다움은 소통이니까요. 😊</p>
       </div>
 
@@ -181,6 +198,11 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
       )}
 
       <form className="rv-form" onSubmit={submit}>
+        <div className="gb-vote" role="group" aria-label="다른 분께 권하고 싶나요? (선택)">
+          <span>다른 분께 권하고 싶나요?</span>
+          <button type="button" className={"gb-vote-btn" + (vote === 1 ? " on" : "")} aria-pressed={vote === 1} onClick={() => setVote((v) => (v === 1 ? null : 1))}>👍 추천</button>
+          <button type="button" className={"gb-vote-btn" + (vote === -1 ? " on" : "")} aria-pressed={vote === -1} onClick={() => setVote((v) => (v === -1 ? null : -1))}>👎 비추천</button>
+        </div>
         <textarea
           id={`rv-body-${exhibitionId}`}
           value={body}
@@ -225,6 +247,8 @@ export function Guestbook({ exhibitionId, onCount }: { exhibitionId: string; onC
               <div className="rv-meta">
                 <b>{r.nickname || "익명 관람객"}</b>
                 {r.user_id === myUserId() && <span className="rv-me">내 글</span>}
+                {r.vote === 1 && <span className="rv-vote up">👍 추천</span>}
+                {r.vote === -1 && <span className="rv-vote down">👎 비추천</span>}
                 <time>{fmt(r.created_at)}</time>
                 {r.user_id !== myUserId() && <ReportButton noteId={r.id} />}
               </div>

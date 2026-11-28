@@ -11,7 +11,7 @@ import type { MapViewProps } from "./types";
 
 interface View { s: number; tx: number; ty: number }
 
-export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq, onMapDrag, route }: MapViewProps) {
+export default function SvgMapView({ items, selectedId, onSelect, onVisibleChange, focus, desktop, detailOpen, myLoc, radius, locateSeq, onMapDrag, route, votes }: MapViewProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [view, setView] = useState<View>({ s: 1, tx: 0, ty: 0 });
@@ -274,8 +274,9 @@ export default function SvgMapView({ items, selectedId, onSelect, onVisibleChang
             const st = statusOf(x).kind;
             const cls = ["mk", x.price === 0 ? "free" : "", st === "upcoming" ? "soon" : "", x.id === selectedId ? "sel" : "", onRoute.has(x.id) ? "on-route" : onRoute.size ? "dim" : ""].join(" ");
             return (
-              <button key={x.id} className={cls} style={{ left: p[0], top: p[1] }} aria-label={`${x.title}, ${x.venue}`} onClick={() => onSelect(x.id)}>
+              <button key={x.id} className={cls} style={{ left: p[0], top: p[1] }} aria-label={votes[x.id] ? `${x.title}, ${x.venue}, 추천 ${votes[x.id]}` : `${x.title}, ${x.venue}`} onClick={() => onSelect(x.id)}>
                 <span className="pin"><i>{onRoute.has(x.id) ? routeOrder.indexOf(x.id) + 1 : null}</i></span>
+                {!!votes[x.id] && <span className="vb" aria-hidden="true">👍{votes[x.id]}</span>}
                 {(onRoute.size ? onRoute.has(x.id) : view.s > 5 || x.id === selectedId) && <span className="lab">{x.title}</span>}
                 {futureKindOf(x) && <span className="mk-star" aria-hidden="true" />}
               </button>
